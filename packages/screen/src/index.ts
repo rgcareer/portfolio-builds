@@ -1,0 +1,4 @@
+// @skillcheck/screen — static analysis engine: YAML rule packs (injection, exfil,
+// dangerous-command, obfuscation, unicode), claim extraction, deterministic grading.
+// STATIC ONLY — never executes a skill.
+export {};

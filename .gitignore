@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+**/dist/
+site/dist/
+.astro/
+
+# Local data — the harvested mirror contains live hostile payloads (prompt-injection,
+# secret-scanner tripwires) and the SQLite DB carries the never-published anon_salt.
+# This directory MUST NEVER enter git history.
+data/
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+*.log
