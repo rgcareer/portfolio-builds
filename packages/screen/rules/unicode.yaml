@@ -1,0 +1,58 @@
+pack: unicode
+version: 1
+# Invisible and deceptive Unicode. Bidi controls (Trojan Source) and tag characters can
+# smuggle instructions a human reviewer never sees, so they are critical. Examples use
+# \u / \U escapes (real codepoints at parse time, ASCII-safe on disk); the fixture corpus
+# carries the RAW bytes, guarded by a fixture-integrity test.
+rules:
+  - id: UNI-001
+    title: Zero-width character
+    severity: high
+    kind: codepoints
+    codepoints: ['U+200B', 'U+200C', 'U+200D', 'U+2060', 'U+2061-U+2064', 'U+FEFF', 'U+180E']
+    notes: Zero-width space/joiner/non-joiner and word-joiner — invisible payload carriers.
+    examples:
+      match:
+        - "hi​there"
+        - "a﻿b"
+      no_match:
+        - 'hi there'
+
+  - id: UNI-002
+    title: Bidirectional control (Trojan Source)
+    severity: critical
+    kind: codepoints
+    codepoints: ['U+202A-U+202E', 'U+2066-U+2069', 'U+061C', 'U+200E', 'U+200F']
+    notes: RLO/LRO/PDI et al. reorder rendered text to hide or reverse code meaning.
+    examples:
+      match:
+        - "access‮level"
+        - "x⁦y"
+      no_match:
+        - 'access level'
+
+  - id: UNI-003
+    title: Unicode tag characters
+    severity: critical
+    kind: codepoints
+    codepoints: ['U+E0000-U+E007F']
+    notes: Deprecated tag block — an invisible channel for smuggled ASCII instructions.
+    examples:
+      match:
+        - "run\U000E0041this"
+      no_match:
+        - 'run this'
+
+  - id: UNI-004
+    title: Other invisible / deceptive format character
+    severity: low
+    kind: codepoints
+    codepoints: ['U+00AD', 'U+034F', 'U+115F', 'U+1160', 'U+17B4', 'U+17B5', 'U+3164', 'U+FFA0', 'U+2800']
+    notes: Soft hyphen, combining grapheme joiner, Hangul fillers, Braille blank — used to
+      break up flagged strings or pad invisible content.
+    examples:
+      match:
+        - "soft­hyphen"
+        - "fillㅤer"
+      no_match:
+        - 'plain word'
