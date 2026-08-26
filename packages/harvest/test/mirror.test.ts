@@ -65,4 +65,13 @@ describe('extractTarballGz guards', () => {
     expect(r.fileCount).toBe(3);
     expect(r.skipped.some((s) => s.reason === 'file-count-cap')).toBe(true);
   });
+
+  it('refuses a decompression bomb via the output-length cap (nothing written)', () => {
+    // A highly-compressible archive that inflates past a tiny decompressed cap.
+    const gz = gzTar([tarFile('repo-sha/big.txt', 'x'.repeat(20_000))]);
+    const r = extractTarballGz(gz, dir, { ...DEFAULT_LIMITS, maxDecompressedBytes: 512 });
+    expect(r.fileCount).toBe(0);
+    expect(r.paths).toEqual([]);
+    expect(r.skipped.some((s) => s.reason.startsWith('gunzip-failed'))).toBe(true);
+  });
 });

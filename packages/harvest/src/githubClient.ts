@@ -133,10 +133,14 @@ export class GitHubClient {
     return normalizeRepo(data);
   }
 
-  /** Fetch a repo tarball (gzip) as a Buffer at a ref. */
-  async getTarball(repo: string, ref: string): Promise<Buffer | null> {
+  /** Fetch a repo tarball (gzip) as a Buffer at a ref. Times out (attacker-influenced host);
+   * the decompression bomb is bounded downstream by extractTarballGz's maxOutputLength. */
+  async getTarball(repo: string, ref: string, timeoutMs = 30_000): Promise<Buffer | null> {
     const url = `${API}/repos/${repo}/tarball/${ref}`;
-    const res = await this.doFetch(url, { headers: this.headers({ Accept: 'application/vnd.github+json' }) });
+    const res = await this.doFetch(url, {
+      headers: this.headers({ Accept: 'application/vnd.github+json' }),
+      signal: AbortSignal.timeout(timeoutMs),
+    });
     if (!res.ok) return null;
     return Buffer.from(await res.arrayBuffer());
   }

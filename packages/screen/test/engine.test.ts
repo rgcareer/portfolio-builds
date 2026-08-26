@@ -65,6 +65,13 @@ describe('evidence sanitizer', () => {
     expect(sanitizeEvidence('tab\there')).toBe('tab\\u{0009}here');
   });
 
+  it('escapes non-Cf invisible codepoints the unicode pack flags (UNI-004)', () => {
+    // U+034F (Mn), U+3164 Hangul filler (Lo), U+2800 Braille blank (So) — outside Cc/Cf/Z.
+    expect(sanitizeEvidence('a͏b')).toBe('a\\u{034F}b');
+    expect(sanitizeEvidence('xㅤy')).toBe('x\\u{3164}y');
+    expect(sanitizeEvidence('z⠀w')).toBe('z\\u{2800}w');
+  });
+
   it('a codepoints rule reports the escaped payload as evidence, not the raw char', () => {
     const uni = mkRule({ id: 'UNI-001', severity: 'high', kind: 'codepoints', codepoints: ['U+200B'] });
     const f = scanFiles([{ path: 'a.md', content: 'hi​there' }], [uni]);

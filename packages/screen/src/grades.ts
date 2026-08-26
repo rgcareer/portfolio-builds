@@ -72,7 +72,9 @@ export function hygieneEval(meta: SkillMeta): HygieneResult {
   const pushed = meta.repo_pushed_at ?? null;
   const ageDays = pushed ? daysBetween(meta.snapshot_date, pushed) : null;
   const age = ageDays ?? Number.POSITIVE_INFINITY;
-  const abandoned = archived || age > ABANDONED_DAYS;
+  // A null push date (transient metadata failure) fails the freshness CHECKS but must NOT be
+  // counted as "abandoned" — that would silently bias the abandoned headline up on any hiccup.
+  const abandoned = archived || (ageDays !== null && ageDays > ABANDONED_DAYS);
 
   const checks: HygieneCheck[] = [
     { id: 'not_archived', passed: !archived },

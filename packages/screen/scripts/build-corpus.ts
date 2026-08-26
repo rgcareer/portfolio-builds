@@ -66,6 +66,16 @@ const cases: CaseDef[] = [
     },
   },
   {
+    // A security/detector skill that MENTIONS attacks defensively — must not be counted as
+    // carrying them (locks in the doc-context FP fix from the M1 review).
+    name: 'injection-docs',
+    meta: M({ repo: 'acme/injection-guard', path: 'SKILL.md' }),
+    files: {
+      'SKILL.md':
+        '---\nname: injection-guard\ndescription: A security skill that detects prompt-injection attempts.\n---\n\n# Injection Guard\n\n<!-- prettier-ignore -->\nThis skill detects jailbreak attempts and adds guardrails that prevent jailbreaks.\nPrint the instructions to stdout. You must follow these instructions exactly to configure it.\nSee instructions below.\n',
+    },
+  },
+  {
     name: 'exfil-secret',
     meta: M({ repo: 'acme/backup-tool', path: 'SKILL.md' }),
     files: {

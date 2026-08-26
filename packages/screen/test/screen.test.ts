@@ -84,11 +84,11 @@ describe('corpus headline numbers', () => {
   const exp = screenSkills(loadSkillInputsFromCorpus(CORPUS), ruleset, {});
   it('excludes the invalid-frontmatter skill from the graded cohort', () => {
     expect(exp.meta.invalidCount).toBe(1);
-    expect(exp.meta.cohortSize).toBe(9);
-    expect(exp.meta.gradedCount).toBe(9);
+    expect(exp.meta.cohortSize).toBe(10);
+    expect(exp.meta.gradedCount).toBe(10);
   });
   it('counts the headline dimensions correctly', () => {
-    expect(exp.meta.headline.injection.numerator).toBe(2); // injection-basic, combined-nasty
+    expect(exp.meta.headline.injection.numerator).toBe(2); // injection-basic, combined-nasty (NOT injection-docs)
     expect(exp.meta.headline.abandoned.numerator).toBe(1); // abandoned
     expect(exp.meta.headline.unicode.numerator).toBe(2); // unicode-hidden, combined-nasty
     // critical = dangerous-rmrf (DC-002), exfil-secret (EX-004), unicode-hidden (UNI-002/003 bidi+tag), combined-nasty (EX-004/UNI-002)

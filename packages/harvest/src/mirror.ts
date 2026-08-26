@@ -8,13 +8,17 @@ import { join, dirname, resolve, sep } from 'node:path';
 // states are structurally unreachable, not string-filtered after the fact):
 //   - path traversal ('..'), absolute paths, and out-of-dest escapes are refused
 //   - symlinks/hardlinks and all non-regular entries are skipped, never created
-//   - per-file, per-repo, and file-count caps bound decompression bombs
+//   - the gunzip is hard-capped by maxOutputLength BEFORE parsing (bounds decompression bombs);
+//     the per-file/per-repo/count caps then bound what is written to disk
 // The mirror is DATA: never `npm install`ed, never executed.
 
 export const DEFAULT_LIMITS = {
   maxFileBytes: 5 * 1024 * 1024,
   maxRepoBytes: 50 * 1024 * 1024,
   maxFiles: 2000,
+  // Hard ceiling on the DECOMPRESSED tar size — well above any legitimate skill repo, but it
+  // stops a small gzip from inflating to multi-GB and OOMing the harvester.
+  maxDecompressedBytes: 256 * 1024 * 1024,
 };
 
 export interface TarEntry {
@@ -115,6 +119,7 @@ export interface ExtractLimits {
   maxFileBytes: number;
   maxRepoBytes: number;
   maxFiles: number;
+  maxDecompressedBytes: number;
 }
 
 /** Extract a gzipped tarball into destDir under strict guards. Returns extraction stats. */
@@ -123,9 +128,17 @@ export function extractTarballGz(
   destDir: string,
   limits: ExtractLimits = DEFAULT_LIMITS,
 ): ExtractResult {
-  const tar = gunzipSync(gz);
-  const entries = iterateTar(tar);
   const result: ExtractResult = { fileCount: 0, totalBytes: 0, paths: [], skipped: [] };
+  let tar: Buffer;
+  try {
+    // maxOutputLength bounds the decompression BEFORE we ever parse — a gzip bomb throws
+    // here (RangeError) instead of inflating into memory.
+    tar = gunzipSync(gz, { maxOutputLength: limits.maxDecompressedBytes });
+  } catch (e) {
+    result.skipped.push({ path: '(archive)', reason: `gunzip-failed:${(e as Error).message.slice(0, 60)}` });
+    return result;
+  }
+  const entries = iterateTar(tar);
 
   for (const e of entries) {
     if (e.typeflag === '5') continue; // directory

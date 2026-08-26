@@ -37,12 +37,16 @@ const SKIP_DIRS = new Set(['.git', 'node_modules', '.DS_Store']);
 // regular space. This is what turns an invisible zero-width/bidi/tag-char payload into
 // visible, safe evidence like \u{200B}.
 const INVISIBLE_RE = /[\p{Cc}\p{Cf}\p{Zl}\p{Zp}\p{Zs}]/u;
+// Visually-blank codepoints the unicode pack (UNI-004) flags that fall OUTSIDE the Cc/Cf/Z
+// classes (combining grapheme joiner, Hangul/Khmer fillers, Braille blank). Tested by
+// codepoint (not a char class \u2014 several are combining marks) so evidence never leaks them raw.
+const EXTRA_INVISIBLE = new Set([0x034f, 0x115f, 0x1160, 0x17b4, 0x17b5, 0x3164, 0xffa0, 0x2800]);
 
 export function sanitizeEvidence(input: string, cap = MATCHED_CAP): string {
   let out = '';
   for (const ch of input) {
     const cp = ch.codePointAt(0)!;
-    if (cp !== 0x20 && INVISIBLE_RE.test(ch)) {
+    if (cp !== 0x20 && (INVISIBLE_RE.test(ch) || EXTRA_INVISIBLE.has(cp))) {
       out += `\\u{${cp.toString(16).toUpperCase().padStart(4, '0')}}`;
     } else {
       out += ch;
