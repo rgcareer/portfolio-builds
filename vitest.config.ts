@@ -11,6 +11,7 @@ export default defineConfig({
     alias: [
       { find: /^@skillcheck\/core$/, replacement: resolve(root, 'packages/core/src/index.ts') },
       { find: /^@skillcheck\/core\/(.*)$/, replacement: resolve(root, 'packages/core/src/$1') },
+      { find: /^@skillcheck\/screen$/, replacement: resolve(root, 'packages/screen/src/index.ts') },
     ],
   },
   test: {
