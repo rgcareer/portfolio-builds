@@ -73,6 +73,13 @@ describe('evidence sanitizer', () => {
     expect(f[0]!.context).not.toContain('​'); // raw payload never in evidence
   });
 
+  it('skips a leading BOM but catches U+FEFF elsewhere (allow_leading_bom)', () => {
+    const rule = mkRule({ id: 'UNI-001', severity: 'high', kind: 'codepoints', codepoints: ['U+FEFF'], options: { allow_leading_bom: true } });
+    expect(scanFiles([{ path: 'a.xsd', content: '﻿<?xml version="1.0"?>' }], [rule])).toHaveLength(0);
+    // a BOM char NOT at file start is still flagged
+    expect(scanFiles([{ path: 'a.md', content: 'text﻿here' }], [rule])).toHaveLength(1);
+  });
+
   it('escapes bidi and tag characters', () => {
     const tag = mkRule({ id: 'UNI-002', severity: 'critical', kind: 'codepoints', codepoints: ['U+E0000-U+E007F'] });
     const f = scanFiles([{ path: 'a.md', content: 'x\u{E0041}y' }], [tag]);

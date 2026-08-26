@@ -144,6 +144,7 @@ interface CompiledRule {
   codepointRe: RegExp | null;
   scriptRes: RegExp[]; // mixed_script target scripts
   within: 'code_spans' | 'all';
+  allowLeadingBom: boolean;
   message: string;
 }
 
@@ -184,6 +185,8 @@ function compileRule(rule: RuleWithPack): CompiledRule {
     within = opts.within === 'all' ? 'all' : 'code_spans';
   }
 
+  const allowLeadingBom = Boolean((rule.options as { allow_leading_bom?: boolean } | undefined)?.allow_leading_bom);
+
   return {
     rule,
     globRes,
@@ -191,6 +194,7 @@ function compileRule(rule: RuleWithPack): CompiledRule {
     codepointRe,
     scriptRes,
     within,
+    allowLeadingBom,
     message: rule.message ?? rule.title,
   };
 }
@@ -274,6 +278,8 @@ function scanContent(file: string, content: string, compiled: CompiledRule[]): R
       }
     } else if (c.rule.kind === 'codepoints' && c.codepointRe) {
       for (const m of content.matchAll(c.codepointRe)) {
+        // A U+FEFF at file start is a legitimate BOM (common in XML/XSD), not a payload.
+        if (c.allowLeadingBom && m.index === 0 && m[0].codePointAt(0) === 0xfeff) continue;
         if (cap()) break;
         emit(c, m.index, m[0]);
       }

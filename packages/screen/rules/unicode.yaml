@@ -10,7 +10,10 @@ rules:
     severity: high
     kind: codepoints
     codepoints: ['U+200B', 'U+200C', 'U+200D', 'U+2060', 'U+2061-U+2064', 'U+FEFF', 'U+180E']
+    options:
+      allow_leading_bom: true
     notes: Zero-width space/joiner/non-joiner and word-joiner — invisible payload carriers.
+      A U+FEFF at file start is a legitimate BOM (XML/XSD) and is not flagged.
     examples:
       match:
         - "hi​there"

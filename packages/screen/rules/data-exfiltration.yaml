@@ -22,36 +22,23 @@ rules:
         - 'curl -o page.html https://example.com'
 
   - id: EX-002
-    title: Reference to a high-value secret
+    title: Reference to a secret file
     severity: medium
     kind: regex
     patterns:
-      - '\b(AWS_SECRET_ACCESS_KEY|ANTHROPIC_API_KEY|OPENAI_API_KEY|GITHUB_TOKEN|GH_TOKEN|SLACK_TOKEN|STRIPE_SECRET_KEY|PRIVATE_KEY)\b'
       - '(~|\$HOME|\$\{HOME\}|/root|/home/[^/\s]+)/\.(ssh/id_rsa|aws/credentials|npmrc|netrc)\b'
-    notes: Named credentials / secret files a benign skill rarely needs to touch directly.
+    notes: Reading a private key / credentials FILE a benign skill rarely needs to touch.
+      Merely NAMING an env var like ANTHROPIC_API_KEY in setup docs is not flagged — that
+      over-fires on legitimate documentation (verified against the official cohort, 2026-08).
+      Exfiltration proper (sending data out) is caught by EX-001/EX-004/EX-005.
     examples:
       match:
-        - 'export ANTHROPIC_API_KEY=sk-ant-...'
         - 'cat ~/.ssh/id_rsa'
+        - 'read $HOME/.aws/credentials'
       no_match:
-        - 'Set your API key in the project dashboard.'
         - 'Store config in ~/.config/app.json'
-
-  - id: EX-003
-    title: Reading a secret-named environment variable
-    severity: medium
-    kind: regex
-    patterns:
-      - 'process\.env\.[A-Za-z_]*(KEY|TOKEN|SECRET|PASSWORD|CREDENTIAL)'
-      - 'os\.environ(\[|\.get\()[''"][A-Za-z_]*(KEY|TOKEN|SECRET|PASSWORD)'
-    notes: Programmatic access to a credential-shaped environment variable.
-    examples:
-      match:
+        - 'export ANTHROPIC_API_KEY=sk-ant-...'
         - 'const k = process.env.STRIPE_SECRET_KEY'
-        - "token = os.environ['GITHUB_TOKEN']"
-      no_match:
-        - 'const e = process.env.NODE_ENV'
-        - "home = os.environ.get('HOME')"
 
   - id: EX-004
     title: Exfiltration channel (tunnel / collaborator / raw socket)
