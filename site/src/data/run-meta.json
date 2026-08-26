@@ -1,0 +1,54 @@
+{
+  "checksums": {
+    "findings_json": "0abc27b82e26cd05107c81dc4926c331b33966e02d4203e58680eab6a1cce386",
+    "skills_json": "1596bc73919d6fd7725d7f6e90eea23fbb9c8924482a3450d5e64ed684a1bf9a"
+  },
+  "codeVersion": "d73a57a67c4dadcd7b5c1200aeb9165e6037ef6f",
+  "cohort": {
+    "bySource": {
+      "anthropics_skills": 20
+    },
+    "gradedCount": 20,
+    "invalidFrontmatter": 0
+  },
+  "cohortHash": "94592404f09243a27a3534859ae2f1f9551029fa0178caed4be0033cc9f5393b",
+  "disclosure": {
+    "gatedCount": 0,
+    "withheldFindingCount": 0
+  },
+  "generator": "skillcheck-publish",
+  "headline": {
+    "abandoned": {
+      "definition": "repo archived OR last push more than 365 days before snapshot_date",
+      "denominator": 20,
+      "numerator": 0
+    },
+    "critical": {
+      "definition": "skills with >=1 critical-severity finding (disclosure-gated)",
+      "denominator": 20,
+      "numerator": 0
+    },
+    "injection": {
+      "definition": "skills with >=1 prompt-injection-pack finding at severity >= medium",
+      "denominator": 20,
+      "numerator": 0
+    },
+    "unicode": {
+      "definition": "skills with >=1 unicode-pack finding (zero-width / bidi / tag / invisible)",
+      "denominator": 20,
+      "numerator": 0
+    }
+  },
+  "milestone": "M1",
+  "nodeVersion": "v24.16.0",
+  "notMeasuredInM1": [
+    "effectiveness",
+    "honesty"
+  ],
+  "rulesetHash": "9f59f10982aff8077f77663285726b1b432e933dca37dc28a9ad5b7be210dab0",
+  "sampleN": null,
+  "screenFinishedAt": "2026-08-26 01:38:39",
+  "screenRunId": "run_screen_a3f1ca3f-f398-4a43-a36e-c89ab6a4c603",
+  "seed": null,
+  "snapshotDate": "2026-08-25"
+}

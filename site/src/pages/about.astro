@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="About — skillcheck" description="What Skillcheck is, what M1 covers, and where it is going.">
+  <h1>About</h1>
+  <p class="lead">
+    Skillcheck is an independent, continuously-updated quality and security audit of the Claude Code Agent Skills
+    ecosystem. It exists because the ecosystem’s volume has outrun its quality layer: thousands of skills, and no
+    neutral, reproducible answer to “does this one actually work, and is it safe?”
+  </p>
+
+  <div class="note">
+    <strong>“skillcheck” is a working name.</strong> The public brand is finalized before launch. This project is
+    independent and <strong>not affiliated with or endorsed by Anthropic</strong>.
+  </div>
+
+  <h2>What M1 is</h2>
+  <p class="prose">
+    “The Scan” — a static-analysis pass over the harvested cohort producing per-skill <strong>Safety</strong> and
+    <strong>Hygiene</strong> grades, with machine evidence for every finding. It never executes a skill. The
+    headline number is deliberately modest and defensible: a count you can reproduce from the
+    <a href="/data">published data</a> and the <a href="/methodology">published rules</a>.
+  </p>
+
+  <h2>Where it is going</h2>
+  <ul class="prose">
+    <li><strong>M2 — The Benchmark.</strong> Sandboxed, paired skill-on/skill-off task runs with confidence intervals,
+      unlocking the Effectiveness and Honesty grades. A stranger can reproduce one skill’s result with their own key.</li>
+    <li><strong>M3 — The Cadence.</strong> Monthly re-scans and a re-run within days of every model release, with a
+      public changelog of what moved.</li>
+    <li><strong>M4 — The Translation.</strong> A plain-English guide to picking a skill that actually works, each rule
+      backed by a measured failure rate.</li>
+  </ul>
+
+  <h2>Principles</h2>
+  <ul class="prose">
+    <li><strong>Evidence over assertion.</strong> Every finding is machine-checkable and points at a file and a line.</li>
+    <li><strong>Honest labeling.</strong> Unmeasured dimensions say so; no gameable composite score; no “Recommended” without a benchmark.</li>
+    <li><strong>Responsible disclosure.</strong> A dangerous skill is anonymized until its author has had notice — see the <a href="/disclosure">policy</a>.</li>
+    <li><strong>Adversarial toward the commons, not its authors.</strong> The goal is to strengthen the skills commons.</li>
+  </ul>
+</Base>

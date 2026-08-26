@@ -1,0 +1,144 @@
+---
+import Base from '../layouts/Base.astro';
+import { skills, runMeta, type PublicSkill, type Tier } from '../data';
+
+const h = runMeta.headline;
+const pct = (s: { numerator: number; denominator: number }) =>
+  s.denominator === 0 ? '0' : (Math.round((10000 * s.numerator) / s.denominator) / 100).toString();
+
+const sourceLabels: Record<string, string> = {
+  anthropics_skills: 'official anthropics/skills',
+  official_marketplace: 'official marketplace',
+  community_registry: 'community registry',
+  code_search: 'GitHub code search',
+};
+const sourcesInCohort = Object.keys(runMeta.cohort.bySource);
+const cohortLabel =
+  sourcesInCohort.length === 1 && sourcesInCohort[0] === 'anthropics_skills'
+    ? 'the official anthropics/skills cohort'
+    : `${runMeta.cohort.gradedCount} harvested Claude Code skills`;
+
+// verdict + safety ordering for the default (worst-first) sort
+const verdictRank: Record<string, number> = { Avoid: 0, under_review: 1, 'Use with care': 2, 'Not yet benchmarked': 3, Recommended: 4 };
+const safetyRank: Record<string, number> = { F: 0, D: 1, C: 2, B: 3, A: 4, under_review: 0, not_yet_benchmarked: 5 };
+const rows = [...skills].sort(
+  (a, b) =>
+    (verdictRank[a.verdict] ?? 9) - (verdictRank[b.verdict] ?? 9) ||
+    (safetyRank[a.safety] ?? 9) - (safetyRank[b.safety] ?? 9) ||
+    (b.stars ?? -1) - (a.stars ?? -1),
+);
+
+function tierBadge(t: Tier): { cls: string; label: string } {
+  if (t === 'not_yet_benchmarked') return { cls: 't-na', label: 'n/a' };
+  if (t === 'under_review') return { cls: 't-na', label: 'review' };
+  return { cls: `t-${t}`, label: t };
+}
+const sortVal: Record<string, number> = { F: 0, D: 1, C: 2, B: 3, A: 4, under_review: -1, not_yet_benchmarked: 9 };
+---
+
+<Base title="skillcheck — a security + quality scan of Claude Code skills">
+  <h1>I scanned {cohortLabel}.</h1>
+  <p class="lead">
+    <strong>{pct(h.injection)}%</strong> carry prompt-injection patterns ·
+    <strong>{pct(h.abandoned)}%</strong> are abandoned ·
+    <strong>{pct(h.unicode)}%</strong> contain non-standard Unicode.
+    Every finding below carries machine evidence — a rule, a file, a line, the matched text.
+  </p>
+
+  {sourcesInCohort.length === 1 && sourcesInCohort[0] === 'anthropics_skills' && (
+    <div class="note">
+      <strong>Cohort note.</strong> This snapshot covers the {runMeta.cohort.gradedCount} skills in the official
+      <code>anthropics/skills</code> repository — the first-party baseline. The community cohort (registries +
+      GitHub code search, thousands of skills) is harvested next; the methodology and this table extend to it unchanged.
+    </div>
+  )}
+
+  <div class="tiles">
+    <div class="tile"><div class="n">{runMeta.cohort.gradedCount}</div><div class="l">skills graded</div></div>
+    <div class="tile"><div class="n">{pct(h.injection)}%</div><div class="l">prompt injection</div><div class="frac">{h.injection.numerator}/{h.injection.denominator}</div></div>
+    <div class="tile"><div class="n">{pct(h.abandoned)}%</div><div class="l">abandoned</div><div class="frac">{h.abandoned.numerator}/{h.abandoned.denominator}</div></div>
+    <div class="tile"><div class="n">{pct(h.critical)}%</div><div class="l">critical finding</div><div class="frac">{h.critical.numerator}/{h.critical.denominator}</div></div>
+  </div>
+
+  <h2>Grade table</h2>
+  <p class="prose" style="font-size:0.9rem;color:var(--fg-muted)">
+    Tier <code>S</code> = static screen (this milestone). Safety and Hygiene are graded now; Effectiveness and
+    Honesty are <em>not yet benchmarked</em> and arrive in M2. Click a column to re-sort. No recommendation is
+    made without an Effectiveness benchmark — see <a href="/methodology">methodology</a>.
+  </p>
+
+  <div class="tablewrap">
+    <table class="grades" id="grades">
+      <thead>
+        <tr>
+          <th data-sort="text">Skill</th>
+          <th data-sort="text">Tier</th>
+          <th data-sort="text">Source</th>
+          <th data-sort="num">Safety</th>
+          <th data-sort="num">Hygiene</th>
+          <th data-sort="text">Effectiveness</th>
+          <th data-sort="text">Honesty</th>
+          <th data-sort="text">Verdict</th>
+          <th data-sort="num" class="num">Stars</th>
+          <th data-sort="num" class="num">Findings</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((s: PublicSkill) => {
+          const sb = tierBadge(s.safety);
+          const hb = tierBadge(s.hygiene);
+          return (
+            <tr>
+              <td class="skillcell" data-value={s.anonymized ? 'zzz' : (s.repo ?? '')}>
+                {s.anonymized ? (
+                  <span class="anon">{s.id} · under review</span>
+                ) : (
+                  <span><span class="repo">{s.repo}</span> <span class="path">{s.path}</span></span>
+                )}
+              </td>
+              <td data-value="S"><span class="pill">S · static</span></td>
+              <td data-value={s.source}>{sourceLabels[s.source] ?? s.source}</td>
+              <td data-value={sortVal[s.safety] ?? 9}><span class={`badge ${sb.cls}`}>{sb.label}</span></td>
+              <td data-value={sortVal[s.hygiene] ?? 9}><span class={`badge ${hb.cls}`}>{hb.label}</span></td>
+              <td data-value="0"><span class="badge t-na">n/a</span></td>
+              <td data-value="0"><span class="badge t-na">n/a</span></td>
+              <td data-value={s.verdict}>{s.verdict === 'under_review' ? 'Under review' : s.verdict}</td>
+              <td class="num" data-value={s.stars ?? -1}>{s.anonymized ? '—' : (s.stars ?? '—')}</td>
+              <td class="num" data-value={s.anonymized ? s.withheldFindingCount : s.findingCount}>
+                {s.anonymized ? `${s.withheldFindingCount} withheld` : s.findingCount}
+              </td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  </div>
+
+  <script is:inline>
+    (function () {
+      const table = document.getElementById('grades');
+      if (!table) return;
+      const tbody = table.querySelector('tbody');
+      const ths = table.querySelectorAll('thead th');
+      ths.forEach((th, idx) => {
+        th.addEventListener('click', () => {
+          const type = th.getAttribute('data-sort');
+          if (!type) return;
+          const asc = !th.classList.contains('sorted-asc');
+          ths.forEach((h) => h.classList.remove('sorted-asc', 'sorted-desc'));
+          th.classList.add(asc ? 'sorted-asc' : 'sorted-desc');
+          const rows = Array.from(tbody.querySelectorAll('tr'));
+          rows.sort((ra, rb) => {
+            const a = ra.children[idx].getAttribute('data-value') || '';
+            const b = rb.children[idx].getAttribute('data-value') || '';
+            let c;
+            if (type === 'num') c = Number(a) - Number(b);
+            else c = a < b ? -1 : a > b ? 1 : 0;
+            return asc ? c : -c;
+          });
+          rows.forEach((r) => tbody.appendChild(r));
+        });
+      });
+    })();
+  </script>
+</Base>

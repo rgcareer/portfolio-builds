@@ -9,8 +9,9 @@ site/dist/
 
 # Local data — the harvested mirror contains live hostile payloads (prompt-injection,
 # secret-scanner tripwires) and the SQLite DB carries the never-published anon_salt.
-# This directory MUST NEVER enter git history.
-data/
+# This directory MUST NEVER enter git history. Scoped to the ROOT data/ only, so the
+# site's published JSON (site/src/data, site/public/data) stays tracked.
+/data/
 *.db
 *.db-shm
 *.db-wal
