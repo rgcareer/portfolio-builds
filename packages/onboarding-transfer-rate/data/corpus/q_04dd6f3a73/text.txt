@@ -1,0 +1,41 @@
+## Quick start
+
+Pick your harness:
+
+### Claude Code
+
+```bash
+/plugin marketplace add wshobson/agents
+/plugin install python-development          # or any of 94 plugins
+```
+
+[→ Full Claude Code setup, troubleshooting, and plugin catalog](docs/usage.md)
+
+### Codex CLI · Cursor · OpenCode · Antigravity CLI · Copilot
+
+Codex and Cursor install natively from the committed registries (which point at the source `plugins/`):
+
+```bash
+npx codex-marketplace add wshobson/agents        # Codex; then install individual plugins
+# Cursor: add the marketplace, then `/plugin install <name>` (reads .cursor-plugin/ + source)
+```
+
+Antigravity and OpenCode install via clone + generate (the transformed trees are gitignored):
+
+```bash
+gh repo clone wshobson/agents ~/agents && cd ~/agents
+make generate HARNESS=antigravity && make install-antigravity  # Antigravity (agy)
+make install-opencode                                          # OpenCode (runs generate + symlinks)
+```
+
+### Skills only: `gh skill` · `npx skills`
+
+Both Agent Skills installers read `plugins/*/skills/` straight from GitHub, into whichever agent you use. No clone, no marketplace, no generate step. Skills only: no agents, commands, or hooks.
+
+```bash
+gh skill install wshobson/agents                                 # browse, then pick a skill or --all
+gh skill install wshobson/agents python-testing-patterns --agent claude-code
+npx skills add wshobson/agents --skill python-testing-patterns   # add -a claude-code, -g for user scope
+```
+
+Setup details and per-harness gotchas: [docs/harnesses.md](docs/harnesses.md).

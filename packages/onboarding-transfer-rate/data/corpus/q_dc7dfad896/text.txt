@@ -1,0 +1,32 @@
+## Quick Start
+
+### Current 17-Lesson Track
+
+```sh
+git clone https://github.com/shareAI-lab/learn-claude-code
+cd learn-claude-code
+pip install -r requirements.txt
+cp .env.example .env   # configure ANTHROPIC_API_KEY
+
+python s01_agent_loop/code.py        # Start here -- one loop + bash
+python s08_context_compact/code.py   # Context compaction (complex)
+python s17_goal_loop/code.py         # Endpoint: continue until a checkable goal is met
+```
+
+### Legacy 12-Lesson Track
+
+```sh
+python agents/s01_agent_loop.py
+python agents/s12_worktree_task_isolation.py
+python agents/s_full.py
+```
+
+### Web Platform
+
+The web app extracts the root-level course. Lessons s16 and s17 include reading, source, simulator, and architecture views; only their dedicated hero visualizations remain intentionally minimal.
+
+```sh
+cd web && npm install && npm run dev   # http://localhost:3000
+```
+
+---

@@ -1,0 +1,147 @@
+## Quick Start
+
+**One-line install** (macOS / Linux):
+```bash
+curl -fsSL https://raw.githubusercontent.com/DeusData/codebase-memory-mcp/main/install.sh | bash
+```
+
+With graph visualization UI:
+```bash
+curl -fsSL https://raw.githubusercontent.com/DeusData/codebase-memory-mcp/main/install.sh | bash
+```
+
+**Windows** (PowerShell):
+```powershell
+# 1. Download the installer
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/DeusData/codebase-memory-mcp/main/install.ps1 -OutFile install.ps1
+
+# 2. (Optional but recommended) Inspect the script
+notepad install.ps1
+
+# 3. Unblock the downloaded file (removes Mark-of-the-Web restriction added by browsers/Invoke-WebRequest)
+Unblock-File .\install.ps1
+
+# 4. Run it
+.\install.ps1
+
+```
+
+> **Note:** If you see a script execution policy error, run `Set-ExecutionPolicy -Scope Process Bypass` first, or invoke with `PowerShell -ExecutionPolicy Bypass -File .\install.ps1`.
+
+Options: `--skip-config` (binary only, no agent setup), `--dir=<path>` (custom location).
+
+> **Antivirus note:** Microsoft Defender may flag a release binary as
+> `Trojan:Script/Wacatac.B!ml`. This is a known false positive — typically 61 of
+> ~62 engines return clean, and the same detection family hits `gh`, llama.cpp,
+> Godot and Microsoft's own Go toolchain. See
+> [Antivirus False Positives](SECURITY.md#antivirus-false-positives) for the
+> evidence, how to verify the artifacts yourself, and how to report it if you
+> think we are wrong.
+
+Restart your coding agent. Say **"Index this project"** — done.
+
+<details>
+<summary>Manual install</summary>
+
+1. **Download** the archive for your platform from the [latest release](https://github.com/DeusData/codebase-memory-mcp/releases/latest):
+   - `codebase-memory-mcp-<os>-<arch>.tar.gz` (macOS/Linux) or `.zip` (Windows)
+
+2. **Extract and install** (each archive includes `install.sh` or `install.ps1`):
+
+   macOS / Linux:
+   ```bash
+   tar xzf codebase-memory-mcp-*.tar.gz
+   ./install.sh
+   ```
+
+   Windows (PowerShell):
+   ```powershell
+   Expand-Archive codebase-memory-mcp-windows-amd64.zip -DestinationPath .
+   Unblock-File .\install.ps1
+   .\install.ps1
+   ```
+
+3. **Restart** your coding agent.
+
+The `install` command automatically strips macOS quarantine attributes and ad-hoc signs the binary — no manual `xattr`/`codesign` needed.
+</details>
+
+The `install` command auto-detects installed coding agents and configures their documented MCP entries plus durable instructions, skills, and lifecycle hooks where supported.
+
+### Session Coordination Daemon
+
+CBM automatically shares one per-account coordination daemon across Claude Code, Codex, OpenCode, and every other configured client. There is no opt-in setting for MCP servers or hook clients: the first daemon-backed CBM session starts it, each session registers its own work, and the final session shuts it down. The daemon owns long-lived background services such as watchers, shared indexing jobs, and the optional UI. Closing one session cancels work owned only by that session, while work still needed by another session continues.
+
+The detached daemon does not depend on an MCP frontend's stderr. It keeps owner-only durable records under the canonical `${CBM_CACHE_DIR}/logs` directory (default `~/.cache/codebase-memory-mcp/logs`):
+
+| File | Contents |
+|------|----------|
+| `cbm-daemon.log` | Daemon lifecycle, watcher/indexing, UI, resource, and error events. |
+| `daemon-conflicts.ndjson` | Exact-build, coordination-ABI, and cache-root admission conflicts. |
+| `activation-events.ndjson` | Install/update/uninstall activation progress and outcomes. |
+
+Thin frontends still write immediate startup and session-specific errors to their own stderr; MCP JSON-RPC stdout remains clean.
+
+All active CBM processes must run the exact same version, executable build, coordination ABI, and canonical cache root. Equivalent `CBM_CACHE_DIR` aliases resolve to the same root; a genuinely different root is rejected while any CBM process is active. MCP servers, hooks, one-shot CLI commands, temporary index workers, and the daemon share a crash-safe OS admission barrier; starting an ordinary conflicting process fails before doing work and records an explicit conflict in `${CBM_CACHE_DIR}/logs/daemon-conflicts.ndjson`.
+
+The native `install`, `update`, and `uninstall` commands are the deliberate exception to that conflict rule. Download, verification, and private same-filesystem staging happen first so a bad candidate never disrupts active work. Activation then publishes account-wide maintenance intent, asks the daemon and every temporary local operation to cancel, and waits to a finite deadline for all coordinated CBM processes to exit. It holds the admission and lifetime barriers exclusively while changing the active binary, configuration, PATH, or indexes. New CBM work cannot enter during this window. Activation progress and results are recorded in `${CBM_CACHE_DIR}/logs/activation-events.ndjson`, and a successful command tells you to restart open coding-agent sessions so they launch the activated build.
+
+Package-manager setup (npm, PyPI, or Go) verifies and publishes a coherent private cached runtime set. Sidecars are replaced before the executable with per-file atomic renames; an interrupted multi-file publication is detected and repaired on the next launch rather than being described as one crash-atomic filesystem transaction. It does not replace the active native installation and therefore does not stop running CBM sessions. When that cached binary is executed, it still enters the same exact-build admission barrier. The shell and PowerShell installers invoke the verified candidate's native `install` command, so they do receive the full account-wide activation guarantee.
+
+The ordinary `cli` mode is intentionally separate: it runs one command locally and never starts or connects to the coordination daemon, registers a daemon session, or starts watchers/UI. Its only shared state is the OS admission barrier plus per-project locks for graph mutations. While the command is running, a temporary monitor lets activation cancel that operation and its supervised worker safely; the monitor exits with the command and never becomes a standing daemon. See [CLI Mode](#cli-mode) for details.
+
+### Graph Visualization UI
+
+The graph UI is built into the binary — every install on every channel has it. Then run it:
+
+```bash
+codebase-memory-mcp --ui=true --port=9749
+```
+
+Open `http://localhost:9749` in your browser. The UI is owned by the shared coordination daemon, so concurrent agent sessions do not start duplicate HTTP servers.
+
+### Auto-Index
+
+Enable automatic indexing on MCP session start:
+
+```bash
+codebase-memory-mcp config set auto_index true
+```
+
+When enabled, new projects are indexed automatically on first connection. Previously-indexed projects are registered with the background watcher for ongoing git-based change detection. Configurable file limit: `config set auto_index_limit 50000`.
+
+Watcher registration is controlled separately by `auto_watch` (default `true`). Set `config set auto_watch false` to keep a session from registering its project with the background watcher — useful when working across many projects and you want each session contained to explicit indexing.
+
+To turn the watcher off entirely, set `config set watcher_enabled false` (default `true`): the background poll thread never starts and no project is registered, while `auto_index` and manual `index_repository` keep working. Unlike `auto_watch` — which is consulted per session — `watcher_enabled` is read once when the background daemon starts, so run `codebase-memory-mcp daemon stop` after changing it; reconnecting your MCP client alone will not restart the daemon. See [docs/CONFIGURATION.md](docs/CONFIGURATION.md#2-cli-managed-runtime-settings).
+
+### Keeping Up to Date
+
+**Updates run from the install script on every platform, not from inside the running binary.** `codebase-memory-mcp update` validates your flags and then prints the exact command to run:
+
+```bash
+# macOS / Linux
+bash "<install-dir>/install.sh"
+```
+
+```powershell
+# Windows
+powershell -ExecutionPolicy Bypass -File "<install-dir>\install.ps1"
+```
+
+The install script is placed next to the binary at install time, so the printed path resolves beside the executable. It is idempotent, so re-running it *is* the update: it stops the daemon, retires the running binary, installs the new one, and cleans up.
+
+Why it works this way. On Windows it is a hard requirement — a running executable cannot replace its own image, so the swap has to happen from a process that is not the binary being replaced. On macOS and Linux it is a deliberate choice: an in-process updater is structurally a downloader (fetch an archive, verify it, unpack it, mark a file executable, run it), and shipping that composite in every binary to serve a command most people run a handful of times is a poor trade. The release archives now carry no download URLs at all, and **cbm makes no network request of its own accord** — it does not check for new versions in the background, and nothing phones home. You find out about releases from the install script, your package manager, or GitHub.
+
+If PowerShell refuses to run the script because the file came from the internet, `Unblock-File` it first.
+
+Installed through **npm or pip**? Update with your package manager on every platform (`npm install -g codebase-memory-mcp@latest` / `pip install -U codebase-memory-mcp`).
+
+### Uninstall
+
+```bash
+codebase-memory-mcp uninstall
+```
+
+Removes owned agent config entries, skills, hooks, instructions, and the installed binary. Existing graph indexes are listed and deleted only after confirmation.
+
+The install script placed beside the binary is **reported, not deleted** — uninstall prints its path and the `rm` command for it. It is left alone on purpose: it may be your own copy, a symlink into a checkout, or managed by a package manager, and an uninstaller should not delete a file it cannot prove it owns.

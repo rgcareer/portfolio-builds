@@ -1,0 +1,49 @@
+## Quick Start
+
+### One-Click Cloud Deployment (RainYun)
+
+For users who want one-click 24-hour-online deployment and do not want to manage servers themselves, we recommend RainYun's one-click cloud deployment service ☁️:
+
+[![Deploy on RainYun](https://rainyun-apps.cn-nb1.rains3.com/materials/deploy-on-rainyun-en.svg)](https://app.rainyun.com/apps/rca/store/5994?ref=NjU1ODg0)
+
+### One-Click Deployment
+
+> [!NOTE]
+> Requires [uv](https://docs.astral.sh/uv/) to be installed.
+> For macOS users: due to macOS security checks, the first run of the `astrbot` command may take longer (about 10-20s).
+
+For users who want to quickly experience AstrBot, are familiar with command-line usage, and can install a `uv` environment on their own, we recommend the `uv` one-click deployment method ⚡️:
+
+```bash
+uv tool install astrbot --python 3.12
+astrbot init # Only execute this command for the first time to initialize the environment
+astrbot run
+```
+
+Update `astrbot`:
+
+```bash
+uv tool upgrade astrbot --python 3.12
+```
+
+### Docker Deployment
+
+For users familiar with containers and looking for a more stable, production-ready deployment method, we recommend deploying AstrBot with Docker / Docker Compose.
+
+Please refer to the official documentation: [Deploy AstrBot with Docker](https://docs.astrbot.app/deploy/astrbot/docker.html#%E4%BD%BF%E7%94%A8-docker-%E9%83%A8%E7%BD%B2-astrbot).
+
+### Desktop Application Deployment
+
+For users who want to use AstrBot on desktop and mainly use ChatUI, we recommend AstrBot App.
+
+Visit [AstrBot-desktop](https://github.com/AstrBotDevs/AstrBot-desktop) to download and install; this method is designed for desktop usage and is not recommended for server scenarios.
+
+### Launcher Deployment
+
+For desktop users who also want fast deployment and isolated multi-instance usage, we recommend AstrBot Launcher.
+
+Visit [AstrBot Launcher](https://github.com/Raven95676/astrbot-launcher) to download and install.
+
+**More deployment methods**
+
+If you need panel-based management or deeper customization, see [BT-Panel Deployment](https://docs.astrbot.app/deploy/astrbot/btpanel.html) for BT Panel app-store setup, [1Panel Deployment](https://docs.astrbot.app/deploy/astrbot/1panel.html) for 1Panel app-market deployment, [CasaOS Deployment](https://docs.astrbot.app/deploy/astrbot/casaos.html) for NAS/home-server visual deployment, and [Manual Deployment](https://docs.astrbot.app/deploy/astrbot/cli.html) for fully custom source-based installation with `uv`.

@@ -26,3 +26,6 @@ evidence/*.tmp
 # OS / editor
 .DS_Store
 *.log
+
+# app-created settings dirs inside data trees are never data
+packages/*/data/**/.claude/

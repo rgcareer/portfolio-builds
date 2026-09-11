@@ -1,0 +1,156 @@
+Skip to main content
+ProductModelsPricingDocs
+◐autoEnglish中文日本語 (partial)Tiếng Việt (partial)한국어 (partial)Русский (partial)Українська (partial)Español (partial)Português (BR) (partial)Français (partial)Deutsch (partial)Català (partial)Bahasa Indonesia (partial)हिन्दी (partial)Türkçe (partial)Italiano (partial)Polski (partial)العربية (partial)★ GitHubSign inCreate accountInstall →
+
+Codewhale documentation
+Release truthLatest release v0.9.12 · Sep 5, 2026These pages describe the v0.9.13 source candidate, which is not published yet.Changelog →
+
+- Home
+
+- Docs
+
+- Getting started
+
+- User Guide
+
+# Getting started
+
+Install Codewhale, connect your model, and give it a task. Fleet setup is optional.
+
+- 01
+
+### Install Codewhale
+
+The command below installs the latest published release on macOS or Linux. Use the install guide for Windows, package managers, or building the unreleased source candidate.
+
+```
+curl -fsSL https://codewhale.net/install.sh | sh
+```
+
+Full install guide →
+
+- 02
+
+### Connect your model
+
+Model replies need a connection to a hosted or local model. Use your own provider key, as in the DeepSeek example below, or follow the provider guide for other services and local models. Offline setup does not require a key.
+
+```
+codewhale auth set --provider deepseek
+```
+
+Choose a provider →
+
+- 03
+
+### Give it a task
+
+Open Codewhale in your project folder. Try /mode plan and ask it to explain the project, then use /mode work when you want edits and commands. Shift+Tab changes the approval setting; /provider and /model change the model connection.
+
+```
+codewhale
+```
+
+Modes and permissions →
+
+- 04
+
+### Add a Fleet when you need one
+
+When a task would benefit from several models and roles, run /fleet setup inside Codewhale to put a team together. You can see the saved Fleet from your shell with codewhale fleet status.
+
+```
+/fleet setup
+codewhale fleet status
+```
+
+Fleet and Workflow docs →
+
+## Where next
+
+### Hooks
+
+Run your own commands before and after tool calls, at turn end, and on session events, with per-project trust rules.
+
+### Modes and permissions
+
+Plan / Work / Operate and Ask / Auto-Review / Full Access: what each one allows.
+
+### Documentation hub
+
+Browse and search the documentation for help on a specific topic, with a link from each page to its source in the repository.
+
+For more detail, see the user guide and keyboard shortcuts in the documentation.
+
+## Need more than this page?
+
+Every guide is drawn from a repository document. If it is wrong or missing something, the fastest fix is to say so where the maintainer will see it.
+Source: docs/GUIDE.md, docs/KEYBINDINGS.md
+
+Troubleshooting →FAQ →Ask on Discord ↗help@codewhale.netReport a docs problem ↗
+
+Documentation→
+Getting started
+
+- Install
+
+- User Guide
+
+- Configuration
+
+- Account & Keys
+
+Core concepts
+
+- Vocabulary
+
+- Constitution
+
+- Modes
+
+- Tools
+
+- Work Surface
+
+- Sub-Agents
+
+- Sandbox & Approval
+
+Reference
+
+- Providers & Models
+
+- Security & Trust
+
+Extending
+
+- MCP
+
+- Hooks
+
+- Skills↗
+
+- Plugins↗
+
+- Runtime API
+
+- Browser Client
+
+Operations
+
+- Cloud Computers
+
+- Fleet / Workflow
+
+- Troubleshooting
+
+- Contribution↗
+
+Create what you want and automate everyday work with the models you choose.
+
+ProductProductDocsGetting startedInstallModelsRuntimeFAQChangelog
+ProjectGitHubIssuesDiscordContributeMIT license
+
+Canonical source: github.com/Hmbown/CodeWhale · Releases: GitHub Releases
+PricingTermsPrivacyCNBnpmmirrorhelp@codewhale.netSecurityUsage data
+© 2026 Codewhale

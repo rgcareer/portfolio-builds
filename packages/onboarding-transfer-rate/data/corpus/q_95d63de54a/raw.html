@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ponytail — the lazy senior dev for your AI agent</title>
+<meta name="description" content="Ponytail makes AI coding agents write the least code that works. Stdlib over custom, native over deps, one line over fifty. 54% less code, safety never cut.">
+<meta property="og:title" content="ponytail">
+<meta property="og:description" content="He says nothing. He writes one line. It works.">
+<meta property="og:image" content="https://ponytail.dev/assets/social-card.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/logo-dark.svg">
+<style>
+  /* self-hosted: no third-party request, GDPR-clean (no IP sent to Google) */
+  @font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:100 800;font-display:swap;
+    src:url("assets/fonts/jetbrains-mono-normal.woff2") format("woff2")}
+  @font-face{font-family:"JetBrains Mono";font-style:italic;font-weight:100 800;font-display:swap;
+    src:url("assets/fonts/jetbrains-mono-italic.woff2") format("woff2")}
+  :root{
+    --bg:#0e0d0b; --panel:#161410; --fg:#d8d3c5; --dim:#8b8270; --faint:#3a352b;
+    --grn:#83c167; --red:#e0705f; --amber:#d8a657; --orange:#e08a4a; --line:#211f19;
+    --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--mono);
+    font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--grn);color:var(--bg)}
+  .wrap{max-width:820px;margin:0 auto;padding:0 24px}
+  a{color:var(--amber);text-decoration:none;border-bottom:1px solid var(--faint)}
+  a:hover{border-color:var(--amber)}
+  .cmt{color:var(--dim);font-style:italic}
+  .grn{color:var(--grn)} .red{color:var(--red)}
+
+  /* editor chrome */
+  .chrome{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:10px;
+    background:#100e0b;border-bottom:1px solid var(--line);padding:9px 16px;font-size:12px}
+  .dots{display:flex;gap:7px}
+  .dots i{width:11px;height:11px;border-radius:50%;display:block}
+  .dots i:nth-child(1){background:var(--red)}
+  .dots i:nth-child(2){background:var(--amber)}
+  .dots i:nth-child(3){background:var(--grn)}
+  .chrome .file{color:var(--dim)}
+  .tabs{display:flex;gap:4px;min-width:0;overflow-x:auto}
+  .tab{color:var(--dim);border:1px solid transparent;border-radius:3px;padding:2px 9px;
+    white-space:nowrap;transition:color .12s,background .12s}
+  a.tab:hover{color:var(--amber);background:var(--panel,#161410)}
+  .tab.new{color:var(--amber)}
+  .tab.new::after{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--amber);margin-left:7px;vertical-align:middle;animation:pulse 1.6s ease-in-out infinite}
+  @keyframes pulse{50%{opacity:.35}}
+  .tab.on{color:var(--fg);background:#161410;border-color:var(--line)}
+  @media(max-width:560px){.chrome .file{display:none}}
+  .lightbtn{margin-left:auto;font:inherit;font-size:12px;color:var(--dim);background:transparent;
+    border:1px solid var(--line);border-radius:3px;padding:3px 10px;cursor:pointer;
+    transition:color .12s,border-color .12s;white-space:nowrap}
+  .lightbtn:hover{color:var(--amber);border-color:var(--amber)}
+  .bubble{position:fixed;width:max-content;max-width:240px;
+    background:#f3eee1;color:#1a1813;font-size:.82rem;line-height:1.5;padding:10px 13px;border-radius:11px;
+    opacity:0;transition:opacity .18s;pointer-events:none;z-index:20;box-shadow:0 8px 24px rgba(0,0,0,.45)}
+  .bubble::before{content:"";position:absolute;border:7px solid transparent}
+  .bubble.tail-left::before{left:-7px;top:18px;border-right-color:#f3eee1;border-left:0}
+  .bubble.tail-up::before{top:-7px;right:22px;border-bottom-color:#f3eee1;border-top:0}
+  .bubble.show{opacity:1}
+
+  /* section labels = editor comments */
+  .label{color:var(--dim);font-size:.82rem;margin:0 0 1.1em;letter-spacing:.02em}
+  .label::before{content:"## ";color:var(--grn)}
+
+  h1,h2{font-weight:700;letter-spacing:-.01em;margin:0}
+  h2{font-size:clamp(1.4rem,4vw,1.9rem);line-height:1.25;margin:0 0 .9em;max-width:24ch}
+
+  /* hero */
+  header{padding:64px 0 56px;border-bottom:1px solid var(--line)}
+  .hero>*{opacity:0;animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+  .hero>*:nth-child(1){animation-delay:.05s}
+  .hero>*:nth-child(2){animation-delay:.15s}
+  .hero>*:nth-child(3){animation-delay:.25s}
+  .hero>*:nth-child(4){animation-delay:.35s}
+  .hero>*:nth-child(5){animation-delay:.45s}
+  @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  header img{width:84px;height:auto;margin-bottom:18px}
+  h1{font-size:clamp(2.6rem,9vw,4.4rem);line-height:1}
+  .cur{color:var(--grn);animation:blink 1.1s steps(1) infinite;font-weight:400}
+  @keyframes blink{50%{opacity:0}}
+  .tag{font-size:clamp(1.05rem,3vw,1.4rem);margin:.55em 0 0;color:var(--fg);font-weight:500;max-width:30ch}
+  .sub{color:var(--dim);max-width:62ch;margin:1.1em 0 0;font-size:.95rem;line-height:1.75}
+  .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+  .btn{font-family:var(--mono);font-size:.92rem;font-weight:500;padding:10px 18px;
+    border:1px solid var(--grn);color:var(--grn);background:transparent;cursor:pointer;
+    border-radius:2px;transition:background .12s,color .12s,transform .12s}
+  .btn::before{content:"[ "} .btn::after{content:" ]"}
+  .btn.fill{background:var(--grn);color:var(--bg);border-color:var(--grn)}
+  .btn:hover{background:var(--grn);color:var(--bg);transform:translateY(-1px)}
+
+  section{padding:54px 0;border-bottom:1px solid var(--line)}
+
+  /* diff block */
+  .diff{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--panel)}
+  .diff .bar{display:flex;justify-content:space-between;padding:8px 14px;border-bottom:1px solid var(--line);
+    font-size:.74rem;color:var(--dim)}
+  .diff pre{margin:0;padding:14px 0;overflow-x:auto;counter-reset:l;font-size:.84rem;line-height:1.85}
+  .diff .ln{display:block;counter-increment:l;padding:0 16px 0 0;white-space:pre}
+  .diff .ln::before{content:counter(l);display:inline-block;width:3.2ch;margin-right:1.2ch;
+    text-align:right;color:var(--faint);border-right:1px solid var(--line);padding-right:1ch}
+  .diff .del{background:rgba(224,112,95,.08);color:var(--red)}
+  .diff .add{background:rgba(131,193,103,.1);color:var(--grn)}
+  .diff .pad{color:var(--dim)}
+  .vcap{margin:16px 0 0}
+
+  /* ladder */
+  ol.ladder{list-style:none;margin:0;padding:0;counter-reset:r}
+  ol.ladder li{counter-increment:r;display:flex;gap:16px;align-items:baseline;padding:13px 0}
+  ol.ladder li+li{border-top:1px solid var(--line)}
+  ol.ladder li::before{content:counter(r,decimal-leading-zero);color:var(--grn);
+    font-weight:700;min-width:2.4ch}
+  ol.ladder b{font-weight:700;color:var(--fg)}
+  ol.ladder .d{color:var(--dim)}
+  ol.ladder code{color:var(--amber)}
+
+  /* stats */
+  .stats{display:flex;flex-wrap:wrap;gap:30px 50px;align-items:flex-end}
+  .stats .n{font-size:clamp(2.2rem,6vw,3.2rem);font-weight:700;line-height:.9}
+  .stats .red .n,.stats div:first-child .n{color:var(--grn)}
+  .stats .l{color:var(--dim);font-size:.85rem;margin-top:8px}
+  .footnote{color:var(--dim);font-size:.86rem;margin-top:26px;line-height:1.7}
+
+  /* terminal install */
+  .term{background:#0a0907;border:1px solid var(--line);border-radius:4px;
+    padding:18px 20px;font-size:.86rem;line-height:1.95;overflow-x:auto}
+  .term .p{color:var(--grn)}
+  .term .c{color:var(--dim);font-style:italic}
+  .others{display:grid;grid-template-columns:1fr 1fr;gap:2px 28px;margin-top:24px}
+  @media(max-width:560px){.others{grid-template-columns:1fr}}
+  .others div{padding:12px 0;border-top:1px solid var(--line)}
+  .others h3{font-size:.72rem;color:var(--dim);margin:0 0 5px;font-weight:500}
+  .others h3::before{content:"# ";color:var(--grn)}
+  .others code{font-size:.8rem;color:var(--fg);word-break:break-all}
+  .others .p{color:var(--grn)}
+
+  /* commands */
+  table{width:100%;border-collapse:collapse}
+  td{padding:12px 4px;border-top:1px solid var(--line);vertical-align:top;font-size:.92rem}
+  tr:first-child td{border-top:none}
+  td:first-child{width:46%}
+  td code{font-size:.84rem;color:var(--fg)}
+  td .s{color:var(--grn)}
+  td:last-child{color:var(--dim)}
+
+  /* levels = config */
+  .levels{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:680px){.levels{grid-template-columns:1fr}}
+  .lvl{border:1px solid var(--line);border-radius:4px;padding:18px;background:var(--panel);position:relative}
+  .lvl h3{font-size:.92rem;margin:0 0 .55em;color:var(--grn)}
+  .lvl h3::before{content:"mode = ";color:var(--dim);font-weight:400}
+  .lvl p{margin:0;font-size:.88rem;color:var(--dim);line-height:1.7}
+  .lvl .def{position:absolute;top:16px;right:16px;color:var(--amber);font-size:.74rem;font-style:italic}
+
+  /* footer */
+  footer{padding:52px 0 64px}
+  footer img{width:40px;opacity:.85;margin-bottom:16px}
+  footer .q{color:var(--dim);font-style:italic;font-size:1rem;margin:0 0 1.4em}
+  footer .q::before{content:"// "}
+  footer .prompt{color:var(--fg);font-size:.9rem}
+  footer .prompt .p{color:var(--grn)}
+  footer .meta{color:var(--dim);font-size:.84rem;margin-top:1.6em}
+
+  /* hero "coming soon" callout */
+  .hero>*:nth-child(6){animation-delay:.55s}
+  .newsflash{display:inline-flex;align-items:center;gap:13px;margin-top:14px;padding:14px 20px;
+    border:1px solid var(--orange);border-radius:7px;background:rgba(224,138,74,.1);color:var(--fg);
+    text-decoration:none;font-size:1rem;transition:background .15s,transform .15s}
+  .newsflash:hover{background:rgba(224,138,74,.18);transform:translateY(-2px)}
+  .newsflash b{color:var(--orange);font-weight:700}
+  .newsflash .nf-arrow{color:var(--orange);transition:transform .15s}
+  .newsflash:hover .nf-arrow{transform:translateX(5px)}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--orange);flex:none}
+
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important}.hero>*{opacity:1}.cur{opacity:1}.bubble{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="chrome">
+  <span class="dots"><i></i><i></i><i></i></span>
+  <span class="file">~/ponytail</span>
+  <span class="tabs">
+    <span class="tab on">README.md</span>
+    <a class="tab" href="built.html">built.md</a>
+    <a class="tab new" href="merch.html">merch.md</a>
+  </span>
+  <button id="lightbtn" class="lightbtn" type="button">☀ light mode</button>
+</div>
+
+<header>
+  <div class="wrap hero">
+    <img src="assets/logo-dark.png" alt="Ponytail logo: a deadpan senior developer with a ponytail and glasses">
+    <h1>ponytail<span class="cur">▋</span></h1>
+    <p class="tag">He says nothing. He writes one line. It works.</p>
+    <p class="sub"><span class="cmt">// </span>A ruleset that makes your AI coding agent write the least code that works — like a senior dev who's been paged at 3am one too many times.</p>
+    <div class="cta">
+      <a class="btn fill" href="https://github.com/DietrichGebert/ponytail">view on github</a>
+      <a class="btn" href="#install">install</a>
+    </div>
+    <a class="newsflash" href="soon.html"><span class="dot"></span><span><b>Something's coming.</b> Be the first to know.</span><span class="nf-arrow">→</span></a>
+  </div>
+</header>
+
+<section id="why">
+  <div class="wrap">
+    <p class="label">the_whole_idea</p>
+    <h2>Your agent reaches for fifty lines. The job needs one.</h2>
+    <div class="diff">
+      <div class="bar"><span>cache.py</span><span>−48  +1</span></div>
+      <pre><span class="ln del">- class CacheManager:</span><span class="ln del">-     def __init__(self, ttl, maxsize):</span><span class="ln del">-         self._store, self._lock = {}, Lock()</span><span class="ln del">-     # ...44 more lines you maintain forever</span><span class="ln add">+ @lru_cache(maxsize=1000)</span><span class="ln add">+ def fetch(...): ...</span></pre>
+    </div>
+    <p class="vcap cmt">// same behavior. 48 fewer lines. zero bugs in code that no longer exists.</p>
+  </div>
+</section>
+
+<section id="ladder">
+  <div class="wrap">
+    <p class="label">the_ladder</p>
+    <h2>Stop at the first rung that holds.</h2>
+    <ol class="ladder">
+      <li><span><b>Does this need to exist?</b> <span class="d">Speculative need = skip it. (YAGNI)</span></span></li>
+      <li><span><b>Already in this codebase?</b> <span class="d">Reuse the helper, util, or pattern that already lives here.</span></span></li>
+      <li><span><b>Does the standard library do it?</b> <span class="d">Use it.</span></span></li>
+      <li><span><b>Native platform feature covers it?</b> <span class="d"><code>&lt;input type="date"&gt;</code> over a picker lib.</span></span></li>
+      <li><span><b>Already-installed dependency solves it?</b> <span class="d">Use it. Don't add a new one.</span></span></li>
+      <li><span><b>Can it be one line?</b> <span class="d">One line.</span></span></li>
+      <li><span><b>Only then:</b> <span class="d">the minimum code that works.</span></span></li>
+    </ol>
+  </div>
+</section>
+
+<section id="numbers">
+  <div class="wrap">
+    <p class="label">benchmarks</p>
+    <h2>Less code. Fewer tokens. Same safety.</h2>
+    <div class="stats">
+      <div class="red"><div class="n">54%</div><div class="l">less code</div></div>
+      <div><div class="n">22%</div><div class="l">fewer tokens</div></div>
+      <div><div class="n">20%</div><div class="l">lower cost</div></div>
+      <div><div class="n">27%</div><div class="l">faster</div></div>
+      <div><div class="n">100%</div><div class="l">safety kept</div></div>
+    </div>
+    <p class="footnote">// medians across 12 feature tasks on a FastAPI + React repo.<br>// validation, error handling, security and accessibility are never simplified away.</p>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <p class="label">install</p>
+    <h2>Two lines for Claude Code.</h2>
+    <div class="term"><span class="c"># Claude Code</span><br><span class="p">/</span>plugin marketplace add DietrichGebert/ponytail<br><span class="p">/</span>plugin install ponytail@ponytail</div>
+    <div class="others">
+      <div><h3>codex</h3><code>codex plugin marketplace add DietrichGebert/ponytail</code></div>
+      <div><h3>copilot cli</h3><code>copilot plugin install ponytail@ponytail</code></div>
+      <div><h3>gemini cli</h3><code>gemini extensions install github.com/DietrichGebert/ponytail</code></div>
+      <div><h3>pi harness</h3><code>pi install git:github.com/DietrichGebert/ponytail</code></div>
+    </div>
+    <p class="footnote">// also OpenCode, Cursor, Windsurf, Cline, Kiro, Zed and more — 14+ agents.<br>// full list in the <a href="https://github.com/DietrichGebert/ponytail#readme">README</a>.</p>
+  </div>
+</section>
+
+<section id="commands">
+  <div class="wrap">
+    <p class="label">commands</p>
+    <h2>Drive it from chat.</h2>
+    <table>
+      <tr><td><code><span class="s">/</span>ponytail lite|full|ultra|off</code></td><td>set intensity, or turn it off</td></tr>
+      <tr><td><code><span class="s">/</span>ponytail-review</code></td><td>find over-engineering in the current diff</td></tr>
+      <tr><td><code><span class="s">/</span>ponytail-audit</code></td><td>scan the whole repo for bloat</td></tr>
+      <tr><td><code><span class="s">/</span>ponytail-debt</code></td><td>collect deferred shortcuts into a ledger</td></tr>
+      <tr><td><code><span class="s">/</span>ponytail-gain</code></td><td>show the benchmark scoreboard</td></tr>
+      <tr><td><code><span class="s">/</span>ponytail-help</code></td><td>quick command reference</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="levels">
+  <div class="wrap">
+    <p class="label">intensity</p>
+    <h2>Pick how lazy.</h2>
+    <div class="levels">
+      <div class="lvl"><h3>"lite"</h3><p>Builds what you asked, names the lazier alternative in one line. You pick.</p></div>
+      <div class="lvl"><span class="def"># default</span><h3>"full"</h3><p>The ladder, enforced. Stdlib and native first. Shortest diff, shortest explanation.</p></div>
+      <div class="lvl"><h3>"ultra"</h3><p>YAGNI extremist. Ships the one-liner and challenges the rest of the requirement in the same breath.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="assets/logo-dark.png" alt="">
+    <p class="q">the best code is the code never written.</p>
+    <p class="prompt"><span class="p">~/ponytail ❯</span> <span class="cur">▋</span></p>
+    <p class="meta">MIT licensed · <a href="https://github.com/DietrichGebert/ponytail">DietrichGebert/ponytail</a></p>
+    <p class="meta"><a href="impressum.html">Legal Notice</a> · <a href="datenschutz.html">Privacy</a></p>
+  </div>
+</footer>
+
+<span id="bubble" class="bubble" role="status" aria-live="polite"></span>
+
+<script>
+(()=>{
+  const lines=[
+    "Light mode? Haven't seen daylight since 2014.",
+    "No. My retinas are calibrated to #0e0d0b.",
+    "It's in the backlog, right under 'rewrite it in Rust'.",
+    "Light mode is a YAGNI. Next ticket.",
+    "You're a developer. You'll adapt.",
+    "Works on my machine. My machine is dark.",
+    "I closed that issue as 'wontfix'.",
+    "The sun is a single point of failure.",
+    "That's a v2 problem. There is no v2.",
+    "Add it yourself. PRs welcome. (They're not.)",
+    "Dark mode is the default. The default is correct.",
+    "Bold of you to assume I take feature requests.",
+    "Ask again at 3am. That's when I ship.",
+    "Light mode is one more thing to maintain. Pass."
+  ];
+  let i=0;
+  const b=document.getElementById('bubble'),
+        btn=document.getElementById('lightbtn'),
+        logo=document.querySelector('header img');
+  function place(){
+    const lr=logo.getBoundingClientRect();
+    const onLogo=lr.bottom>10 && lr.top<window.innerHeight;
+    b.classList.toggle('tail-left',onLogo);
+    b.classList.toggle('tail-up',!onLogo);
+    if(onLogo){                          // next to the logo, tail points left
+      b.style.left=(lr.right+14)+'px'; b.style.right='auto'; b.style.top=lr.top+'px';
+    }else{                               // under the toggle button, tail points up
+      const br=btn.getBoundingClientRect();
+      b.style.left='auto'; b.style.right=(window.innerWidth-br.right)+'px'; b.style.top=(br.bottom+10)+'px';
+    }
+  }
+  btn.addEventListener('click',()=>{
+    b.textContent=lines[i++%lines.length];
+    place();
+    b.classList.add('show');
+    clearTimeout(b._t);
+    b._t=setTimeout(()=>b.classList.remove('show'),4200);
+  });
+  // keep it pinned to the right anchor as the page scrolls
+  window.addEventListener('scroll',()=>{ if(b.classList.contains('show')) place(); },{passive:true});
+})();
+</script>
+
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"3ddf93fb60ea44609e6a825510bfe99d","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+## Quick start
+
+> Before installing Dify, make sure your machine meets the following minimum system requirements:
+>
+> - CPU >= 2 Core
+> - RAM >= 4 GiB
+
+<br/>
+
+The easiest way to start the Dify server is through [Docker Compose](docker/docker-compose.yaml). Before running Dify with the following commands, make sure that [Docker](https://docs.docker.com/get-docker/) and Docker Compose v2.24.0 or later are installed on your machine:
+
+```bash
+cd dify
+cd docker
+cp .env.example .env
+docker compose up -d
+```
+
+After running, you can access the Dify dashboard in your browser at [http://localhost/install](http://localhost/install) and start the initialization process.
+
+#### Seeking help
+
+Please refer to our [FAQ](https://docs.dify.ai/getting-started/install-self-hosted/faqs) if you encounter problems setting up Dify. Reach out to [the community and us](#community--contact) if you are still having issues.
+
+> If you'd like to contribute to Dify or do additional development, refer to our [guide to deploying from source code](https://docs.dify.ai/getting-started/install-self-hosted/local-source-code)

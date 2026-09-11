@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CowAgent - Open-Source Super AI Assistant</title>
+  <meta name="description" content="CowAgent is an open-source super AI assistant and Agent Harness that plans tasks, runs tools and skills, and autonomously grows with long-term memory and knowledge. Multi-model, multi-channel, multi-agent, one-line install." />
+
+  <!-- Canonical & language alternates for SEO -->
+  <link rel="canonical" href="https://cowagent.ai/en/" />
+  <link rel="alternate" hreflang="en" href="https://cowagent.ai/en/" />
+  <link rel="alternate" hreflang="zh-CN" href="https://cowagent.ai/zh/" />
+  <link rel="alternate" hreflang="x-default" href="https://cowagent.ai/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="CowAgent - Open-Source Super AI Assistant" />
+  <meta property="og:description" content="An open-source super AI assistant & Agent Harness. Plans tasks, runs tools and skills, autonomously grows with memory and knowledge." />
+  <meta property="og:url" content="https://cowagent.ai/en/" />
+  <meta property="og:image" content="https://cowagent.ai/logo/cow-logo.png" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CowAgent - Open-Source Super AI Assistant" />
+  <meta name="twitter:description" content="An open-source super AI assistant & Agent Harness. Plans tasks, runs tools and skills, autonomously grows with memory and knowledge." />
+  <meta name="twitter:image" content="https://cowagent.ai/logo/cow-logo.png" />
+
+  <link rel="icon" type="image/png" href="/logo/cow-logo.png" />
+  <link rel="stylesheet" href="/style.css?v=c2501cf2" />
+
+  <script>
+    // Inline language config used by i18n.js (avoids extra request)
+    window.__COW_LANG__ = "en";
+  </script>
+  <script>
+(function () {
+  var path = window.location.pathname || "/";
+  // Never language-redirect non-page routes. Function endpoints (/download,
+  // /api) and paths already carrying a lang prefix must pass through as-is,
+  // otherwise a 404 that falls back to index.html would keep prepending the
+  // lang dir and loop forever (/zh/zh/zh/.../download/...).
+  if (/^\/(zh|en)(\/|$)/.test(path) || /^\/(download|api)(\/|$)/.test(path)) {
+    return;
+  }
+  function dest(lang) {
+    return "/" + lang + (path === "/" ? "/" : path) + window.location.search + (window.location.hash || "");
+  }
+  try {
+    var p = new URLSearchParams(window.location.search);
+    var q = p.get("lang");
+    if (q === "zh" || q === "en") {
+      if (q !== "en") window.location.replace(dest(q));
+      return;
+    }
+    var saved = null;
+    try { saved = localStorage.getItem("cow_lang"); } catch (e) {}
+    if (saved === "zh" || saved === "en") {
+      if (saved !== "en") window.location.replace(dest(saved));
+      return;
+    }
+    var nav = (navigator.language || navigator.userLanguage || "").toLowerCase();
+    if (nav.indexOf("zh") === 0 && "en" !== "zh") {
+      window.location.replace(dest("zh"));
+    }
+  } catch (e) {}
+})();
+</script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">
+        <img src="/logo/cow-logo.png" alt="CowAgent Logo" class="logo-img" />
+        <span class="logo-text">CowAgent</span>
+      </a>
+      <div class="nav-links">
+        <a href="https://docs.cowagent.ai" target="_blank" class="nav-link">Docs</a>
+        <a href="https://skills.cowagent.ai" target="_blank" class="nav-link">Skills</a>
+        <a href="/blog/" class="nav-link">Blog</a>
+        <a href="/download/" class="nav-link">Download</a>
+        <a href="https://github.com/zhayujie/CowAgent" target="_blank" class="nav-link github-link" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          <span class="github-stars-count" id="navStarsCount">47k</span>
+        </a>
+        <a href="/zh/" class="lang-switch" id="langSwitch" rel="alternate" hreflang="zh-CN">中文</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-badge">Open-Source Super AI Assistant</div>
+      <h1 class="hero-title">Your Personal<br/>Super AI Assistant</h1>
+      <p class="hero-desc">
+        Open-source super AI assistant &amp; Agent Harness. Plans tasks, runs tools and skills, autonomously grows with memory and knowledge. Multi-model, multi-channel, multi-agent. Lightweight, extensible, one-line install — runs 24/7 on your laptop or server.
+      </p>
+      <div class="hero-actions">
+        <a href="/download/" class="btn btn-primary" id="heroDownloadBtn">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          <span id="heroDownloadLabel" data-os-prefix="Download for">Download Desktop App</span>
+        </a>
+        <a href="https://link-ai.tech/cowagent/create" target="_blank" class="btn btn-cloud">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;">
+            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          <span>Try Online</span>
+        </a>
+      </div>
+      <div class="hero-sublinks">
+        <a href="https://github.com/zhayujie/CowAgent" target="_blank" class="hero-sublink">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="margin-right:5px;">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          View Source
+        </a>
+        <span class="hero-sublink-divider"></span>
+        <a href="#quickstart" class="hero-sublink">CLI install →</a>
+      </div>
+      <div style="margin-bottom: 64px;"></div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number" id="heroStarsCount">47k</span>
+          <span class="stat-label">GitHub Stars</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">10+</span>
+          <span class="stat-label">Model Providers</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">10+</span>
+          <span class="stat-label">Channels</span>
+        </div>
+      </div>
+      <div class="hero-demo">
+        <video
+          class="demo-video"
+          controls
+          preload="metadata"
+          playsinline
+          
+          src="https://cdn.cowagent.ai/desktop/video/cow-demo-en-v1.mp4"
+        >
+          Your browser doesn't support embedded video. 
+          <a href="https://cdn.cowagent.ai/desktop/video/cow-demo-en-v1.mp4" target="_blank" rel="noopener">Click here to watch in a new tab</a>
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Start -->
+  <section class="quickstart" id="quickstart">
+    <div class="section-container">
+      <h2 class="section-title">Developer / Server Install</h2>
+      <p class="section-subtitle">One command to install, configure, and launch — for developers and 24/7 servers</p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-dot red"></span>
+          <span class="code-dot yellow"></span>
+          <span class="code-dot green"></span>
+          <div class="code-tabs">
+            <button class="code-tab active" data-tab="unix" onclick="switchTab('unix')">Linux / macOS</button>
+            <button class="code-tab" data-tab="win" onclick="switchTab('win')">Windows</button>
+            <button class="code-tab" data-tab="docker" onclick="switchTab('docker')">Docker</button>
+          </div>
+          <button class="copy-btn" onclick="copyCode()" data-copy-label="Copy" data-copy-done="Copied!">Copy</button>
+        </div>
+        <pre class="code-content" id="code-unix"><code><span class="code-comment"># Install and run CowAgent</span>
+<span class="code-prompt">$</span> bash &lt;(curl -fsSL https://cdn.link-ai.tech/code/cow/run.sh)</code></pre>
+        <pre class="code-content" id="code-win" style="display:none;"><code><span class="code-comment"># Install and run CowAgent (PowerShell)</span>
+<span class="code-prompt">&gt;</span> irm https://cdn.link-ai.tech/code/cow/run.ps1 | iex</code></pre>
+        <pre class="code-content" id="code-docker" style="display:none;"><code><span class="code-comment"># Install and run CowAgent (Docker)</span>
+<span class="code-prompt">$</span> curl -O https://cdn.link-ai.tech/code/cow/docker-compose.yml
+<span class="code-prompt">$</span> docker compose up -d</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="section-container">
+      <h2 class="section-title">Core Capabilities</h2>
+      <p class="section-subtitle">Not just chat — an AI assistant that actually gets things done</p>
+      <div class="features-grid">
+        <a class="feature-card" href="https://docs.cowagent.ai/intro/architecture" target="_blank">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="4" r="2"/>
+              <circle cx="6" cy="12" r="2"/>
+              <circle cx="18" cy="12" r="2"/>
+              <circle cx="6" cy="20" r="2"/>
+              <circle cx="18" cy="20" r="2"/>
+              <path d="M12 6v2.5L6 10"/>
+              <path d="M12 8.5l6 1.5"/>
+              <path d="M6 14v4"/>
+              <path d="M18 14v4"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Task Planning</h3>
+          <p class="feature-desc">Decomposes complex tasks and executes them step by step, looping over tools and skills until the goal is reached.</p>
+        </a>
+        <a class="feature-card" href="https://docs.cowagent.ai/memory" target="_blank">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="5" rx="9" ry="3"/>
+              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Long-term Memory</h3>
+          <p class="feature-desc">Three-tier architecture (context → daily → core) with automatic Deep Dream distillation and hybrid keyword + vector retrieval.</p>
+        </a>
+        <a class="feature-card" href="https://docs.cowagent.ai/knowledge" target="_blank">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Knowledge Base</h3>
+          <p class="feature-desc">Auto-curates structured knowledge into a Markdown wiki, building an evolving knowledge graph through cross-references.</p>
+        </a>
+        <a class="feature-card" href="https://docs.cowagent.ai/skills/index" target="_blank">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Skills System</h3>
+          <p class="feature-desc">One-click install from Skill Hub, GitHub, and ClawHub, or create custom Skills through natural-language conversation.</p>
+        </a>
+        <a class="feature-card" href="https://docs.cowagent.ai/tools" target="_blank">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Tool System</h3>
+          <p class="feature-desc">Built-in file I/O, terminal, browser, scheduler, memory retrieval, web search, and 10+ more tools — with native MCP integration.</p>
+        </a>
+        <a class="feature-card" href="https://docs.cowagent.ai/memory/self-evolution" target="_blank">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 20h10"/>
+              <path d="M12 20c0-6 0-9 0-11"/>
+              <path d="M12 9C12 5 9 3 4 3c0 5 3 7 8 7z"/>
+              <path d="M12 12c0-3 2.5-4.5 6.5-4.5C18.5 11 16 12.5 12 12.5z"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Self-Evolution</h3>
+          <p class="feature-desc">Reviews conversations automatically to improve skills, follow up on unfinished tasks, and consolidate memory and knowledge.</p>
+        </a>
+        <a class="feature-card" href="https://docs.cowagent.ai/models/index" target="_blank">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+              <line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Pluggable Models</h3>
+          <p class="feature-desc">Claude, GPT, Gemini, DeepSeek, Qwen, GLM, Kimi, MiniMax, Doubao, and more — swap providers with one click.</p>
+        </a>
+        <a class="feature-card" href="https://docs.cowagent.ai/channels/weixin" target="_blank">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="8" rx="2"/>
+              <rect x="2" y="14" width="20" height="8" rx="2"/>
+              <line x1="6" y1="6" x2="6.01" y2="6"/>
+              <line x1="6" y1="18" x2="6.01" y2="18"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Multi-Channel</h3>
+          <p class="feature-desc">A single Agent integrates with Web, WeChat, Feishu, DingTalk, WeCom, QQ, and Official Accounts.</p>
+        </a>
+        <a class="feature-card" href="https://docs.cowagent.ai/multi-agent/team" target="_blank">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+              <path d="M16 3.13a4 4 0 010 7.75"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Multi-Agent Team</h3>
+          <p class="feature-desc">Create multiple Agents with distinct roles to form a team, with group-chat collaboration, task delegation, and sub-Agents — quickly build your own team of digital employees.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Models & Channels -->
+  <section class="integrations" id="integrations">
+    <div class="section-container">
+      <h2 class="section-title">Models & Channels</h2>
+      <p class="section-subtitle">Plug in any major LLM and deploy across multiple channels</p>
+
+      <div class="integration-group">
+        <h3 class="integration-label">Models</h3>
+        <div class="tags-container">
+          <span class="tag tag-model">OpenAI</span>
+          <span class="tag tag-model">Claude</span>
+          <span class="tag tag-model">Gemini</span>
+          <span class="tag tag-model">DeepSeek</span>
+          <span class="tag tag-model">MiniMax</span>
+          <span class="tag tag-model">GLM</span>
+          <span class="tag tag-model">Qwen</span>
+          <span class="tag tag-model">Kimi</span>
+          <span class="tag tag-model">Doubao</span>
+          <span class="tag tag-model">LinkAI</span>
+        </div>
+      </div>
+
+      <div class="integration-group">
+        <h3 class="integration-label">Channels</h3>
+        <div class="tags-container">
+          <span class="tag tag-channel">Telegram</span>
+          <span class="tag tag-channel">Slack</span>
+          <span class="tag tag-channel">Discord</span>
+          <span class="tag tag-channel">WeChat</span>
+          <span class="tag tag-channel">Feishu</span>
+          <span class="tag tag-channel">DingTalk</span>
+          <span class="tag tag-channel">WeCom Bot</span>
+          <span class="tag tag-channel">QQ</span>
+          <span class="tag tag-channel">WeCom App</span>
+          <span class="tag tag-channel">Official Account</span>
+          <span class="tag tag-channel">Web</span>
+          <span class="tag tag-channel">Terminal</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="/logo/cow-logo.png" alt="CowAgent" class="footer-logo" />
+          <span class="footer-name">CowAgent</span>
+        </div>
+        <div class="footer-links">
+          <a href="https://docs.cowagent.ai" target="_blank">Docs</a>
+          <a href="https://skills.cowagent.ai" target="_blank">Skills</a>
+          <a href="/blog/">Blog</a>
+          <a href="/download/">Download</a>
+          <a href="https://github.com/zhayujie/CowAgent" target="_blank">GitHub</a>
+          <a href="https://link-ai.tech" target="_blank">Enterprise</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 CowAgent. Open source under MIT License.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/i18n.js?v=a89f23b6"></script>
+  <script src="/main.js?v=4570d2d7"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"272ddd55b85d4bab8be60ea7ac5627c8","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

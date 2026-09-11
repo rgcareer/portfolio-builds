@@ -1,0 +1,159 @@
+Skip to contentCavemandocsGitHubOpen Caveman
+
+Start
+
+- Overview
+
+- Quickstart
+
+- Architecture
+
+- How numbers are counted
+
+cavemanrepository
+00Skill4 pages
+01Proxy10 pages
+02Memory2 pages
+Build with it6 pages
+agent-sdkrepository
+Agent SDK13 pages
+Pebblesoon
+
+caveman cloudhosted
+03Cloud2 pages
+Reference
+
+- Licensing
+
+- Telemetry
+
+- Eval graders
+
+- Provider catalog
+
+# Quickstart
+
+Install the skill and compress a real payload in about five minutes.
+View as MarkdownCopyCopied
+
+There are two products, and they are independent. The skill changes how your agent writes and takes about
+thirty seconds. The proxy, launched through the CLI, shrinks what the agent reads and gives you a local
+report on where those tokens actually go.
+
+## Install the skill#
+
+- 1This works for most agents:
+terminal
+
+```
+npx skills add JuliusBrussee/caveman
+```
+
+Without `-g` this writes into `./.agents/skills` under the directory you are standing in, not into a
+global config. That is usually what you want for a project, and surprising if you expected otherwise.
+
+- 2Some agents have a native path that wires up more than the skill file:
+terminal
+
+```
+# Claude Code
+claude plugin marketplace add JuliusBrussee/caveman
+claude plugin install caveman@caveman
+
+# Gemini CLI
+gemini extensions install https://github.com/JuliusBrussee/caveman
+
+# Codex CLI
+npx skills add JuliusBrussee/caveman -a codex
+
+# Cursor, which needs the global flag
+npx skills add JuliusBrussee/caveman -a cursor -g
+```
+
+- 3Check it took. In your agent, run:
+text
+
+```
+/caveman
+```
+
+You should get a confirmation that the mode is active. `/caveman off` turns it back off, and so does
+saying "normal mode".
+
+What it changes, and what it does not
+The skill drops articles, filler and narration from your agent's replies. It is explicit about what stays
+byte for byte: code blocks, function and API names, CLI commands, and exact error strings. It also steps
+aside on its own for security warnings, irreversible actions, and any moment where being terse would make
+an instruction ambiguous.
+
+## Install the local tools#
+
+The CLI is published on npm under a scoped name.
+
+terminal
+
+```
+npm i -g @caveman-ai/cli
+caveman setup --install
+```
+
+Two package names, one of them is not ours
+The bare `caveman` package on npm is an unrelated JavaScript templating library. Install
+`@caveman-ai/cli`. On PyPI the same applies: our SDK is `caveman-sdk`, imported as `caveman_cloud`.
+
+`caveman setup --install` downloads the companion binaries into `~/.caveman/bin`. It checks a key-signed
+manifest first, then verifies each artefact against its own SHA-256 before installing it.
+
+The CLI sends anonymous counts, and says so on first run
+Command names, version, platform, duration, exit class, and aggregate token counts from local sessions.
+Never prompts, code, file paths, arguments, model names or dollar figures. It is how we see which
+commands people use and which ones break, and it is a large part of why the local tools can stay free.
+Turn it off with `caveman telemetry off`, `CAVEMAN_TELEMETRY=0`, or `DO_NOT_TRACK=1`. The full payload is
+listed on Telemetry.
+
+Then start your agent through the CLI so traffic goes through the local proxy:
+
+terminal
+
+```
+caveman claude
+```
+
+The same works for `codex`, `gemini`, `aider`, `hermes`, `kilo`, `openclaw`, `opencode`, `pi`, and
+`qwen`. Ten wrap profiles ship today, and each is one JSON file in the registry. That set is smaller
+than the thirty-plus agents the skill supports, because wrap has to know the host's provider endpoint.
+
+## Find out where your tokens go#
+
+terminal
+
+```
+caveman learn
+```
+
+This reads your local agent sessions and ranks what is actually consuming the budget. It measures and
+does nothing else. Applying a fix is a separate, consent-gated step:
+
+terminal
+
+```
+caveman learn report --json
+caveman learn apply <sink_id> --dry-run
+caveman learn apply <sink_id>
+```
+
+Every applied fix is checked for being net token negative. If an edit does not make the thing smaller, it
+is reverted.
+
+## What you should expect to see#
+
+On the committed benchmark suite, the skill cuts output tokens by about 65 percent on average, with a
+range from 22 to 87 percent across ten prompts. That is a per-run inferred estimate measured on that
+suite, not a promise about your bill.
+
+Nothing you run locally will ever report a dollar figure or a monthly total. That is deliberate and
+the reasoning is here.
+
+PreviousOverviewNext Architecture
+
+Caveman documentationProductPricingConsoleGitHubLicensingllms.txt

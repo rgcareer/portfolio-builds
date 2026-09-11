@@ -1,0 +1,48 @@
+## Quickstart
+
+```python
+$ pip install -U pymilvus
+```
+This installs `pymilvus`, the Python SDK for Milvus. Use `MilvusClient` to create a client:
+```python
+from pymilvus import MilvusClient
+```
+
+* You can also try Milvus Lite for quickstart by installing `pymilvus[milvus-lite]`. To create a local vector database, simply instantiate a client with a local file name for persisting data:
+
+  ```python
+  client = MilvusClient("milvus_demo.db")
+  ```
+
+* You can also specify the credentials to connect to your deployed [Milvus server](https://milvus.io/docs/authenticate.md?tab=docker) or [Zilliz Cloud](https://docs.zilliz.com/docs/quick-start):
+
+  ```python
+  client = MilvusClient(
+    uri="<endpoint_of_self_hosted_milvus_or_zilliz_cloud>",
+    token="<username_and_password_or_zilliz_cloud_api_key>")
+  ```
+
+With the client, you can create collection:
+```python
+client.create_collection(
+    collection_name="demo_collection",
+    dimension=768,  # The vectors we will use in this demo have 768 dimensions
+)
+```
+
+Ingest data:
+```python
+res = client.insert(collection_name="demo_collection", data=data)
+```
+
+Perform vector search:
+
+```python
+query_vectors = embedding_fn.encode_queries(["Who is Alan Turing?", "What is AI?"])
+res = client.search(
+    collection_name="demo_collection",  # target collection
+    data=query_vectors,  # a list of one or more query vectors, supports batch
+    limit=2,  # how many results to return (topK)
+    output_fields=["vector", "text", "subject"],  # what fields to return
+)
+```

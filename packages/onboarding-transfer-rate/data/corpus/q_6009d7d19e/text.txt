@@ -1,0 +1,82 @@
+## Quickstart
+
+### macOS
+
+<a href="https://github.com/mudler/LocalAI/releases/latest/download/LocalAI.dmg">
+  <img src="https://img.shields.io/badge/Download-macOS-blue?style=for-the-badge&logo=apple&logoColor=white" alt="Download LocalAI for macOS"/>
+</a>
+
+> **Note:** The DMG is not signed by Apple. After installing, run: `sudo xattr -d com.apple.quarantine /Applications/LocalAI.app`. See [#6268](https://github.com/mudler/LocalAI/issues/6268) for details.
+
+### Containers (Docker, podman, ...)
+
+> Already ran LocalAI before? Use `docker start -i local-ai` to restart an existing container.
+
+#### CPU only:
+
+```bash
+docker run -ti --name local-ai -p 8080:8080 localai/localai:latest
+```
+
+#### NVIDIA GPU:
+
+```bash
+# CUDA 13
+docker run -ti --name local-ai -p 8080:8080 --gpus all localai/localai:latest-gpu-nvidia-cuda-13
+
+# CUDA 12
+docker run -ti --name local-ai -p 8080:8080 --gpus all localai/localai:latest-gpu-nvidia-cuda-12
+
+# NVIDIA Jetson ARM64 (CUDA 12, for AGX Orin and similar)
+docker run -ti --name local-ai -p 8080:8080 --gpus all localai/localai:latest-nvidia-l4t-arm64
+
+# NVIDIA Jetson ARM64 (CUDA 13, for DGX Spark)
+docker run -ti --name local-ai -p 8080:8080 --gpus all localai/localai:latest-nvidia-l4t-arm64-cuda-13
+```
+
+#### AMD GPU (ROCm):
+
+```bash
+docker run -ti --name local-ai -p 8080:8080 --device=/dev/kfd --device=/dev/dri --group-add=video localai/localai:latest-gpu-hipblas
+```
+
+#### Intel GPU (oneAPI):
+
+```bash
+docker run -ti --name local-ai -p 8080:8080 --device=/dev/dri/card1 --device=/dev/dri/renderD128 localai/localai:latest-gpu-intel
+```
+
+#### Vulkan GPU:
+
+```bash
+docker run -ti --name local-ai -p 8080:8080 localai/localai:latest-gpu-vulkan
+```
+
+### Loading models
+
+```bash
+# From the model gallery (see available models with `local-ai models list` or at https://models.localai.io)
+local-ai run llama-3.2-1b-instruct:q4_k_m
+# From Huggingface
+local-ai run huggingface://TheBloke/phi-2-GGUF/phi-2.Q8_0.gguf
+# From the Ollama OCI registry
+local-ai run ollama://gemma:2b
+# From a YAML config
+local-ai run https://gist.githubusercontent.com/.../phi-2.yaml
+# From a standard OCI registry (e.g., Docker Hub)
+local-ai run oci://localai/phi-2:latest
+```
+
+To work with a running LocalAI server from the terminal, start the built-in agent from another shell. It answers questions, reads your files and runs commands on your machine, asking you to approve anything that changes state. Inside a session, `/models` lists installed models and `/model <name>` switches between them. See the [Terminal agent](https://localai.io/docs/features/terminal-agent/) docs.
+
+```bash
+# Terminal 1
+local-ai run llama-3.2-1b-instruct:q4_k_m
+
+# Terminal 2
+local-ai chat --model llama-3.2-1b-instruct:q4_k_m
+```
+
+> **Automatic Backend Detection**: LocalAI automatically detects your GPU capabilities and downloads the appropriate backend. For advanced options, see [GPU Acceleration](https://localai.io/features/gpu-acceleration/).
+
+For more details, see the [Getting Started guide](https://localai.io/basics/getting_started/).

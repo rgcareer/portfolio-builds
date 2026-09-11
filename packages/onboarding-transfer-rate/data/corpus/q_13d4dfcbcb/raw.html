@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      (function () {
+        try {
+          var theme = localStorage.getItem("dsa-theme") || "light";
+          document.documentElement.setAttribute(
+            "data-theme",
+            theme === "dark" ? "dark" : "light"
+          );
+        } catch (error) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DSA - LLM 驱动的 A股/港股/美股智能股票分析系统</title>
+    <meta
+      name="description"
+      content="DSA 是一个 LLM 驱动的智能股票分析系统，支持 A股、港股、美股，整合行情、新闻舆情、技术面与基本面，生成每日个股决策报告和大盘复盘。"
+    />
+    <meta name="author" content="daily_stock_analysis" />
+    <meta name="theme-color" content="#f7f8f4" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#101412" media="(prefers-color-scheme: dark)" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Daily Stock Analysis" />
+    <meta property="og:title" content="DSA - LLM 驱动的智能股票分析系统" />
+    <meta
+      property="og:description"
+      content="支持 A股、港股、美股的开源智能股票分析系统，提供每日分析报告、大盘复盘、Agent 问股和多渠道推送。"
+    />
+    <meta property="og:url" content="https://dsa.zhulinsen.tech/" />
+    <meta property="og:image" content="https://dsa.zhulinsen.tech/assets/dsa-webui.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://dsa.zhulinsen.tech/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://dsa.zhulinsen.tech/" />
+    <link rel="alternate" hreflang="x-default" href="https://dsa.zhulinsen.tech/" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="preload" as="image" href="assets/dsa-webui.webp" type="image/webp" fetchpriority="high" />
+    <link rel="stylesheet" href="styles.css?v=20260510p" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "name": "Daily Stock Analysis",
+            "alternateName": "DSA",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "Linux, macOS, Windows, Docker, GitHub Actions",
+            "url": "https://dsa.zhulinsen.tech/",
+            "codeRepository": "https://github.com/ZhuLinsen/daily_stock_analysis",
+            "description": "LLM 驱动的智能股票分析系统，支持 A股、港股、美股，生成每日个股决策报告和大盘复盘。",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "DSA 支持哪些部署方式？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "DSA 支持 GitHub Actions、本地运行和 Docker 部署，可按是否需要服务器和 WebUI 选择。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "DSA 是否构成投资建议？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "DSA 仅用于研究与辅助分析，不构成投资建议。市场有风险，投资需谨慎。"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header" id="siteHeader">
+      <div class="site-header__bar">
+        <a class="brand" href="#top" data-i18n-attr="aria-label:brand.home">
+          <span class="brand-mark">DSA</span>
+          <span class="brand-text">Daily Stock Analysis</span>
+        </a>
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="siteTools"
+          data-i18n-attr="aria-label:nav.menuAria"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <div class="site-header__tools" id="siteTools">
+        <nav class="top-nav" data-i18n-attr="aria-label:nav.primaryAria">
+          <a href="#overview" data-i18n="nav.overview">概览</a>
+          <a href="#capabilities" data-i18n="nav.capabilities">能力</a>
+          <a href="#workbench" data-i18n="nav.workbench">产出</a>
+          <a href="#quickstart" data-i18n="nav.quickstart">启动</a>
+          <a href="docs/" data-i18n="nav.docs">文档</a>
+        </nav>
+
+        <div class="header-actions">
+          <label class="lang-switch" for="languageSelect">
+            <select id="languageSelect" data-i18n-attr="aria-label:lang.aria">
+              <option value="zh">简体中文</option>
+              <option value="en">English</option>
+            </select>
+          </label>
+
+          <div class="theme-switch" data-i18n-attr="aria-label:theme.groupAria" role="group">
+            <button
+              class="theme-switch__btn"
+              type="button"
+              data-theme-pick="light"
+              data-i18n-attr="aria-label:theme.light;title:theme.light"
+            >
+              ☀
+            </button>
+            <button
+              class="theme-switch__btn"
+              type="button"
+              data-theme-pick="dark"
+              data-i18n-attr="aria-label:theme.dark;title:theme.dark"
+            >
+              ☾
+            </button>
+          </div>
+
+          <a
+            class="header-link github-link"
+            href="https://github.com/ZhuLinsen/daily_stock_analysis"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-i18n-attr="aria-label:nav.githubAria"
+          >
+            <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16">
+              <path
+                fill="currentColor"
+                d="M8 0C3.58 0 0 3.67 0 8.2c0 3.63 2.29 6.7 5.47 7.79.4.08.55-.18.55-.4 0-.2-.01-.86-.01-1.56-2.01.38-2.53-.5-2.69-.96-.09-.24-.48-.96-.82-1.15-.28-.16-.68-.55-.01-.56.63-.01 1.08.59 1.23.84.72 1.24 1.87.89 2.33.68.07-.53.28-.89.51-1.09-1.78-.21-3.64-.91-3.64-4.04 0-.89.31-1.62.82-2.19-.08-.21-.36-1.04.08-2.16 0 0 .67-.22 2.2.84A7.42 7.42 0 0 1 8 3.96c.68 0 1.36.09 2 .28 1.53-1.06 2.2-.84 2.2-.84.44 1.12.16 1.95.08 2.16.51.57.82 1.3.82 2.19 0 3.14-1.87 3.83-3.65 4.04.29.26.54.75.54 1.52 0 1.09-.01 1.97-.01 2.24 0 .22.15.48.55.4A8.12 8.12 0 0 0 16 8.2C16 3.67 12.42 0 8 0Z"
+              />
+            </svg>
+            <span data-i18n="nav.github">GitHub</span>
+          </a>
+          <a
+            class="header-link email-link"
+            href="mailto:zhuls345@gmail.com?subject=DSA%20Feedback"
+            data-i18n-attr="aria-label:nav.emailAria"
+          >
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17">
+              <path
+                fill="currentColor"
+                d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm0 3.2V17h16V8.2l-7.36 5.16a1.1 1.1 0 0 1-1.28 0L4 8.2Zm1.45-1.2L12 11.59 18.55 7H5.45Z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" id="overview" aria-labelledby="heroTitle">
+        <div class="hero__content">
+          <p class="eyebrow" data-i18n="hero.eyebrow">LLM-DRIVEN STOCK ANALYSIS</p>
+          <h1 id="heroTitle" data-i18n-html="hero.title">LLM 驱动的<br><span>智能股票分析系统</span></h1>
+          <p class="hero-desc" data-i18n="hero.desc">
+            DSA 面向 A 股、港股、美股，用 LLM 整合多源行情、新闻舆情、技术面与基本面，每个交易日生成个股决策报告与大盘复盘，并支持随时发起多策略问股。
+          </p>
+          <div class="hero-actions">
+            <a
+              class="btn btn-primary"
+              href="https://github.com/ZhuLinsen/daily_stock_analysis"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-i18n="hero.primaryCta"
+            >打开 DSA GitHub</a>
+            <a class="btn btn-secondary" href="docs/quick-start/" data-i18n="hero.docsCta">阅读文档</a>
+          </div>
+          <ul class="hero-badges" aria-label="DSA capabilities">
+            <li data-i18n="hero.badge1">A股 / 港股 / 美股</li>
+            <li data-i18n="hero.badge2">多数据源回退</li>
+            <li data-i18n="hero.badge3">WebUI 与多渠道通知</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="capabilities" aria-labelledby="capabilitiesTitle">
+        <div class="section-inner">
+          <div class="section-head">
+            <p class="section-kicker" data-i18n="capabilities.kicker">CAPABILITIES</p>
+            <h2 id="capabilitiesTitle" data-i18n="capabilities.title">核心能力</h2>
+            <p class="section-lead" data-i18n="capabilities.desc">
+              围绕自选股研究链路组织能力：行情数据、新闻舆情、LLM 决策、Agent 问股、回测复盘与多渠道推送。
+            </p>
+          </div>
+          <div class="capability-grid">
+            <article class="capability-card">
+              <span>01</span>
+              <h3 data-i18n="capabilities.card1Title">跨市场行情数据</h3>
+              <p data-i18n="capabilities.card1Body">覆盖 A 股、港股、美股与常见 ETF，接入 TickFlow、AkShare、Tushare、YFinance、Longbridge 等数据源，并保留回退链路。</p>
+            </article>
+            <article class="capability-card">
+              <span>02</span>
+              <h3 data-i18n="capabilities.card2Title">新闻舆情与事件</h3>
+              <p data-i18n="capabilities.card2Body">聚合新闻、公告、搜索结果与社交舆情，为财报、题材、资金流和风险事件提供上下文。</p>
+            </article>
+            <article class="capability-card">
+              <span>03</span>
+              <h3 data-i18n="capabilities.card3Title">LLM 决策报告</h3>
+              <p data-i18n="capabilities.card3Body">将行情、新闻、技术面和基本面汇总成结构化结论，输出评分、趋势、操作建议、风险警报与检查清单。</p>
+            </article>
+            <article class="capability-card">
+              <span>04</span>
+              <h3 data-i18n="capabilities.card4Title">Agent 策略问股</h3>
+              <p data-i18n="capabilities.card4Body">支持均线、缠论、波浪、多头趋势等策略视角，可在 Web、CLI 或 Bot 场景下对单只标的发起追问。</p>
+            </article>
+            <article class="capability-card">
+              <span>05</span>
+              <h3 data-i18n="capabilities.card5Title">回测与复盘</h3>
+              <p data-i18n="capabilities.card5Body">历史报告写入 SQLite，支持方向准确率、模拟收益、持仓回看和大盘复盘，用来检验策略纪律。</p>
+            </article>
+            <article class="capability-card">
+              <span>06</span>
+              <h3 data-i18n="capabilities.card6Title">多渠道推送</h3>
+              <p data-i18n="capabilities.card6Body">支持企业微信、飞书、Telegram、Discord、Slack、邮件等渠道，把自选股报告和大盘复盘送到固定入口。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section visual-section" id="workbench" aria-labelledby="workbenchTitle">
+        <div class="section-inner">
+          <div class="section-head">
+            <p class="section-kicker" data-i18n="workbench.kicker">WATCHLIST &amp; AGENT</p>
+            <h2 id="workbenchTitle" data-i18n="workbench.title">自选股分析与问股</h2>
+            <p class="section-lead" data-i18n="workbench.desc">
+              围绕自选股生成个股研究报告与大盘复盘；需要临时判断时，可对单只标的发起策略问股。
+            </p>
+          </div>
+          <div class="visual-grid">
+            <article class="visual-card visual-card--large">
+              <div class="visual-mock visual-mock--report" data-i18n-html="workbench.mock1Html"></div>
+              <div class="visual-card__head">
+                <h3 data-i18n="workbench.card1Title">自选股报告</h3>
+                <span class="visual-flag visual-flag--daily" data-i18n="workbench.flagDaily">每日</span>
+              </div>
+              <p data-i18n="workbench.card1Body">对股票池逐只生成研究摘要、评分、趋势判断、风险警报、利好催化和操作检查清单。</p>
+            </article>
+            <article class="visual-card">
+              <div class="visual-mock visual-mock--market" data-i18n-html="workbench.mock2Html"></div>
+              <div class="visual-card__head">
+                <h3 data-i18n="workbench.card2Title">大盘报告</h3>
+                <span class="visual-flag visual-flag--daily" data-i18n="workbench.flagDaily">每日</span>
+              </div>
+              <p data-i18n="workbench.card2Body">按市场生成指数表现、涨跌统计、板块强弱、市场温度和交易日状态，辅助判断整体环境。</p>
+            </article>
+            <article class="visual-card">
+              <div class="visual-mock visual-mock--strategy" data-i18n-html="workbench.mock3Html"></div>
+              <div class="visual-card__head">
+                <h3 data-i18n="workbench.card3Title">策略问股</h3>
+                <span class="visual-flag visual-flag--ondemand" data-i18n="workbench.flagOnDemand">按需</span>
+              </div>
+              <p data-i18n="workbench.card3Body">对临时关注的标的发起问答，结合行情、技术指标、新闻和内置策略给出研究视角。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section quick-section" id="quickstart" aria-labelledby="quickTitle">
+        <div class="section-inner">
+          <div class="quick-head">
+            <p class="section-kicker" data-i18n="quick.kicker">QUICK START</p>
+            <h2 id="quickTitle" data-i18n="quick.title">快速开始</h2>
+            <p class="section-lead" data-i18n="quick.desc">
+              选择一个运行渠道，配置股票池、AI Key 和通知渠道，生成第一份 DSA 报告。
+            </p>
+          </div>
+          <div class="quick-shell">
+            <div class="quick-tabs" role="tablist" data-i18n-attr="aria-label:quick.tabsAria">
+              <button class="command-tab quick-channel-tab is-active" type="button" role="tab" aria-selected="true" data-command-tab="actions">
+                <span class="quick-channel-tab__badge quick-channel-tab__badge--cloud" data-i18n="quick.badgeActions">云端定时</span>
+                <strong data-i18n="quick.linkActionsTitle">Actions 部署</strong>
+                <span data-i18n="quick.linkActionsBody">零服务器定时推送</span>
+              </button>
+              <button class="command-tab quick-channel-tab" type="button" role="tab" aria-selected="false" data-command-tab="local">
+                <span class="quick-channel-tab__badge quick-channel-tab__badge--local" data-i18n="quick.badgeLocal">本机调试</span>
+                <strong data-i18n="quick.linkLocalTitle">本地运行</strong>
+                <span data-i18n="quick.linkLocalBody">试跑、调试与 WebUI</span>
+              </button>
+              <button class="command-tab quick-channel-tab" type="button" role="tab" aria-selected="false" data-command-tab="docker">
+                <span class="quick-channel-tab__badge quick-channel-tab__badge--docker" data-i18n="quick.badgeDocker">容器部署</span>
+                <strong data-i18n="quick.linkDockerTitle">Docker 部署</strong>
+                <span data-i18n="quick.linkDockerBody">Compose 构建或官方镜像</span>
+              </button>
+            </div>
+            <div class="quick-tab-panels">
+              <article class="quick-tab-panel is-active" data-command-panel="actions">
+                <div class="quick-tab-panel__meta">
+                  <div>
+                    <span data-i18n="quick.channelLabel">运行渠道</span>
+                    <h3 data-i18n="quick.panelActionsTitle">GitHub Actions</h3>
+                    <p data-i18n="quick.panelActionsBody">适合每天自动生成并推送自选股报告，不需要维护服务器。</p>
+                  </div>
+                  <a class="btn btn-secondary" href="docs/github-actions/" data-i18n="quick.openDoc">打开文档</a>
+                </div>
+                <pre class="command-panel"><code></code></pre>
+              </article>
+              <article class="quick-tab-panel" data-command-panel="local" hidden>
+                <div class="quick-tab-panel__meta">
+                  <div>
+                    <span data-i18n="quick.channelLabel">运行渠道</span>
+                    <h3 data-i18n="quick.panelLocalTitle">本地运行</h3>
+                    <p data-i18n="quick.panelLocalBody">适合第一次试跑、调试模型和数据源，或在本机打开 WebUI。</p>
+                  </div>
+                  <a class="btn btn-secondary" href="docs/local/" data-i18n="quick.openDoc">打开文档</a>
+                </div>
+                <pre class="command-panel"><code></code></pre>
+              </article>
+              <article class="quick-tab-panel" data-command-panel="docker" hidden>
+                <div class="quick-tab-panel__meta">
+                  <div>
+                    <span data-i18n="quick.channelLabel">运行渠道</span>
+                    <h3 data-i18n="quick.panelDockerTitle">Docker 部署</h3>
+                    <p data-i18n="quick.panelDockerBody">适合服务器长期运行，可选择本地 Compose 构建或 Docker Hub / GHCR 镜像。</p>
+                  </div>
+                  <a class="btn btn-secondary" href="docs/docker/" data-i18n="quick.openDoc">打开文档</a>
+                </div>
+                <pre class="command-panel"><code></code></pre>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section docs-section" id="docs" aria-labelledby="docsTitle">
+        <div class="section-inner">
+          <div class="section-head section-head--split">
+            <div>
+              <p class="section-kicker" data-i18n="docs.kicker">DOCS</p>
+              <h2 id="docsTitle" data-i18n="docs.title">使用文档</h2>
+              <p class="section-lead" data-i18n="docs.desc">文档中心按 DSA 真实使用路径组织，并同步 DSA 仓库完整源文档，覆盖云部署、Bot、桌面端、版本和开发者资料。</p>
+            </div>
+            <a class="btn btn-secondary" href="docs/" data-i18n="docs.open">进入文档中心</a>
+          </div>
+          <div class="doc-card-grid" id="docCards"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p data-i18n="footer.note">daily_stock_analysis · 官方项目页 · 研究系统，不构成投资建议</p>
+      <p class="footer-contact" data-i18n-html="footer.contact">技术问题优先提交 GitHub Issue；合作、赞助、数据源接入请邮件联系 <a href="mailto:zhuls345@gmail.com?subject=DSA%20Feedback">zhuls345@gmail.com</a>。</p>
+    </footer>
+
+    <script src="script.js?v=20260510p"></script>
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"556e6c823f1341ceb31621412beb5821","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

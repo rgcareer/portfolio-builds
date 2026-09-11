@@ -1,0 +1,139 @@
+~/ponytail
+
+README.md
+built.md
+merch.md
+
+☀ light mode
+
+# ponytail▋
+
+He says nothing. He writes one line. It works.
+
+// A ruleset that makes your AI coding agent write the least code that works — like a senior dev who's been paged at 3am one too many times.
+
+view on github
+install
+
+Something's coming. Be the first to know.→
+
+the_whole_idea
+
+## Your agent reaches for fifty lines. The job needs one.
+
+cache.py−48 +1
+
+```
+- class CacheManager:-     def __init__(self, ttl, maxsize):-         self._store, self._lock = {}, Lock()-     # ...44 more lines you maintain forever+ @lru_cache(maxsize=1000)+ def fetch(...): ...
+```
+
+// same behavior. 48 fewer lines. zero bugs in code that no longer exists.
+
+the_ladder
+
+## Stop at the first rung that holds.
+
+- Does this need to exist? Speculative need = skip it. (YAGNI)
+
+- Already in this codebase? Reuse the helper, util, or pattern that already lives here.
+
+- Does the standard library do it? Use it.
+
+- Native platform feature covers it? `` over a picker lib.
+
+- Already-installed dependency solves it? Use it. Don't add a new one.
+
+- Can it be one line? One line.
+
+- Only then: the minimum code that works.
+
+benchmarks
+
+## Less code. Fewer tokens. Same safety.
+
+54%
+less code
+
+22%
+fewer tokens
+
+20%
+lower cost
+
+27%
+faster
+
+100%
+safety kept
+
+// medians across 12 feature tasks on a FastAPI + React repo.
+// validation, error handling, security and accessibility are never simplified away.
+
+install
+
+## Two lines for Claude Code.
+
+# Claude Code
+/plugin marketplace add DietrichGebert/ponytail
+/plugin install ponytail@ponytail
+
+### codex
+
+`codex plugin marketplace add DietrichGebert/ponytail`
+
+### copilot cli
+
+`copilot plugin install ponytail@ponytail`
+
+### gemini cli
+
+`gemini extensions install github.com/DietrichGebert/ponytail`
+
+### pi harness
+
+`pi install git:github.com/DietrichGebert/ponytail`
+
+// also OpenCode, Cursor, Windsurf, Cline, Kiro, Zed and more — 14+ agents.
+// full list in the README.
+
+commands
+
+## Drive it from chat.
+
+`/ponytail lite|full|ultra|off` | set intensity, or turn it off |
+
+`/ponytail-review` | find over-engineering in the current diff |
+
+`/ponytail-audit` | scan the whole repo for bloat |
+
+`/ponytail-debt` | collect deferred shortcuts into a ledger |
+
+`/ponytail-gain` | show the benchmark scoreboard |
+
+`/ponytail-help` | quick command reference |
+
+intensity
+
+## Pick how lazy.
+
+### "lite"
+
+Builds what you asked, names the lazier alternative in one line. You pick.
+
+# default
+
+### "full"
+
+The ladder, enforced. Stdlib and native first. Shortest diff, shortest explanation.
+
+### "ultra"
+
+YAGNI extremist. Ships the one-liner and challenges the rest of the requirement in the same breath.
+
+the best code is the code never written.
+
+~/ponytail ❯ ▋
+
+MIT licensed · DietrichGebert/ponytail
+
+Legal Notice · Privacy
