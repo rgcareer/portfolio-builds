@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+**/dist/
+.astro/
+.vite-temp/
+
+# Env / secrets - the build session never reads the env file
+.env
+.env.*
+!.env.example
+
+# Local databases (the shared cost ledger, per-piece work dbs) - never in history
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Scratch
+*.tmp
+evidence/*.tmp
+
+# OS / editor
+.DS_Store
+*.log

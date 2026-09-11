@@ -1,0 +1,22 @@
+{
+  "contract": {
+    "created": "2026-09-10",
+    "rules": [
+      "Append-only. Checks are added, never removed, renamed, or weakened to make the gate pass.",
+      "Results are written by scripts/gate.mjs into evidence/, never by hand.",
+      "A piece is done only when every required check for it passed in the latest gate run AND its repro check re-derived the published headline numbers from committed data.",
+      "kind = unit (vitest suites) | repro (re-derive published numbers from committed snapshot, diff bit-for-bit) | audit (independent cross-check of a number against raw tool output)."
+    ]
+  },
+  "checks": [
+    {
+      "id": "root.unit",
+      "piece": "root",
+      "kind": "unit",
+      "cmd": "npx vitest run",
+      "parse": "vitest",
+      "required": true,
+      "added": "2026-09-10"
+    }
+  ]
+}

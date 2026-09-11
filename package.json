@@ -1,0 +1,26 @@
+{
+  "name": "portfolio-builds",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Track P portfolio builds - real numbers only. One package per measurement piece; Skillcheck lives in ./skillcheck as a self-contained nested project.",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "gate": "node scripts/gate.mjs",
+    "test:skillcheck": "npm --prefix skillcheck test"
+  },
+  "devDependencies": {
+    "@types/node": "^26.3.0",
+    "tsx": "^4.23.12",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.11"
+  }
+}
