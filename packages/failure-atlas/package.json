@@ -1,0 +1,14 @@
+{
+  "name": "@portfolio-builds/failure-atlas",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Autonomous Agent Failure Atlas: Operation Hired's production telemetry mined, read-only, into a mechanically derived failure taxonomy, a human-correction rate, and instrumented cost lower bounds. Pre-registered; anonymized snapshot; reproducible at $0.",
+  "main": "src/index.ts",
+  "scripts": {
+    "atlas": "node --import tsx src/cli.ts"
+  },
+  "dependencies": {
+    "@portfolio-builds/shared": "0.0.0"
+  }
+}

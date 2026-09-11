@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "frozen_on": "2026-09-11",
+  "source": {
+    "system": "Operation Hired (Ryan's autonomous job-search agent), production SQLite database and plain-text logs",
+    "access": "read-only via sqlite3 with the immutable=1 URI; the source tree is never written; WAL-resident rows are invisible to immutable reads and their count is disclosed",
+    "provenance_recorded": ["sha256 and byte size of hired.db", "byte size of hired.db-wal", "sqlite3 version", "extracted_at", "per-table row counts", "sha256 of each pulled table's CREATE statement", "sha256 of each parsed log file"]
+  },
+  "tables": {
+    "discovery_runs": ["id", "source", "started_at", "completed_at", "jobs_found", "jobs_new", "jobs_duplicate", "status", "searches_issued", "error"],
+    "jobs": ["id", "status", "source", "created_at", "updated_at"],
+    "job_fit_reports": ["id", "job_id", "scoring_tier", "api_provider", "api_cost_cents", "overall_fit_score", "recommendation", "created_at"],
+    "feedback_signals": ["id", "signal_type", "job_id", "discovered_job_id", "original_score", "override_score", "outcome", "created_at"],
+    "pipeline_automation": ["id", "job_id", "status", "resume_status", "cover_letter_status", "resume_version_id", "cover_letter_id", "outreach_status", "created_at", "updated_at"],
+    "submission_ledger": ["id", "job_id", "submitted_at", "apply_method"],
+    "jd_injection_anomalies": ["id", "job_id", "anomaly_key", "logged_at"],
+    "claim_acknowledgements": ["doc_kind", "doc_id", "claim_key", "acknowledged_at"],
+    "jd_item_dispositions": ["job_id", "disposition", "disposed_at"],
+    "fraud_indicators": ["indicator_type", "severity", "auto_detected", "dismissed_by_user", "created_at"],
+    "gmail_drafts": ["status", "sent", "created_at"],
+    "weight_suggestions": ["run_date", "category", "current_weight", "suggested_weight", "confidence", "status", "applied_at"]
+  },
+  "never_pulled": ["job titles", "descriptions", "company names as text", "contact names/emails", "URLs", "notes", "snippets", "subjects", "resume/cover-letter content or hashes", "metadata JSON bodies"],
+  "redaction": {
+    "ids": "every id / job_id / discovered_job_id / doc_id / resume_version_id / cover_letter_id -> HMAC-SHA256(PB_ANON_SALT, value)[:10]; joins survive, values do not",
+    "employer_tokens": "in error strings: workday tenants ([a-z0-9]+\\.wd\\d+/[A-Za-z_]+), '<slug>: <msg>' board prefixes, and any token matching a name in the companies table -> co_<8 hex of HMAC>; the mapping is never committed",
+    "salt": "PB_ANON_SALT from the environment; never committed; the extract refuses to run without it"
+  },
+  "logs": {
+    "crash.log": "entries parsed into {ts, kind, first_error_line (redacted), top_frame relative path}",
+    "llm_usage_lines": "every '[llm-usage] <model> in=<n> out=<n> ~$<usd>' line across logs/*.log -> {file, line, model, in, out, usd}",
+    "other_logs": "line-shape counts only"
+  },
+  "taxonomy_method": {
+    "atomize": "multi-board errors 'k/n boards failed: a: msg; b: msg' -> one atom per '<board>: <msg>'; other errors are one atom; crash.log entries are atoms keyed by kind + first error line",
+    "normalize": "ISO timestamps -> <ts>; UUIDs -> <uuid>; employer tokens -> <co>; workday tenants -> <tenant>; other digit runs -> <n> EXCEPT an HTTP status code, which is kept literal; whitespace collapsed",
+    "template": "the normalized atom; cluster id = sha256(template)[:8]; grouping is exact-template equality",
+    "labels": "protocol/labels.json maps template -> category; committed; a template without a label FAILS the build; the raw template is always shown beside its label; label_source records whether a human or an LLM ([SIMULATED]) proposed it"
+  },
+  "denominators": {
+    "D1": "per discovered job (all discovered_jobs): any feedback_signal — reported, not the headline (measures triage volume)",
+    "D2": "per pipeline row: approved_at not null — reported as the DESIGNED gate (reads ~100% by construction), not the headline",
+    "D3": "per pipeline row: >= 1 unplanned correction on the same job: feedback_signals score_override or dismiss, jobs.override_score not null, pipeline_automation.status = declined, a claim_acknowledgement on its resume/cover letter, or a jd_item_disposition — THE HEADLINE intervention rate",
+    "operator_cleanups": "discovery_runs whose error text is an operator annotation (crash orphan / stale-aborted cleanup) — reported separately"
+  },
+  "headline_template": "Across {runs} discovery runs ({from} to {to}) the agent logged {errs} terminal errors in {templates} mechanically derived templates ({top_cat} = {top_pct}%); of {pipe} applications it brought to the human gate, {d3} ({d3_pct}%, 95% Wilson CI {lo}-{hi}%) needed a correction beyond the approval click; {subs} were submitted.",
+  "cost": {
+    "perplexity": "job_fit_reports.api_cost_cents summed; labelled 'nominal constant per call (0.4 cents), not usage-derived'",
+    "anthropic": "sum of parsed [llm-usage] lines; labelled 'from N logged calls; every other LLM call (drafting, scoring, research) was not instrumented; total cost unknown and not estimated'",
+    "rule": "no token-based extrapolation, ever"
+  },
+  "blind_spots_to_publish": [
+    "grounding-check fallbacks are silent: the anti-fabrication intervention rate is unobservable",
+    "SSRF refusals are not logged",
+    "retries are not logged; only terminal errors are recorded",
+    "no state-transition history table: time-in-stage exists only for pipeline milestone timestamps",
+    "LLM calls are not events: per-call cost exists for the logged lines only",
+    "crash.log lost the ATS-404 payload at log time ([object Object])",
+    "human edits to generated documents are indistinguishable from regenerations",
+    "WAL-resident rows are excluded by immutable reads",
+    "per-employer failure rates are publishable only as hashed tokens"
+  ],
+  "not_measured": ["outcomes (replies, interviews, offers)", "intervention effort or time", "total cost", "failures that produced no row or log line", "anything after the snapshot date"]
+}
