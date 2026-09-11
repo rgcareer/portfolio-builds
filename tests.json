@@ -83,6 +83,15 @@
       "required": true,
       "added": "2026-09-11",
       "note": "no secrets or personal data in committed corpus/data files (text, manifests, caches)."
+    },
+    {
+      "id": "otr.readme-headline",
+      "piece": "onboarding-transfer-rate",
+      "kind": "audit",
+      "cmd": "node scripts/otr-readme-headline.mjs",
+      "required": true,
+      "added": "2026-09-11",
+      "note": "README Result section equals the generator output from run-meta.json verbatim; no hand-typed numbers."
     }
   ]
 }
