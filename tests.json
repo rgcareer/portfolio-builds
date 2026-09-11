@@ -17,6 +17,32 @@
       "parse": "vitest",
       "required": true,
       "added": "2026-09-10"
+    },
+    {
+      "id": "shared.unit",
+      "piece": "shared",
+      "kind": "unit",
+      "cmd": "npx vitest run packages/shared",
+      "parse": "vitest",
+      "required": true,
+      "added": "2026-09-10",
+      "expect": {
+        "minPassed": 79
+      },
+      "note": "safeFetch guard incl. timeout + byte cap, model policy, cost accounting vs a real OH usage line, Wilson known answers, headline refusal, gateway mock-mode + spend cap, HMAC redaction, PII sweep"
+    },
+    {
+      "id": "skillcheck.unit",
+      "piece": "skillcheck",
+      "kind": "unit",
+      "cmd": "npm --prefix skillcheck test",
+      "parse": "vitest",
+      "required": true,
+      "added": "2026-09-10",
+      "expect": {
+        "minPassed": 172
+      },
+      "note": "imported suite; upstream count at import was 172"
     }
   ]
 }

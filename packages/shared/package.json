@@ -1,0 +1,12 @@
+{
+  "name": "@portfolio-builds/shared",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Vendored, tested primitives every piece uses: SSRF-guarded fetch, model policy, LLM gateway with cost ledger + spend cap, canonical JSON, Wilson intervals, HMAC redaction, PII scan, headline renderer.",
+  "main": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": "./src/*.ts"
+  }
+}
