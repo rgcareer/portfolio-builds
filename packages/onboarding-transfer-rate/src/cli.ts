@@ -83,7 +83,9 @@ async function main(): Promise<number> {
         return 1;
       }
       const target = protocol.corpusRule.target_n;
-      const limit = Number(flag('limit') ?? target);
+      // --limit caps candidates PROCESSED this invocation (trials); default walks the whole list
+      // until `target` pages exist (the frozen stop rule).
+      const limit = flag('limit') ? Number(flag('limit')) : candidates.length;
       mkdirSync(CORPUS_DIR, { recursive: true });
       const ledger = readJson<Exclusion[]>(LEDGER, []);
       const tried = new Set(ledger.filter((e) => e.stage === 'snapshot').map((e) => e.full_name));
