@@ -7,9 +7,85 @@ whose truth comes from outside the author (package registries, link status, synt
 
 ## Result
 
-Not yet measured. The headline sentence is rendered only from `data/run-meta.json` by
-`npm run otr -- headline`; it refuses to print until the run exists. When it does, the sentence
-is pasted here verbatim and an audit check keeps the two identical.
+> Of 50 official AI-tool quickstarts snapshotted 2026-09-11, 9 (18.0%, 95% Wilson CI 9.8-30.8%) state a verifiable first-success milestone; 3 of those 9 pass every pre-registered integrity check (33.3%, CI 12.1-64.6%).
+
+Rendered by `npm run otr -- headline` from `data/run-meta.json` (protocol hash `3d7f68ea…` frozen at
+commit `01b758d`, seeded 2026-09-11T05:49Z, LLM cost $0.00, 0 calls). An audit check keeps this
+sentence and the generator's output identical. `npm run otr -- repro` re-derives every number from
+the committed snapshot with the network off.
+
+**Read the headline strictly.** "State a verifiable first-success milestone" means: a line matched
+the frozen milestone pattern family. The hand audit below shows the family has both false positives
+and false negatives, so the pre-registered 18.0% is the mechanical rate, not the truth; the audited
+estimate is reported separately and is not the headline.
+
+### What the 50 pages look like
+
+| | count |
+|---|---|
+| Pages by probe: README section / well-known docs path / homepage link | 30 / 9 / 11 |
+| Pages that need a credential before first success (stratum, never a defect) | 15 |
+| Pages with a time-to-first-success claim ("in 5 minutes") | 7 |
+| Candidates walked to reach 50 pages | 87 (37 excluded: no quickstart phrase 21, unusable page 15, fetch failed 1) |
+| Candidate-stage exclusions before the walk | 64 (duplicate owner 35, archived 15, awesome-list 14) |
+
+### Integrity findings (all 50 pages)
+
+| Category | pages | findings | what it is |
+|---|---|---|---|
+| missing-prerequisite | 29 | 77 | a CLI tool or env var used in code is never mentioned in prose. Tools: curl 9, git 9, pip 4, make 2, npx 2, npm 2, python 2, uv 1. Env vars: 45, mostly API keys and endpoints (`OPENAI_API_KEY` 4, the rest once each) |
+| broken-link | 17 | 37 | GET did not answer 2xx/3xx: 404 × 20, 403 × 11, 405 × 3, network × 3 |
+| broken-command | 2 | 2 | one package "not found" and one Python block that does not parse (see artifacts) |
+| version-drift | 1 | 1 | a pinned package whose latest registry release is deprecated |
+| undefined-success | 41 | 41 | no line matches the milestone family (L0, not counted) |
+| no-time-claim | 43 | 43 | informational |
+
+### The nine milestone hits, hand-audited
+
+The classification is mechanical; the verdict column is my reading of each line in context and is
+published so a reader can disagree with it. It does not change the headline.
+
+| repo | line | matched text (excerpt) | verdict |
+|---|---|---|---|
+| crewAIInc/crewAI | 93 | "You should see something like:" + output block | milestone |
+| headroomlabs-ai/headroom | 150 | "Example output:" + output block | milestone |
+| huggingface/transformers | 358 | "Congratulations, you just trained your first model with Transformers!" | milestone |
+| hiyouga/LlamaFactory | 55 | "If you see `True` then you have successfully installed PyTorch with CUDA support." | milestone (sub-step) |
+| JuliusBrussee/caveman | 80 | "You should get a confirmation that the mode is active." | milestone |
+| langchain-ai/langchain | 804 | "…You can view example output in the next step." | weak: points to example output rather than stating it |
+| code-yeongyu/oh-my-openagent | 61 | "That's it. The agent figures everything out: explores your codebase…" | weak: describes behaviour, not an observable signal |
+| aaif-goose/goose | 152 | "…When you return to the goose desktop app, you're ready to begin your first session." | weak: end-of-setup, not an observation |
+| D4Vinci/Scrapling | 319 | "- You've completed or read the Fetchers basics page…" | **false positive**: a prerequisite bullet matched "you've completed" |
+
+Five clear, three weak, one false positive. Scrapling is also one of the three L1 passes, so the
+"3 of 9" figure carries that false positive with it.
+
+### Sensitivity of the L1 pass rate (post hoc, labelled, not the headline)
+
+| variant | milestone pages passing | all pages passing |
+|---|---|---|
+| pre-registered: all counted categories | 3 / 9 | 15 / 50 |
+| ignoring 403/405 link failures (likely bot-blocking of a non-browser client) | 3 / 9 | 18 / 50 |
+| ignoring broken links entirely | 3 / 9 | 20 / 50 |
+| ignoring missing-prerequisite entirely | 6 / 9 | 32 / 50 |
+| registry and parse checks only | 8 / 9 | 47 / 50 |
+
+The pass rate is driven by the prerequisite rule, which is strict by design: a page that runs
+`curl` or exports `OPENAI_API_KEY` in a code block without ever naming it in prose fails. Whether
+that is the right bar is a judgment the reader can make from the table; the rule was frozen before
+the data existed.
+
+### Known artifacts (disclosed, not patched after the fact)
+
+- **Merged code tokens.** One page renders code lines as adjacent `<span>` elements with no newline;
+  the text converter fused `npm install -g omniroute` with the next line's `added 1 package` into a
+  fake package name, producing a false broken-command on a non-milestone page. The converter will be
+  fixed in protocol v2; the committed text is left as analysed so the repro check stays exact.
+- **A shell command in a `python` fence** (milvus) fails the Python parse check. The fence label is the
+  vendor's; the check counted it as frozen.
+- **Site navigation is part of the text.** The 25-link check on docs sites mostly exercises nav links.
+- **403 responses** to a non-browser user agent are counted as broken per the frozen rule; 11 of 37
+  link failures are 403s.
 
 ## What is measured (v1, $0)
 
