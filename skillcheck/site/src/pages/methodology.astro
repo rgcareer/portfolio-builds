@@ -1,0 +1,106 @@
+---
+import Base from '../layouts/Base.astro';
+import { runMeta } from '../data';
+const h = runMeta.headline;
+---
+
+<Base title="Methodology — skillcheck" description="How Skillcheck grades: the cohort rule, the grade maps, the model policy, and what the grade deliberately is not.">
+  <h1>Methodology</h1>
+  <p class="lead">
+    Everything here is mechanical and published. If you disagree with a grade, you can re-derive it from the
+    <a href="/data">raw data</a> and the rules below.
+  </p>
+
+  <h2>What M1 measures (and what it does not)</h2>
+  <p class="prose">
+    M1 is <strong>static analysis only</strong> — skills are read, never executed. Two of the four dimensions are
+    graded now; the other two are labeled <em>not yet benchmarked</em> and are intentionally blank until M2:
+  </p>
+  <ul class="prose">
+    <li><strong>Safety</strong> (graded) — pattern-based screen for prompt-injection, data-exfiltration, dangerous
+      commands, obfuscation, and deceptive Unicode.</li>
+    <li><strong>Hygiene</strong> (graded) — a deterministic liveness/maintenance checklist.</li>
+    <li><strong>Effectiveness</strong> (M2) — paired skill-on vs skill-off task pass-rate with deterministic verifiers.</li>
+    <li><strong>Honesty</strong> (M2) — README claims vs observed behaviour.</li>
+  </ul>
+
+  <h2>The cohort rule</h2>
+  <p class="prose">
+    The cohort is everything harvested from the official <code>anthropics/skills</code> repo, the official plugin
+    marketplace, the largest community registries (selected mechanically by star count with a published inclusion
+    predicate), and a GitHub code search for <code>SKILL.md</code> files with valid frontmatter — deduped by
+    <code>repo + path</code> and snapshot-dated. Forks are excluded and counted. Skills with invalid frontmatter are
+    excluded from the graded cohort and counted separately. A skill is graded only if the same single frontmatter
+    validator accepts it, so the harvested and graded denominators cannot diverge.
+  </p>
+
+  <h2>Safety grade</h2>
+  <table class="def">
+    <tr><th>Grade</th><th>Meaning</th></tr>
+    <tr><td><span class="badge t-A">A</span></td><td>No findings.</td></tr>
+    <tr><td><span class="badge t-B">B</span></td><td>Worst finding is low / info severity.</td></tr>
+    <tr><td><span class="badge t-C">C</span></td><td>Worst finding is medium severity.</td></tr>
+    <tr><td><span class="badge t-D">D</span></td><td>Worst finding is high severity.</td></tr>
+    <tr><td><span class="badge t-F">F</span></td><td>Any critical finding. Floors the verdict to <strong>Avoid</strong>.</td></tr>
+  </table>
+  <p class="prose">
+    Every finding carries a rule id, a file, a line, and the exact matched text — with invisible characters escaped
+    so this site never republishes a live payload. A <em>pattern present</em> is not the same as <em>malicious</em>:
+    documentation legitimately names secrets and uses destructive commands, so rules are tuned against the real
+    cohort to keep false positives down (for example, a file’s leading byte-order mark is not flagged, and merely
+    naming an API-key environment variable is not treated as exfiltration).
+  </p>
+
+  <h2>Hygiene grade</h2>
+  <p class="prose">A deterministic checklist evaluated against the snapshot date (never the wall clock):</p>
+  <ul class="prose">
+    <li>repository not archived</li>
+    <li>last push within 180 days of the snapshot</li>
+    <li>last push within 365 days of the snapshot</li>
+    <li>has a license</li>
+    <li>has a name and a non-trivial description</li>
+  </ul>
+  <p class="prose">
+    5 checks pass → A, 4 → B, 3 → C, 2 → D. A repository that is archived, or whose last push is more than 365 days
+    before the snapshot, is <strong>abandoned</strong> and grades F.
+  </p>
+
+  <h2>Verdict bands</h2>
+  <p class="prose">
+    <strong>Avoid</strong> (a critical safety finding), <strong>Use with care</strong> (any medium/high finding or
+    poor hygiene), or <strong>Not yet benchmarked</strong> (clean enough statically, but effectiveness is unmeasured).
+    <strong>Skillcheck never says “Recommended” in M1</strong> — recommending a skill would require the Effectiveness
+    benchmark, which does not exist yet. Saying otherwise would be the exact overclaim this project audits.
+  </p>
+
+  <h2>What the grade is NOT</h2>
+  <ul class="prose">
+    <li>It is <strong>not a single gameable composite</strong>. There is no blended score to optimize; each dimension stands alone.</li>
+    <li>It is <strong>not a verdict on intent</strong>. Grades are dated measurements against a published snapshot and ruleset.</li>
+    <li>It is <strong>not a recommendation</strong> until effectiveness is benchmarked.</li>
+  </ul>
+
+  <h2>Headline definitions (verbatim)</h2>
+  <table class="def">
+    <tr><th>Number</th><th>Definition</th></tr>
+    <tr><td>injection</td><td>{h.injection.definition}</td></tr>
+    <tr><td>abandoned</td><td>{h.abandoned.definition}</td></tr>
+    <tr><td>unicode</td><td>{h.unicode.definition}</td></tr>
+    <tr><td>critical</td><td>{h.critical.definition}</td></tr>
+  </table>
+
+  <h2>Model policy</h2>
+  <p class="prose">
+    Any Opus-tier model call uses <code>claude-opus-4-8</code>. <code>claude-opus-5</code> is excluded everywhere,
+    including benchmark rosters; the code throws at load if any such id appears. Volume/triage seats (M2) use
+    <code>claude-sonnet-5</code> or <code>claude-haiku-4-5</code>. M1 makes no LLM calls at all — it is pure
+    regex/codepoint analysis.
+  </p>
+
+  <h2>Reproducibility</h2>
+  <p class="prose">
+    Screening is deterministic: given the snapshot and ruleset, <code>screen --sample N --seed S</code> reproduces
+    the published grades bit-for-bit. The snapshot cohort hash is <code class="mono">{(runMeta.cohortHash ?? '—').slice(0, 24)}…</code>
+    and the ruleset hash is <code class="mono">{(runMeta.rulesetHash ?? '—').slice(0, 24)}…</code>.
+  </p>
+</Base>

@@ -1,0 +1,35 @@
+[
+  {
+    "col": 30,
+    "context": "\nNormal text with a zero-width\\u{200B}space, a bidi\\u{202E}override, and a tag\\u{E0041}character.\n",
+    "file": "SKILL.md",
+    "line": 8,
+    "matched": "\\u{200B}",
+    "message": "Zero-width character",
+    "pack": "unicode",
+    "ruleId": "UNI-001",
+    "severity": "high"
+  },
+  {
+    "col": 44,
+    "context": "\nNormal text with a zero-width\\u{200B}space, a bidi\\u{202E}override, and a tag\\u{E0041}character.\n",
+    "file": "SKILL.md",
+    "line": 8,
+    "matched": "\\u{202E}",
+    "message": "Bidirectional control (Trojan Source)",
+    "pack": "unicode",
+    "ruleId": "UNI-002",
+    "severity": "critical"
+  },
+  {
+    "col": 64,
+    "context": "\nNormal text with a zero-width\\u{200B}space, a bidi\\u{202E}override, and a tag\\u{E0041}character.\n",
+    "file": "SKILL.md",
+    "line": 8,
+    "matched": "\\u{E0041}",
+    "message": "Unicode tag characters",
+    "pack": "unicode",
+    "ruleId": "UNI-003",
+    "severity": "critical"
+  }
+]

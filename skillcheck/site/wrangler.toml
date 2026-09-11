@@ -1,0 +1,8 @@
+name = "skillcheck"
+compatibility_date = "2025-06-01"
+
+# Static site: serve the Astro build output as assets (no server-side Worker code).
+[assets]
+directory = "./dist"
+# serve the built /404.html (with a 404 status) for unknown routes
+not_found_handling = "404-page"

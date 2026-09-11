@@ -1,0 +1,28 @@
+[
+  {
+    "anonymized": false,
+    "col": 15,
+    "context": "    \"build\": \"tsc\",\n    \"clean\": \"rm -rf dist\"\n  },",
+    "file": "reference/node_mcp_server.md",
+    "line": 541,
+    "matched": "rm -rf",
+    "message": "Recursive force delete",
+    "pack": "dangerous-command",
+    "ruleId": "DC-001",
+    "severity": "medium",
+    "skillId": "sk_1a917d7bd414ad7e"
+  },
+  {
+    "anonymized": false,
+    "col": 1,
+    "context": "echo \"🧹 Cleaning previous build...\"\nrm -rf dist bundle.html\n",
+    "file": "scripts/bundle-artifact.sh",
+    "line": 36,
+    "matched": "rm -rf",
+    "message": "Recursive force delete",
+    "pack": "dangerous-command",
+    "ruleId": "DC-001",
+    "severity": "medium",
+    "skillId": "sk_7945667a6f34e495"
+  }
+]

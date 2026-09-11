@@ -1,0 +1,52 @@
+---
+import Base from '../layouts/Base.astro';
+import { runMeta, skills, findings } from '../data';
+---
+
+<Base title="Data — skillcheck" description="Raw, citable JSON: the graded skills, the findings, and the run metadata with checksums.">
+  <h1>Data</h1>
+  <p class="lead">
+    The complete graded dataset is public and citable. Everything on this site is derived from these three files —
+    nothing is hand-edited.
+  </p>
+
+  <h2>Downloads</h2>
+  <ul class="prose">
+    <li><a href="/data/skills.json">skills.json</a> — {skills.length} graded skills (one object per skill).</li>
+    <li><a href="/data/findings.json">findings.json</a> — {findings.length} findings with rule id, location, and sanitized evidence.</li>
+    <li><a href="/data/run-meta.json">run-meta.json</a> — snapshot, cohort counts, headline definitions, hashes, and checksums.</li>
+  </ul>
+
+  <h2>Provenance</h2>
+  <table class="def">
+    <tr><th>Field</th><th>Value</th></tr>
+    <tr><td>snapshot date</td><td><code>{runMeta.snapshotDate}</code></td></tr>
+    <tr><td>screen run</td><td><code class="mono">{runMeta.screenRunId}</code></td></tr>
+    <tr><td>cohort hash</td><td><code class="mono">{runMeta.cohortHash}</code></td></tr>
+    <tr><td>ruleset hash</td><td><code class="mono">{runMeta.rulesetHash}</code></td></tr>
+    <tr><td>skills.json sha256</td><td><code class="mono">{runMeta.checksums.skills_json}</code></td></tr>
+    <tr><td>findings.json sha256</td><td><code class="mono">{runMeta.checksums.findings_json}</code></td></tr>
+    <tr><td>node</td><td><code>{runMeta.nodeVersion ?? '—'}</code></td></tr>
+    <tr><td>code version</td><td><code class="mono">{runMeta.codeVersion ?? '—'}</code></td></tr>
+  </table>
+
+  <h2>Schema (skills.json)</h2>
+  <p class="prose">Each element:</p>
+  <div class="tablewrap"><table class="def">
+    <tr><th>key</th><th>type</th><th>notes</th></tr>
+    <tr><td>id</td><td>string</td><td>stable skill id, or an <code>SC-ANON-…</code> placeholder if under disclosure</td></tr>
+    <tr><td>anonymized</td><td>bool</td><td>true when the skill is gated pending disclosure</td></tr>
+    <tr><td>repo / path / name</td><td>string | null</td><td>null for anonymized skills</td></tr>
+    <tr><td>source</td><td>string</td><td>anthropics_skills · official_marketplace · community_registry · code_search</td></tr>
+    <tr><td>safety / hygiene</td><td>tier</td><td>A–F, or <code>under_review</code></td></tr>
+    <tr><td>effectiveness / honesty</td><td>string</td><td>always <code>not_yet_benchmarked</code> in M1</td></tr>
+    <tr><td>verdict</td><td>string</td><td>Avoid · Use with care · Not yet benchmarked · under_review</td></tr>
+    <tr><td>findingCount / withheldFindingCount</td><td>int</td><td>public vs withheld counts</td></tr>
+  </table></div>
+
+  <h2>Citing</h2>
+  <p class="prose">
+    Cite a specific snapshot by its date and cohort hash. Grades are dated measurements; a later re-scan against a
+    newer snapshot or ruleset may differ. The checksums above let you verify you are looking at exactly this dataset.
+  </p>
+</Base>

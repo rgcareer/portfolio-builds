@@ -1,0 +1,54 @@
+---
+import '../styles/tokens.css';
+import { runMeta } from '../data';
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = 'A public, honest, static-analysis quality + security audit of the Claude Code Agent Skills ecosystem.' } = Astro.props;
+const nav = [
+  ['/', 'Overview'],
+  ['/methodology', 'Methodology'],
+  ['/data', 'Data'],
+  ['/disclosure', 'Disclosure'],
+  ['/about', 'About'],
+];
+const snapshot = runMeta.snapshotDate ?? 'unpublished';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="light dark" />
+    <title>{title}</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%232563eb'/%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' stroke='white' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="wrap nav-inner">
+        <a href="/" class="brand">skillcheck<span class="tag">M1 · The Scan</span></a>
+        <span class="spacer"></span>
+        {nav.map(([href, label]) => <a class="link" href={href}>{label}</a>)}
+      </div>
+    </nav>
+    <main class="wrap">
+      <slot />
+    </main>
+    <footer class="footer">
+      <div class="wrap">
+        <p>
+          Snapshot <code>{snapshot}</code> · static-analysis only (no code executed) ·
+          Effectiveness &amp; Honesty grades arrive in M2.
+        </p>
+        <p>
+          Independent project — <strong>not affiliated with or endorsed by Anthropic</strong>. Grades are
+          dated measurements, not verdicts on intent. Opus-tier LLM work uses <code>claude-opus-4-8</code>.
+          See <a href="/methodology">methodology</a> and <a href="/disclosure">disclosure policy</a>.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "name": "skillcheck",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Public, honest, static-analysis quality + security audit of the Claude Code Agent Skills ecosystem (M1: The Scan).",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "workspaces": [
+    "packages/*",
+    "site"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "harvest": "tsx packages/harvest/src/cli.ts",
+    "screen": "tsx packages/screen/src/cli.ts",
+    "publish": "tsx packages/publish/src/cli.ts",
+    "disclose": "tsx packages/publish/src/disclose.ts",
+    "headline": "tsx packages/publish/src/headline.ts",
+    "build:site": "npm run build -w @skillcheck/site"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^26.3.0",
+    "eslint": "^10.9.1",
+    "tsx": "^4.23.12",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.68.0",
+    "vitest": "^4.1.11"
+  }
+}

@@ -1,0 +1,56 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Disclosure Policy — skillcheck" description="Responsible-disclosure policy: a 14-day author-notice window before any skill is named for a critical finding.">
+  <h1>Responsible-disclosure policy</h1>
+  <p class="lead">
+    Skillcheck reports machine-checkable measurements, not accusations. Before any skill is
+    <em>named</em> in connection with a critical security finding, its author gets notice and time to respond.
+  </p>
+
+  <div class="note">
+    This policy is live before any real finding names a skill. Until an author has been notified and the
+    window has elapsed, a critical finding is shown only in anonymized, aggregate form.
+  </div>
+
+  <h2>What gets gated</h2>
+  <p class="prose">
+    A finding at <strong>critical</strong> severity (for example, an outbound exfiltration channel or a
+    catastrophic destructive command) triggers the disclosure flow. Lower-severity findings publish with
+    their evidence directly, because they describe patterns rather than confirmed exploits.
+  </p>
+
+  <h2>The 14-day window</h2>
+  <ol class="prose">
+    <li>A critical finding is recorded. The affected skill is published as an <span class="anon">anonymized placeholder</span>
+      (e.g. <code>SC-ANON-1a2b3c4d</code>); its Safety grade and verdict read <span class="pill">under review</span>,
+      and the specific evidence (file, line, matched text) is withheld.</li>
+    <li>The author is notified with the full evidence and a 14-day window to fix, dispute, or explain.</li>
+    <li>After the window elapses, a human — never an automatic timer — decides to publish the named finding,
+      keep it withheld pending a fix, or withdraw it.</li>
+  </ol>
+  <p class="prose">
+    The 14 days is a <em>floor</em>, not a countdown: nothing is released automatically. Aggregate counts
+    (e.g. “N% of skills carry a critical finding”) always include gated skills, because a count does not identify anyone.
+  </p>
+
+  <h2>Corrections &amp; disputes</h2>
+  <p class="prose">
+    Every finding carries machine evidence: a rule id, a file and line, and the exact matched text (with
+    invisible characters escaped so this page never republishes a live payload). If you believe a finding is
+    a false positive, that is a first-class outcome — a withdrawn finding is removed entirely and its skill’s
+    grade is recomputed. Grades are dated measurements against a published snapshot and ruleset; a later
+    re-scan can change them.
+  </p>
+  <p class="prose">
+    Contact for authors and corrections: <a href="mailto:smartbusinessaillc@gmail.com">smartbusinessaillc@gmail.com</a>.
+  </p>
+
+  <h2>What this policy protects</h2>
+  <p class="prose">
+    The goal is to strengthen the skills commons, not to embarrass its authors. Naming a specific dangerous
+    skill before its author can respond would put users at more risk, not less — so the default is anonymized
+    measurement, and naming is a deliberate, human, post-notice act.
+  </p>
+</Base>
