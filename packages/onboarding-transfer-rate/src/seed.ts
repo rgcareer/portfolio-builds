@@ -4,7 +4,7 @@
 
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { safeFetchText, sha256Hex, stableStringify, byteCompare } from '@portfolio-builds/shared';
+import { safeFetchText, sha256Hex, stableStringify, byteCompare, redactDeep } from '@portfolio-builds/shared';
 import type { Protocol } from './protocol';
 
 export interface SeedItem {
@@ -93,7 +93,9 @@ export async function fetchSeed(
         language: typeof it['language'] === 'string' ? it['language'] : null,
         pushed_at: typeof it['pushed_at'] === 'string' ? it['pushed_at'] : null,
       }));
-      const file: SeedFile = { query: q, url, fetchedAt, status: r.status, total_count: j.total_count ?? null, sha256Raw: sha256Hex(r.text), items };
+      // sha256Raw is over the unredacted response; the stored items are redacted (personal
+      // profile URLs / emails in repo metadata), which never affects ordering or selection.
+      const file: SeedFile = redactDeep({ query: q, url, fetchedAt, status: r.status, total_count: j.total_count ?? null, sha256Raw: sha256Hex(r.text), items });
       const path = resolve(cfg.seedDir, `${slug(q)}.json`);
       writeFileSync(path, stableStringify(file));
       files.push(path);

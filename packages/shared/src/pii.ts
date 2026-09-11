@@ -34,6 +34,30 @@ export function findPii(text: string, kinds?: ReadonlyArray<PiiKind>): PiiHit[] 
   return hits.sort((a, b) => a.index - b.index);
 }
 
+const PROFILE_URL_RE = /https?:\/\/(?:www\.)?linkedin\.com\/in\/[A-Za-z0-9_%-]+\/?/g;
+const EMAIL_RE = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g;
+
+/**
+ * Deterministic redaction of personal identifiers in strings WE generate (metadata, manifests,
+ * ledgers): personal-profile URLs and email-shaped strings become fixed tokens. Organisation
+ * pages (linkedin.com/company/...) are untouched. Idempotent.
+ */
+export function redactIdentifiers(s: string): string {
+  return s.replace(PROFILE_URL_RE, '[redacted:profile-url]').replace(EMAIL_RE, '[redacted:email]');
+}
+
+/** Apply redactIdentifiers to every string inside a JSON-like value (arrays/objects preserved). */
+export function redactDeep<T>(value: T): T {
+  if (typeof value === 'string') return redactIdentifiers(value) as unknown as T;
+  if (Array.isArray(value)) return value.map(redactDeep) as unknown as T;
+  if (value && typeof value === 'object') {
+    const out: Record<string, unknown> = {};
+    for (const [k, v] of Object.entries(value as Record<string, unknown>)) out[k] = redactDeep(v);
+    return out as T;
+  }
+  return value;
+}
+
 /** Convenience for tests: throw with the first few hits if any PII is present. */
 export function assertNoPii(text: string, label: string, kinds?: ReadonlyArray<PiiKind>): void {
   const hits = findPii(text, kinds);

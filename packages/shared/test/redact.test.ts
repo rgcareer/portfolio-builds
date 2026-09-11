@@ -1,6 +1,20 @@
 import { describe, it, expect } from 'vitest';
 import { hmacToken, makeTokenizer, requireSalt } from '../src/redact';
-import { findPii, assertNoPii } from '../src/pii';
+import { findPii, assertNoPii, redactIdentifiers, redactDeep } from '../src/pii';
+
+describe('identifier redaction for generated files', () => {
+  it('replaces personal profile URLs and emails with fixed tokens, leaves org pages, is idempotent', () => {
+    const s = 'hp https://linkedin.com/in/someone | org https://www.linkedin.com/company/acme | mail a.b@c.io | url https://njump.me/x@y.org';
+    const r = redactIdentifiers(s);
+    expect(r).toBe('hp [redacted:profile-url] | org https://www.linkedin.com/company/acme | mail [redacted:email] | url https://njump.me/[redacted:email]');
+    expect(redactIdentifiers(r)).toBe(r);
+    expect(findPii(r, ['email', 'linkedin'])).toEqual([]);
+  });
+  it('redactDeep walks arrays and objects without changing shape', () => {
+    const v = { links: ['https://x.example', 'https://linkedin.com/in/p'], n: 3, nested: { e: 'me@x.io' } };
+    expect(redactDeep(v)).toEqual({ links: ['https://x.example', '[redacted:profile-url]'], n: 3, nested: { e: '[redacted:email]' } });
+  });
+});
 
 describe('HMAC redaction', () => {
   const salt = 'a-test-salt-of-sufficient-length';

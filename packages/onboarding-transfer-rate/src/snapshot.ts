@@ -4,7 +4,7 @@
 
 import { mkdirSync, writeFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { safeFetchText, sha256Hex, stableStringify, isPrivateHost, type SafeFetchTextResult } from '@portfolio-builds/shared';
+import { safeFetchText, sha256Hex, stableStringify, isPrivateHost, redactDeep, type SafeFetchTextResult } from '@portfolio-builds/shared';
 import type { Protocol } from './protocol';
 import type { Candidate, Exclusion } from './seed';
 import { textifyHtml, textifyMarkdown, resolveLink, decodeEntities, type Textified } from './textify';
@@ -193,7 +193,7 @@ export async function snapshotCandidate(c: Candidate, corpusDir: string, cfg: Fe
   const { page, sawRenderBlocked, fetchFailures, attempts } = await probeCandidate(c, cfg);
   if (!page) {
     const reason = sawRenderBlocked ? 'render-blocked' : fetchFailures > 0 && attempts.filter((a) => a.startsWith('  -> no quickstart')).length === 0 ? 'fetch-failed' : 'no-quickstart-found';
-    return { status: 'excluded', exclusion: { full_name: c.full_name, reason, detail: attempts.join(' | '), stage: 'snapshot', at: now }, attempts };
+    return { status: 'excluded', exclusion: redactDeep({ full_name: c.full_name, reason, detail: attempts.join(' | '), stage: 'snapshot', at: now }), attempts };
   }
   const dir = resolve(corpusDir, c.id);
   mkdirSync(dir, { recursive: true });
@@ -220,8 +220,11 @@ export async function snapshotCandidate(c: Candidate, corpusDir: string, cfg: Fe
     ...(page.fallbackFrom ? { fallbackFrom: page.fallbackFrom } : {}),
     links: page.textified.links,
   };
-  writeFileSync(resolve(dir, 'manifest.json'), stableStringify(manifest));
-  return { status: 'snapshotted', manifest, attempts };
+  // Raw and text pages stay verbatim (public vendor content); the manifest we generate does not
+  // carry personal-profile URLs or emails (link list, attempts).
+  const redacted = redactDeep(manifest);
+  writeFileSync(resolve(dir, 'manifest.json'), stableStringify(redacted));
+  return { status: 'snapshotted', manifest: redacted, attempts };
 }
 
 export function corpusHas(corpusDir: string, id: string): boolean {
