@@ -60,6 +60,26 @@ published so a reader can disagree with it. It does not change the headline.
 Five clear, three weak, one false positive. Scrapling is also one of the three L1 passes, so the
 "3 of 9" figure carries that false positive with it.
 
+### Calibration: a blind rater over all 50 pages (`[SIMULATED]`, never the headline)
+
+A Claude Sonnet 5 rater, run as a Claude Code subagent, read every page blind to the pattern
+results with one question: does the page state what the reader will observe on success? Its
+verdicts are committed in `data/calibration/rater-sonnet-5.json` with independence `[SIMULATED]`
+and confidence capped at 0.80, per the house convention that an LLM judgment is not a measurement.
+
+| | pattern says yes | pattern says no |
+|---|---|---|
+| **rater says yes (23)** | 9 | 14 (8 high-confidence, 6 medium) |
+| **rater says no (27)** | 0 | 27 |
+
+Page-level precision of the frozen patterns against the rater: 9/9. Recall: 9/23 (39.1%). The
+rater's own rate is 23/50 = 46.0% (95% Wilson CI 33.0–59.6%). The pattern family under-counts
+milestones phrased as narrative ("the agent opens a browser… and prints its answer"), as a bare
+`Output:` line, or as a result label ("Result: Gemini asks for permission…"). Read the two numbers
+together: **18.0% is what the pre-registered patterns detect; 46.0% is what a language model
+reading the pages accepts, capped at 0.80 confidence.** Neither is quietly swapped for the other.
+Protocol v2 will widen the frozen family using these misses, and re-run from a fresh seed.
+
 ### Sensitivity of the L1 pass rate (post hoc, labelled, not the headline)
 
 | variant | milestone pages passing | all pages passing |

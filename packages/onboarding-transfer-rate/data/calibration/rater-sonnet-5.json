@@ -1,0 +1,486 @@
+{
+  "confidenceCap": 0.8,
+  "independence": "[SIMULATED]",
+  "kind": "calibration",
+  "lineLevelNote": "Line-level: of the 9 pattern hits, my hand audit found 1 wrong line (Scrapling 319 is a prerequisite bullet); the rater found the same page states a milestone at line 364. Page-level agreement is what the table reports.",
+  "pageLevel": {
+    "agreement": {
+      "patternNoRaterNo": 27,
+      "patternNoRaterYes": {
+        "high": 8,
+        "medium": 6
+      },
+      "patternYesRaterNo": 0,
+      "patternYesRaterYes": 9
+    },
+    "n": 50,
+    "patternPrecisionVsRater": "100.0",
+    "patternRecallVsRater": "39.1",
+    "patternYes": 9,
+    "raterYes": 23,
+    "raterYesPct": "46.0",
+    "raterYesWilson95": [
+      "33.0",
+      "59.6"
+    ]
+  },
+  "piece": "onboarding-transfer-rate",
+  "rater": {
+    "how": "Claude Code subagent (not billed through the calls ledger); blind to findings.json; rubric in PROGRESS/README",
+    "model": "claude-sonnet-5",
+    "ratedAt": "2026-09-11",
+    "tokensApprox": 208000
+  },
+  "ratings": [
+    {
+      "confidence": "high",
+      "id": "q_0495d9fe7b",
+      "line": null,
+      "milestone": "no",
+      "note": "process description only, no observable result stated",
+      "quote": null,
+      "repo": "heygen-com/hyperframes"
+    },
+    {
+      "confidence": "high",
+      "id": "q_04dd6f3a73",
+      "line": null,
+      "milestone": "no",
+      "note": "install commands only, no outcome described",
+      "quote": null,
+      "repo": "wshobson/agents"
+    },
+    {
+      "confidence": "medium",
+      "id": "q_0fac45359c",
+      "line": 19,
+      "milestone": "yes",
+      "note": "states dashboard becomes accessible after running",
+      "quote": "you can access the Dify dashboard in your browser at [http://localhost/install](http://localhost/install)",
+      "repo": "langgenius/dify"
+    },
+    {
+      "confidence": "high",
+      "id": "q_13d4dfcbcb",
+      "line": null,
+      "milestone": "no",
+      "note": "quickstart lists channels only, no stated outcome",
+      "quote": null,
+      "repo": "ZhuLinsen/daily_stock_analysis"
+    },
+    {
+      "confidence": "medium",
+      "id": "q_1a3f1fa8d6",
+      "line": null,
+      "milestone": "no",
+      "note": "output only mentioned in code comments, no prose",
+      "quote": null,
+      "repo": "FoundationAgents/MetaGPT"
+    },
+    {
+      "confidence": "medium",
+      "id": "q_1ba5bb3a80",
+      "line": 43,
+      "milestone": "yes",
+      "note": "describes observable behavior after restart",
+      "quote": "Restart Claude Code. Context from previous sessions will automatically appear in new sessions.",
+      "repo": "thedotmack/claude-mem"
+    },
+    {
+      "confidence": "high",
+      "id": "q_2532d34c83",
+      "line": null,
+      "milestone": "no",
+      "note": "4-step guide, no described outcome of running the tool",
+      "quote": null,
+      "repo": "Hmbown/Codewhale"
+    },
+    {
+      "confidence": "high",
+      "id": "q_26e4fc8dfe",
+      "line": 78,
+      "milestone": "yes",
+      "note": "explicit prose describing observable result",
+      "quote": "The agent opens a browser, looks up the repository, and prints its answer.",
+      "repo": "browser-use/browser-use"
+    },
+    {
+      "confidence": "medium",
+      "id": "q_29d76f6bbb",
+      "line": null,
+      "milestone": "no",
+      "note": "only a code-comment URL, no prose about what's observed",
+      "quote": null,
+      "repo": "koala73/worldmonitor"
+    },
+    {
+      "confidence": "medium",
+      "id": "q_2c8c66d7a2",
+      "line": 227,
+      "milestone": "yes",
+      "note": "completion statement after chat-launch code",
+      "quote": "And now you are all set up to talk with your brain !",
+      "repo": "The-Vibe-Company/quivr"
+    },
+    {
+      "confidence": "high",
+      "id": "q_2fe557721b",
+      "line": null,
+      "milestone": "no",
+      "note": "run instructions only, no result described",
+      "quote": null,
+      "repo": "rohitg00/ai-engineering-from-scratch"
+    },
+    {
+      "confidence": "medium",
+      "id": "q_3f72d1c336",
+      "line": 22,
+      "milestone": "yes",
+      "note": "states observable available-state after starting stack",
+      "quote": "The Gateway is now available on the following ports on localhost:",
+      "repo": "Kong/kong"
+    },
+    {
+      "confidence": "high",
+      "id": "q_40146903f6",
+      "line": 80,
+      "milestone": "yes",
+      "note": "explicit 'you should get' success signal",
+      "quote": "You should get a confirmation that the mode is active.",
+      "repo": "JuliusBrussee/caveman"
+    },
+    {
+      "confidence": "medium",
+      "id": "q_4444831842",
+      "line": null,
+      "milestone": "no",
+      "note": "reference/API page; only code shows print(result), no prose on output",
+      "quote": null,
+      "repo": "daytonaio/daytona"
+    },
+    {
+      "confidence": "medium",
+      "id": "q_48562c9035",
+      "line": null,
+      "milestone": "no",
+      "note": "output only via code comment '# Get markdown output', no prose",
+      "quote": null,
+      "repo": "run-llama/llama_index"
+    },
+    {
+      "confidence": "high",
+      "id": "q_590b1b325c",
+      "line": null,
+      "milestone": "no",
+      "note": "install links only, no outcome described",
+      "quote": null,
+      "repo": "Significant-Gravitas/AutoGPT"
+    },
+    {
+      "confidence": "high",
+      "id": "q_5ba4a50d51",
+      "line": null,
+      "milestone": "no",
+      "note": "installation options only, no described result",
+      "quote": null,
+      "repo": "unslothai/unsloth"
+    },
+    {
+      "confidence": "high",
+      "id": "q_5c066a96e9",
+      "line": null,
+      "milestone": "no",
+      "note": "deployment/config instructions only",
+      "quote": null,
+      "repo": "BerriAI/litellm"
+    },
+    {
+      "confidence": "medium",
+      "id": "q_5d4aa14549",
+      "line": 804,
+      "milestone": "yes",
+      "note": "points reader to view example output, later described",
+      "quote": "You can view example output in the next step.",
+      "repo": "langchain-ai/langchain"
+    },
+    {
+      "confidence": "high",
+      "id": "q_6009d7d19e",
+      "line": null,
+      "milestone": "no",
+      "note": "run commands only, no stated result",
+      "quote": null,
+      "repo": "mudler/LocalAI"
+    },
+    {
+      "confidence": "high",
+      "id": "q_658041d9da",
+      "line": null,
+      "milestone": "no",
+      "note": "describes prompts shown, not the success outcome",
+      "quote": null,
+      "repo": "ollama/ollama"
+    },
+    {
+      "confidence": "high",
+      "id": "q_68e564f7d8",
+      "line": 17,
+      "milestone": "yes",
+      "note": "explicit 'if you see X it worked' style signal",
+      "quote": "Any normal reply means the provider, model, workspace, and browser gateway are working together.",
+      "repo": "HKUDS/nanobot"
+    },
+    {
+      "confidence": "high",
+      "id": "q_6dcdca8791",
+      "line": 333,
+      "milestone": "yes",
+      "note": "explicit congratulations/completion statement",
+      "quote": "Congrats, you've successfully used goose to develop a web app! 🎉",
+      "repo": "aaif-goose/goose"
+    },
+    {
+      "confidence": "medium",
+      "id": "q_70a6ea156e",
+      "line": 139,
+      "milestone": "yes",
+      "note": "completion statement after 3-step quickstart",
+      "quote": "That gives you a working local memory index.",
+      "repo": "MemPalace/mempalace"
+    },
+    {
+      "confidence": "high",
+      "id": "q_71cf75e0c1",
+      "line": null,
+      "milestone": "no",
+      "note": "command list only, no described output",
+      "quote": null,
+      "repo": "NousResearch/hermes-agent"
+    },
+    {
+      "confidence": "high",
+      "id": "q_7491830dc8",
+      "line": 46,
+      "milestone": "yes",
+      "note": "labelled Output: block with actual result shown",
+      "quote": "Output:",
+      "repo": "firecrawl/firecrawl"
+    },
+    {
+      "confidence": "high",
+      "id": "q_757bb2aa98",
+      "line": null,
+      "milestone": "no",
+      "note": "install paths only, no outcome described",
+      "quote": null,
+      "repo": "ruvnet/ruflo"
+    },
+    {
+      "confidence": "high",
+      "id": "q_810f2608d8",
+      "line": 46,
+      "milestone": "yes",
+      "note": "terminal output block shows checkmarked success",
+      "quote": "$ omniroute▸ dashboard ✓ http://localhost:20128/dashboard▸ api ...... ✓ serving on :20128",
+      "repo": "diegosouzapw/OmniRoute"
+    },
+    {
+      "confidence": "high",
+      "id": "q_822d9b39dd",
+      "line": 150,
+      "milestone": "yes",
+      "note": "labelled Example output: block with actual values",
+      "quote": "Example output:",
+      "repo": "headroomlabs-ai/headroom"
+    },
+    {
+      "confidence": "medium",
+      "id": "q_8a06368a05",
+      "line": 1339,
+      "milestone": "yes",
+      "note": "install-guide script defines success message shown to user",
+      "quote": "Then say Congratulations! 🎉 You have successfully set up oh-my-openagent! Type `opencode` (or `codex`) in your terminal to start using it.",
+      "repo": "code-yeongyu/oh-my-openagent"
+    },
+    {
+      "confidence": "high",
+      "id": "q_8d5490de58",
+      "line": null,
+      "milestone": "no",
+      "note": "install-only instructions",
+      "quote": null,
+      "repo": "vllm-project/vllm"
+    },
+    {
+      "confidence": "high",
+      "id": "q_93f7571643",
+      "line": null,
+      "milestone": "no",
+      "note": "install script only, no outcome described",
+      "quote": null,
+      "repo": "paperless-ngx/paperless-ngx"
+    },
+    {
+      "confidence": "medium",
+      "id": "q_9532d70aa4",
+      "line": null,
+      "milestone": "no",
+      "note": "'— done' with no described observable result",
+      "quote": null,
+      "repo": "DeusData/codebase-memory-mcp"
+    },
+    {
+      "confidence": "high",
+      "id": "q_95d63de54a",
+      "line": null,
+      "milestone": "no",
+      "note": "marketing/feature copy, no run outcome described",
+      "quote": null,
+      "repo": "DietrichGebert/ponytail"
+    },
+    {
+      "confidence": "high",
+      "id": "q_9640e7a28a",
+      "line": null,
+      "milestone": "no",
+      "note": "output_fields is a parameter name, not prose about output",
+      "quote": null,
+      "repo": "milvus-io/milvus"
+    },
+    {
+      "confidence": "high",
+      "id": "q_a921f2d1c4",
+      "line": 235,
+      "milestone": "yes",
+      "note": "explicit 'you should see' success signal",
+      "quote": "You should see the output in the console, and `output/report.md` should be created in the project root.",
+      "repo": "crewAIInc/crewAI"
+    },
+    {
+      "confidence": "high",
+      "id": "q_af372596b5",
+      "line": null,
+      "milestone": "no",
+      "note": "deployment options only, no outcome described",
+      "quote": null,
+      "repo": "AstrBotDevs/AstrBot"
+    },
+    {
+      "confidence": "high",
+      "id": "q_b0aa6e2a93",
+      "line": 364,
+      "milestone": "yes",
+      "note": "describes observable terminal logging and end-of-run stats",
+      "quote": "While the spider is running, everything that happens is logged to the terminal, and at the end of the crawl, you get very detailed stats.",
+      "repo": "D4Vinci/Scrapling"
+    },
+    {
+      "confidence": "high",
+      "id": "q_b10093f7f6",
+      "line": 46,
+      "milestone": "yes",
+      "note": "explicit description of observable result",
+      "quote": "Your MCP client should open the browser and record a performance trace.",
+      "repo": "ChromeDevTools/chrome-devtools-mcp"
+    },
+    {
+      "confidence": "medium",
+      "id": "q_b71d171950",
+      "line": null,
+      "milestone": "no",
+      "note": "only bare 'Access: URL' lines, no described observable result",
+      "quote": null,
+      "repo": "bytedance/deer-flow"
+    },
+    {
+      "confidence": "high",
+      "id": "q_bad2c1a90f",
+      "line": 61,
+      "milestone": "yes",
+      "note": "states concrete observable output file",
+      "quote": "It will save audio to `./output_audio_n.mp3`",
+      "repo": "2noise/ChatTTS"
+    },
+    {
+      "confidence": "medium",
+      "id": "q_d5b1b3cadf",
+      "line": 74,
+      "milestone": "yes",
+      "note": "describes final presented output of the workflow",
+      "quote": "This runs the full workflow: evaluate fit, draft CV + cover letter, review with a second agent, revise, and present the final output.",
+      "repo": "MadsLorentzen/ai-job-search"
+    },
+    {
+      "confidence": "medium",
+      "id": "q_dc41afd1dc",
+      "line": null,
+      "milestone": "no",
+      "note": "describes internal rewriting mechanism, not a reader-observed output",
+      "quote": null,
+      "repo": "rtk-ai/rtk"
+    },
+    {
+      "confidence": "high",
+      "id": "q_dc7dfad896",
+      "line": null,
+      "milestone": "no",
+      "note": "run commands only, no outcome described",
+      "quote": null,
+      "repo": "shareAI-lab/learn-claude-code"
+    },
+    {
+      "confidence": "high",
+      "id": "q_e411c5930c",
+      "line": 358,
+      "milestone": "yes",
+      "note": "exact 'Congratulations' success statement",
+      "quote": "Congratulations, you just trained your first model with Transformers!",
+      "repo": "huggingface/transformers"
+    },
+    {
+      "confidence": "high",
+      "id": "q_e860044505",
+      "line": 550,
+      "milestone": "yes",
+      "note": "labelled Result: block describing observable outcome",
+      "quote": "Result: Gemini asks for permission to rename your files.",
+      "repo": "google-gemini/gemini-cli"
+    },
+    {
+      "confidence": "high",
+      "id": "q_eeb15569bb",
+      "line": null,
+      "milestone": "no",
+      "note": "install/feature copy only, no run outcome",
+      "quote": null,
+      "repo": "zhayujie/CowAgent"
+    },
+    {
+      "confidence": "medium",
+      "id": "q_f1e721be7d",
+      "line": null,
+      "milestone": "no",
+      "note": "bare 'Access the UI at URL', no described outcome",
+      "quote": null,
+      "repo": "OpenHands/OpenHands"
+    },
+    {
+      "confidence": "high",
+      "id": "q_f29a6a7014",
+      "line": 186,
+      "milestone": "yes",
+      "note": "explicit 'agent should' expected-result statement",
+      "quote": "The agent should read its saved documents, identify the user test as the next step, and explain the checklist decision.",
+      "repo": "agno-agi/agno"
+    },
+    {
+      "confidence": "high",
+      "id": "q_fa0ad04235",
+      "line": 55,
+      "milestone": "yes",
+      "note": "exact 'if you see True' success signal",
+      "quote": "If you see `True` then you have successfully installed PyTorch with CUDA support.",
+      "repo": "hiyouga/LlamaFactory"
+    }
+  ]
+}
