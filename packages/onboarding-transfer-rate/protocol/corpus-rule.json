@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "frozen_on": "2026-09-11",
+  "population": "Public GitHub repositories carrying at least one of the seed topics, as returned by the GitHub search API on the seed date, ordered by stars. The seed responses are snapshotted and committed, so selection is reproducible after star counts move.",
+  "seed": {
+    "endpoint": "https://api.github.com/search/repositories",
+    "queries": ["topic:llm", "topic:ai-agents", "topic:mcp", "topic:rag", "topic:llm-framework"],
+    "params": { "sort": "stars", "order": "desc", "per_page": 100, "page": 1 },
+    "auth": "none (unauthenticated; 5 requests total)"
+  },
+  "ordering": ["stargazers_count descending", "full_name ascending, bytewise"],
+  "dedupe": "one repository per owner: the highest-starred stays; the rest are excluded as duplicate-owner",
+  "target_n": 50,
+  "stop_rule": "Walk the ordered candidate list until 50 pages are snapshotted. If the list is exhausted first, publish the achieved n and never pad.",
+  "exclusions": {
+    "archived": "repo.archived is true",
+    "fork": "repo.fork is true",
+    "awesome-list": "name matches /^awesome[-_]/i, or topics include awesome-list or awesome",
+    "duplicate-owner": "another repository from the same owner ranks higher",
+    "no-quickstart-found": "no probe in probe_order yields a page",
+    "render-blocked": "the page text is shorter than 500 characters or has no fenced code block, and no raw-markdown fallback exists",
+    "fetch-failed": "every probe failed: unsafe URL, timeout, network error, or non-2xx"
+  },
+  "quickstart": {
+    "text_re": "^\\s*(?:quick\\s?-?start|getting\\s+started|get\\s+started)(?:\\s+guide)?\\s*$",
+    "text_re_flags": "i",
+    "probe_order": [
+      {
+        "id": "P1-homepage-link",
+        "rule": "repo.homepage is http(s) and its host is not github.com. Fetch it. The first <a> whose visible text matches text_re wins; resolve its href against the homepage URL. The target host must equal the homepage host, or be github.com/<owner>/<repo>."
+      },
+      {
+        "id": "P2-well-known-path",
+        "rule": "On the homepage origin, try these paths in order; the first 2xx wins.",
+        "paths": ["/docs/quickstart", "/docs/quick-start", "/docs/getting-started", "/docs/get-started", "/quickstart", "/getting-started", "/docs/getting_started"]
+      },
+      {
+        "id": "P3-readme-section",
+        "rule": "Fetch https://raw.githubusercontent.com/<owner>/<repo>/HEAD/README.md. The first ATX heading of any level whose text matches text_re wins. The page is that section, from the heading to the next heading of the same or higher level."
+      }
+    ],
+    "render_blocked_fallback": "If the page is render-blocked, follow the page's own 'edit this page' link matching /github\\.com\\/[^\\s\"']+\\/(?:edit|blob)\\/[^\\s\"']+\\.mdx?/ as raw markdown. If none exists, exclude as render-blocked."
+  },
+  "fetch": {
+    "guard": "packages/shared safeFetch: SSRF guard, every redirect hop re-validated",
+    "timeout_ms": 15000,
+    "max_bytes": 2097152,
+    "user_agent": "portfolio-builds-onboarding-transfer-rate/0.1 (research; +https://github.com/rgcareer)"
+  },
+  "coverage_gap": "Closed API vendors enter the corpus only through an official SDK repository carrying a seed topic. That is the price of a mechanical rule and is stated in the report."
+}

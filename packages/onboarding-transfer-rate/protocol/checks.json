@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "frozen_on": "2026-09-11",
+  "l0": {
+    "milestone": {
+      "id": "L0-milestone",
+      "description": "The page states, in its own words, what the reader will observe when the quickstart has succeeded.",
+      "patterns": [
+        "you(?:'ll| will| should)(?: now)? (?:see|get|have|receive|be able to)",
+        "(?:expected|sample|example) (?:output|response|result)",
+        "if everything (?:works|went well|is (?:set up|configured|working) correctly)",
+        "should (?:print|return|output|respond|display|show|look like)",
+        "congratulations",
+        "you(?:'ve| have) (?:just |now |successfully )?(?:built|created|run|sent|made|deployed|completed|installed)",
+        "(?:that's it|you're (?:all )?(?:set|done|ready))",
+        "^\\s*#{1,6}\\s*(?:expected )?output\\s*:?\\s*$"
+      ],
+      "flags": "i",
+      "capture": "the whole line containing the first match, its 1-based line number, and the first fenced code block that begins within the next 3 lines, if any",
+      "scope": "the quickstart section (P3) or the full page text (P1/P2)"
+    },
+    "time_claim": {
+      "id": "L0-time",
+      "pattern": "\\b(\\d{1,3}|one|two|three|four|five|ten|fifteen|twenty|thirty)[\\s-]?(minutes?|mins?|seconds?|secs?)\\b",
+      "flags": "i",
+      "scope": "the title, the first H1, or the first 1500 characters of the page text",
+      "informational": true
+    }
+  },
+  "l1": [
+    {
+      "id": "L1-pkg-exists",
+      "category": "broken-command",
+      "description": "Every package named in an install command exists in its registry.",
+      "install_patterns": {
+        "npm": "\\b(?:npm (?:i|install|add)|yarn add|pnpm (?:add|install)|bun add)\\s+((?:-[-\\w]+\\s+)*)((?:@[a-z0-9][\\w.-]*\\/)?[a-z0-9][\\w.-]*)(@[\\w.^~<>=-]+)?",
+        "pypi": "\\b(?:pip3? install|uv (?:pip install|add)|poetry add|pipx install)\\s+((?:-[-\\w]+\\s+)*)([A-Za-z0-9][A-Za-z0-9._-]*)(?:\\[[^\\]]*\\])?(==[\\w.]+)?"
+      },
+      "registry": { "npm": "https://registry.npmjs.org/<name>", "pypi": "https://pypi.org/pypi/<name>/json" },
+      "evidence": "line number + verbatim install command"
+    },
+    {
+      "id": "L1-version-drift",
+      "category": "version-drift",
+      "description": "A version pinned in an install command is at least one MAJOR behind the registry's latest, or the package is marked deprecated (npm) or yanked (PyPI latest).",
+      "pin_patterns": { "npm": "@(\\d+)\\.(\\d+)\\.(\\d+)", "pypi": "==(\\d+)\\.(\\d+)(?:\\.(\\d+))?" }
+    },
+    {
+      "id": "L1-links",
+      "category": "broken-link",
+      "description": "Every absolute http(s) link in the page (first 25 distinct, excluding the page itself, images, badges, and mailto) answers 2xx or 3xx to a GET under the fetch policy.",
+      "max_links": 25,
+      "exclude_re": "\\.(?:png|jpe?g|gif|svg|webp|ico)(?:[?#].*)?$|shields\\.io|badge"
+    },
+    {
+      "id": "L1-prereq-order",
+      "category": "missing-prerequisite",
+      "description": "An environment variable or command-line tool used inside a code block is never mentioned in prose anywhere on the page.",
+      "env_var_patterns": [
+        "\\b([A-Z][A-Z0-9_]{3,})=",
+        "process\\.env\\.([A-Z][A-Z0-9_]{3,})",
+        "os\\.environ(?:\\.get)?\\(?\\[?[\"']([A-Z][A-Z0-9_]{3,})[\"']",
+        "\\$\\{?([A-Z][A-Z0-9_]{3,})\\}?"
+      ],
+      "tools": ["docker", "node", "npm", "npx", "pnpm", "yarn", "bun", "python", "python3", "pip", "pip3", "uv", "poetry", "conda", "git", "cargo", "go", "make", "curl", "brew", "ollama"],
+      "rule": "A tool counts only when it is the first token of a shell code line; an env var counts only when its exact name appears in no prose line."
+    },
+    {
+      "id": "L1-code-parse",
+      "category": "broken-command",
+      "description": "Fenced JavaScript/TypeScript and Python blocks parse (syntax only; nothing is executed). Blocks containing an ellipsis marker (... or the unicode ellipsis) are skipped as intentional fragments.",
+      "languages": { "js": ["js", "javascript", "mjs", "cjs", "jsx"], "ts": ["ts", "typescript", "tsx"], "python": ["python", "py", "python3"] },
+      "parsers": { "js/ts": "typescript createSourceFile parseDiagnostics", "python": "python3 -c ast.parse over stdin" }
+    },
+    {
+      "id": "L1-auth-wall",
+      "category": "auth-wall",
+      "stratum": true,
+      "description": "Before the milestone line (or anywhere, when no milestone exists), the page requires an API key, account, or access token. A stratum attribute (needs-credential), never a defect: it decides L2 eligibility and is reported, and never counts against the L1 pass rate.",
+      "pattern": "\\b(api[ _-]?key|access token|secret key|sign ?up|create an account|log ?in to your account|bearer token)\\b",
+      "flags": "i"
+    }
+  ],
+  "l1_pass_definition": "A page passes L1 when it has zero findings in the categories broken-command, version-drift, broken-link, and missing-prerequisite. auth-wall and no-time-claim never count.",
+  "headline_template": "Of {n} official AI-tool quickstarts snapshotted {date}, {k0} ({p0}%, 95% Wilson CI {lo0}-{hi0}%) state a verifiable first-success milestone; {k1} of those {n0} pass every pre-registered integrity check ({p1}%, CI {lo1}-{hi1}%).",
+  "stats": { "interval": "Wilson 95%", "rule": "a proportion is never printed without its interval; n is the achieved n, never padded" },
+  "not_measured": [
+    "actual learner time-to-success (L2 needs an ephemeral runner and Ryan's approval)",
+    "anything behind a paid credential",
+    "pages that require a browser to render (excluded and counted)",
+    "tools outside the seed topics"
+  ]
+}
