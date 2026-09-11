@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Quickstart &mdash; Nova Docs</title>
+  <style>.x { color: red }</style>
+  <script>window.__nav = {"a":1};</script>
+</head>
+<body>
+  <nav><a href="/">Home</a> <a href="/docs">Docs</a></nav>
+  <main>
+    <h1>Quickstart</h1>
+    <p>Get a first response in <strong>two minutes</strong>.</p>
+    <h2>Install</h2>
+    <pre><code class="language-bash">npm install @nova/sdk</code></pre>
+    <h2>Run</h2>
+    <p>Create <code>index.mjs</code>:</p>
+    <pre class="language-js"><code>import { Nova } from &quot;@nova/sdk&quot;;
+const nova = new Nova({ apiKey: process.env.NOVA_API_KEY });
+console.log(await nova.ask(&quot;ping&quot;));</code></pre>
+    <p>If everything works, you&#39;ll see <code>pong</code> printed.</p>
+    <ul>
+      <li>Read the <a href="../reference/">API reference</a></li>
+      <li>Join the <a href="https://community.nova.example/">community</a></li>
+    </ul>
+    <p><a href="https://github.com/nova-org/nova/edit/main/docs/quickstart.md">Edit this page</a></p>
+  </main>
+  <footer>&copy; Nova</footer>
+</body>
+</html>

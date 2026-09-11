@@ -43,6 +43,46 @@
         "minPassed": 172
       },
       "note": "imported suite; upstream count at import was 172"
+    },
+    {
+      "id": "otr.unit",
+      "piece": "onboarding-transfer-rate",
+      "kind": "unit",
+      "cmd": "npx vitest run packages/onboarding-transfer-rate",
+      "parse": "vitest",
+      "required": true,
+      "added": "2026-09-11",
+      "expect": {
+        "minPassed": 30
+      },
+      "note": "protocol hash, textify determinism, markdown helpers, L0 milestone/time goldens on own-authored fixtures, install extraction, syntax parsers, L1 checks with a fake lookup, candidate ordering + exclusions, snapshot helpers"
+    },
+    {
+      "id": "otr.protocol-frozen",
+      "piece": "onboarding-transfer-rate",
+      "kind": "audit",
+      "cmd": "node scripts/otr-protocol-frozen.mjs",
+      "required": true,
+      "added": "2026-09-11",
+      "note": "after seeding: protocol hash in run-state.json equals the committed protocol files hash, and the protocol commit predates seededAt (git). Passes trivially before seeding."
+    },
+    {
+      "id": "otr.repro",
+      "piece": "onboarding-transfer-rate",
+      "kind": "repro",
+      "cmd": "npm --prefix packages/onboarding-transfer-rate run otr -- repro",
+      "required": true,
+      "added": "2026-09-11",
+      "note": "re-derives findings.json + run-meta.json from the committed snapshot + lookup cache with the network off; must match bit-for-bit. Fails until the run exists."
+    },
+    {
+      "id": "otr.pii-sweep",
+      "piece": "onboarding-transfer-rate",
+      "kind": "audit",
+      "cmd": "node scripts/otr-pii-sweep.mjs",
+      "required": true,
+      "added": "2026-09-11",
+      "note": "no secrets or personal data in committed corpus/data files (text, manifests, caches)."
     }
   ]
 }
