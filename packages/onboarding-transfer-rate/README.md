@@ -33,7 +33,7 @@ estimate is reported separately and is not the headline.
 
 | Category | pages | findings | what it is |
 |---|---|---|---|
-| missing-prerequisite | 29 | 77 | a CLI tool or env var used in code is never mentioned in prose. Tools: curl 9, git 9, pip 4, make 2, npx 2, npm 2, python 2, uv 1. Env vars: 45, mostly API keys and endpoints (`OPENAI_API_KEY` 4, the rest once each) |
+| missing-prerequisite | 29 | 77 | a CLI tool or env var used in code is never mentioned in prose. Tools: 31 (curl 9, git 9, pip 4, make 2, npx 2, npm 2, python 2, uv 1). Env vars: 46 across 42 names, mostly API keys and endpoints (`OPENAI_API_KEY` 4, `AWS_REGION` 2, the rest once each) |
 | broken-link | 17 | 37 | GET did not answer 2xx/3xx: 404 × 20, 403 × 11, 405 × 3, network × 3 |
 | broken-command | 2 | 2 | one package "not found" and one Python block that does not parse (see artifacts) |
 | version-drift | 1 | 1 | a pinned package whose latest registry release is deprecated |
