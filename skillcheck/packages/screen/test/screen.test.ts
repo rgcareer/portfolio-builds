@@ -141,9 +141,12 @@ describe('CLI end-to-end determinism (screen --sample --seed)', () => {
     const cli = join(SCREEN_DIR, 'src', 'cli.ts');
     const out1 = join(dir, 'a.json');
     const out2 = join(dir, 'b.json');
-    const argsFor = (out: string) => ['tsx', cli, '--corpus', CORPUS, '--sample', '5', '--seed', '7', '--out', out];
-    execFileSync('npx', argsFor(out1), { cwd: REPO_ROOT, stdio: 'ignore' });
-    execFileSync('npx', argsFor(out2), { cwd: REPO_ROOT, stdio: 'ignore' });
+    // Spawn through Node's loader rather than the `tsx` CLI: the CLI opens a Unix IPC socket
+    // under the temp dir, which sandboxed runners (portfolio-builds gate, 2026-09-10) forbid.
+    // Same binary, same assertion, no socket.
+    const argsFor = (out: string) => ['--import', 'tsx', cli, '--corpus', CORPUS, '--sample', '5', '--seed', '7', '--out', out];
+    execFileSync(process.execPath, argsFor(out1), { cwd: REPO_ROOT, stdio: 'ignore' });
+    execFileSync(process.execPath, argsFor(out2), { cwd: REPO_ROOT, stdio: 'ignore' });
     expect(readFileSync(out1, 'utf8')).toBe(readFileSync(out2, 'utf8'));
     rmSync(dir, { recursive: true, force: true });
   }, 60_000);
