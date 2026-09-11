@@ -18,6 +18,14 @@ describe('protocol', () => {
     expect(protocol.hash).toMatch(/^[0-9a-f]{64}$/);
     expect(loadProtocol().hash).toBe(protocol.hash);
   });
+  it('quickstart phrase regex (v1.1) tolerates decoration and rejects other headings', () => {
+    for (const s of ['Quick Start', 'Quickstart', 'quick-start', '🚀 Quick Start', 'Getting Started 🚀', 'Get started →', '## Getting started guide'.replace(/^#+\s*/, ''), 'Get Started ›']) {
+      expect(QS_RE.test(s), s).toBe(true);
+    }
+    for (const s of ['Install ECC', 'Run', 'Getting Started with Docker', 'Quick Start Examples', 'Start Using ECC']) {
+      expect(QS_RE.test(s), s).toBe(false);
+    }
+  });
   it('every L1 check has a category and every milestone pattern compiles', () => {
     for (const c of checks.l1) expect(c.category).toBeTruthy();
     for (const p of checks.l0.milestone.patterns) expect(() => new RegExp(p, checks.l0.milestone.flags)).not.toThrow();
