@@ -29,3 +29,11 @@ evidence/*.tmp
 
 # app-created settings dirs inside data trees are never data
 packages/*/data/**/.claude/
+
+# Local embedding model weights (semantic-cache) - never in history
+packages/*/.model-cache/
+
+# Project-local skill wiring: keep the conventions skill, ignore the machine-specific
+# archived-skill symlinks (re-created per machine from ~/.claude/skills-archive).
+/.claude/skills/*
+!/.claude/skills/portfolio-builds-conventions

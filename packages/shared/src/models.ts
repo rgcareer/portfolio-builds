@@ -23,9 +23,12 @@ export const MODELS = {
   haiku: 'claude-haiku-4-5',
 } as const satisfies Record<LlmTier, string>;
 
+// Verified on platform.claude.com/docs/en/about-claude/pricing, 2026-09-15. The Sonnet 5
+// row was $3/$15 at vendoring (2026-09-10); the introductory $2/$10 became permanent, so
+// the corrected value is used here (D-022). Cost accounting is otherwise unchanged.
 export const LLM_PRICES: Record<string, ModelPrice> = {
   'claude-opus-4-8': { in: 5, out: 25 },
-  'claude-sonnet-5': { in: 3, out: 15 },
+  'claude-sonnet-5': { in: 2, out: 10 },
   'claude-haiku-4-5': { in: 1, out: 5 },
 };
 

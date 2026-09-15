@@ -23,6 +23,14 @@ export function stableStringify(value: unknown): string {
   return JSON.stringify(canonicalize(value), null, 2) + '\n';
 }
 
+/**
+ * Canonical single-line JSON with a trailing LF, for append-only JSONL sinks: sorted keys,
+ * no whitespace, one record per line. Round-trips through JSON.parse.
+ */
+export function stableStringifyLine(value: unknown): string {
+  return JSON.stringify(canonicalize(value)) + '\n';
+}
+
 export function sha256Hex(input: string | Uint8Array): string {
   const h = createHash('sha256');
   if (typeof input === 'string') h.update(input, 'utf8');

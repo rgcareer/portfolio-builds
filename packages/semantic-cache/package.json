@@ -1,0 +1,64 @@
+{
+  "name": "@rgcareer/semantic-cache",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "description": "A drop-in cache in front of LLM calls with an exact-hash tier and a local-embedding similarity tier; publishes its own hit-rate and false-hit curve against a labelled near-miss set.",
+  "license": "MIT",
+  "author": "Ryan (Get Smart AI)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rgcareer/semcache.git"
+  },
+  "homepage": "https://github.com/rgcareer/semcache#readme",
+  "bugs": {
+    "url": "https://github.com/rgcareer/semcache/issues"
+  },
+  "keywords": [
+    "llm",
+    "cache",
+    "semantic-cache",
+    "embeddings",
+    "minilm",
+    "cosine"
+  ],
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "bin": {
+    "semcache": "./dist/cli.js"
+  },
+  "main": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "protocol",
+    "README.md",
+    "CHANGELOG.md",
+    "SECURITY.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "prepack": "npm run build",
+    "test": "vitest run packages/semantic-cache",
+    "semcache": "node --import tsx src/cli.ts",
+    "semcache:live": "node --env-file-if-exists=../../.env --import tsx src/cli.ts"
+  },
+  "dependencies": {
+    "citty": "0.2.2",
+    "@huggingface/transformers": "4.2.0"
+  },
+  "devDependencies": {
+    "@portfolio-builds/shared": "0.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false
+}

@@ -1,0 +1,63 @@
+{
+  "name": "@rgcareer/model-regress",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "description": "A paired golden-set regression detector for model or prompt migrations that measures the same-model noise floor before it calls anything a regression, and tracks cost and latency per item.",
+  "license": "MIT",
+  "author": "Ryan (Get Smart AI)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rgcareer/model-regress.git"
+  },
+  "homepage": "https://github.com/rgcareer/model-regress#readme",
+  "bugs": {
+    "url": "https://github.com/rgcareer/model-regress/issues"
+  },
+  "keywords": [
+    "llm",
+    "eval",
+    "regression",
+    "ci",
+    "anthropic",
+    "statistics"
+  ],
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "bin": {
+    "model-regress": "./dist/cli.js"
+  },
+  "main": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "protocol",
+    "README.md",
+    "CHANGELOG.md",
+    "SECURITY.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "prepack": "npm run build",
+    "test": "vitest run packages/model-regress",
+    "model-regress": "node --import tsx src/cli.ts",
+    "model-regress:live": "node --env-file-if-exists=../../.env --import tsx src/cli.ts"
+  },
+  "dependencies": {
+    "citty": "0.2.2"
+  },
+  "devDependencies": {
+    "@portfolio-builds/shared": "0.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false
+}

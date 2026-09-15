@@ -9,4 +9,6 @@ export * from './pii';
 export * from './headline';
 export * from './simulated';
 export * from './ledger';
+export * from './traffic';
+export * from './runrecord';
 export * from './gateway';

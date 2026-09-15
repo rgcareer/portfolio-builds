@@ -1,0 +1,63 @@
+{
+  "name": "@rgcareer/agent-forensics",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "description": "Post-mortem tooling for agent runs: normalizes transcripts into a redacted-by-default record, detects breakdown signatures mechanically, and renders a timeline with a blame span and minimal repro.",
+  "license": "MIT",
+  "author": "Ryan (Get Smart AI)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rgcareer/agent-forensics.git"
+  },
+  "homepage": "https://github.com/rgcareer/agent-forensics#readme",
+  "bugs": {
+    "url": "https://github.com/rgcareer/agent-forensics/issues"
+  },
+  "keywords": [
+    "llm",
+    "agents",
+    "observability",
+    "forensics",
+    "traces",
+    "otel"
+  ],
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "bin": {
+    "agent-forensics": "./dist/cli.js"
+  },
+  "main": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "protocol",
+    "README.md",
+    "CHANGELOG.md",
+    "SECURITY.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "prepack": "npm run build",
+    "test": "vitest run packages/agent-forensics",
+    "agent-forensics": "node --import tsx src/cli.ts",
+    "agent-forensics:live": "node --env-file-if-exists=../../.env --import tsx src/cli.ts"
+  },
+  "dependencies": {
+    "citty": "0.2.2"
+  },
+  "devDependencies": {
+    "@portfolio-builds/shared": "0.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false
+}

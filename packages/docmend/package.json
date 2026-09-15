@@ -1,0 +1,71 @@
+{
+  "name": "@rgcareer/docmend",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "description": "Finds link, version, snippet and prerequisite drift in docs against external truth, proposes a fix only where a machine can re-verify it, and returns a PR-ready patch with honest counts.",
+  "license": "MIT",
+  "author": "Ryan (Get Smart AI)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rgcareer/docmend.git"
+  },
+  "homepage": "https://github.com/rgcareer/docmend#readme",
+  "bugs": {
+    "url": "https://github.com/rgcareer/docmend/issues"
+  },
+  "keywords": [
+    "docs",
+    "link-checker",
+    "drift",
+    "readme",
+    "self-healing",
+    "ci"
+  ],
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "bin": {
+    "docmend": "./dist/cli.js"
+  },
+  "main": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "protocol",
+    "README.md",
+    "CHANGELOG.md",
+    "SECURITY.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "prepack": "npm run build",
+    "test": "vitest run packages/docmend",
+    "docmend": "node --import tsx src/cli.ts",
+    "docmend:live": "node --env-file-if-exists=../../.env --import tsx src/cli.ts"
+  },
+  "dependencies": {
+    "citty": "0.2.2"
+  },
+  "devDependencies": {
+    "@portfolio-builds/shared": "0.0.0"
+  },
+  "peerDependencies": {
+    "typescript": ">=6.0.0"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false
+}

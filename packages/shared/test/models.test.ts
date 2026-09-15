@@ -28,7 +28,8 @@ describe('cost accounting', () => {
   });
   it('sums fresh, cache-read and cache-creation input at the input rate', () => {
     const c = computeCostUsd('claude-sonnet-5', { input: 1_000_000, cacheRead: 1_000_000, cacheCreation: 1_000_000, output: 1_000_000 });
-    expect(c).toBeCloseTo(3 * 3 + 15, 9);
+    // Sonnet 5 verified $2 in / $10 out (platform.claude.com, 2026-09-15): 3M input @ $2/M + 1M output @ $10/M.
+    expect(c).toBeCloseTo(3 * 2 + 10, 9);
   });
   it('unknown models fall back to opus-tier prices (never cheaper than reality)', () => {
     expect(computeCostUsd('some-future-model', { input: 1_000_000 })).toBe(5);
