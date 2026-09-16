@@ -8,21 +8,33 @@
     "generator_version": 1
   },
   "task": {
-    "system": "Return exactly one JSON object with keys id, date, total_cents, paid, status, items and no prose.",
+    "system": "Extract the work order into exactly one JSON object with these keys and no others: id (string), date (as YYYY-MM-DD), total_cents (integer cents, equal to the sum of qty*unit_cents over items), paid (boolean), status (string), items (an array where each element has EXACTLY the keys name (string), qty (integer), unit_cents (integer cents) and no other keys - do not add a per-item total). Output only the JSON object: no prose, no markdown fences. Example: {\"id\":\"WO-1\",\"date\":\"2025-01-01\",\"total_cents\":300,\"paid\":true,\"status\":\"done\",\"items\":[{\"name\":\"Filter\",\"qty\":2,\"unit_cents\":150}]}",
     "maxTokens": 400,
     "output_contract": "exactly one JSON object with keys id (string), date (ISO YYYY-MM-DD), total_cents (integer cents = sum of qty*unit_cents), paid (boolean), status (string), items (array of {name, qty, unit_cents}); no prose",
     "parse_rule": "first balanced JSON object"
   },
   "conditions": [
-    { "name": "A", "model": "claude-sonnet-5" },
-    { "name": "B", "model": "claude-haiku-4-5" },
-    { "name": "A-repeat", "model": "claude-sonnet-5" }
+    {
+      "name": "A",
+      "model": "claude-sonnet-5"
+    },
+    {
+      "name": "B",
+      "model": "claude-haiku-4-5"
+    },
+    {
+      "name": "A-repeat",
+      "model": "claude-sonnet-5"
+    }
   ],
   "statistic": {
     "primary": "exact-json paired pass",
     "ci": "Newcombe method 10, z=1.96",
     "test": "McNemar exact",
-    "bootstrap": { "seed": 20260915, "iters": 2000 }
+    "bootstrap": {
+      "seed": 20260915,
+      "iters": 2000
+    }
   },
   "decision_rule": "'regression' only if the exact-json paired-difference 95% CI excludes 0 AND |diff| exceeds the upper bound of the A-vs-A-repeat paired-difference CI; else 'no detectable regression at n=40' reported with the minimal detectable effect at 80% power. A cost-per-item increase beyond max_cost_increase_pct fails `ci` regardless of pass rate.",
   "ci_thresholds": {
@@ -30,15 +42,35 @@
     "max_cost_increase_pct": 25
   },
   "prices": {
-    "claude-sonnet-5": { "in": 2, "out": 10 },
-    "claude-haiku-4-5": { "in": 1, "out": 5 },
-    "claude-opus-4-8": { "in": 5, "out": 25 }
+    "claude-sonnet-5": {
+      "in": 2,
+      "out": 10
+    },
+    "claude-haiku-4-5": {
+      "in": 1,
+      "out": 5
+    },
+    "claude-opus-4-8": {
+      "in": 5,
+      "out": 25
+    }
   },
   "spend": {
     "cap_usd": 3,
-    "expected_usd": 0.217235,
-    "ceiling_usd": 0.42292
+    "expected_usd": 0.24186999999999997,
+    "ceiling_usd": 0.4558049999999999
   },
   "headline_template": "On a {n}-item deterministic extraction golden set (run {date}), {modelA} passed {kA}/{n} ({pA}%, 95% Wilson CI {loA}-{hiA}%) and {modelB} passed {kB}/{n} ({pB}%, CI {loB}-{hiB}%); paired difference {diff} pp (95% CI {dlo} to {dhi}) against a same-model repeat disagreement of {noiseK}/{n}; cost per item ${cA} vs ${cB}.",
-  "not_measured": ["judge quality", "tool use", "long context", "prompt variants", "other tasks"]
+  "not_measured": [
+    "judge quality",
+    "tool use",
+    "long context",
+    "prompt variants",
+    "other tasks"
+  ],
+  "amendment": {
+    "v": "1.1",
+    "on": "2026-09-16",
+    "reason": "The v1 system prompt named only the top-level keys, not the item sub-schema (name/qty/unit_cents), so no model could produce an exact match (pilot condition A: 0/40, all valid JSON with description/quantity/unit_price_cents). The prompt now states the full schema the output_contract already documented. Prompt-only amendment made after a pilot and BEFORE any published measurement; pilot run withdrawn; golden unchanged. OTR D-012 precedent."
+  }
 }
