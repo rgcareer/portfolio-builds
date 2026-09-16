@@ -157,6 +157,142 @@
         "minPassed": 149
       },
       "note": "OTR-copy drift-guard, redirect/pin/path policy, snippet parsers, diff round-trip property test, per-method reverify with a fake lookup, LLM step mock, aggregation+headline refusal, CLI"
+    },
+    {
+      "id": "sc.protocol-frozen",
+      "piece": "semantic-cache",
+      "kind": "audit",
+      "cmd": "node scripts/audit-protocol-frozen.mjs semantic-cache",
+      "required": true,
+      "added": "2026-09-15"
+    },
+    {
+      "id": "sc.repro",
+      "piece": "semantic-cache",
+      "kind": "repro",
+      "cmd": "npm --prefix packages/semantic-cache run semcache -- repro",
+      "required": true,
+      "added": "2026-09-15"
+    },
+    {
+      "id": "sc.pii-sweep",
+      "piece": "semantic-cache",
+      "kind": "audit",
+      "cmd": "node scripts/audit-pii-sweep.mjs semantic-cache",
+      "required": true,
+      "added": "2026-09-15"
+    },
+    {
+      "id": "sc.readme-headline",
+      "piece": "semantic-cache",
+      "kind": "audit",
+      "cmd": "node scripts/audit-readme-headline.mjs semantic-cache",
+      "required": true,
+      "added": "2026-09-15"
+    },
+    {
+      "id": "docmend.protocol-frozen",
+      "piece": "docmend",
+      "kind": "audit",
+      "cmd": "node scripts/audit-protocol-frozen.mjs docmend",
+      "required": true,
+      "added": "2026-09-15"
+    },
+    {
+      "id": "docmend.repro",
+      "piece": "docmend",
+      "kind": "repro",
+      "cmd": "npm --prefix packages/docmend run docmend -- repro",
+      "required": true,
+      "added": "2026-09-15"
+    },
+    {
+      "id": "docmend.pii-sweep",
+      "piece": "docmend",
+      "kind": "audit",
+      "cmd": "node scripts/audit-pii-sweep.mjs docmend",
+      "required": true,
+      "added": "2026-09-15"
+    },
+    {
+      "id": "docmend.readme-headline",
+      "piece": "docmend",
+      "kind": "audit",
+      "cmd": "node scripts/audit-readme-headline.mjs docmend",
+      "required": true,
+      "added": "2026-09-15"
+    },
+    {
+      "id": "lca.protocol-frozen",
+      "piece": "llm-cost-autopilot",
+      "kind": "audit",
+      "cmd": "node scripts/audit-protocol-frozen.mjs llm-cost-autopilot",
+      "required": true,
+      "added": "2026-09-15"
+    },
+    {
+      "id": "lca.pii-sweep",
+      "piece": "llm-cost-autopilot",
+      "kind": "audit",
+      "cmd": "node scripts/audit-pii-sweep.mjs llm-cost-autopilot",
+      "required": true,
+      "added": "2026-09-15"
+    },
+    {
+      "id": "lca.readme-headline",
+      "piece": "llm-cost-autopilot",
+      "kind": "audit",
+      "cmd": "node scripts/audit-readme-headline.mjs llm-cost-autopilot",
+      "required": true,
+      "added": "2026-09-15"
+    },
+    {
+      "id": "regress.protocol-frozen",
+      "piece": "model-regress",
+      "kind": "audit",
+      "cmd": "node scripts/audit-protocol-frozen.mjs model-regress",
+      "required": true,
+      "added": "2026-09-15"
+    },
+    {
+      "id": "regress.pii-sweep",
+      "piece": "model-regress",
+      "kind": "audit",
+      "cmd": "node scripts/audit-pii-sweep.mjs model-regress",
+      "required": true,
+      "added": "2026-09-15"
+    },
+    {
+      "id": "regress.readme-headline",
+      "piece": "model-regress",
+      "kind": "audit",
+      "cmd": "node scripts/audit-readme-headline.mjs model-regress",
+      "required": true,
+      "added": "2026-09-15"
+    },
+    {
+      "id": "forensics.protocol-frozen",
+      "piece": "agent-forensics",
+      "kind": "audit",
+      "cmd": "node scripts/audit-protocol-frozen.mjs agent-forensics",
+      "required": true,
+      "added": "2026-09-15"
+    },
+    {
+      "id": "forensics.pii-sweep",
+      "piece": "agent-forensics",
+      "kind": "audit",
+      "cmd": "node scripts/audit-pii-sweep.mjs agent-forensics",
+      "required": true,
+      "added": "2026-09-15"
+    },
+    {
+      "id": "forensics.readme-headline",
+      "piece": "agent-forensics",
+      "kind": "audit",
+      "cmd": "node scripts/audit-readme-headline.mjs agent-forensics",
+      "required": true,
+      "added": "2026-09-15"
     }
   ]
 }
