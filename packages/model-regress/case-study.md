@@ -1,5 +1,13 @@
 # Case study: model-regress
 
+## The result
+
+On the frozen 40-item set, Sonnet 5 passed 38/40 (95.0%) and Haiku 4.5 passed 8/40 (20.0%): a
+75-point paired difference (95% CI 57.5 to 85.8) against a same-model repeat disagreement of only
+4/40. That is a real regression, not noise. Cost per item was $0.0026 vs $0.00076. The whole run
+cost $0.24 of real API calls, and a $0.12 pilot that surfaced an underspecified prompt is
+disclosed and withdrawn rather than hidden.
+
 ## The question
 
 When a team swaps models or edits a prompt, how do they know whether the pass-rate change they

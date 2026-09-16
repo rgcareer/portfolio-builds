@@ -6,13 +6,13 @@ item so a quality win can't hide a cost regression.
 
 ## Result
 
-Not yet measured.
+On a 40-item deterministic extraction golden set (run 2026-09-16), claude-sonnet-5 passed 38/40 (95.0%, 95% Wilson CI 83.5-98.6%) and claude-haiku-4-5 passed 8/40 (20.0%, CI 10.5-34.8%); paired difference 75.0 pp (95% CI 57.5 to 85.8) against a same-model repeat disagreement of 4/40; cost per item $0.00260 vs $0.00076.
 
-The 40-item golden set is generated and frozen (`golden/golden-v1.json`, seed 20260915), but
-the paired run has not been executed: it makes real model calls and needs `ANTHROPIC_API_KEY`
-plus a raised spend cap. `node --import tsx src/cli.ts headline` exits 1 with "no run-meta.json
-yet" against a clean checkout, so there is no number to quote here. The run (S-RD-1) costs an
-estimated $0.22 (ceiling $0.42) for 120 calls across three conditions.
+That sentence is the literal output of `node --import tsx src/cli.ts headline`, rendered from the
+committed `data/run-meta.json`. Swapping Sonnet 5 for Haiku 4.5 on this extraction task is a real
+75-point regression: the paired difference far exceeds the same-model noise floor of 4/40, so it
+is signal, not run-to-run variation. The run cost $0.24 of real API calls (a $0.12 pilot that
+caught an underspecified prompt is disclosed in the decision log and was withdrawn).
 
 ## The problem
 

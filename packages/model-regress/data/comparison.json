@@ -1,0 +1,74 @@
+{
+  "a": {
+    "costPerItem": 0.0026029499999999993,
+    "k": 38,
+    "model": "claude-sonnet-5",
+    "n": 40,
+    "name": "A",
+    "skipped": 0,
+    "totalCostUsd": 0.10411799999999997,
+    "wilson": {
+      "hi": 0.9861793326138516,
+      "k": 38,
+      "lo": 0.8349612263085903,
+      "n": 40,
+      "p": 0.95,
+      "z": 1.959963984540054
+    }
+  },
+  "b": {
+    "costPerItem": 0.0007591249999999999,
+    "k": 8,
+    "model": "claude-haiku-4-5",
+    "n": 40,
+    "name": "B",
+    "skipped": 0,
+    "totalCostUsd": 0.030364999999999996,
+    "wilson": {
+      "hi": 0.347573063463995,
+      "k": 8,
+      "lo": 0.10499989725437704,
+      "n": 40,
+      "p": 0.2,
+      "z": 1.959963984540054
+    }
+  },
+  "ci": {
+    "b": 30,
+    "c": 0,
+    "diff": 0.75,
+    "hi": 0.858128813609037,
+    "lo": 0.5746056119428131,
+    "n": 40,
+    "z": 1.959963984540054
+  },
+  "costIncreasePct": -70.83597456731785,
+  "diffPp": 75,
+  "discordant": {
+    "b": 30,
+    "c": 0
+  },
+  "hiPp": 85.8128813609037,
+  "loPp": 57.46056119428131,
+  "mcnemarP": 1.862645149230957e-9,
+  "nPaired": 40,
+  "noise": {
+    "b": 2,
+    "c": 2,
+    "ci": {
+      "b": 2,
+      "c": 2,
+      "diff": 0,
+      "hi": 0.12239677923374251,
+      "lo": -0.12239677923374251,
+      "n": 40,
+      "z": 1.959963984540054
+    },
+    "disagree": 4,
+    "nPaired": 40,
+    "upperPp": 12.23967792337425
+  },
+  "pairedKA": 38,
+  "pairedKB": 8,
+  "rule": "'regression' only if the exact-json paired-difference 95% CI excludes 0 AND |diff| exceeds the upper bound of the A-vs-A-repeat paired-difference CI; else 'no detectable regression at n=40' reported with the minimal detectable effect at 80% power. A cost-per-item increase beyond max_cost_increase_pct fails `ci` regardless of pass rate."
+}

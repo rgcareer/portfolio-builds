@@ -1,0 +1,72 @@
+{
+  "conditionA": {
+    "costPerItemUsd": 0.0026029499999999993,
+    "k": 38,
+    "model": "claude-sonnet-5",
+    "name": "A",
+    "pct": {
+      "hi": "98.6",
+      "lo": "83.5",
+      "p": "95.0"
+    },
+    "skipped": 0
+  },
+  "conditionB": {
+    "costPerItemUsd": 0.0007591249999999999,
+    "k": 8,
+    "model": "claude-haiku-4-5",
+    "name": "B",
+    "pct": {
+      "hi": "34.8",
+      "lo": "10.5",
+      "p": "20.0"
+    },
+    "skipped": 0
+  },
+  "cost": {
+    "ledgerCalls": 120,
+    "ledgerTotalUsd": 0.23713099999999998,
+    "perItemAUsd": 0.0026029499999999993,
+    "perItemBUsd": 0.0007591249999999999
+  },
+  "frozenAt": "2026-09-15T00:00:00.000Z",
+  "generatedAt": "2026-09-16T05:21:13.769Z",
+  "goldenHash": "46d13b8d6becae88f9ed53d865412e9d35bf20c0d9d0b41a6c709ae7caa4eb08",
+  "headline": "On a 40-item deterministic extraction golden set (run 2026-09-16), claude-sonnet-5 passed 38/40 (95.0%, 95% Wilson CI 83.5-98.6%) and claude-haiku-4-5 passed 8/40 (20.0%, CI 10.5-34.8%); paired difference 75.0 pp (95% CI 57.5 to 85.8) against a same-model repeat disagreement of 4/40; cost per item $0.00260 vs $0.00076.",
+  "headlineValues": {
+    "cA": "0.00260",
+    "cB": "0.00076",
+    "date": "2026-09-16",
+    "dhi": "85.8",
+    "diff": "75.0",
+    "dlo": "57.5",
+    "hiA": "98.6",
+    "hiB": "34.8",
+    "kA": 38,
+    "kB": 8,
+    "loA": "83.5",
+    "loB": "10.5",
+    "modelA": "claude-sonnet-5",
+    "modelB": "claude-haiku-4-5",
+    "n": 40,
+    "noiseK": 4,
+    "pA": "95.0",
+    "pB": "20.0"
+  },
+  "n": 40,
+  "noise": {
+    "disagree": 4,
+    "upperPp": "12.2"
+  },
+  "paired": {
+    "diffPp": "75.0",
+    "hiPp": "85.8",
+    "loPp": "57.5",
+    "mcnemarP": 1.862645149230957e-9
+  },
+  "piece": "model-regress",
+  "protocolCommit": "6fd248e59fdf00e3b271fa7985827ae96278d794",
+  "protocolHash": "8ec75e43ab00d618320688123577b51b91484ccf8c67c3c58748fad707a4b38b",
+  "ranAt": "2026-09-16T05:20:41.082Z",
+  "runDate": "2026-09-16"
+}
