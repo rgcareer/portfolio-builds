@@ -1,0 +1,134 @@
+{
+  "costUsd": null,
+  "endedAt": "2026-09-10T10:00:05.000Z",
+  "labels": [],
+  "meta": {
+    "apiErrorRecords": 0,
+    "assistantRecords": 3,
+    "bannedModelObserved": 0,
+    "compactSummaries": 0,
+    "dedupedResults": 0,
+    "denials": 0,
+    "hookErrorRecords": 0,
+    "interrupts": 0,
+    "llmTurns": 3,
+    "malformedLines": 0,
+    "metaPrompts": 0,
+    "orphanResults": 0,
+    "promptTurns": 1,
+    "refusalRecords": 0,
+    "sidechainRecords": 0,
+    "systemEvents": 0,
+    "thinkingBlocks": 0,
+    "thinkingChars": 0,
+    "toolCalls": 2,
+    "unknownTypes": 0
+  },
+  "models": [
+    "claude-opus-4-8"
+  ],
+  "outcome": {
+    "status": "completed"
+  },
+  "recordVersion": "1",
+  "redaction": "hashed",
+  "runId": "s_42fb9f93",
+  "source": {
+    "adapter": "claude-code",
+    "kind": "claude-code-transcript",
+    "schemaVersions": [
+      "2.0.14"
+    ]
+  },
+  "startedAt": "2026-09-10T10:00:00.000Z",
+  "toolCalls": [
+    {
+      "callTurn": 1,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_98c90f0e",
+      "inputBytes": 20,
+      "inputHash": "ea981655971f83ac",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 6,
+      "resultHash": "ceae587c02e7b5dd",
+      "resultTurn": 2,
+      "timedOut": false
+    },
+    {
+      "callTurn": 3,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_b58850e2",
+      "inputBytes": 20,
+      "inputHash": "ea981655971f83ac",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 6,
+      "resultHash": "ceae587c02e7b5dd",
+      "resultTurn": 4,
+      "timedOut": false
+    }
+  ],
+  "turns": [
+    {
+      "at": "2026-09-10T10:00:00.000Z",
+      "index": 0,
+      "kind": "prompt",
+      "textChars": 4,
+      "textHash": "e7152696c014832e"
+    },
+    {
+      "at": "2026-09-10T10:00:01.000Z",
+      "index": 1,
+      "kind": "llm",
+      "model": "claude-opus-4-8",
+      "stopReason": "tool_use"
+    },
+    {
+      "at": "2026-09-10T10:00:02.000Z",
+      "index": 2,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-10T10:00:03.000Z",
+      "index": 3,
+      "kind": "llm",
+      "model": "claude-opus-4-8",
+      "stopReason": "tool_use"
+    },
+    {
+      "at": "2026-09-10T10:00:04.000Z",
+      "index": 4,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-10T10:00:05.000Z",
+      "index": 5,
+      "kind": "llm",
+      "model": "claude-opus-4-8",
+      "stopReason": "end_turn",
+      "textChars": 2,
+      "textHash": "a1cc3a5a869c4304",
+      "usage": {
+        "cacheCreation": 0,
+        "cacheRead": 0,
+        "input": 3,
+        "output": 2
+      }
+    }
+  ],
+  "usage": {
+    "cacheCreation": 0,
+    "cacheRead": 0,
+    "input": 3,
+    "output": 2
+  }
+}

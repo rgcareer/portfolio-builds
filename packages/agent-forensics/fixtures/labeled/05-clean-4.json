@@ -1,0 +1,105 @@
+{
+  "costUsd": null,
+  "endedAt": "2026-09-10T10:00:03.000Z",
+  "labels": [],
+  "meta": {
+    "apiErrorRecords": 0,
+    "assistantRecords": 2,
+    "bannedModelObserved": 0,
+    "compactSummaries": 0,
+    "dedupedResults": 0,
+    "denials": 0,
+    "hookErrorRecords": 0,
+    "interrupts": 0,
+    "llmTurns": 2,
+    "malformedLines": 0,
+    "metaPrompts": 0,
+    "orphanResults": 0,
+    "promptTurns": 1,
+    "refusalRecords": 0,
+    "sidechainRecords": 0,
+    "systemEvents": 0,
+    "thinkingBlocks": 0,
+    "thinkingChars": 0,
+    "toolCalls": 1,
+    "unknownTypes": 0
+  },
+  "models": [
+    "claude-opus-4-8"
+  ],
+  "outcome": {
+    "status": "completed"
+  },
+  "recordVersion": "1",
+  "redaction": "hashed",
+  "runId": "s_713e89d1",
+  "source": {
+    "adapter": "claude-code",
+    "kind": "claude-code-transcript",
+    "schemaVersions": [
+      "2.0.14"
+    ]
+  },
+  "startedAt": "2026-09-10T10:00:00.000Z",
+  "toolCalls": [
+    {
+      "callTurn": 1,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_b58850e2",
+      "inputBytes": 16,
+      "inputHash": "59f8488ea6b40ee1",
+      "interrupted": false,
+      "isError": false,
+      "name": "Read",
+      "orphan": false,
+      "resultBytes": 13,
+      "resultHash": "aeea165a87c5c88b",
+      "resultTurn": 2,
+      "timedOut": false
+    }
+  ],
+  "turns": [
+    {
+      "at": "2026-09-10T10:00:00.000Z",
+      "index": 0,
+      "kind": "prompt",
+      "textChars": 9,
+      "textHash": "abc48eee70cfdb04"
+    },
+    {
+      "at": "2026-09-10T10:00:01.000Z",
+      "index": 1,
+      "kind": "llm",
+      "model": "claude-opus-4-8",
+      "stopReason": "tool_use"
+    },
+    {
+      "at": "2026-09-10T10:00:02.000Z",
+      "index": 2,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-10T10:00:03.000Z",
+      "index": 3,
+      "kind": "llm",
+      "model": "claude-opus-4-8",
+      "stopReason": "end_turn",
+      "textChars": 4,
+      "textHash": "833a99dd4852e033",
+      "usage": {
+        "cacheCreation": 0,
+        "cacheRead": 0,
+        "input": 3,
+        "output": 2
+      }
+    }
+  ],
+  "usage": {
+    "cacheCreation": 0,
+    "cacheRead": 0,
+    "input": 3,
+    "output": 2
+  }
+}

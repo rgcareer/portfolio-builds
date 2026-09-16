@@ -1,0 +1,11 @@
+{
+  "traceId": "eval-trace-001",
+  "startedAt": "2026-09-10T09:00:00Z",
+  "endedAt": "2026-09-10T09:00:05Z",
+  "steps": [
+    { "kind": "llm", "at": "2026-09-10T09:00:00Z", "model": "claude-sonnet-5", "text": "Let me search for the answer.", "stopReason": "tool_use", "usage": { "input": 100, "output": 20 } },
+    { "kind": "tool_call", "at": "2026-09-10T09:00:01Z", "name": "search", "input": { "q": "capital of France" } },
+    { "kind": "tool_result", "at": "2026-09-10T09:00:02Z", "output": { "hits": 3 }, "isError": false },
+    { "kind": "llm", "at": "2026-09-10T09:00:03Z", "model": "claude-sonnet-5", "text": "The answer is Paris.", "stopReason": "end_turn", "usage": { "input": 150, "output": 10 } }
+  ]
+}

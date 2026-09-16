@@ -1,0 +1,174 @@
+{
+  "costUsd": null,
+  "endedAt": "2026-09-10T10:00:07.000Z",
+  "labels": [
+    "RETRY"
+  ],
+  "meta": {
+    "apiErrorRecords": 0,
+    "assistantRecords": 4,
+    "bannedModelObserved": 0,
+    "compactSummaries": 0,
+    "dedupedResults": 0,
+    "denials": 0,
+    "hookErrorRecords": 0,
+    "interrupts": 0,
+    "llmTurns": 4,
+    "malformedLines": 0,
+    "metaPrompts": 0,
+    "orphanResults": 0,
+    "promptTurns": 1,
+    "refusalRecords": 0,
+    "sidechainRecords": 0,
+    "systemEvents": 0,
+    "thinkingBlocks": 0,
+    "thinkingChars": 0,
+    "toolCalls": 3,
+    "unknownTypes": 0
+  },
+  "models": [
+    "claude-opus-4-8"
+  ],
+  "outcome": {
+    "status": "completed"
+  },
+  "recordVersion": "1",
+  "redaction": "hashed",
+  "runId": "s_14cf15a2",
+  "source": {
+    "adapter": "claude-code",
+    "kind": "claude-code-transcript",
+    "schemaVersions": [
+      "2.0.14"
+    ]
+  },
+  "startedAt": "2026-09-10T10:00:00.000Z",
+  "toolCalls": [
+    {
+      "callTurn": 1,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": "exit-nonzero",
+      "id": "c_98c90f0e",
+      "inputBytes": 23,
+      "inputHash": "86aa55a24cb06f0e",
+      "interrupted": false,
+      "isError": true,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 30,
+      "resultHash": "8fa22a1255e3aa9c",
+      "resultTurn": 2,
+      "timedOut": false
+    },
+    {
+      "callTurn": 3,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": "exit-nonzero",
+      "id": "c_b58850e2",
+      "inputBytes": 23,
+      "inputHash": "b6ecbaa7f9044748",
+      "interrupted": false,
+      "isError": true,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 30,
+      "resultHash": "188af6d869de9e97",
+      "resultTurn": 4,
+      "timedOut": false
+    },
+    {
+      "callTurn": 5,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": "exit-nonzero",
+      "id": "c_fa44235f",
+      "inputBytes": 23,
+      "inputHash": "20d1460c10d248f1",
+      "interrupted": false,
+      "isError": true,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 30,
+      "resultHash": "cfff53c456f5cbb8",
+      "resultTurn": 6,
+      "timedOut": false
+    }
+  ],
+  "turns": [
+    {
+      "at": "2026-09-10T10:00:00.000Z",
+      "index": 0,
+      "kind": "prompt",
+      "textChars": 5,
+      "textHash": "54314b9bdcb703b6"
+    },
+    {
+      "at": "2026-09-10T10:00:01.000Z",
+      "index": 1,
+      "kind": "llm",
+      "model": "claude-opus-4-8",
+      "stopReason": "tool_use"
+    },
+    {
+      "at": "2026-09-10T10:00:02.000Z",
+      "error": {
+        "class": "exit-nonzero"
+      },
+      "index": 2,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-10T10:00:03.000Z",
+      "index": 3,
+      "kind": "llm",
+      "model": "claude-opus-4-8",
+      "stopReason": "tool_use"
+    },
+    {
+      "at": "2026-09-10T10:00:04.000Z",
+      "error": {
+        "class": "exit-nonzero"
+      },
+      "index": 4,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-10T10:00:05.000Z",
+      "index": 5,
+      "kind": "llm",
+      "model": "claude-opus-4-8",
+      "stopReason": "tool_use"
+    },
+    {
+      "at": "2026-09-10T10:00:06.000Z",
+      "error": {
+        "class": "exit-nonzero"
+      },
+      "index": 6,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-10T10:00:07.000Z",
+      "index": 7,
+      "kind": "llm",
+      "model": "claude-opus-4-8",
+      "stopReason": "end_turn",
+      "textChars": 7,
+      "textHash": "48c13db64e394131",
+      "usage": {
+        "cacheCreation": 0,
+        "cacheRead": 0,
+        "input": 3,
+        "output": 2
+      }
+    }
+  ],
+  "usage": {
+    "cacheCreation": 0,
+    "cacheRead": 0,
+    "input": 3,
+    "output": 2
+  }
+}

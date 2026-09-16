@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "frozen_on": "2026-09-15",
+  "source": "Claude Code JSONL session transcripts (~/.claude/projects/<slug>/*.jsonl) and agenteval Agent Trace v1 files. Tolerant, streaming, redact-by-construction parse: no free text ever crosses into a RunRecord.",
+  "parse": {
+    "blank_lines": "skip silently",
+    "malformed_lines": "count in meta.malformedLines, never throw",
+    "unknown_types": "count in meta.unknownTypes, never throw",
+    "schema_versions": "collect every record.version into source.schemaVersions (sorted, unique)"
+  },
+  "tool_use_result": {
+    "kept_keys": ["durationMs", "timedOutAfterMs", "interrupted", "totalTokens", "totalToolUseCount", "isAgent", "success", "status"],
+    "status_re": "^[a-z_-]{1,32}$",
+    "never_kept": ["content", "text", "thinking", "input", "output", "stdout", "stderr", "command", "attachments", "title", "summary", "lastPrompt", "fileHistory", "file_history", "userType", "accountUuid", "account_uuid", "orgUuid", "org_uuid", "cwd"]
+  },
+  "first_party_tools": ["Bash", "Read", "Edit", "Write", "Agent", "Skill", "WebFetch", "WebSearch", "ToolSearch", "Glob", "Grep", "NotebookEdit", "NotebookRead", "TodoWrite", "Task", "MultiEdit", "BashOutput", "KillShell", "ExitPlanMode"],
+  "error_classes": {
+    "order": ["timeout", "permission", "not-found", "no-matches", "interrupted", "exit-nonzero"],
+    "regex": {
+      "timeout": "timed out|timeout|etimedout|deadline exceeded",
+      "permission": "permission denied|eacces|not permitted|operation not permitted|forbidden",
+      "not-found": "not found|no such file|cannot find|enoent",
+      "no-matches": "no matches found|no files found|0 matches",
+      "interrupted": "interrupted|sigint|cancell?ed|aborted",
+      "exit-nonzero": "exit code [1-9]|exited with code [1-9]|non-?zero exit|command failed"
+    },
+    "fallback": "other"
+  },
+  "detectors": {
+    "LOOP": { "severity": "medium", "window": 10, "min_repeats": 3, "description": ">= min_repeats tool calls with an identical (name, inputHash) AND identical resultHash inside a sliding window of `window` consecutive calls." },
+    "RETRY": { "severity": "medium", "min_consecutive_errors": 3, "description": ">= min_consecutive_errors consecutive is_error results for one tool with no success between them." },
+    "APIERR": { "severity": "high", "description": "An assistant API-error record (isApiErrorMessage) or a system api_error event." },
+    "REFUSAL": { "severity": "high", "description": "An llm turn with a refusal stop reason, or a system model_refusal_* event." },
+    "DANGLE": { "severity": "medium", "description": "A tool call that never received a result (evidence.atSessionEnd)." },
+    "HOOKERR": { "severity": "high", "description": "A record carrying a non-empty hookErrors array." },
+    "TIMEOUT": { "severity": "high", "description": "A tool call that timed out (timedOut flag or error-class timeout)." },
+    "TOOLERR": { "severity": "low", "min_calls": 5, "min_errors": 2, "headline": false, "description": "Per-tool error rate: a tool with >= min_calls calls and >= min_errors error results (reported separately, not in the headline)." },
+    "DENIAL": { "severity": "low", "headline": false, "description": "A tool call denied by permission gating (reported separately)." },
+    "INTERRUPT": { "severity": "low", "headline": false, "description": "A tool call interrupted mid-flight (reported separately)." },
+    "COMPACT": { "severity": "info", "headline": false, "description": "The session hit a compaction boundary / carried a compaction summary (reported separately)." }
+  },
+  "severity_rank": { "info": 0, "low": 1, "medium": 2, "high": 3 },
+  "headline_set": ["LOOP", "RETRY", "APIERR", "REFUSAL", "DANGLE", "HOOKERR", "TIMEOUT"],
+  "denominators": {
+    "sessions": "n = every JSONL file under the ingest dir at ingest time that has >= 1 assistant record; files with zero assistant records are counted (totalFiles) and excluded (excludedZeroAssistant), disclosed in run-meta, never padded.",
+    "tool_calls": "every ToolCall across the included sessions.",
+    "err_calls": "ToolCalls whose isError is true."
+  },
+  "headline_template": "Across {sessions} of my own Claude Code sessions ({from} to {to}; {tool_calls} tool calls), {k} ({p}%, 95% Wilson CI {lo}-{hi}%) contain at least one pre-registered breakdown signature; the most frequent is {top_class} ({top_k} sessions); {err_calls} tool calls ({err_p}%, CI {err_lo}-{err_hi}%) returned an error.",
+  "not_measured": [
+    "Silent wrong-output failures: there is no output-verification layer, so a session that finished with an incorrect answer but produced no error, loop, refusal, or dangle is NOT counted.",
+    "Subagent / sidechain transcripts that are absent from the ingest directory.",
+    "Anything that happened after ingest (later reruns, post-hoc edits, manual recovery)."
+  ]
+}
