@@ -4,12 +4,24 @@ title: LLM Cost Autopilot
 tagline: Prices real Claude traffic against the vendor's own cache multipliers and reports what caching actually saved.
 role: Design + build
 year: '2026'
-status: not yet measured
+status: built and measured
 stack:
   - TypeScript
   - Node.js
   - citty
-metrics: []
+metrics:
+  - label: Bill cut
+    value: 84.7% (session-level bootstrap 95% CI 83.2-86.0%)
+  - label: Calls cached
+    value: 99.7% (95% Wilson CI 99.6-99.8%)
+  - label: Real API calls priced
+    value: '10703'
+  - label: Sessions analyzed
+    value: '85'
+  - label: Actually billed
+    value: $3959.81
+  - label: No-cache counterfactual
+    value: $25863.40
 tags:
   - llm
   - finops
@@ -17,12 +29,20 @@ tags:
   - prompt-caching
 links:
   repo: https://github.com/rgcareer/llm-cost
-metrics_source: {}
+metrics_source:
+  Bill cut: data/run-meta.json#pct.savedPct (session-level bootstrap interval at pct.lo/pct.hi)
+  Calls cached: data/run-meta.json#pct.pRead (Wilson interval at pct.loR/pct.hiR)
+  Real API calls priced: data/run-meta.json#n
+  Sessions analyzed: data/run-meta.json#sessions
+  Actually billed: data/run-meta.json#billedUsd
+  No-cache counterfactual: data/run-meta.json#noCacheUsd
 ---
 
 ## Lead
 
-Not yet measured. `data/run-meta.json` does not exist yet, so there is no headline number to report here. `node --import tsx src/cli.ts headline` and `node --import tsx src/cli.ts report --format md` both exit 1 with "no run-meta.json yet; run `analyze` first" as of this writing.
+Across 10703 real Claude API calls in 85 of my own Claude Code sessions (2026-08-16 to 2026-09-15), prompt caching cut the bill from $25863.40 (every input token at the fresh rate) to $3959.81 actually billed at list rates: 84.7% saved (session-level bootstrap 95% CI 83.2-86.0%); 10669 of 10703 calls (99.7%, 95% Wilson CI 99.6-99.8%) read from cache.
+
+That's the literal output of this package's own `headline` command, run against my own Claude Code traffic.
 
 ## Problem
 
@@ -40,4 +60,4 @@ The percent-saved interval comes from a session-level cluster bootstrap rather t
 
 ## How I verified it
 
-83 tests pass (`npx vitest run packages/llm-cost-autopilot`), and `npx tsc --noEmit` is clean. I ran the package's own `headline` and `report --format md` commands against a clean checkout; both correctly exit 1 and report no run exists, which is why this case study says "not yet measured" instead of a number. `repro` re-derives the two committed output files from the traffic snapshot and protocol, offline, byte for byte except the generation timestamp, once a real run exists to check.
+83 tests pass (`npx vitest run packages/llm-cost-autopilot`), and `npx tsc --noEmit` is clean. I ran the package's own `headline` command against the committed `data/run-meta.json` and pasted its output verbatim above and in the README. `repro` re-derives the two committed output files from the traffic snapshot and protocol, offline, byte for byte except the generation timestamp.

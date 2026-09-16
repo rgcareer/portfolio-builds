@@ -4,9 +4,9 @@ Prices real Claude API traffic against the vendor's own cache and batch multipli
 
 ## Result
 
-Not yet measured.
+Across 10703 real Claude API calls in 85 of my own Claude Code sessions (2026-08-16 to 2026-09-15), prompt caching cut the bill from $25863.40 (every input token at the fresh rate) to $3959.81 actually billed at list rates: 84.7% saved (session-level bootstrap 95% CI 83.2-86.0%); 10669 of 10703 calls (99.7%, 95% Wilson CI 99.6-99.8%) read from cache.
 
-No `data/run-meta.json` has been committed yet. `node --import tsx src/cli.ts headline` and `node --import tsx src/cli.ts report --format md` both exit 1 with "no run-meta.json yet; run `analyze` first" against a clean checkout, so there is nothing to quote here. Extraction runs later, against `~/.claude/projects`, with `PB_ANON_SALT` set.
+That sentence is the literal output of `node --import tsx src/cli.ts headline`, rendered from the committed `data/run-meta.json`.
 
 ## What it does
 

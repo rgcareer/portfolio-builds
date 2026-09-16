@@ -8,6 +8,7 @@
 // and every exit code are handled here).
 
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { dirname, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
@@ -111,7 +112,16 @@ async function cmdAnalyze(rawArgs: string[], io: CliIO, dataDir: string, policy:
   const { args } = parsed;
 
   const trafficDir = args.traffic || resolve(dataDir, 'traffic');
-  const { runMeta } = analyzeReport(dataDir, policy, { protocolCommit: null, extractedAt: null }, trafficDir);
+  let protocolCommit: string | null = null;
+  try {
+    protocolCommit = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: resolve(dataDir, '..'), encoding: 'utf8' }).trim();
+  } catch {
+    /* not a git checkout; the freeze audit still derives the freeze commit from history */
+  }
+  const analyzedAt = new Date().toISOString();
+  const { runMeta } = analyzeReport(dataDir, policy, { protocolCommit, extractedAt: analyzedAt }, trafficDir);
+  // Record run-state so the protocol-frozen audit can confirm the protocol was frozen before analysis.
+  writeFileSync(resolve(dataDir, 'run-state.json'), JSON.stringify({ protocolHash: policy.hash, protocolCommit, analyzedAt }, null, 2) + '\n');
 
   io.log(args.json ? JSON.stringify(runMeta) : `n=${runMeta.n} sessions=${runMeta.sessions} billed=$${runMeta.billedUsd.toFixed(4)} noCache=$${runMeta.noCacheUsd.toFixed(4)}`);
   return runMeta.n > 0 ? 0 : 1;
