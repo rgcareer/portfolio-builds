@@ -1,0 +1,31 @@
+# Inert, package-local workflow shipped with @rgcareer/model-regress as a drop-in template.
+# It runs the paired regression gate on every pull request in MOCK mode by default (no API
+# key, no spend), so it is safe to enable as-is. To run the real paired comparison, set the
+# repository secret ANTHROPIC_API_KEY and PB_SPEND_CAP_USD, then drop `--mock` from the run
+# steps. This file lives under the package (not the monorepo root) and does not run in the
+# portfolio-builds repo's own CI.
+name: model-regress
+
+on:
+  pull_request:
+    paths:
+      - "packages/model-regress/**"
+  workflow_dispatch:
+
+jobs:
+  regress:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm ci
+      - run: npx model-regress golden gen
+      # Mock by default: the whole pipeline runs offline at $0.
+      - run: npx model-regress run --condition A --mock
+      - run: npx model-regress run --condition B --mock
+      - run: npx model-regress run --condition A-repeat --mock
+      - run: npx model-regress compare
+      # Exit 1 on a detected regression, a cost-per-item breach, or a threshold failure.
+      - run: npx model-regress ci --max-drop-pp 5 --max-cost-increase-pct 25

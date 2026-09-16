@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "frozen_on": "2026-09-15",
+  "golden": {
+    "path": "golden/golden-v1.json",
+    "seed": 20260915,
+    "n": 40,
+    "generator_version": 1
+  },
+  "task": {
+    "system": "Return exactly one JSON object with keys id, date, total_cents, paid, status, items and no prose.",
+    "maxTokens": 400,
+    "output_contract": "exactly one JSON object with keys id (string), date (ISO YYYY-MM-DD), total_cents (integer cents = sum of qty*unit_cents), paid (boolean), status (string), items (array of {name, qty, unit_cents}); no prose",
+    "parse_rule": "first balanced JSON object"
+  },
+  "conditions": [
+    { "name": "A", "model": "claude-sonnet-5" },
+    { "name": "B", "model": "claude-haiku-4-5" },
+    { "name": "A-repeat", "model": "claude-sonnet-5" }
+  ],
+  "statistic": {
+    "primary": "exact-json paired pass",
+    "ci": "Newcombe method 10, z=1.96",
+    "test": "McNemar exact",
+    "bootstrap": { "seed": 20260915, "iters": 2000 }
+  },
+  "decision_rule": "'regression' only if the exact-json paired-difference 95% CI excludes 0 AND |diff| exceeds the upper bound of the A-vs-A-repeat paired-difference CI; else 'no detectable regression at n=40' reported with the minimal detectable effect at 80% power. A cost-per-item increase beyond max_cost_increase_pct fails `ci` regardless of pass rate.",
+  "ci_thresholds": {
+    "max_drop_pp": 5,
+    "max_cost_increase_pct": 25
+  },
+  "prices": {
+    "claude-sonnet-5": { "in": 2, "out": 10 },
+    "claude-haiku-4-5": { "in": 1, "out": 5 },
+    "claude-opus-4-8": { "in": 5, "out": 25 }
+  },
+  "spend": {
+    "cap_usd": 3,
+    "expected_usd": 0.217235,
+    "ceiling_usd": 0.42292
+  },
+  "headline_template": "On a {n}-item deterministic extraction golden set (run {date}), {modelA} passed {kA}/{n} ({pA}%, 95% Wilson CI {loA}-{hiA}%) and {modelB} passed {kB}/{n} ({pB}%, CI {loB}-{hiB}%); paired difference {diff} pp (95% CI {dlo} to {dhi}) against a same-model repeat disagreement of {noiseK}/{n}; cost per item ${cA} vs ${cB}.",
+  "not_measured": ["judge quality", "tool use", "long context", "prompt variants", "other tasks"]
+}
