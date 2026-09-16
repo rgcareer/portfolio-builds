@@ -1,0 +1,84 @@
+{
+  "costUsd": null,
+  "endedAt": "2026-09-07T17:38:56.475Z",
+  "meta": {
+    "apiErrorRecords": 1,
+    "assistantRecords": 1,
+    "bannedModelObserved": 0,
+    "compactSummaries": 0,
+    "cwdToken": "p_7856bfcd",
+    "dedupedResults": 0,
+    "denials": 0,
+    "entrypoint": "sdk-cli",
+    "gitBranchHash": "eb5d4dd082ab5626",
+    "hookErrorRecords": 0,
+    "interrupts": 0,
+    "llmTurns": 1,
+    "malformedLines": 0,
+    "metaPrompts": 0,
+    "orphanResults": 0,
+    "permissionMode": "acceptEdits",
+    "promptTurns": 1,
+    "refusalRecords": 0,
+    "sidechainRecords": 0,
+    "systemEvents": 0,
+    "thinkingBlocks": 0,
+    "thinkingChars": 0,
+    "toolCalls": 0,
+    "unknownTypes": 8
+  },
+  "models": [],
+  "outcome": {
+    "status": "errored"
+  },
+  "recordVersion": "1",
+  "redaction": "hashed",
+  "runId": "s_bae29e03",
+  "source": {
+    "adapter": "claude-code",
+    "kind": "claude-code-transcript",
+    "schemaVersions": [
+      "2.1.236"
+    ]
+  },
+  "startedAt": "2026-09-07T17:38:55.397Z",
+  "toolCalls": [],
+  "turns": [
+    {
+      "at": "2026-09-07T17:38:56.444Z",
+      "index": 0,
+      "kind": "prompt",
+      "textChars": 299,
+      "textHash": "395334d536756c5a"
+    },
+    {
+      "at": "2026-09-07T17:38:56.475Z",
+      "index": 1,
+      "kind": "llm",
+      "stopReason": "stop_sequence",
+      "textChars": 72,
+      "textHash": "bb41cb15194b74f2",
+      "usage": {
+        "cacheCreation": 0,
+        "cacheRead": 0,
+        "input": 0,
+        "output": 0
+      }
+    },
+    {
+      "at": "2026-09-07T17:38:56.475Z",
+      "error": {
+        "class": "api-error"
+      },
+      "eventType": "api_error",
+      "index": 2,
+      "kind": "system_event"
+    }
+  ],
+  "usage": {
+    "cacheCreation": 0,
+    "cacheRead": 0,
+    "input": 0,
+    "output": 0
+  }
+}

@@ -1,0 +1,304 @@
+{
+  "costUsd": null,
+  "endedAt": "2026-09-08T16:47:01.394Z",
+  "meta": {
+    "apiErrorRecords": 0,
+    "assistantRecords": 15,
+    "bannedModelObserved": 0,
+    "compactSummaries": 0,
+    "cwdToken": "p_f01456d9",
+    "dedupedResults": 0,
+    "denials": 0,
+    "entrypoint": "claude-desktop",
+    "gitBranchHash": "eb5d4dd082ab5626",
+    "hookErrorRecords": 0,
+    "interrupts": 0,
+    "llmTurns": 7,
+    "malformedLines": 0,
+    "metaPrompts": 1,
+    "orphanResults": 0,
+    "permissionMode": "acceptEdits",
+    "promptTurns": 3,
+    "refusalRecords": 0,
+    "sidechainRecords": 0,
+    "systemEvents": 2,
+    "thinkingBlocks": 5,
+    "thinkingChars": 0,
+    "toolCalls": 5,
+    "unknownTypes": 53
+  },
+  "models": [
+    "claude-fable-5"
+  ],
+  "outcome": {
+    "status": "completed"
+  },
+  "recordVersion": "1",
+  "redaction": "hashed",
+  "runId": "s_d37b38f4",
+  "source": {
+    "adapter": "claude-code",
+    "kind": "claude-code-transcript",
+    "schemaVersions": [
+      "2.1.260"
+    ]
+  },
+  "startedAt": "2026-09-08T16:33:21.264Z",
+  "toolCalls": [
+    {
+      "callTurn": 1,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": "exit-nonzero",
+      "id": "c_5b00a412",
+      "inputBytes": 112,
+      "inputHash": "d546cbf9f500835d",
+      "interrupted": false,
+      "isError": true,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 126,
+      "resultHash": "5495fc675a82c7ff",
+      "resultTurn": 2,
+      "timedOut": false
+    },
+    {
+      "callTurn": 6,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_23afc216",
+      "inputBytes": 71,
+      "inputHash": "0792e2d95375a887",
+      "interrupted": false,
+      "isError": false,
+      "name": "ToolSearch",
+      "orphan": false,
+      "resultBytes": 78,
+      "resultHash": "3e664edb75f4643f",
+      "resultTurn": 7,
+      "timedOut": false
+    },
+    {
+      "callTurn": 8,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_6e1e3ac2",
+      "inputBytes": 54,
+      "inputHash": "585a38d01f4900db",
+      "interrupted": false,
+      "isError": false,
+      "name": "other:e6ac736a",
+      "orphan": false,
+      "resultBytes": 275,
+      "resultHash": "757612cff1813f86",
+      "resultTurn": 9,
+      "timedOut": false
+    },
+    {
+      "callTurn": 13,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_883813df",
+      "inputBytes": 112,
+      "inputHash": "d546cbf9f500835d",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 90,
+      "resultHash": "ff4848d9e749528b",
+      "resultTurn": 14,
+      "timedOut": false
+    },
+    {
+      "callTurn": 13,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_149e4811",
+      "inputBytes": 72,
+      "inputHash": "c71812f1824029e7",
+      "interrupted": false,
+      "isError": false,
+      "name": "ToolSearch",
+      "orphan": false,
+      "resultBytes": 777,
+      "resultHash": "31701a6b09ef834d",
+      "resultTurn": 15,
+      "timedOut": false
+    }
+  ],
+  "turns": [
+    {
+      "at": "2026-09-08T16:33:21.520Z",
+      "index": 0,
+      "kind": "prompt",
+      "textChars": 877,
+      "textHash": "7a20140efad5b355"
+    },
+    {
+      "at": "2026-09-08T16:33:37.923Z",
+      "index": 1,
+      "kind": "llm",
+      "model": "claude-fable-5",
+      "stopReason": "tool_use",
+      "textChars": 30,
+      "textHash": "ea05093fe4fbd1ef",
+      "usage": {
+        "cacheCreation": 27688,
+        "cacheRead": 43524,
+        "input": 2,
+        "output": 1265
+      }
+    },
+    {
+      "at": "2026-09-08T16:33:38.790Z",
+      "error": {
+        "class": "exit-nonzero"
+      },
+      "index": 2,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-08T16:33:48.973Z",
+      "index": 3,
+      "kind": "llm",
+      "model": "claude-fable-5",
+      "stopReason": "end_turn",
+      "textChars": 1337,
+      "textHash": "6b39dc3acd7035a8",
+      "usage": {
+        "cacheCreation": 1531,
+        "cacheRead": 71212,
+        "input": 2,
+        "output": 717
+      }
+    },
+    {
+      "at": "2026-09-08T16:33:50.543Z",
+      "eventType": "stop_hook_summary",
+      "index": 4,
+      "kind": "system_event"
+    },
+    {
+      "at": "2026-09-08T16:45:18.041Z",
+      "index": 5,
+      "kind": "prompt",
+      "textChars": 327,
+      "textHash": "aa20a00be9127fb2"
+    },
+    {
+      "at": "2026-09-08T16:45:21.243Z",
+      "index": 6,
+      "kind": "llm",
+      "model": "claude-fable-5",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 142,
+        "cacheRead": 73460,
+        "input": 2,
+        "output": 175
+      }
+    },
+    {
+      "at": "2026-09-08T16:45:21.258Z",
+      "index": 7,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-08T16:45:23.424Z",
+      "index": 8,
+      "kind": "llm",
+      "model": "claude-fable-5",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 482,
+        "cacheRead": 73602,
+        "input": 2,
+        "output": 82
+      }
+    },
+    {
+      "at": "2026-09-08T16:45:34.877Z",
+      "index": 9,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-08T16:45:36.506Z",
+      "index": 10,
+      "kind": "llm",
+      "model": "claude-fable-5",
+      "stopReason": "end_turn",
+      "textChars": 115,
+      "textHash": "909cecad68299f58",
+      "usage": {
+        "cacheCreation": 201,
+        "cacheRead": 74084,
+        "input": 2,
+        "output": 47
+      }
+    },
+    {
+      "at": "2026-09-08T16:45:37.825Z",
+      "eventType": "stop_hook_summary",
+      "index": 11,
+      "kind": "system_event"
+    },
+    {
+      "at": "2026-09-08T16:46:41.056Z",
+      "index": 12,
+      "kind": "prompt",
+      "textChars": 430,
+      "textHash": "3251f0d696e168df"
+    },
+    {
+      "at": "2026-09-08T16:46:48.325Z",
+      "index": 13,
+      "kind": "llm",
+      "model": "claude-fable-5",
+      "stopReason": "tool_use",
+      "textChars": 74,
+      "textHash": "b59584f6e42febbf",
+      "usage": {
+        "cacheCreation": 13390,
+        "cacheRead": 74332,
+        "input": 2,
+        "output": 650
+      }
+    },
+    {
+      "at": "2026-09-08T16:46:49.083Z",
+      "index": 14,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-08T16:46:49.584Z",
+      "index": 15,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-08T16:47:01.354Z",
+      "index": 16,
+      "kind": "llm",
+      "model": "claude-fable-5",
+      "stopReason": "end_turn",
+      "textChars": 1409,
+      "textHash": "bb9ac6cea71ee122",
+      "usage": {
+        "cacheCreation": 49376,
+        "cacheRead": 43524,
+        "input": 2,
+        "output": 738
+      }
+    }
+  ],
+  "usage": {
+    "cacheCreation": 92810,
+    "cacheRead": 453738,
+    "input": 14,
+    "output": 3674
+  }
+}

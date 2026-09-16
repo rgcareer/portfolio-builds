@@ -1,0 +1,3001 @@
+{
+  "byDetector": {
+    "APIERR": 16,
+    "COMPACT": 69,
+    "DANGLE": 9,
+    "DENIAL": 76,
+    "HOOKERR": 16,
+    "LOOP": 15,
+    "REFUSAL": 4,
+    "RETRY": 15,
+    "TIMEOUT": 62,
+    "TOOLERR": 99
+  },
+  "generatedAt": "2026-09-16T04:49:47.010Z",
+  "piece": "agent-forensics",
+  "protocolHash": "4cd78dd433896ccbe031adc52404425a2da430c60b4594af12c25f6388d5321b",
+  "records": [
+    {
+      "blame": {
+        "detector": "RETRY",
+        "severity": "medium",
+        "turnEnd": 353,
+        "turnStart": 170
+      },
+      "detectors": [
+        "COMPACT",
+        "RETRY",
+        "TOOLERR"
+      ],
+      "errCalls": 14,
+      "hasHeadlineSignature": true,
+      "runId": "s_0028c080",
+      "signatureCount": 6,
+      "toolCalls": 274
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 0,
+      "hasHeadlineSignature": false,
+      "runId": "s_007b00a8",
+      "signatureCount": 0,
+      "toolCalls": 4
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 84,
+        "turnStart": 80
+      },
+      "detectors": [
+        "APIERR",
+        "COMPACT",
+        "DENIAL",
+        "LOOP",
+        "RETRY",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 30,
+      "hasHeadlineSignature": true,
+      "runId": "s_01842bb4",
+      "signatureCount": 19,
+      "toolCalls": 685
+    },
+    {
+      "blame": {
+        "detector": "HOOKERR",
+        "severity": "high",
+        "turnEnd": 356,
+        "turnStart": 356
+      },
+      "detectors": [
+        "HOOKERR",
+        "TOOLERR"
+      ],
+      "errCalls": 4,
+      "hasHeadlineSignature": true,
+      "runId": "s_0253009b",
+      "signatureCount": 2,
+      "toolCalls": 177
+    },
+    {
+      "blame": {
+        "detector": "HOOKERR",
+        "severity": "high",
+        "turnEnd": 43,
+        "turnStart": 43
+      },
+      "detectors": [
+        "HOOKERR"
+      ],
+      "errCalls": 1,
+      "hasHeadlineSignature": true,
+      "runId": "s_0343b3c5",
+      "signatureCount": 1,
+      "toolCalls": 61
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 172,
+        "turnStart": 171
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 6,
+      "hasHeadlineSignature": true,
+      "runId": "s_0382e23f",
+      "signatureCount": 6,
+      "toolCalls": 158
+    },
+    {
+      "blame": {
+        "detector": "APIERR",
+        "severity": "high",
+        "turnEnd": 243,
+        "turnStart": 243
+      },
+      "detectors": [
+        "APIERR",
+        "COMPACT",
+        "DANGLE",
+        "LOOP",
+        "RETRY",
+        "TOOLERR"
+      ],
+      "errCalls": 5,
+      "hasHeadlineSignature": true,
+      "runId": "s_0525396f",
+      "signatureCount": 82,
+      "toolCalls": 305
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 499,
+        "turnStart": 22
+      },
+      "detectors": [
+        "TOOLERR"
+      ],
+      "errCalls": 3,
+      "hasHeadlineSignature": false,
+      "runId": "s_06f5331b",
+      "signatureCount": 1,
+      "toolCalls": 269
+    },
+    {
+      "blame": {
+        "detector": "DANGLE",
+        "severity": "medium",
+        "turnEnd": 1,
+        "turnStart": 1
+      },
+      "detectors": [
+        "COMPACT",
+        "DANGLE",
+        "LOOP",
+        "RETRY",
+        "TOOLERR"
+      ],
+      "errCalls": 7,
+      "hasHeadlineSignature": true,
+      "runId": "s_08cf2e2f",
+      "signatureCount": 619,
+      "toolCalls": 896
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 182,
+        "turnStart": 181
+      },
+      "detectors": [
+        "TIMEOUT"
+      ],
+      "errCalls": 2,
+      "hasHeadlineSignature": true,
+      "runId": "s_08d2e9c2",
+      "signatureCount": 1,
+      "toolCalls": 255
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 426,
+        "turnStart": 425
+      },
+      "detectors": [
+        "DENIAL",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 4,
+      "hasHeadlineSignature": true,
+      "runId": "s_09ba24c8",
+      "signatureCount": 3,
+      "toolCalls": 215
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 1,
+      "hasHeadlineSignature": false,
+      "runId": "s_0bc9c547",
+      "signatureCount": 0,
+      "toolCalls": 5
+    },
+    {
+      "blame": {
+        "detector": "DENIAL",
+        "severity": "low",
+        "turnEnd": 75,
+        "turnStart": 74
+      },
+      "detectors": [
+        "DENIAL"
+      ],
+      "errCalls": 1,
+      "hasHeadlineSignature": false,
+      "runId": "s_0c96cdac",
+      "signatureCount": 1,
+      "toolCalls": 71
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 180,
+        "turnStart": 1
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL",
+        "TOOLERR"
+      ],
+      "errCalls": 4,
+      "hasHeadlineSignature": false,
+      "runId": "s_0cf552ed",
+      "signatureCount": 4,
+      "toolCalls": 90
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 221,
+        "turnStart": 220
+      },
+      "detectors": [
+        "TIMEOUT"
+      ],
+      "errCalls": 5,
+      "hasHeadlineSignature": true,
+      "runId": "s_1082d7ef",
+      "signatureCount": 1,
+      "toolCalls": 263
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 325,
+        "turnStart": 324
+      },
+      "detectors": [
+        "APIERR",
+        "REFUSAL",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 5,
+      "hasHeadlineSignature": true,
+      "runId": "s_10834193",
+      "signatureCount": 10,
+      "toolCalls": 196
+    },
+    {
+      "blame": {
+        "detector": "COMPACT",
+        "severity": "info",
+        "turnEnd": 527,
+        "turnStart": 527
+      },
+      "detectors": [
+        "COMPACT"
+      ],
+      "errCalls": 0,
+      "hasHeadlineSignature": false,
+      "runId": "s_1256238f",
+      "signatureCount": 1,
+      "toolCalls": 279
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 387,
+        "turnStart": 12
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL",
+        "TOOLERR"
+      ],
+      "errCalls": 10,
+      "hasHeadlineSignature": false,
+      "runId": "s_138222a2",
+      "signatureCount": 4,
+      "toolCalls": 221
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 190,
+        "turnStart": 189
+      },
+      "detectors": [
+        "DENIAL",
+        "TIMEOUT"
+      ],
+      "errCalls": 6,
+      "hasHeadlineSignature": true,
+      "runId": "s_17ababb1",
+      "signatureCount": 2,
+      "toolCalls": 218
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 659,
+        "turnStart": 3
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL",
+        "TOOLERR"
+      ],
+      "errCalls": 11,
+      "hasHeadlineSignature": false,
+      "runId": "s_17f4a4a5",
+      "signatureCount": 5,
+      "toolCalls": 357
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 400,
+        "turnStart": 399
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 7,
+      "hasHeadlineSignature": true,
+      "runId": "s_1a9d327d",
+      "signatureCount": 5,
+      "toolCalls": 287
+    },
+    {
+      "blame": {
+        "detector": "COMPACT",
+        "severity": "info",
+        "turnEnd": 544,
+        "turnStart": 544
+      },
+      "detectors": [
+        "COMPACT"
+      ],
+      "errCalls": 0,
+      "hasHeadlineSignature": false,
+      "runId": "s_1c5d673a",
+      "signatureCount": 1,
+      "toolCalls": 281
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 222,
+        "turnStart": 221
+      },
+      "detectors": [
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 7,
+      "hasHeadlineSignature": true,
+      "runId": "s_1d4915b9",
+      "signatureCount": 4,
+      "toolCalls": 306
+    },
+    {
+      "blame": {
+        "detector": "HOOKERR",
+        "severity": "high",
+        "turnEnd": 225,
+        "turnStart": 225
+      },
+      "detectors": [
+        "COMPACT",
+        "HOOKERR"
+      ],
+      "errCalls": 0,
+      "hasHeadlineSignature": true,
+      "runId": "s_1d508679",
+      "signatureCount": 2,
+      "toolCalls": 116
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 1,
+      "hasHeadlineSignature": false,
+      "runId": "s_1d8d2748",
+      "signatureCount": 0,
+      "toolCalls": 61
+    },
+    {
+      "blame": {
+        "detector": "RETRY",
+        "severity": "medium",
+        "turnEnd": 494,
+        "turnStart": 352
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL",
+        "RETRY",
+        "TOOLERR"
+      ],
+      "errCalls": 10,
+      "hasHeadlineSignature": true,
+      "runId": "s_1ff176c1",
+      "signatureCount": 4,
+      "toolCalls": 281
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 384,
+        "turnStart": 383
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 10,
+      "hasHeadlineSignature": true,
+      "runId": "s_2359c6c2",
+      "signatureCount": 5,
+      "toolCalls": 244
+    },
+    {
+      "blame": {
+        "detector": "HOOKERR",
+        "severity": "high",
+        "turnEnd": 100,
+        "turnStart": 100
+      },
+      "detectors": [
+        "DENIAL",
+        "HOOKERR",
+        "RETRY",
+        "TOOLERR"
+      ],
+      "errCalls": 5,
+      "hasHeadlineSignature": true,
+      "runId": "s_239ca31d",
+      "signatureCount": 4,
+      "toolCalls": 327
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 344,
+        "turnStart": 343
+      },
+      "detectors": [
+        "COMPACT",
+        "TIMEOUT"
+      ],
+      "errCalls": 2,
+      "hasHeadlineSignature": true,
+      "runId": "s_23a7f914",
+      "signatureCount": 2,
+      "toolCalls": 229
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 230,
+        "turnStart": 229
+      },
+      "detectors": [
+        "APIERR",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 9,
+      "hasHeadlineSignature": true,
+      "runId": "s_2486a9a0",
+      "signatureCount": 9,
+      "toolCalls": 217
+    },
+    {
+      "blame": {
+        "detector": "COMPACT",
+        "severity": "info",
+        "turnEnd": 127,
+        "turnStart": 127
+      },
+      "detectors": [
+        "COMPACT"
+      ],
+      "errCalls": 0,
+      "hasHeadlineSignature": false,
+      "runId": "s_25f1fe26",
+      "signatureCount": 1,
+      "toolCalls": 95
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 280,
+        "turnStart": 1
+      },
+      "detectors": [
+        "COMPACT",
+        "TOOLERR"
+      ],
+      "errCalls": 3,
+      "hasHeadlineSignature": false,
+      "runId": "s_2918e659",
+      "signatureCount": 2,
+      "toolCalls": 153
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 342,
+        "turnStart": 1
+      },
+      "detectors": [
+        "TOOLERR"
+      ],
+      "errCalls": 5,
+      "hasHeadlineSignature": false,
+      "runId": "s_2a11081d",
+      "signatureCount": 1,
+      "toolCalls": 174
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 177,
+        "turnStart": 176
+      },
+      "detectors": [
+        "DENIAL",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 8,
+      "hasHeadlineSignature": true,
+      "runId": "s_2ac9264b",
+      "signatureCount": 7,
+      "toolCalls": 168
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 3,
+      "hasHeadlineSignature": false,
+      "runId": "s_2d1dc60c",
+      "signatureCount": 0,
+      "toolCalls": 53
+    },
+    {
+      "blame": {
+        "detector": "LOOP",
+        "severity": "medium",
+        "turnEnd": 103,
+        "turnStart": 89
+      },
+      "detectors": [
+        "DENIAL",
+        "LOOP",
+        "TOOLERR"
+      ],
+      "errCalls": 14,
+      "hasHeadlineSignature": true,
+      "runId": "s_2daedff3",
+      "signatureCount": 5,
+      "toolCalls": 427
+    },
+    {
+      "blame": {
+        "detector": "DENIAL",
+        "severity": "low",
+        "turnEnd": 35,
+        "turnStart": 34
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL"
+      ],
+      "errCalls": 4,
+      "hasHeadlineSignature": false,
+      "runId": "s_2ee1e5ae",
+      "signatureCount": 2,
+      "toolCalls": 42
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 127,
+        "turnStart": 126
+      },
+      "detectors": [
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 10,
+      "hasHeadlineSignature": true,
+      "runId": "s_2f30a429",
+      "signatureCount": 4,
+      "toolCalls": 299
+    },
+    {
+      "blame": {
+        "detector": "HOOKERR",
+        "severity": "high",
+        "turnEnd": 281,
+        "turnStart": 281
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL",
+        "HOOKERR",
+        "TOOLERR"
+      ],
+      "errCalls": 3,
+      "hasHeadlineSignature": true,
+      "runId": "s_2f6db96c",
+      "signatureCount": 6,
+      "toolCalls": 146
+    },
+    {
+      "blame": {
+        "detector": "COMPACT",
+        "severity": "info",
+        "turnEnd": 230,
+        "turnStart": 230
+      },
+      "detectors": [
+        "COMPACT"
+      ],
+      "errCalls": 3,
+      "hasHeadlineSignature": false,
+      "runId": "s_2fcb4d98",
+      "signatureCount": 1,
+      "toolCalls": 118
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 52,
+        "turnStart": 1
+      },
+      "detectors": [
+        "TOOLERR"
+      ],
+      "errCalls": 2,
+      "hasHeadlineSignature": false,
+      "runId": "s_336d8819",
+      "signatureCount": 1,
+      "toolCalls": 35
+    },
+    {
+      "blame": {
+        "detector": "COMPACT",
+        "severity": "info",
+        "turnEnd": 77,
+        "turnStart": 77
+      },
+      "detectors": [
+        "COMPACT"
+      ],
+      "errCalls": 1,
+      "hasHeadlineSignature": false,
+      "runId": "s_364c0139",
+      "signatureCount": 1,
+      "toolCalls": 86
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 206,
+        "turnStart": 1
+      },
+      "detectors": [
+        "DENIAL",
+        "TOOLERR"
+      ],
+      "errCalls": 3,
+      "hasHeadlineSignature": false,
+      "runId": "s_38d00efe",
+      "signatureCount": 2,
+      "toolCalls": 135
+    },
+    {
+      "blame": {
+        "detector": "COMPACT",
+        "severity": "info",
+        "turnEnd": 83,
+        "turnStart": 83
+      },
+      "detectors": [
+        "COMPACT"
+      ],
+      "errCalls": 0,
+      "hasHeadlineSignature": false,
+      "runId": "s_3b2611bf",
+      "signatureCount": 1,
+      "toolCalls": 40
+    },
+    {
+      "blame": {
+        "detector": "DENIAL",
+        "severity": "low",
+        "turnEnd": 44,
+        "turnStart": 43
+      },
+      "detectors": [
+        "DENIAL"
+      ],
+      "errCalls": 2,
+      "hasHeadlineSignature": false,
+      "runId": "s_3b903d84",
+      "signatureCount": 1,
+      "toolCalls": 302
+    },
+    {
+      "blame": {
+        "detector": "APIERR",
+        "severity": "high",
+        "turnEnd": 98,
+        "turnStart": 98
+      },
+      "detectors": [
+        "APIERR",
+        "DENIAL",
+        "TOOLERR"
+      ],
+      "errCalls": 3,
+      "hasHeadlineSignature": true,
+      "runId": "s_3dc877b8",
+      "signatureCount": 3,
+      "toolCalls": 61
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 398,
+        "turnStart": 1
+      },
+      "detectors": [
+        "COMPACT",
+        "TOOLERR"
+      ],
+      "errCalls": 5,
+      "hasHeadlineSignature": false,
+      "runId": "s_3e40fcd6",
+      "signatureCount": 3,
+      "toolCalls": 228
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 345,
+        "turnStart": 4
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL",
+        "TOOLERR"
+      ],
+      "errCalls": 5,
+      "hasHeadlineSignature": false,
+      "runId": "s_3e617eca",
+      "signatureCount": 4,
+      "toolCalls": 229
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 0,
+      "hasHeadlineSignature": false,
+      "runId": "s_3fb5fa2d",
+      "signatureCount": 0,
+      "toolCalls": 39
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 2,
+      "hasHeadlineSignature": false,
+      "runId": "s_405ba2cb",
+      "signatureCount": 0,
+      "toolCalls": 61
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 135,
+        "turnStart": 134
+      },
+      "detectors": [
+        "DENIAL",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 4,
+      "hasHeadlineSignature": true,
+      "runId": "s_40d6e6d7",
+      "signatureCount": 3,
+      "toolCalls": 264
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 187,
+        "turnStart": 1
+      },
+      "detectors": [
+        "DENIAL",
+        "TOOLERR"
+      ],
+      "errCalls": 14,
+      "hasHeadlineSignature": false,
+      "runId": "s_46408c90",
+      "signatureCount": 12,
+      "toolCalls": 163
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 193,
+        "turnStart": 191
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 6,
+      "hasHeadlineSignature": true,
+      "runId": "s_46935856",
+      "signatureCount": 6,
+      "toolCalls": 280
+    },
+    {
+      "blame": {
+        "detector": "DENIAL",
+        "severity": "low",
+        "turnEnd": 96,
+        "turnStart": 95
+      },
+      "detectors": [
+        "DENIAL"
+      ],
+      "errCalls": 3,
+      "hasHeadlineSignature": false,
+      "runId": "s_46d824e1",
+      "signatureCount": 1,
+      "toolCalls": 69
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 154,
+        "turnStart": 1
+      },
+      "detectors": [
+        "DENIAL",
+        "TOOLERR"
+      ],
+      "errCalls": 6,
+      "hasHeadlineSignature": false,
+      "runId": "s_476cc3e8",
+      "signatureCount": 3,
+      "toolCalls": 97
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 571,
+        "turnStart": 1
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL",
+        "TOOLERR"
+      ],
+      "errCalls": 15,
+      "hasHeadlineSignature": false,
+      "runId": "s_48ed7802",
+      "signatureCount": 8,
+      "toolCalls": 371
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 246,
+        "turnStart": 1
+      },
+      "detectors": [
+        "DENIAL",
+        "TOOLERR"
+      ],
+      "errCalls": 19,
+      "hasHeadlineSignature": false,
+      "runId": "s_48f06800",
+      "signatureCount": 10,
+      "toolCalls": 185
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 1,
+      "hasHeadlineSignature": false,
+      "runId": "s_4ab40534",
+      "signatureCount": 0,
+      "toolCalls": 12
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 234,
+        "turnStart": 233
+      },
+      "detectors": [
+        "DENIAL",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 8,
+      "hasHeadlineSignature": true,
+      "runId": "s_4ca2a53c",
+      "signatureCount": 5,
+      "toolCalls": 133
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 194,
+        "turnStart": 37
+      },
+      "detectors": [
+        "TOOLERR"
+      ],
+      "errCalls": 3,
+      "hasHeadlineSignature": false,
+      "runId": "s_4d02c7e3",
+      "signatureCount": 1,
+      "toolCalls": 91
+    },
+    {
+      "blame": {
+        "detector": "COMPACT",
+        "severity": "info",
+        "turnEnd": 170,
+        "turnStart": 170
+      },
+      "detectors": [
+        "COMPACT"
+      ],
+      "errCalls": 1,
+      "hasHeadlineSignature": false,
+      "runId": "s_4ec007de",
+      "signatureCount": 1,
+      "toolCalls": 99
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 1,
+      "hasHeadlineSignature": false,
+      "runId": "s_4fcacc2c",
+      "signatureCount": 0,
+      "toolCalls": 199
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 127,
+        "turnStart": 126
+      },
+      "detectors": [
+        "APIERR",
+        "LOOP",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 15,
+      "hasHeadlineSignature": true,
+      "runId": "s_4ff6c45e",
+      "signatureCount": 10,
+      "toolCalls": 238
+    },
+    {
+      "blame": {
+        "detector": "RETRY",
+        "severity": "medium",
+        "turnEnd": 9,
+        "turnStart": 9
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL",
+        "RETRY",
+        "TOOLERR"
+      ],
+      "errCalls": 11,
+      "hasHeadlineSignature": true,
+      "runId": "s_51020a3f",
+      "signatureCount": 9,
+      "toolCalls": 60
+    },
+    {
+      "blame": {
+        "detector": "COMPACT",
+        "severity": "info",
+        "turnEnd": 167,
+        "turnStart": 167
+      },
+      "detectors": [
+        "COMPACT"
+      ],
+      "errCalls": 0,
+      "hasHeadlineSignature": false,
+      "runId": "s_51c0b066",
+      "signatureCount": 1,
+      "toolCalls": 81
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 123,
+        "turnStart": 38
+      },
+      "detectors": [
+        "COMPACT",
+        "TOOLERR"
+      ],
+      "errCalls": 2,
+      "hasHeadlineSignature": false,
+      "runId": "s_5262ddf1",
+      "signatureCount": 2,
+      "toolCalls": 64
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 3,
+      "hasHeadlineSignature": false,
+      "runId": "s_5351b122",
+      "signatureCount": 0,
+      "toolCalls": 123
+    },
+    {
+      "blame": {
+        "detector": "HOOKERR",
+        "severity": "high",
+        "turnEnd": 780,
+        "turnStart": 780
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL",
+        "HOOKERR"
+      ],
+      "errCalls": 4,
+      "hasHeadlineSignature": true,
+      "runId": "s_55ee4376",
+      "signatureCount": 3,
+      "toolCalls": 391
+    },
+    {
+      "blame": {
+        "detector": "HOOKERR",
+        "severity": "high",
+        "turnEnd": 480,
+        "turnStart": 480
+      },
+      "detectors": [
+        "DENIAL",
+        "HOOKERR",
+        "TOOLERR"
+      ],
+      "errCalls": 9,
+      "hasHeadlineSignature": true,
+      "runId": "s_5920c8fd",
+      "signatureCount": 6,
+      "toolCalls": 276
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 3,
+      "hasHeadlineSignature": false,
+      "runId": "s_59cd7112",
+      "signatureCount": 0,
+      "toolCalls": 121
+    },
+    {
+      "blame": {
+        "detector": "APIERR",
+        "severity": "high",
+        "turnEnd": 281,
+        "turnStart": 281
+      },
+      "detectors": [
+        "APIERR",
+        "COMPACT"
+      ],
+      "errCalls": 2,
+      "hasHeadlineSignature": true,
+      "runId": "s_5a5e9350",
+      "signatureCount": 2,
+      "toolCalls": 166
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 622,
+        "turnStart": 1
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL",
+        "TOOLERR"
+      ],
+      "errCalls": 4,
+      "hasHeadlineSignature": false,
+      "runId": "s_5c34bb65",
+      "signatureCount": 3,
+      "toolCalls": 319
+    },
+    {
+      "blame": {
+        "detector": "RETRY",
+        "severity": "medium",
+        "turnEnd": 568,
+        "turnStart": 311
+      },
+      "detectors": [
+        "DENIAL",
+        "RETRY",
+        "TOOLERR"
+      ],
+      "errCalls": 10,
+      "hasHeadlineSignature": true,
+      "runId": "s_5d39ff7c",
+      "signatureCount": 4,
+      "toolCalls": 339
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 268,
+        "turnStart": 267
+      },
+      "detectors": [
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 3,
+      "hasHeadlineSignature": true,
+      "runId": "s_5e18860d",
+      "signatureCount": 3,
+      "toolCalls": 444
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 367,
+        "turnStart": 366
+      },
+      "detectors": [
+        "TIMEOUT"
+      ],
+      "errCalls": 4,
+      "hasHeadlineSignature": true,
+      "runId": "s_5f20c875",
+      "signatureCount": 1,
+      "toolCalls": 348
+    },
+    {
+      "blame": {
+        "detector": "APIERR",
+        "severity": "high",
+        "turnEnd": 571,
+        "turnStart": 571
+      },
+      "detectors": [
+        "APIERR",
+        "DENIAL",
+        "TOOLERR"
+      ],
+      "errCalls": 10,
+      "hasHeadlineSignature": true,
+      "runId": "s_5f9fe268",
+      "signatureCount": 4,
+      "toolCalls": 311
+    },
+    {
+      "blame": {
+        "detector": "REFUSAL",
+        "severity": "high",
+        "turnEnd": 19,
+        "turnStart": 19
+      },
+      "detectors": [
+        "REFUSAL"
+      ],
+      "errCalls": 0,
+      "hasHeadlineSignature": true,
+      "runId": "s_5fbf303b",
+      "signatureCount": 2,
+      "toolCalls": 48
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 254,
+        "turnStart": 253
+      },
+      "detectors": [
+        "APIERR",
+        "COMPACT",
+        "DENIAL",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 6,
+      "hasHeadlineSignature": true,
+      "runId": "s_61871d0e",
+      "signatureCount": 17,
+      "toolCalls": 593
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 3,
+      "hasHeadlineSignature": false,
+      "runId": "s_623d1546",
+      "signatureCount": 0,
+      "toolCalls": 199
+    },
+    {
+      "blame": {
+        "detector": "HOOKERR",
+        "severity": "high",
+        "turnEnd": 434,
+        "turnStart": 434
+      },
+      "detectors": [
+        "COMPACT",
+        "HOOKERR"
+      ],
+      "errCalls": 2,
+      "hasHeadlineSignature": true,
+      "runId": "s_63c72ceb",
+      "signatureCount": 2,
+      "toolCalls": 218
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 215,
+        "turnStart": 1
+      },
+      "detectors": [
+        "DENIAL",
+        "TOOLERR"
+      ],
+      "errCalls": 5,
+      "hasHeadlineSignature": false,
+      "runId": "s_643befe6",
+      "signatureCount": 2,
+      "toolCalls": 109
+    },
+    {
+      "blame": {
+        "detector": "COMPACT",
+        "severity": "info",
+        "turnEnd": 125,
+        "turnStart": 125
+      },
+      "detectors": [
+        "COMPACT"
+      ],
+      "errCalls": 0,
+      "hasHeadlineSignature": false,
+      "runId": "s_6700f5a1",
+      "signatureCount": 1,
+      "toolCalls": 72
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 385,
+        "turnStart": 384
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 7,
+      "hasHeadlineSignature": true,
+      "runId": "s_676f63d3",
+      "signatureCount": 4,
+      "toolCalls": 231
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 87,
+        "turnStart": 86
+      },
+      "detectors": [
+        "DENIAL",
+        "TIMEOUT"
+      ],
+      "errCalls": 6,
+      "hasHeadlineSignature": true,
+      "runId": "s_67d0643b",
+      "signatureCount": 2,
+      "toolCalls": 269
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 0,
+      "hasHeadlineSignature": false,
+      "runId": "s_6af3d00a",
+      "signatureCount": 0,
+      "toolCalls": 2
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 1,
+      "hasHeadlineSignature": false,
+      "runId": "s_6b7e93e7",
+      "signatureCount": 0,
+      "toolCalls": 98
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 179,
+        "turnStart": 178
+      },
+      "detectors": [
+        "DENIAL",
+        "TIMEOUT"
+      ],
+      "errCalls": 2,
+      "hasHeadlineSignature": true,
+      "runId": "s_6cd118eb",
+      "signatureCount": 2,
+      "toolCalls": 150
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 162,
+        "turnStart": 1
+      },
+      "detectors": [
+        "TOOLERR"
+      ],
+      "errCalls": 3,
+      "hasHeadlineSignature": false,
+      "runId": "s_6dc4129f",
+      "signatureCount": 1,
+      "toolCalls": 82
+    },
+    {
+      "blame": {
+        "detector": "APIERR",
+        "severity": "high",
+        "turnEnd": 490,
+        "turnStart": 490
+      },
+      "detectors": [
+        "APIERR",
+        "DENIAL",
+        "TOOLERR"
+      ],
+      "errCalls": 10,
+      "hasHeadlineSignature": true,
+      "runId": "s_719d1445",
+      "signatureCount": 15,
+      "toolCalls": 420
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 204,
+        "turnStart": 203
+      },
+      "detectors": [
+        "APIERR",
+        "DANGLE",
+        "DENIAL",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 7,
+      "hasHeadlineSignature": true,
+      "runId": "s_7394c9f1",
+      "signatureCount": 10,
+      "toolCalls": 250
+    },
+    {
+      "blame": {
+        "detector": "REFUSAL",
+        "severity": "high",
+        "turnEnd": 14,
+        "turnStart": 14
+      },
+      "detectors": [
+        "REFUSAL"
+      ],
+      "errCalls": 3,
+      "hasHeadlineSignature": true,
+      "runId": "s_77651181",
+      "signatureCount": 1,
+      "toolCalls": 47
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 202,
+        "turnStart": 201
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 6,
+      "hasHeadlineSignature": true,
+      "runId": "s_77f26ac9",
+      "signatureCount": 5,
+      "toolCalls": 255
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 295,
+        "turnStart": 294
+      },
+      "detectors": [
+        "COMPACT",
+        "DANGLE",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 10,
+      "hasHeadlineSignature": true,
+      "runId": "s_786d9897",
+      "signatureCount": 6,
+      "toolCalls": 419
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 654,
+        "turnStart": 653
+      },
+      "detectors": [
+        "DENIAL",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 5,
+      "hasHeadlineSignature": true,
+      "runId": "s_79a9ffce",
+      "signatureCount": 4,
+      "toolCalls": 426
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 175,
+        "turnStart": 174
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 5,
+      "hasHeadlineSignature": true,
+      "runId": "s_79b93f0b",
+      "signatureCount": 6,
+      "toolCalls": 217
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 515,
+        "turnStart": 3
+      },
+      "detectors": [
+        "DENIAL",
+        "TOOLERR"
+      ],
+      "errCalls": 15,
+      "hasHeadlineSignature": false,
+      "runId": "s_7a04e723",
+      "signatureCount": 3,
+      "toolCalls": 256
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 1,
+      "hasHeadlineSignature": false,
+      "runId": "s_7a32c3b1",
+      "signatureCount": 0,
+      "toolCalls": 79
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 0,
+      "hasHeadlineSignature": false,
+      "runId": "s_7bead37a",
+      "signatureCount": 0,
+      "toolCalls": 15
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 489,
+        "turnStart": 5
+      },
+      "detectors": [
+        "TOOLERR"
+      ],
+      "errCalls": 8,
+      "hasHeadlineSignature": false,
+      "runId": "s_7e58b0d0",
+      "signatureCount": 2,
+      "toolCalls": 274
+    },
+    {
+      "blame": {
+        "detector": "HOOKERR",
+        "severity": "high",
+        "turnEnd": 456,
+        "turnStart": 456
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL",
+        "HOOKERR",
+        "TOOLERR"
+      ],
+      "errCalls": 4,
+      "hasHeadlineSignature": true,
+      "runId": "s_7ecd7e1c",
+      "signatureCount": 5,
+      "toolCalls": 241
+    },
+    {
+      "blame": {
+        "detector": "COMPACT",
+        "severity": "info",
+        "turnEnd": 104,
+        "turnStart": 104
+      },
+      "detectors": [
+        "COMPACT"
+      ],
+      "errCalls": 1,
+      "hasHeadlineSignature": false,
+      "runId": "s_806a43c6",
+      "signatureCount": 1,
+      "toolCalls": 51
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 504,
+        "turnStart": 501
+      },
+      "detectors": [
+        "DENIAL",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 5,
+      "hasHeadlineSignature": true,
+      "runId": "s_817441dd",
+      "signatureCount": 4,
+      "toolCalls": 267
+    },
+    {
+      "blame": {
+        "detector": "RETRY",
+        "severity": "medium",
+        "turnEnd": 19,
+        "turnStart": 11
+      },
+      "detectors": [
+        "DENIAL",
+        "RETRY"
+      ],
+      "errCalls": 6,
+      "hasHeadlineSignature": true,
+      "runId": "s_8335b81d",
+      "signatureCount": 3,
+      "toolCalls": 52
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 0,
+      "hasHeadlineSignature": false,
+      "runId": "s_8386c6b6",
+      "signatureCount": 0,
+      "toolCalls": 19
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 183,
+        "turnStart": 182
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 5,
+      "hasHeadlineSignature": true,
+      "runId": "s_83e0ac57",
+      "signatureCount": 5,
+      "toolCalls": 170
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 240,
+        "turnStart": 239
+      },
+      "detectors": [
+        "TIMEOUT"
+      ],
+      "errCalls": 4,
+      "hasHeadlineSignature": true,
+      "runId": "s_8653ec78",
+      "signatureCount": 1,
+      "toolCalls": 190
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 425,
+        "turnStart": 424
+      },
+      "detectors": [
+        "LOOP",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 7,
+      "hasHeadlineSignature": true,
+      "runId": "s_8684a0de",
+      "signatureCount": 4,
+      "toolCalls": 505
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 302,
+        "turnStart": 1
+      },
+      "detectors": [
+        "COMPACT",
+        "TOOLERR"
+      ],
+      "errCalls": 4,
+      "hasHeadlineSignature": false,
+      "runId": "s_86e01059",
+      "signatureCount": 2,
+      "toolCalls": 158
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 168,
+        "turnStart": 167
+      },
+      "detectors": [
+        "HOOKERR",
+        "LOOP",
+        "TIMEOUT"
+      ],
+      "errCalls": 1,
+      "hasHeadlineSignature": true,
+      "runId": "s_86ea1ca2",
+      "signatureCount": 3,
+      "toolCalls": 174
+    },
+    {
+      "blame": {
+        "detector": "LOOP",
+        "severity": "medium",
+        "turnEnd": 99,
+        "turnStart": 85
+      },
+      "detectors": [
+        "LOOP"
+      ],
+      "errCalls": 2,
+      "hasHeadlineSignature": true,
+      "runId": "s_8943f1f4",
+      "signatureCount": 5,
+      "toolCalls": 190
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 285,
+        "turnStart": 284
+      },
+      "detectors": [
+        "DENIAL",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 10,
+      "hasHeadlineSignature": true,
+      "runId": "s_897cbfcd",
+      "signatureCount": 6,
+      "toolCalls": 357
+    },
+    {
+      "blame": {
+        "detector": "DENIAL",
+        "severity": "low",
+        "turnEnd": 26,
+        "turnStart": 25
+      },
+      "detectors": [
+        "DENIAL"
+      ],
+      "errCalls": 3,
+      "hasHeadlineSignature": false,
+      "runId": "s_8aefd6ea",
+      "signatureCount": 2,
+      "toolCalls": 91
+    },
+    {
+      "blame": {
+        "detector": "DANGLE",
+        "severity": "medium",
+        "turnEnd": 28,
+        "turnStart": 28
+      },
+      "detectors": [
+        "COMPACT",
+        "DANGLE",
+        "DENIAL",
+        "LOOP",
+        "RETRY",
+        "TOOLERR"
+      ],
+      "errCalls": 15,
+      "hasHeadlineSignature": true,
+      "runId": "s_8cf75b9b",
+      "signatureCount": 222,
+      "toolCalls": 484
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 2,
+      "hasHeadlineSignature": false,
+      "runId": "s_8cfedc2e",
+      "signatureCount": 0,
+      "toolCalls": 125
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 231,
+        "turnStart": 230
+      },
+      "detectors": [
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 7,
+      "hasHeadlineSignature": true,
+      "runId": "s_8e7bfd32",
+      "signatureCount": 4,
+      "toolCalls": 191
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 133,
+        "turnStart": 131
+      },
+      "detectors": [
+        "LOOP",
+        "TIMEOUT"
+      ],
+      "errCalls": 4,
+      "hasHeadlineSignature": true,
+      "runId": "s_8f20e339",
+      "signatureCount": 2,
+      "toolCalls": 143
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 0,
+      "hasHeadlineSignature": false,
+      "runId": "s_8f92aaf1",
+      "signatureCount": 0,
+      "toolCalls": 66
+    },
+    {
+      "blame": {
+        "detector": "LOOP",
+        "severity": "medium",
+        "turnEnd": 559,
+        "turnStart": 547
+      },
+      "detectors": [
+        "COMPACT",
+        "LOOP"
+      ],
+      "errCalls": 3,
+      "hasHeadlineSignature": true,
+      "runId": "s_932932ce",
+      "signatureCount": 2,
+      "toolCalls": 376
+    },
+    {
+      "blame": {
+        "detector": "REFUSAL",
+        "severity": "high",
+        "turnEnd": 122,
+        "turnStart": 122
+      },
+      "detectors": [
+        "DENIAL",
+        "REFUSAL",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 7,
+      "hasHeadlineSignature": true,
+      "runId": "s_9852b07b",
+      "signatureCount": 5,
+      "toolCalls": 115
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 0,
+      "hasHeadlineSignature": false,
+      "runId": "s_9b6c9d19",
+      "signatureCount": 0,
+      "toolCalls": 26
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 0,
+      "hasHeadlineSignature": false,
+      "runId": "s_9c7d50e5",
+      "signatureCount": 0,
+      "toolCalls": 25
+    },
+    {
+      "blame": {
+        "detector": "DENIAL",
+        "severity": "low",
+        "turnEnd": 49,
+        "turnStart": 48
+      },
+      "detectors": [
+        "DENIAL"
+      ],
+      "errCalls": 1,
+      "hasHeadlineSignature": false,
+      "runId": "s_9d5b2ba7",
+      "signatureCount": 1,
+      "toolCalls": 105
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 208,
+        "turnStart": 207
+      },
+      "detectors": [
+        "COMPACT",
+        "TIMEOUT"
+      ],
+      "errCalls": 6,
+      "hasHeadlineSignature": true,
+      "runId": "s_9e8f2eae",
+      "signatureCount": 2,
+      "toolCalls": 153
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 1,
+      "hasHeadlineSignature": false,
+      "runId": "s_9f00fc53",
+      "signatureCount": 0,
+      "toolCalls": 27
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 1,
+      "hasHeadlineSignature": false,
+      "runId": "s_a12b9cdb",
+      "signatureCount": 0,
+      "toolCalls": 173
+    },
+    {
+      "blame": {
+        "detector": "RETRY",
+        "severity": "medium",
+        "turnEnd": 795,
+        "turnStart": 791
+      },
+      "detectors": [
+        "DENIAL",
+        "RETRY",
+        "TOOLERR"
+      ],
+      "errCalls": 15,
+      "hasHeadlineSignature": true,
+      "runId": "s_a19a9248",
+      "signatureCount": 5,
+      "toolCalls": 468
+    },
+    {
+      "blame": {
+        "detector": "HOOKERR",
+        "severity": "high",
+        "turnEnd": 65,
+        "turnStart": 65
+      },
+      "detectors": [
+        "COMPACT",
+        "DANGLE",
+        "HOOKERR",
+        "LOOP",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 5,
+      "hasHeadlineSignature": true,
+      "runId": "s_a30ef566",
+      "signatureCount": 332,
+      "toolCalls": 710
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 108,
+        "turnStart": 107
+      },
+      "detectors": [
+        "TIMEOUT"
+      ],
+      "errCalls": 5,
+      "hasHeadlineSignature": true,
+      "runId": "s_a44f020f",
+      "signatureCount": 1,
+      "toolCalls": 260
+    },
+    {
+      "blame": {
+        "detector": "RETRY",
+        "severity": "medium",
+        "turnEnd": 51,
+        "turnStart": 29
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL",
+        "RETRY"
+      ],
+      "errCalls": 4,
+      "hasHeadlineSignature": true,
+      "runId": "s_a53aa607",
+      "signatureCount": 5,
+      "toolCalls": 105
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 497,
+        "turnStart": 496
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 9,
+      "hasHeadlineSignature": true,
+      "runId": "s_a668e00f",
+      "signatureCount": 6,
+      "toolCalls": 329
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 230,
+        "turnStart": 3
+      },
+      "detectors": [
+        "COMPACT",
+        "TOOLERR"
+      ],
+      "errCalls": 6,
+      "hasHeadlineSignature": false,
+      "runId": "s_a6e97ca9",
+      "signatureCount": 2,
+      "toolCalls": 113
+    },
+    {
+      "blame": {
+        "detector": "LOOP",
+        "severity": "medium",
+        "turnEnd": 319,
+        "turnStart": 305
+      },
+      "detectors": [
+        "LOOP",
+        "TOOLERR"
+      ],
+      "errCalls": 4,
+      "hasHeadlineSignature": true,
+      "runId": "s_a9409c4e",
+      "signatureCount": 2,
+      "toolCalls": 316
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 4,
+      "hasHeadlineSignature": false,
+      "runId": "s_aa330196",
+      "signatureCount": 0,
+      "toolCalls": 134
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 2,
+      "hasHeadlineSignature": false,
+      "runId": "s_ac5bca18",
+      "signatureCount": 0,
+      "toolCalls": 209
+    },
+    {
+      "blame": {
+        "detector": "LOOP",
+        "severity": "medium",
+        "turnEnd": 286,
+        "turnStart": 271
+      },
+      "detectors": [
+        "LOOP"
+      ],
+      "errCalls": 1,
+      "hasHeadlineSignature": true,
+      "runId": "s_ac6ad441",
+      "signatureCount": 1,
+      "toolCalls": 216
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 1,
+      "hasHeadlineSignature": false,
+      "runId": "s_ad8cf67d",
+      "signatureCount": 0,
+      "toolCalls": 26
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 118,
+        "turnStart": 117
+      },
+      "detectors": [
+        "APIERR",
+        "COMPACT",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 8,
+      "hasHeadlineSignature": true,
+      "runId": "s_af06aaa9",
+      "signatureCount": 9,
+      "toolCalls": 310
+    },
+    {
+      "blame": {
+        "detector": "COMPACT",
+        "severity": "info",
+        "turnEnd": 172,
+        "turnStart": 172
+      },
+      "detectors": [
+        "COMPACT"
+      ],
+      "errCalls": 0,
+      "hasHeadlineSignature": false,
+      "runId": "s_b2045a26",
+      "signatureCount": 1,
+      "toolCalls": 94
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 0,
+      "hasHeadlineSignature": false,
+      "runId": "s_b37595cb",
+      "signatureCount": 0,
+      "toolCalls": 68
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 2,
+      "hasHeadlineSignature": false,
+      "runId": "s_b685e1f8",
+      "signatureCount": 0,
+      "toolCalls": 31
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 215,
+        "turnStart": 214
+      },
+      "detectors": [
+        "DENIAL",
+        "RETRY",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 15,
+      "hasHeadlineSignature": true,
+      "runId": "s_b791b00b",
+      "signatureCount": 8,
+      "toolCalls": 398
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 5,
+      "hasHeadlineSignature": false,
+      "runId": "s_b861d82d",
+      "signatureCount": 0,
+      "toolCalls": 168
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 3,
+      "hasHeadlineSignature": false,
+      "runId": "s_b8920a6c",
+      "signatureCount": 0,
+      "toolCalls": 97
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 239,
+        "turnStart": 238
+      },
+      "detectors": [
+        "COMPACT",
+        "DANGLE",
+        "RETRY",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 7,
+      "hasHeadlineSignature": true,
+      "runId": "s_b9d76d77",
+      "signatureCount": 10,
+      "toolCalls": 295
+    },
+    {
+      "blame": {
+        "detector": "COMPACT",
+        "severity": "info",
+        "turnEnd": 127,
+        "turnStart": 127
+      },
+      "detectors": [
+        "COMPACT"
+      ],
+      "errCalls": 0,
+      "hasHeadlineSignature": false,
+      "runId": "s_ba03c20b",
+      "signatureCount": 1,
+      "toolCalls": 66
+    },
+    {
+      "blame": {
+        "detector": "APIERR",
+        "severity": "high",
+        "turnEnd": 2,
+        "turnStart": 2
+      },
+      "detectors": [
+        "APIERR"
+      ],
+      "errCalls": 0,
+      "hasHeadlineSignature": true,
+      "runId": "s_bae29e03",
+      "signatureCount": 1,
+      "toolCalls": 0
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 80,
+        "turnStart": 1
+      },
+      "detectors": [
+        "TOOLERR"
+      ],
+      "errCalls": 4,
+      "hasHeadlineSignature": false,
+      "runId": "s_bceabfe0",
+      "signatureCount": 2,
+      "toolCalls": 57
+    },
+    {
+      "blame": {
+        "detector": "HOOKERR",
+        "severity": "high",
+        "turnEnd": 203,
+        "turnStart": 203
+      },
+      "detectors": [
+        "HOOKERR",
+        "TOOLERR"
+      ],
+      "errCalls": 2,
+      "hasHeadlineSignature": true,
+      "runId": "s_bdc06ecf",
+      "signatureCount": 2,
+      "toolCalls": 101
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 845,
+        "turnStart": 844
+      },
+      "detectors": [
+        "COMPACT",
+        "DANGLE",
+        "DENIAL",
+        "LOOP",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 14,
+      "hasHeadlineSignature": true,
+      "runId": "s_bdfc5760",
+      "signatureCount": 310,
+      "toolCalls": 821
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 349,
+        "turnStart": 1
+      },
+      "detectors": [
+        "TOOLERR"
+      ],
+      "errCalls": 7,
+      "hasHeadlineSignature": false,
+      "runId": "s_c14bb029",
+      "signatureCount": 2,
+      "toolCalls": 184
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 236,
+        "turnStart": 1
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL",
+        "TOOLERR"
+      ],
+      "errCalls": 7,
+      "hasHeadlineSignature": false,
+      "runId": "s_c21bd3a7",
+      "signatureCount": 4,
+      "toolCalls": 172
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 189,
+        "turnStart": 188
+      },
+      "detectors": [
+        "DENIAL",
+        "TIMEOUT"
+      ],
+      "errCalls": 2,
+      "hasHeadlineSignature": true,
+      "runId": "s_c7073001",
+      "signatureCount": 2,
+      "toolCalls": 205
+    },
+    {
+      "blame": {
+        "detector": "APIERR",
+        "severity": "high",
+        "turnEnd": 9,
+        "turnStart": 9
+      },
+      "detectors": [
+        "APIERR",
+        "DENIAL"
+      ],
+      "errCalls": 1,
+      "hasHeadlineSignature": true,
+      "runId": "s_cac9b8c4",
+      "signatureCount": 2,
+      "toolCalls": 93
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 132,
+        "turnStart": 105
+      },
+      "detectors": [
+        "TOOLERR"
+      ],
+      "errCalls": 6,
+      "hasHeadlineSignature": false,
+      "runId": "s_cc8a25b9",
+      "signatureCount": 1,
+      "toolCalls": 93
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 244,
+        "turnStart": 1
+      },
+      "detectors": [
+        "TOOLERR"
+      ],
+      "errCalls": 3,
+      "hasHeadlineSignature": false,
+      "runId": "s_cccc16c2",
+      "signatureCount": 1,
+      "toolCalls": 113
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 257,
+        "turnStart": 4
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL",
+        "TOOLERR"
+      ],
+      "errCalls": 5,
+      "hasHeadlineSignature": false,
+      "runId": "s_ce2176dc",
+      "signatureCount": 4,
+      "toolCalls": 133
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 591,
+        "turnStart": 590
+      },
+      "detectors": [
+        "COMPACT",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 9,
+      "hasHeadlineSignature": true,
+      "runId": "s_d190ddf7",
+      "signatureCount": 6,
+      "toolCalls": 383
+    },
+    {
+      "blame": {
+        "detector": "HOOKERR",
+        "severity": "high",
+        "turnEnd": 109,
+        "turnStart": 109
+      },
+      "detectors": [
+        "DENIAL",
+        "HOOKERR",
+        "TIMEOUT"
+      ],
+      "errCalls": 1,
+      "hasHeadlineSignature": true,
+      "runId": "s_d2b69f96",
+      "signatureCount": 3,
+      "toolCalls": 115
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 0,
+      "hasHeadlineSignature": false,
+      "runId": "s_d33a9c99",
+      "signatureCount": 0,
+      "toolCalls": 36
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 1,
+      "hasHeadlineSignature": false,
+      "runId": "s_d37b38f4",
+      "signatureCount": 0,
+      "toolCalls": 5
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 0,
+      "hasHeadlineSignature": false,
+      "runId": "s_d41857f8",
+      "signatureCount": 0,
+      "toolCalls": 17
+    },
+    {
+      "blame": {
+        "detector": "DENIAL",
+        "severity": "low",
+        "turnEnd": 92,
+        "turnStart": 91
+      },
+      "detectors": [
+        "DENIAL"
+      ],
+      "errCalls": 4,
+      "hasHeadlineSignature": false,
+      "runId": "s_d665df56",
+      "signatureCount": 1,
+      "toolCalls": 149
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 295,
+        "turnStart": 293
+      },
+      "detectors": [
+        "DENIAL",
+        "HOOKERR",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 14,
+      "hasHeadlineSignature": true,
+      "runId": "s_d80781e5",
+      "signatureCount": 7,
+      "toolCalls": 419
+    },
+    {
+      "blame": {
+        "detector": "DENIAL",
+        "severity": "low",
+        "turnEnd": 51,
+        "turnStart": 50
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL"
+      ],
+      "errCalls": 1,
+      "hasHeadlineSignature": false,
+      "runId": "s_d8758fcb",
+      "signatureCount": 2,
+      "toolCalls": 57
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 0,
+      "hasHeadlineSignature": false,
+      "runId": "s_d88ce930",
+      "signatureCount": 0,
+      "toolCalls": 54
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 81,
+        "turnStart": 80
+      },
+      "detectors": [
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 9,
+      "hasHeadlineSignature": true,
+      "runId": "s_d8ca794d",
+      "signatureCount": 4,
+      "toolCalls": 216
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 85,
+        "turnStart": 84
+      },
+      "detectors": [
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 2,
+      "hasHeadlineSignature": true,
+      "runId": "s_da2d803a",
+      "signatureCount": 3,
+      "toolCalls": 168
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 693,
+        "turnStart": 1
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL",
+        "TOOLERR"
+      ],
+      "errCalls": 7,
+      "hasHeadlineSignature": false,
+      "runId": "s_dae839c3",
+      "signatureCount": 4,
+      "toolCalls": 396
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 3,
+      "hasHeadlineSignature": false,
+      "runId": "s_dcfead1a",
+      "signatureCount": 0,
+      "toolCalls": 189
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 4,
+      "hasHeadlineSignature": false,
+      "runId": "s_df1f89d5",
+      "signatureCount": 0,
+      "toolCalls": 149
+    },
+    {
+      "blame": {
+        "detector": "HOOKERR",
+        "severity": "high",
+        "turnEnd": 148,
+        "turnStart": 148
+      },
+      "detectors": [
+        "DENIAL",
+        "HOOKERR",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 4,
+      "hasHeadlineSignature": true,
+      "runId": "s_dfe0e23a",
+      "signatureCount": 6,
+      "toolCalls": 143
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 1,
+      "hasHeadlineSignature": false,
+      "runId": "s_e44731e0",
+      "signatureCount": 0,
+      "toolCalls": 61
+    },
+    {
+      "blame": {
+        "detector": "APIERR",
+        "severity": "high",
+        "turnEnd": 136,
+        "turnStart": 136
+      },
+      "detectors": [
+        "APIERR",
+        "DENIAL",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 6,
+      "hasHeadlineSignature": true,
+      "runId": "s_e48f5f4e",
+      "signatureCount": 5,
+      "toolCalls": 157
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 478,
+        "turnStart": 1
+      },
+      "detectors": [
+        "COMPACT",
+        "TOOLERR"
+      ],
+      "errCalls": 9,
+      "hasHeadlineSignature": false,
+      "runId": "s_e5860319",
+      "signatureCount": 3,
+      "toolCalls": 300
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 240,
+        "turnStart": 239
+      },
+      "detectors": [
+        "COMPACT",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 10,
+      "hasHeadlineSignature": true,
+      "runId": "s_e5c8fa56",
+      "signatureCount": 4,
+      "toolCalls": 213
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 228,
+        "turnStart": 227
+      },
+      "detectors": [
+        "DENIAL",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 7,
+      "hasHeadlineSignature": true,
+      "runId": "s_e6b4e780",
+      "signatureCount": 5,
+      "toolCalls": 165
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 136,
+        "turnStart": 1
+      },
+      "detectors": [
+        "DENIAL",
+        "TOOLERR"
+      ],
+      "errCalls": 5,
+      "hasHeadlineSignature": false,
+      "runId": "s_e721001a",
+      "signatureCount": 3,
+      "toolCalls": 94
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 1,
+      "hasHeadlineSignature": false,
+      "runId": "s_e8b050f9",
+      "signatureCount": 0,
+      "toolCalls": 36
+    },
+    {
+      "blame": {
+        "detector": "DENIAL",
+        "severity": "low",
+        "turnEnd": 228,
+        "turnStart": 227
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL"
+      ],
+      "errCalls": 1,
+      "hasHeadlineSignature": false,
+      "runId": "s_e9821929",
+      "signatureCount": 2,
+      "toolCalls": 138
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 51,
+        "turnStart": 50
+      },
+      "detectors": [
+        "DENIAL",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 6,
+      "hasHeadlineSignature": true,
+      "runId": "s_e9f26919",
+      "signatureCount": 4,
+      "toolCalls": 77
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 273,
+        "turnStart": 272
+      },
+      "detectors": [
+        "COMPACT",
+        "RETRY",
+        "TIMEOUT"
+      ],
+      "errCalls": 6,
+      "hasHeadlineSignature": true,
+      "runId": "s_eb1112e5",
+      "signatureCount": 3,
+      "toolCalls": 243
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 163,
+        "turnStart": 162
+      },
+      "detectors": [
+        "COMPACT",
+        "DENIAL",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 2,
+      "hasHeadlineSignature": true,
+      "runId": "s_efb4b2c4",
+      "signatureCount": 4,
+      "toolCalls": 125
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 1,
+      "hasHeadlineSignature": false,
+      "runId": "s_efeae943",
+      "signatureCount": 0,
+      "toolCalls": 3
+    },
+    {
+      "blame": {
+        "detector": "TOOLERR",
+        "severity": "low",
+        "turnEnd": 226,
+        "turnStart": 18
+      },
+      "detectors": [
+        "COMPACT",
+        "TOOLERR"
+      ],
+      "errCalls": 3,
+      "hasHeadlineSignature": false,
+      "runId": "s_f1b13a80",
+      "signatureCount": 2,
+      "toolCalls": 95
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 340,
+        "turnStart": 339
+      },
+      "detectors": [
+        "COMPACT",
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 4,
+      "hasHeadlineSignature": true,
+      "runId": "s_f5c62549",
+      "signatureCount": 4,
+      "toolCalls": 221
+    },
+    {
+      "blame": {
+        "detector": "APIERR",
+        "severity": "high",
+        "turnEnd": 24,
+        "turnStart": 24
+      },
+      "detectors": [
+        "APIERR",
+        "HOOKERR",
+        "TIMEOUT"
+      ],
+      "errCalls": 5,
+      "hasHeadlineSignature": true,
+      "runId": "s_f7d8e611",
+      "signatureCount": 4,
+      "toolCalls": 136
+    },
+    {
+      "blame": {
+        "detector": "DANGLE",
+        "severity": "medium",
+        "turnEnd": 1,
+        "turnStart": 1
+      },
+      "detectors": [
+        "COMPACT",
+        "DANGLE",
+        "DENIAL",
+        "TOOLERR"
+      ],
+      "errCalls": 6,
+      "hasHeadlineSignature": true,
+      "runId": "s_fd70ed46",
+      "signatureCount": 231,
+      "toolCalls": 489
+    },
+    {
+      "blame": {
+        "detector": "TIMEOUT",
+        "severity": "high",
+        "turnEnd": 155,
+        "turnStart": 154
+      },
+      "detectors": [
+        "TIMEOUT",
+        "TOOLERR"
+      ],
+      "errCalls": 3,
+      "hasHeadlineSignature": true,
+      "runId": "s_fda76d76",
+      "signatureCount": 3,
+      "toolCalls": 129
+    },
+    {
+      "blame": null,
+      "detectors": [],
+      "errCalls": 3,
+      "hasHeadlineSignature": false,
+      "runId": "s_fdfa01a0",
+      "signatureCount": 0,
+      "toolCalls": 231
+    }
+  ]
+}

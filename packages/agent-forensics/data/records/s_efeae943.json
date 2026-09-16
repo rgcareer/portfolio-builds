@@ -1,0 +1,204 @@
+{
+  "costUsd": null,
+  "endedAt": "2026-09-08T16:32:55.600Z",
+  "meta": {
+    "apiErrorRecords": 0,
+    "assistantRecords": 9,
+    "bannedModelObserved": 0,
+    "compactSummaries": 0,
+    "cwdToken": "p_f01456d9",
+    "dedupedResults": 0,
+    "denials": 0,
+    "entrypoint": "claude-desktop",
+    "gitBranchHash": "eb5d4dd082ab5626",
+    "hookErrorRecords": 0,
+    "interrupts": 0,
+    "llmTurns": 4,
+    "malformedLines": 0,
+    "metaPrompts": 0,
+    "orphanResults": 0,
+    "permissionMode": "plan",
+    "promptTurns": 2,
+    "refusalRecords": 0,
+    "sidechainRecords": 0,
+    "systemEvents": 1,
+    "thinkingBlocks": 3,
+    "thinkingChars": 0,
+    "toolCalls": 3,
+    "unknownTypes": 35
+  },
+  "models": [
+    "claude-fable-5"
+  ],
+  "outcome": {
+    "status": "completed"
+  },
+  "recordVersion": "1",
+  "redaction": "hashed",
+  "runId": "s_efeae943",
+  "source": {
+    "adapter": "claude-code",
+    "kind": "claude-code-transcript",
+    "schemaVersions": [
+      "2.1.260"
+    ]
+  },
+  "startedAt": "2026-09-08T16:26:50.753Z",
+  "toolCalls": [
+    {
+      "callTurn": 1,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_d892961a",
+      "inputBytes": 65,
+      "inputHash": "4ad30506af02e83f",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 41,
+      "resultHash": "171259b0c8b3578c",
+      "resultTurn": 2,
+      "timedOut": false
+    },
+    {
+      "callTurn": 1,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": "exit-nonzero",
+      "id": "c_c9f5393e",
+      "inputBytes": 99,
+      "inputHash": "fa9b33befbcfac89",
+      "interrupted": false,
+      "isError": true,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 85,
+      "resultHash": "8183ea89c94d811f",
+      "resultTurn": 3,
+      "timedOut": false
+    },
+    {
+      "callTurn": 4,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_f7bf2e84",
+      "inputBytes": 215,
+      "inputHash": "a914f3bf97706fc7",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 56,
+      "resultHash": "8eabb1fd2802b7f4",
+      "resultTurn": 5,
+      "timedOut": false
+    }
+  ],
+  "turns": [
+    {
+      "at": "2026-09-08T16:26:50.808Z",
+      "index": 0,
+      "kind": "prompt",
+      "textChars": 877,
+      "textHash": "7a20140efad5b355"
+    },
+    {
+      "at": "2026-09-08T16:27:17.450Z",
+      "index": 1,
+      "kind": "llm",
+      "model": "claude-fable-5",
+      "stopReason": "tool_use",
+      "textChars": 54,
+      "textHash": "287691467fe1f621",
+      "usage": {
+        "cacheCreation": 33758,
+        "cacheRead": 39225,
+        "input": 2,
+        "output": 1872
+      }
+    },
+    {
+      "at": "2026-09-08T16:27:18.482Z",
+      "index": 2,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-08T16:27:18.960Z",
+      "error": {
+        "class": "exit-nonzero"
+      },
+      "index": 3,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-08T16:27:21.298Z",
+      "index": 4,
+      "kind": "llm",
+      "model": "claude-fable-5",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 2182,
+        "cacheRead": 72983,
+        "input": 2,
+        "output": 193
+      }
+    },
+    {
+      "at": "2026-09-08T16:27:24.090Z",
+      "index": 5,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-08T16:27:41.122Z",
+      "index": 6,
+      "kind": "llm",
+      "model": "claude-fable-5",
+      "stopReason": "end_turn",
+      "textChars": 1189,
+      "textHash": "8f8ca19a0abad9dd",
+      "usage": {
+        "cacheCreation": 252,
+        "cacheRead": 75165,
+        "input": 2,
+        "output": 1129
+      }
+    },
+    {
+      "at": "2026-09-08T16:27:42.416Z",
+      "eventType": "stop_hook_summary",
+      "index": 7,
+      "kind": "system_event"
+    },
+    {
+      "at": "2026-09-08T16:32:52.272Z",
+      "index": 8,
+      "kind": "prompt",
+      "textChars": 76,
+      "textHash": "ab9416413a2997c2"
+    },
+    {
+      "at": "2026-09-08T16:32:55.600Z",
+      "index": 9,
+      "kind": "llm",
+      "model": "claude-fable-5",
+      "stopReason": "end_turn",
+      "textChars": 336,
+      "textHash": "3e3bcaf3d659d48c",
+      "usage": {
+        "cacheCreation": 1177,
+        "cacheRead": 75417,
+        "input": 2,
+        "output": 118
+      }
+    }
+  ],
+  "usage": {
+    "cacheCreation": 37369,
+    "cacheRead": 262790,
+    "input": 8,
+    "output": 3312
+  }
+}

@@ -80,8 +80,11 @@ export function analyzeRecords(records: RunRecord[], protocol: Protocol, meta: A
   let k = 0;
   let toolCalls = 0;
   let errCalls = 0;
-  let from = records[0]!.startedAt;
-  let to = records[0]!.endedAt;
+  // Ignore epoch/1970 fallbacks (a subagent transcript with no real startedAt) so the reported
+  // date range reflects real activity, not the RunRecord's missing-timestamp default.
+  const TS_FLOOR = '2020-01-01';
+  let from = '';
+  let to = '';
 
   const ordered = [...records].sort((a, b) => byteCompare(a.runId, b.runId));
   for (const rec of ordered) {
@@ -94,8 +97,8 @@ export function analyzeRecords(records: RunRecord[], protocol: Protocol, meta: A
     const ec = rec.toolCalls.filter((c) => c.isError).length;
     toolCalls += tc;
     errCalls += ec;
-    if (rec.startedAt < from) from = rec.startedAt;
-    if (rec.endedAt > to) to = rec.endedAt;
+    if (rec.startedAt >= TS_FLOOR && (from === '' || rec.startedAt < from)) from = rec.startedAt;
+    if (rec.endedAt >= TS_FLOOR && (to === '' || rec.endedAt > to)) to = rec.endedAt;
     const blame = blameSpan(sigs, protocol);
     recordFindings.push({
       runId: rec.runId,
@@ -125,6 +128,10 @@ export function analyzeRecords(records: RunRecord[], protocol: Protocol, meta: A
 
   const byDetector: Record<string, number> = {};
   for (const [d, c] of [...sessionsWith.entries()].sort((a, b) => a[0].localeCompare(b[0]))) byDetector[d] = c;
+
+  // If every record lacked a valid timestamp, fall back to the raw first record's values.
+  if (from === '') from = records[0]!.startedAt;
+  if (to === '') to = records[0]!.endedAt;
 
   const findings: Findings = {
     piece: 'agent-forensics',

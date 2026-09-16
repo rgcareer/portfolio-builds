@@ -1,0 +1,6558 @@
+{
+  "costUsd": null,
+  "endedAt": "2026-09-11T14:11:28.416Z",
+  "meta": {
+    "apiErrorRecords": 0,
+    "assistantRecords": 405,
+    "bannedModelObserved": 0,
+    "compactSummaries": 2,
+    "cwdToken": "p_b9531ea8",
+    "dedupedResults": 0,
+    "denials": 2,
+    "entrypoint": "claude-desktop",
+    "gitBranchHash": "fc78f30e415baf25",
+    "hookErrorRecords": 0,
+    "interrupts": 0,
+    "llmTurns": 98,
+    "malformedLines": 0,
+    "metaPrompts": 2,
+    "orphanResults": 0,
+    "permissionMode": "plan",
+    "promptTurns": 12,
+    "refusalRecords": 0,
+    "sidechainRecords": 0,
+    "systemEvents": 10,
+    "thinkingBlocks": 161,
+    "thinkingChars": 13175,
+    "toolCalls": 229,
+    "unknownTypes": 563
+  },
+  "models": [
+    "claude-fable-5-1"
+  ],
+  "outcome": {
+    "status": "completed"
+  },
+  "recordVersion": "1",
+  "redaction": "hashed",
+  "runId": "s_3e617eca",
+  "source": {
+    "adapter": "claude-code",
+    "kind": "claude-code-transcript",
+    "schemaVersions": [
+      "2.1.260"
+    ]
+  },
+  "startedAt": "1970-01-01T00:00:00Z",
+  "toolCalls": [
+    {
+      "callTurn": 1,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_4d0a0066",
+      "inputBytes": 2,
+      "inputHash": "6091de34a8d581a6",
+      "interrupted": false,
+      "isError": false,
+      "name": "other:11ae89ae",
+      "orphan": false,
+      "resultBytes": 1118,
+      "resultHash": "1eccf234070f78c6",
+      "resultTurn": 2,
+      "timedOut": false
+    },
+    {
+      "callTurn": 1,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_4762d09d",
+      "inputBytes": 71,
+      "inputHash": "2cd80df7b5f80058",
+      "interrupted": false,
+      "isError": false,
+      "name": "ToolSearch",
+      "orphan": false,
+      "resultBytes": 78,
+      "resultHash": "17d96fa33a9cb2d4",
+      "resultTurn": 3,
+      "timedOut": false
+    },
+    {
+      "callTurn": 4,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_e6da4ae0",
+      "inputBytes": 12,
+      "inputHash": "7a15e6c4d2e885f3",
+      "interrupted": false,
+      "isError": false,
+      "name": "other:83529995",
+      "orphan": false,
+      "resultBytes": 13630,
+      "resultHash": "54a7f77c02098413",
+      "resultTurn": 5,
+      "timedOut": false
+    },
+    {
+      "callTurn": 4,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_3217e07e",
+      "inputBytes": 70,
+      "inputHash": "f59006ad2a050b32",
+      "interrupted": false,
+      "isError": false,
+      "name": "Read",
+      "orphan": false,
+      "resultBytes": 5433,
+      "resultHash": "61310101c1d1e731",
+      "resultTurn": 6,
+      "timedOut": false
+    },
+    {
+      "callTurn": 4,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_51f70335",
+      "inputBytes": 81,
+      "inputHash": "0586be4164357e99",
+      "interrupted": false,
+      "isError": false,
+      "name": "Read",
+      "orphan": false,
+      "resultBytes": 7375,
+      "resultHash": "c3f0a136a81d634c",
+      "resultTurn": 7,
+      "timedOut": false
+    },
+    {
+      "callTurn": 4,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_01810c38",
+      "inputBytes": 85,
+      "inputHash": "e4bd22edf765b83f",
+      "interrupted": false,
+      "isError": false,
+      "name": "Read",
+      "orphan": false,
+      "resultBytes": 28918,
+      "resultHash": "4de58fe6f80881f0",
+      "resultTurn": 8,
+      "timedOut": false
+    },
+    {
+      "callTurn": 4,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_6d5456d4",
+      "inputBytes": 85,
+      "inputHash": "5039d07bcfa520cb",
+      "interrupted": false,
+      "isError": false,
+      "name": "Read",
+      "orphan": false,
+      "resultBytes": 27349,
+      "resultHash": "e47aa8789b4cac33",
+      "resultTurn": 9,
+      "timedOut": false
+    },
+    {
+      "callTurn": 4,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_e0072509",
+      "inputBytes": 284,
+      "inputHash": "1489505050e1adfc",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 8846,
+      "resultHash": "879677dcea576376",
+      "resultTurn": 10,
+      "timedOut": false
+    },
+    {
+      "callTurn": 11,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_5e50c47d",
+      "inputBytes": 2469,
+      "inputHash": "0d156fae9a660ab2",
+      "interrupted": false,
+      "isError": false,
+      "name": "Agent",
+      "orphan": false,
+      "resultBytes": 1116,
+      "resultHash": "23cee15fd9c88bbc",
+      "resultTurn": 12,
+      "timedOut": false
+    },
+    {
+      "callTurn": 11,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_f143daaa",
+      "inputBytes": 2426,
+      "inputHash": "2cf8f0639b12a922",
+      "interrupted": false,
+      "isError": false,
+      "name": "Agent",
+      "orphan": false,
+      "resultBytes": 1116,
+      "resultHash": "13615f70edbd1dfc",
+      "resultTurn": 13,
+      "timedOut": false
+    },
+    {
+      "callTurn": 11,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_70e02bcd",
+      "inputBytes": 2738,
+      "inputHash": "dc6833bb815b91aa",
+      "interrupted": false,
+      "isError": false,
+      "name": "Agent",
+      "orphan": false,
+      "resultBytes": 1116,
+      "resultHash": "fff3e4bf71f8fddf",
+      "resultTurn": 15,
+      "timedOut": false
+    },
+    {
+      "callTurn": 11,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_76d433c8",
+      "inputBytes": 109,
+      "inputHash": "48565d649aa831c9",
+      "interrupted": false,
+      "isError": false,
+      "name": "ToolSearch",
+      "orphan": false,
+      "resultBytes": 156,
+      "resultHash": "f804dd005c41fe8b",
+      "resultTurn": 14,
+      "timedOut": false
+    },
+    {
+      "callTurn": 11,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_edfcd8c3",
+      "inputBytes": 664,
+      "inputHash": "09c3e47e36a57f97",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 3406,
+      "resultHash": "77f4d3fcb42c3996",
+      "resultTurn": 16,
+      "timedOut": false
+    },
+    {
+      "callTurn": 17,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_7135ad00",
+      "inputBytes": 852,
+      "inputHash": "130614cb1c9edaea",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 1832,
+      "resultHash": "939b52da96b1f404",
+      "resultTurn": 18,
+      "timedOut": false
+    },
+    {
+      "callTurn": 19,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_32d9e602",
+      "inputBytes": 78,
+      "inputHash": "9c64fa63ee7c6fd6",
+      "interrupted": false,
+      "isError": false,
+      "name": "Read",
+      "orphan": false,
+      "resultBytes": 6149,
+      "resultHash": "6b55017eaa6783bd",
+      "resultTurn": 20,
+      "timedOut": false
+    },
+    {
+      "callTurn": 19,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_80cc3fbc",
+      "inputBytes": 680,
+      "inputHash": "fb5b9c51862aeb9e",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 4605,
+      "resultHash": "43114e54bb07c14c",
+      "resultTurn": 21,
+      "timedOut": false
+    },
+    {
+      "callTurn": 22,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_618ab41d",
+      "inputBytes": 470,
+      "inputHash": "38f395043da69aa7",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 123,
+      "resultHash": "5ed89d61f717fab3",
+      "resultTurn": 23,
+      "timedOut": false
+    },
+    {
+      "callTurn": 24,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_8c848fa5",
+      "inputBytes": 494,
+      "inputHash": "8e7cc1aa1b0703e5",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 3402,
+      "resultHash": "9857570d5699aba6",
+      "resultTurn": 25,
+      "timedOut": false
+    },
+    {
+      "callTurn": 35,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_544fa7d9",
+      "inputBytes": 8404,
+      "inputHash": "45250a996326a753",
+      "interrupted": false,
+      "isError": false,
+      "name": "Agent",
+      "orphan": false,
+      "resultBytes": 1116,
+      "resultHash": "600f03f8f4fc4961",
+      "resultTurn": 36,
+      "timedOut": false
+    },
+    {
+      "callTurn": 37,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_c15feb1f",
+      "inputBytes": 2317,
+      "inputHash": "d7ab9eca26f1d9fd",
+      "interrupted": false,
+      "isError": false,
+      "name": "other:a20c5c7e",
+      "orphan": false,
+      "resultBytes": 797,
+      "resultHash": "e0c70d5b3c0def08",
+      "resultTurn": 38,
+      "timedOut": false
+    },
+    {
+      "callTurn": 39,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_00ec5d63",
+      "inputBytes": 12583,
+      "inputHash": "fd89d58e9e7f8a2e",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 171,
+      "resultHash": "1cdd40b3b7ef49aa",
+      "resultTurn": 40,
+      "timedOut": false
+    },
+    {
+      "callTurn": 41,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_7001e843",
+      "inputBytes": 47,
+      "inputHash": "25c7fd2312ce12e6",
+      "interrupted": false,
+      "isError": false,
+      "name": "ToolSearch",
+      "orphan": false,
+      "resultBytes": 54,
+      "resultHash": "aa3c5be59df21d0a",
+      "resultTurn": 42,
+      "timedOut": false
+    },
+    {
+      "callTurn": 43,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_6cfcd8e7",
+      "inputBytes": 12583,
+      "inputHash": "bb74b1f37856061d",
+      "interrupted": false,
+      "isError": false,
+      "name": "ExitPlanMode",
+      "orphan": false,
+      "resultBytes": 12774,
+      "resultHash": "66ffa44f26f0796d",
+      "resultTurn": 44,
+      "timedOut": false
+    },
+    {
+      "callTurn": 45,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": "permission",
+      "id": "c_d4d3c6ca",
+      "inputBytes": 240,
+      "inputHash": "2b1334f5e8560db5",
+      "interrupted": false,
+      "isError": true,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 100,
+      "resultHash": "9be98aabe8ceac9b",
+      "resultTurn": 46,
+      "timedOut": false
+    },
+    {
+      "callTurn": 47,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_5efd2330",
+      "inputBytes": 312,
+      "inputHash": "033a0dde2c01ec28",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 403,
+      "resultHash": "bbb2b31e8d951b8a",
+      "resultTurn": 48,
+      "timedOut": false
+    },
+    {
+      "callTurn": 49,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_9efd2e1f",
+      "inputBytes": 64,
+      "inputHash": "1941d686ea983f89",
+      "interrupted": false,
+      "isError": false,
+      "name": "other:e6ac736a",
+      "orphan": false,
+      "resultBytes": 285,
+      "resultHash": "8cdd9e661f2dc471",
+      "resultTurn": 50,
+      "timedOut": false
+    },
+    {
+      "callTurn": 51,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_ba93a2bd",
+      "inputBytes": 571,
+      "inputHash": "061e7dfa0c4ca96b",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 3409,
+      "resultHash": "3f32280172117aa3",
+      "resultTurn": 52,
+      "timedOut": false
+    },
+    {
+      "callTurn": 51,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_0d7ed2e9",
+      "inputBytes": 363,
+      "inputHash": "585ca8bdf406cc98",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 20027,
+      "resultHash": "b1fbe9148e192bcd",
+      "resultTurn": 53,
+      "timedOut": false
+    },
+    {
+      "callTurn": 54,
+      "denied": true,
+      "durationMs": null,
+      "errorClass": "other",
+      "id": "c_4547dde0",
+      "inputBytes": 4300,
+      "inputHash": "0628cfd21afee969",
+      "interrupted": false,
+      "isError": true,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 239,
+      "resultHash": "52da4fd3a3acbf04",
+      "resultTurn": 55,
+      "timedOut": false
+    },
+    {
+      "callTurn": 54,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_0f96c8fb",
+      "inputBytes": 698,
+      "inputHash": "f895dd33bcbbb8dd",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 8242,
+      "resultHash": "f652e6ccb3a3dab8",
+      "resultTurn": 56,
+      "timedOut": false
+    },
+    {
+      "callTurn": 57,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_529b7d90",
+      "inputBytes": 9589,
+      "inputHash": "b77ca4f3277f9b47",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 863,
+      "resultHash": "09f77a06a5e6c75f",
+      "resultTurn": 58,
+      "timedOut": false
+    },
+    {
+      "callTurn": 57,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_07f0ad8e",
+      "inputBytes": 477,
+      "inputHash": "db2b7f5e07b800c0",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 162,
+      "resultHash": "acf65552ff1a842f",
+      "resultTurn": 59,
+      "timedOut": false
+    },
+    {
+      "callTurn": 57,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": "other",
+      "id": "c_b8dfbf99",
+      "inputBytes": 766,
+      "inputHash": "dcdd7bbb1186c413",
+      "interrupted": false,
+      "isError": true,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 121,
+      "resultHash": "88a27c6164a51c70",
+      "resultTurn": 60,
+      "timedOut": false
+    },
+    {
+      "callTurn": 57,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_64cef309",
+      "inputBytes": 2080,
+      "inputHash": "d8911cef225fc9e9",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 161,
+      "resultHash": "bc3302026f86d7d1",
+      "resultTurn": 61,
+      "timedOut": false
+    },
+    {
+      "callTurn": 57,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_11054069",
+      "inputBytes": 3941,
+      "inputHash": "2a153599910de885",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 163,
+      "resultHash": "2c369846659e25b4",
+      "resultTurn": 62,
+      "timedOut": false
+    },
+    {
+      "callTurn": 63,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_16e51738",
+      "inputBytes": 804,
+      "inputHash": "b01e7f36a993bbfe",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 163,
+      "resultHash": "f37f43d5dfa15114",
+      "resultTurn": 64,
+      "timedOut": false
+    },
+    {
+      "callTurn": 63,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_c87e450f",
+      "inputBytes": 654,
+      "inputHash": "98d6158fd73a3faa",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 171,
+      "resultHash": "20b2c380adff6e42",
+      "resultTurn": 65,
+      "timedOut": false
+    },
+    {
+      "callTurn": 63,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_54fb5f29",
+      "inputBytes": 232,
+      "inputHash": "2be2850de21d2279",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 863,
+      "resultHash": "a4a47eaa135529c1",
+      "resultTurn": 66,
+      "timedOut": false
+    },
+    {
+      "callTurn": 67,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_546d1ea6",
+      "inputBytes": 299,
+      "inputHash": "df1494186ca11d84",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 53,
+      "resultHash": "084181d7f3a353a2",
+      "resultTurn": 68,
+      "timedOut": false
+    },
+    {
+      "callTurn": 67,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_9dc9f0a1",
+      "inputBytes": 376,
+      "inputHash": "8f8ba4d358d6944d",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 370,
+      "resultHash": "2999781eba876be0",
+      "resultTurn": 69,
+      "timedOut": false
+    },
+    {
+      "callTurn": 70,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_6a2eba3a",
+      "inputBytes": 884,
+      "inputHash": "ebd5faa358ea0bae",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 410,
+      "resultHash": "5d16bd136cbf0dcc",
+      "resultTurn": 71,
+      "timedOut": false
+    },
+    {
+      "callTurn": 70,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_0f394cd1",
+      "inputBytes": 575,
+      "inputHash": "4ab06b1cb9efd285",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 180,
+      "resultHash": "1cdb0e7bc5428f02",
+      "resultTurn": 72,
+      "timedOut": false
+    },
+    {
+      "callTurn": 70,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_22f5306c",
+      "inputBytes": 7872,
+      "inputHash": "b368e519d5cb7c0e",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 184,
+      "resultHash": "8c4568ac0a200494",
+      "resultTurn": 73,
+      "timedOut": false
+    },
+    {
+      "callTurn": 70,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_b00795da",
+      "inputBytes": 3349,
+      "inputHash": "4da547adeeb17c4a",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 181,
+      "resultHash": "3f0e4c4a607106da",
+      "resultTurn": 74,
+      "timedOut": false
+    },
+    {
+      "callTurn": 70,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_044dedd5",
+      "inputBytes": 2395,
+      "inputHash": "7041542d565f8553",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 185,
+      "resultHash": "5995885305d5619f",
+      "resultTurn": 75,
+      "timedOut": false
+    },
+    {
+      "callTurn": 70,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_7f3ad2e1",
+      "inputBytes": 1439,
+      "inputHash": "a16736fcc99e4349",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 179,
+      "resultHash": "e1780143c2b8c23d",
+      "resultTurn": 76,
+      "timedOut": false
+    },
+    {
+      "callTurn": 70,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_4cb3baf4",
+      "inputBytes": 1980,
+      "inputHash": "096cf14453077a81",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 181,
+      "resultHash": "5b7336db1409b686",
+      "resultTurn": 77,
+      "timedOut": false
+    },
+    {
+      "callTurn": 70,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_c13b910e",
+      "inputBytes": 1618,
+      "inputHash": "e5f644a9e41e541d",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 181,
+      "resultHash": "e4209eca3236019e",
+      "resultTurn": 78,
+      "timedOut": false
+    },
+    {
+      "callTurn": 70,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_fae33f6d",
+      "inputBytes": 2036,
+      "inputHash": "3b883d446284a4fc",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 178,
+      "resultHash": "bc982597826bcd5a",
+      "resultTurn": 79,
+      "timedOut": false
+    },
+    {
+      "callTurn": 70,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_cc8c709d",
+      "inputBytes": 2215,
+      "inputHash": "57eca8343368b555",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 183,
+      "resultHash": "c3dab565d1b35d83",
+      "resultTurn": 80,
+      "timedOut": false
+    },
+    {
+      "callTurn": 70,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_b6b92c2f",
+      "inputBytes": 1181,
+      "inputHash": "22e7042520142a3c",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 184,
+      "resultHash": "aff6b27582a1d54e",
+      "resultTurn": 81,
+      "timedOut": false
+    },
+    {
+      "callTurn": 70,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_88ef42ec",
+      "inputBytes": 4344,
+      "inputHash": "9aa2b2aa5555701a",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 181,
+      "resultHash": "5c53dfead017e10e",
+      "resultTurn": 82,
+      "timedOut": false
+    },
+    {
+      "callTurn": 70,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_50b00083",
+      "inputBytes": 5991,
+      "inputHash": "dcbd942dc0e3ba08",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 182,
+      "resultHash": "3525ed69f151868d",
+      "resultTurn": 83,
+      "timedOut": false
+    },
+    {
+      "callTurn": 70,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_3b79cd01",
+      "inputBytes": 505,
+      "inputHash": "df2e87ab37a326ee",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 180,
+      "resultHash": "1ff0e046bd371d8f",
+      "resultTurn": 84,
+      "timedOut": false
+    },
+    {
+      "callTurn": 85,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_38cef7fd",
+      "inputBytes": 992,
+      "inputHash": "37e19930a41cb5cd",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 782,
+      "resultHash": "2004759a99caec62",
+      "resultTurn": 86,
+      "timedOut": false
+    },
+    {
+      "callTurn": 85,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_1101ab7d",
+      "inputBytes": 6270,
+      "inputHash": "8dbd3592232ffdbe",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 190,
+      "resultHash": "8ce6b5e2732b59ed",
+      "resultTurn": 87,
+      "timedOut": false
+    },
+    {
+      "callTurn": 85,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_a2e9134d",
+      "inputBytes": 2350,
+      "inputHash": "f43af7366ad3e9ce",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 187,
+      "resultHash": "20b044449117af12",
+      "resultTurn": 88,
+      "timedOut": false
+    },
+    {
+      "callTurn": 85,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_fa6b5826",
+      "inputBytes": 1140,
+      "inputHash": "5d8be1cfa171d86e",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 187,
+      "resultHash": "038e592d43c7404f",
+      "resultTurn": 89,
+      "timedOut": false
+    },
+    {
+      "callTurn": 85,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_da9532ec",
+      "inputBytes": 2777,
+      "inputHash": "a5cc866f973a321d",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 189,
+      "resultHash": "2628f546b5fdbe8c",
+      "resultTurn": 90,
+      "timedOut": false
+    },
+    {
+      "callTurn": 85,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_59302beb",
+      "inputBytes": 5910,
+      "inputHash": "ebb718b57a854110",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 188,
+      "resultHash": "ce0b10f0aedf464f",
+      "resultTurn": 91,
+      "timedOut": false
+    },
+    {
+      "callTurn": 85,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_34a357c0",
+      "inputBytes": 2386,
+      "inputHash": "6d993de97716e568",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 187,
+      "resultHash": "1afe9c50cf956fe3",
+      "resultTurn": 92,
+      "timedOut": false
+    },
+    {
+      "callTurn": 93,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_b8724c9f",
+      "inputBytes": 114,
+      "inputHash": "ee33c00ee5ac38d5",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 1432,
+      "resultHash": "0fe44c164297f791",
+      "resultTurn": 94,
+      "timedOut": false
+    },
+    {
+      "callTurn": 93,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_943a75dc",
+      "inputBytes": 266,
+      "inputHash": "641511262cbfaad0",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 36,
+      "resultHash": "1268f53af843a7df",
+      "resultTurn": 95,
+      "timedOut": false
+    },
+    {
+      "callTurn": 96,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_f96784b1",
+      "inputBytes": 706,
+      "inputHash": "4823fa5404932427",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 191,
+      "resultHash": "97975f1877700c10",
+      "resultTurn": 97,
+      "timedOut": false
+    },
+    {
+      "callTurn": 96,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_c3527bd3",
+      "inputBytes": 689,
+      "inputHash": "e4f82b99237cabca",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 192,
+      "resultHash": "e30cb633ef09c994",
+      "resultTurn": 98,
+      "timedOut": false
+    },
+    {
+      "callTurn": 96,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_fd69fdc3",
+      "inputBytes": 652,
+      "inputHash": "73b833c3e3b3adce",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 198,
+      "resultHash": "2e3a2073d1c09ebc",
+      "resultTurn": 99,
+      "timedOut": false
+    },
+    {
+      "callTurn": 96,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_0374e70c",
+      "inputBytes": 203,
+      "inputHash": "426581b58a30d6da",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 234,
+      "resultHash": "b6d5267f05c15dc7",
+      "resultTurn": 100,
+      "timedOut": false
+    },
+    {
+      "callTurn": 101,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_f663a3f6",
+      "inputBytes": 171,
+      "inputHash": "9b58f2bea4d6a296",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 1121,
+      "resultHash": "5ddf85aca2c36e08",
+      "resultTurn": 102,
+      "timedOut": false
+    },
+    {
+      "callTurn": 101,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_666724b1",
+      "inputBytes": 126,
+      "inputHash": "4e205751f3e96401",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 171,
+      "resultHash": "e56bff01dec40ea4",
+      "resultTurn": 103,
+      "timedOut": false
+    },
+    {
+      "callTurn": 104,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_fb464c79",
+      "inputBytes": 203,
+      "inputHash": "6e795427b22e22c4",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 198,
+      "resultHash": "35b8ece3b2a9e7c8",
+      "resultTurn": 105,
+      "timedOut": false
+    },
+    {
+      "callTurn": 104,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_e56ca083",
+      "inputBytes": 933,
+      "inputHash": "8ef70dd160e4b172",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 41,
+      "resultHash": "f112058e723344e4",
+      "resultTurn": 106,
+      "timedOut": false
+    },
+    {
+      "callTurn": 107,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_4bcd2096",
+      "inputBytes": 407,
+      "inputHash": "49fcb5c827d799b5",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 709,
+      "resultHash": "e545fc22afa9b082",
+      "resultTurn": 108,
+      "timedOut": false
+    },
+    {
+      "callTurn": 109,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_b93d3d11",
+      "inputBytes": 395,
+      "inputHash": "fa0d1561cff5715a",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 268,
+      "resultHash": "3576013dd84e4598",
+      "resultTurn": 110,
+      "timedOut": false
+    },
+    {
+      "callTurn": 109,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_38799b24",
+      "inputBytes": 493,
+      "inputHash": "54b26bdfed4dd7a1",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 1103,
+      "resultHash": "cabcb4de3d044121",
+      "resultTurn": 111,
+      "timedOut": false
+    },
+    {
+      "callTurn": 112,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_c7a81df2",
+      "inputBytes": 451,
+      "inputHash": "116e814c219cb6dc",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 229,
+      "resultHash": "4c9038ec4510d280",
+      "resultTurn": 113,
+      "timedOut": false
+    },
+    {
+      "callTurn": 112,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_3a48022a",
+      "inputBytes": 305,
+      "inputHash": "f1a01186c49c81c6",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 400,
+      "resultHash": "bd8f72077c4ae08d",
+      "resultTurn": 114,
+      "timedOut": false
+    },
+    {
+      "callTurn": 115,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_fa62d663",
+      "inputBytes": 985,
+      "inputHash": "708fec2ff07e6768",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 208,
+      "resultHash": "a1757a7921482670",
+      "resultTurn": 116,
+      "timedOut": false
+    },
+    {
+      "callTurn": 117,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_cbdb8ed7",
+      "inputBytes": 150,
+      "inputHash": "d8254c980e02b312",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 285,
+      "resultHash": "cde3433d9073cf0d",
+      "resultTurn": 118,
+      "timedOut": false
+    },
+    {
+      "callTurn": 119,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_71461fd1",
+      "inputBytes": 433,
+      "inputHash": "f1cd874a104397ce",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 263,
+      "resultHash": "3f3664e602f98fd8",
+      "resultTurn": 120,
+      "timedOut": false
+    },
+    {
+      "callTurn": 119,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_f5e8f9fc",
+      "inputBytes": 1192,
+      "inputHash": "e5bddf690a237cbc",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 173,
+      "resultHash": "6fdc319a90e8ad29",
+      "resultTurn": 121,
+      "timedOut": false
+    },
+    {
+      "callTurn": 119,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_aba40b1f",
+      "inputBytes": 1625,
+      "inputHash": "d9c2bb1c1dc2a04a",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 173,
+      "resultHash": "6fdc319a90e8ad29",
+      "resultTurn": 122,
+      "timedOut": false
+    },
+    {
+      "callTurn": 119,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_4e733bc2",
+      "inputBytes": 10846,
+      "inputHash": "2fcf4e3f2441fdf1",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 21,
+      "resultHash": "256952153de2cdf3",
+      "resultTurn": 123,
+      "timedOut": false
+    },
+    {
+      "callTurn": 124,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_7160adb0",
+      "inputBytes": 528,
+      "inputHash": "6477b37f45e96364",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 134,
+      "resultHash": "14bcbf5c66709c77",
+      "resultTurn": 125,
+      "timedOut": false
+    },
+    {
+      "callTurn": 124,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_833bc307",
+      "inputBytes": 2737,
+      "inputHash": "d864bce47682414f",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 201,
+      "resultHash": "22e96e2eaa5e2d94",
+      "resultTurn": 126,
+      "timedOut": false
+    },
+    {
+      "callTurn": 124,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_cdff4335",
+      "inputBytes": 5975,
+      "inputHash": "9c6c6a9e0e8e158f",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 200,
+      "resultHash": "acd8df64dc342e35",
+      "resultTurn": 127,
+      "timedOut": false
+    },
+    {
+      "callTurn": 124,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_1f143921",
+      "inputBytes": 3803,
+      "inputHash": "e0edc3fbf314c603",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 201,
+      "resultHash": "46aab1ceebf0ea64",
+      "resultTurn": 128,
+      "timedOut": false
+    },
+    {
+      "callTurn": 124,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_d69fd121",
+      "inputBytes": 2850,
+      "inputHash": "a2e95f181564b3ab",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 195,
+      "resultHash": "292944cd4e615570",
+      "resultTurn": 129,
+      "timedOut": false
+    },
+    {
+      "callTurn": 124,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_1fa98911",
+      "inputBytes": 581,
+      "inputHash": "8d95db3e7095bf54",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 220,
+      "resultHash": "bc6fbbffe8648273",
+      "resultTurn": 130,
+      "timedOut": false
+    },
+    {
+      "callTurn": 124,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_88238e2e",
+      "inputBytes": 396,
+      "inputHash": "59247026d25df813",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 218,
+      "resultHash": "600832920c01b4f0",
+      "resultTurn": 131,
+      "timedOut": false
+    },
+    {
+      "callTurn": 124,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_91f297d0",
+      "inputBytes": 1311,
+      "inputHash": "56c97a0237c2d8f5",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 219,
+      "resultHash": "7aec143acf214690",
+      "resultTurn": 132,
+      "timedOut": false
+    },
+    {
+      "callTurn": 124,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_ddd72ab0",
+      "inputBytes": 314,
+      "inputHash": "1101c9fedb7526b6",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 214,
+      "resultHash": "346dfa73464166f2",
+      "resultTurn": 133,
+      "timedOut": false
+    },
+    {
+      "callTurn": 124,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_a725b2be",
+      "inputBytes": 361,
+      "inputHash": "5bb9d025addd23e4",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 220,
+      "resultHash": "572c5695fcce3580",
+      "resultTurn": 134,
+      "timedOut": false
+    },
+    {
+      "callTurn": 124,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_c3b56491",
+      "inputBytes": 598,
+      "inputHash": "dca4df9b80efd90e",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 218,
+      "resultHash": "3b397e0fe22218d1",
+      "resultTurn": 135,
+      "timedOut": false
+    },
+    {
+      "callTurn": 124,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_da1c67b4",
+      "inputBytes": 6733,
+      "inputHash": "830b1d94233795cc",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 201,
+      "resultHash": "3cf30b8afe22c7da",
+      "resultTurn": 136,
+      "timedOut": false
+    },
+    {
+      "callTurn": 137,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_e1f50b16",
+      "inputBytes": 165,
+      "inputHash": "0c6e9e2e27cccb5e",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 1486,
+      "resultHash": "ef6ee9185ff84171",
+      "resultTurn": 138,
+      "timedOut": false
+    },
+    {
+      "callTurn": 137,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_55516a21",
+      "inputBytes": 270,
+      "inputHash": "da78b97db7f6506d",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 353,
+      "resultHash": "53092313e05ec897",
+      "resultTurn": 139,
+      "timedOut": false
+    },
+    {
+      "callTurn": 140,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_fbf81d01",
+      "inputBytes": 1309,
+      "inputHash": "7a9bc1ef2e837618",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 210,
+      "resultHash": "09cdb24bf9322f09",
+      "resultTurn": 141,
+      "timedOut": false
+    },
+    {
+      "callTurn": 140,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_4621cb3d",
+      "inputBytes": 411,
+      "inputHash": "b1758242876ad0cb",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 211,
+      "resultHash": "7c8a5ac9867dbfea",
+      "resultTurn": 142,
+      "timedOut": false
+    },
+    {
+      "callTurn": 140,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_7b5d7124",
+      "inputBytes": 571,
+      "inputHash": "f7d5e996fda9dff0",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 211,
+      "resultHash": "7c8a5ac9867dbfea",
+      "resultTurn": 143,
+      "timedOut": false
+    },
+    {
+      "callTurn": 140,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_f9e1ea5d",
+      "inputBytes": 12133,
+      "inputHash": "296737ef2e7f05a5",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 195,
+      "resultHash": "a290208ef6f7cd5d",
+      "resultTurn": 144,
+      "timedOut": false
+    },
+    {
+      "callTurn": 140,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_4039f3b5",
+      "inputBytes": 6582,
+      "inputHash": "b0e4fc9084be6b94",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 203,
+      "resultHash": "342de3f5768de7cb",
+      "resultTurn": 145,
+      "timedOut": false
+    },
+    {
+      "callTurn": 140,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_853cc741",
+      "inputBytes": 8381,
+      "inputHash": "44592bec6d8319be",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 201,
+      "resultHash": "e3a3d5284d339c6b",
+      "resultTurn": 146,
+      "timedOut": false
+    },
+    {
+      "callTurn": 140,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_612a22d8",
+      "inputBytes": 218,
+      "inputHash": "efdfbcdd6bbfd40e",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 50,
+      "resultHash": "fe4d0dfa6707c291",
+      "resultTurn": 147,
+      "timedOut": false
+    },
+    {
+      "callTurn": 148,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_8f9cdf51",
+      "inputBytes": 213,
+      "inputHash": "dbb73e116c03d357",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 1202,
+      "resultHash": "f4734dea15ad6cc4",
+      "resultTurn": 149,
+      "timedOut": false
+    },
+    {
+      "callTurn": 148,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_edc2561d",
+      "inputBytes": 180,
+      "inputHash": "c27eddd0ac03b0ae",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 539,
+      "resultHash": "7ab5ec1fb3a226b6",
+      "resultTurn": 150,
+      "timedOut": false
+    },
+    {
+      "callTurn": 151,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_f19557e8",
+      "inputBytes": 1321,
+      "inputHash": "46b367feb9e71104",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 205,
+      "resultHash": "08ef89478bc85a9c",
+      "resultTurn": 152,
+      "timedOut": false
+    },
+    {
+      "callTurn": 151,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_69ca9307",
+      "inputBytes": 1650,
+      "inputHash": "ae70f8a4ef69bd00",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 205,
+      "resultHash": "08ef89478bc85a9c",
+      "resultTurn": 153,
+      "timedOut": false
+    },
+    {
+      "callTurn": 151,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_9825b26b",
+      "inputBytes": 674,
+      "inputHash": "31e8629995193279",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 205,
+      "resultHash": "08ef89478bc85a9c",
+      "resultTurn": 154,
+      "timedOut": false
+    },
+    {
+      "callTurn": 151,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_63473973",
+      "inputBytes": 665,
+      "inputHash": "75ef7adaeb838084",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 211,
+      "resultHash": "94917336eee95356",
+      "resultTurn": 155,
+      "timedOut": false
+    },
+    {
+      "callTurn": 151,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_f87888ee",
+      "inputBytes": 6388,
+      "inputHash": "e656f08ca19da58e",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 197,
+      "resultHash": "e5ca0fcdf9ba1cf2",
+      "resultTurn": 156,
+      "timedOut": false
+    },
+    {
+      "callTurn": 151,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_78096dac",
+      "inputBytes": 9780,
+      "inputHash": "e0c92e9e2c13e250",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 201,
+      "resultHash": "49e5c6a9891f8181",
+      "resultTurn": 157,
+      "timedOut": false
+    },
+    {
+      "callTurn": 151,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_738e81a6",
+      "inputBytes": 6193,
+      "inputHash": "d7d42e4c3576e0b1",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 200,
+      "resultHash": "0b139833fdb10abd",
+      "resultTurn": 158,
+      "timedOut": false
+    },
+    {
+      "callTurn": 151,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_e539699b",
+      "inputBytes": 8947,
+      "inputHash": "ad59a686f17ce900",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 196,
+      "resultHash": "4863b3f557f5e830",
+      "resultTurn": 159,
+      "timedOut": false
+    },
+    {
+      "callTurn": 160,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_f1081fd0",
+      "inputBytes": 222,
+      "inputHash": "d2626a92bc0b1d51",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 482,
+      "resultHash": "277677d582b1a9e4",
+      "resultTurn": 161,
+      "timedOut": false
+    },
+    {
+      "callTurn": 160,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_9c364c84",
+      "inputBytes": 174,
+      "inputHash": "19f79776654d13cd",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 6,
+      "resultHash": "a41055d6fb635ce0",
+      "resultTurn": 162,
+      "timedOut": false
+    },
+    {
+      "callTurn": 163,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_ab73fc38",
+      "inputBytes": 1407,
+      "inputHash": "0430ee117e6d68e2",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 211,
+      "resultHash": "94917336eee95356",
+      "resultTurn": 164,
+      "timedOut": false
+    },
+    {
+      "callTurn": 163,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_77e16c24",
+      "inputBytes": 3383,
+      "inputHash": "e6f48e985bc34191",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 203,
+      "resultHash": "d12b883171b7d817",
+      "resultTurn": 165,
+      "timedOut": false
+    },
+    {
+      "callTurn": 163,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_0b349482",
+      "inputBytes": 1744,
+      "inputHash": "ad9659c5694397ae",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 98,
+      "resultHash": "dadb8149df8cbff8",
+      "resultTurn": 166,
+      "timedOut": false
+    },
+    {
+      "callTurn": 167,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_4e6d04eb",
+      "inputBytes": 221,
+      "inputHash": "fbe05c0c9b942abc",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 56,
+      "resultHash": "6bbb9a71f8d1d572",
+      "resultTurn": 168,
+      "timedOut": false
+    },
+    {
+      "callTurn": 167,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_0d556a06",
+      "inputBytes": 3705,
+      "inputHash": "0196578b5a0589a0",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 183,
+      "resultHash": "de2cb5e9e2c15b5e",
+      "resultTurn": 169,
+      "timedOut": false
+    },
+    {
+      "callTurn": 167,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_79d7786e",
+      "inputBytes": 2464,
+      "inputHash": "9c523fe41e276ecf",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 177,
+      "resultHash": "f80cf9454d1d1500",
+      "resultTurn": 170,
+      "timedOut": false
+    },
+    {
+      "callTurn": 171,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_9d5295b6",
+      "inputBytes": 363,
+      "inputHash": "0722171a6dcfb64c",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 174,
+      "resultHash": "b5e54500acc923b7",
+      "resultTurn": 172,
+      "timedOut": false
+    },
+    {
+      "callTurn": 171,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_18a82cc3",
+      "inputBytes": 162,
+      "inputHash": "993c7865b74219f8",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 222,
+      "resultHash": "d9e88e1fa4b60e57",
+      "resultTurn": 173,
+      "timedOut": false
+    },
+    {
+      "callTurn": 174,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_1648b9ea",
+      "inputBytes": 356,
+      "inputHash": "e848a92fc44d2b41",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 1025,
+      "resultHash": "36f611c674400353",
+      "resultTurn": 175,
+      "timedOut": false
+    },
+    {
+      "callTurn": 176,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_f673ff75",
+      "inputBytes": 429,
+      "inputHash": "81653b07d2c314ec",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 967,
+      "resultHash": "e03d6102cea76f00",
+      "resultTurn": 177,
+      "timedOut": false
+    },
+    {
+      "callTurn": 178,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_8f2661cf",
+      "inputBytes": 728,
+      "inputHash": "050ce6ff9cd9476f",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 1065,
+      "resultHash": "2d464204e7b31a4d",
+      "resultTurn": 179,
+      "timedOut": false
+    },
+    {
+      "callTurn": 180,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_94c4aa14",
+      "inputBytes": 743,
+      "inputHash": "68a1deeb5da5f5e2",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 3523,
+      "resultHash": "8e548f284ac404bd",
+      "resultTurn": 181,
+      "timedOut": false
+    },
+    {
+      "callTurn": 180,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_1ea0bcb0",
+      "inputBytes": 364,
+      "inputHash": "43e811f832f765eb",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 158,
+      "resultHash": "b0e03c4b38cfd3e2",
+      "resultTurn": 182,
+      "timedOut": false
+    },
+    {
+      "callTurn": 183,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_1428d9e7",
+      "inputBytes": 814,
+      "inputHash": "f274a6253d94e96b",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 3512,
+      "resultHash": "3f1f779f042b8b32",
+      "resultTurn": 184,
+      "timedOut": false
+    },
+    {
+      "callTurn": 185,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_07a7558e",
+      "inputBytes": 826,
+      "inputHash": "083992bf578961c9",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 221,
+      "resultHash": "c361a59217f78ea5",
+      "resultTurn": 186,
+      "timedOut": false
+    },
+    {
+      "callTurn": 185,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_4b8f0874",
+      "inputBytes": 419,
+      "inputHash": "6fa6f35d8c4976a5",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 221,
+      "resultHash": "c361a59217f78ea5",
+      "resultTurn": 187,
+      "timedOut": false
+    },
+    {
+      "callTurn": 185,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_9ec270d6",
+      "inputBytes": 1255,
+      "inputHash": "9fe18637b31aa44d",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 173,
+      "resultHash": "6fdc319a90e8ad29",
+      "resultTurn": 188,
+      "timedOut": false
+    },
+    {
+      "callTurn": 185,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_e200b294",
+      "inputBytes": 856,
+      "inputHash": "e5bc019dae8eda62",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 211,
+      "resultHash": "7c8a5ac9867dbfea",
+      "resultTurn": 189,
+      "timedOut": false
+    },
+    {
+      "callTurn": 185,
+      "denied": true,
+      "durationMs": null,
+      "errorClass": "other",
+      "id": "c_3fbf4d26",
+      "inputBytes": 549,
+      "inputHash": "7d2f34f2f7a80d45",
+      "interrupted": false,
+      "isError": true,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 498,
+      "resultHash": "12f303425a9e2b93",
+      "resultTurn": 190,
+      "timedOut": false
+    },
+    {
+      "callTurn": 191,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_f643c13f",
+      "inputBytes": 300,
+      "inputHash": "2db6dbd3986c7404",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 848,
+      "resultHash": "04c103a1cbf857f6",
+      "resultTurn": 192,
+      "timedOut": false
+    },
+    {
+      "callTurn": 191,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_b68fa4f1",
+      "inputBytes": 217,
+      "inputHash": "33435056975747fb",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 56,
+      "resultHash": "e33e435e95a0d9a8",
+      "resultTurn": 193,
+      "timedOut": false
+    },
+    {
+      "callTurn": 194,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_6fb1303d",
+      "inputBytes": 383,
+      "inputHash": "1aeb491d4837b60f",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 197,
+      "resultHash": "545e70a5f1324a62",
+      "resultTurn": 195,
+      "timedOut": false
+    },
+    {
+      "callTurn": 196,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_77760254",
+      "inputBytes": 484,
+      "inputHash": "532ef6ad1f40d774",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 550,
+      "resultHash": "d06d7d661f5a9826",
+      "resultTurn": 197,
+      "timedOut": false
+    },
+    {
+      "callTurn": 198,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_e3b46fc6",
+      "inputBytes": 547,
+      "inputHash": "be19fb753a23a7f7",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 473,
+      "resultHash": "33121d78a661d16c",
+      "resultTurn": 199,
+      "timedOut": false
+    },
+    {
+      "callTurn": 198,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_5ff8103b",
+      "inputBytes": 551,
+      "inputHash": "c6f39e1d1d6dde01",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 129,
+      "resultHash": "51fbd3f25ce47a10",
+      "resultTurn": 200,
+      "timedOut": false
+    },
+    {
+      "callTurn": 198,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_1c2feeff",
+      "inputBytes": 5528,
+      "inputHash": "39f70dff19a827e9",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 195,
+      "resultHash": "1223546d298c0537",
+      "resultTurn": 201,
+      "timedOut": false
+    },
+    {
+      "callTurn": 202,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_7e9420f6",
+      "inputBytes": 976,
+      "inputHash": "1cb4c7caea707d46",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 203,
+      "resultHash": "c61975435cfcd825",
+      "resultTurn": 203,
+      "timedOut": false
+    },
+    {
+      "callTurn": 202,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_6f3a1abc",
+      "inputBytes": 1618,
+      "inputHash": "0b265767e17c2ffb",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 214,
+      "resultHash": "096f0644c749a70f",
+      "resultTurn": 204,
+      "timedOut": false
+    },
+    {
+      "callTurn": 202,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_7925777c",
+      "inputBytes": 1123,
+      "inputHash": "383146b9290bb04a",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 154,
+      "resultHash": "0b21c871ce4e78c3",
+      "resultTurn": 205,
+      "timedOut": false
+    },
+    {
+      "callTurn": 202,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_6691fb1b",
+      "inputBytes": 1962,
+      "inputHash": "28dbd506d2f2f89d",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 183,
+      "resultHash": "ffdbe69b15b2b6ee",
+      "resultTurn": 206,
+      "timedOut": false
+    },
+    {
+      "callTurn": 202,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_b9e83483",
+      "inputBytes": 724,
+      "inputHash": "0754dc358eb8a5c6",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 114,
+      "resultHash": "46eb0f103e0484ac",
+      "resultTurn": 207,
+      "timedOut": false
+    },
+    {
+      "callTurn": 202,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_611a18fc",
+      "inputBytes": 1222,
+      "inputHash": "790cd3d298707dcf",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 4,
+      "resultHash": "e2fb9b1f45e4d844",
+      "resultTurn": 208,
+      "timedOut": false
+    },
+    {
+      "callTurn": 209,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_5ff3e946",
+      "inputBytes": 720,
+      "inputHash": "c2a627396a1d384f",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 718,
+      "resultHash": "cd6dbbdb91eb5831",
+      "resultTurn": 210,
+      "timedOut": false
+    },
+    {
+      "callTurn": 209,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_e08f75d9",
+      "inputBytes": 859,
+      "inputHash": "2c5bd70a9d349f12",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 211,
+      "resultHash": "fd73998d64c67a50",
+      "resultTurn": 211,
+      "timedOut": false
+    },
+    {
+      "callTurn": 209,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_6987c285",
+      "inputBytes": 428,
+      "inputHash": "814a134a87ff5bc4",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 108,
+      "resultHash": "625ac4fcfd864a1f",
+      "resultTurn": 212,
+      "timedOut": false
+    },
+    {
+      "callTurn": 213,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_83c55089",
+      "inputBytes": 5841,
+      "inputHash": "a38ad161cc9678bd",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 206,
+      "resultHash": "cb8b0780ffb3bfc1",
+      "resultTurn": 214,
+      "timedOut": false
+    },
+    {
+      "callTurn": 213,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_454b13f9",
+      "inputBytes": 237,
+      "inputHash": "a2d3343e57c845ca",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 444,
+      "resultHash": "05bbdf0cb1e2dfa7",
+      "resultTurn": 215,
+      "timedOut": false
+    },
+    {
+      "callTurn": 216,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_f33b57f3",
+      "inputBytes": 412,
+      "inputHash": "9ba6354df5fa1de4",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 216,
+      "resultHash": "67bea5b54ce91ad5",
+      "resultTurn": 217,
+      "timedOut": false
+    },
+    {
+      "callTurn": 216,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_b9bac935",
+      "inputBytes": 572,
+      "inputHash": "66d3bdff2cb63b4b",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 172,
+      "resultHash": "d319639705f3badd",
+      "resultTurn": 218,
+      "timedOut": false
+    },
+    {
+      "callTurn": 219,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_c4442ab2",
+      "inputBytes": 327,
+      "inputHash": "069b59928b0d750b",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 101,
+      "resultHash": "127140536762f9f0",
+      "resultTurn": 220,
+      "timedOut": false
+    },
+    {
+      "callTurn": 224,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": "not-found",
+      "id": "c_701ea585",
+      "inputBytes": 1068,
+      "inputHash": "41367784238720fd",
+      "interrupted": false,
+      "isError": true,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 1328,
+      "resultHash": "3548c6da7720be00",
+      "resultTurn": 225,
+      "timedOut": false
+    },
+    {
+      "callTurn": 226,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_357aaf9d",
+      "inputBytes": 64,
+      "inputHash": "1941d686ea983f89",
+      "interrupted": false,
+      "isError": false,
+      "name": "other:e6ac736a",
+      "orphan": false,
+      "resultBytes": 285,
+      "resultHash": "8cdd9e661f2dc471",
+      "resultTurn": 227,
+      "timedOut": false
+    },
+    {
+      "callTurn": 226,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_ad1fafa5",
+      "inputBytes": 560,
+      "inputHash": "958eac78e4dbb980",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 206,
+      "resultHash": "11a405652f9617ac",
+      "resultTurn": 228,
+      "timedOut": false
+    },
+    {
+      "callTurn": 226,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_187d3941",
+      "inputBytes": 1057,
+      "inputHash": "fac8e40a54e09adb",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 297,
+      "resultHash": "022ec53818124323",
+      "resultTurn": 229,
+      "timedOut": false
+    },
+    {
+      "callTurn": 230,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_f3d08d47",
+      "inputBytes": 392,
+      "inputHash": "7b96a776cbd21a85",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 473,
+      "resultHash": "eb275ce2e2b36dfa",
+      "resultTurn": 231,
+      "timedOut": false
+    },
+    {
+      "callTurn": 230,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_81b8e144",
+      "inputBytes": 328,
+      "inputHash": "70bd46ca4b4cbbca",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 110,
+      "resultHash": "723124fc97958164",
+      "resultTurn": 232,
+      "timedOut": false
+    },
+    {
+      "callTurn": 233,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_696774b3",
+      "inputBytes": 920,
+      "inputHash": "0af3fb584abcace6",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 2814,
+      "resultHash": "66e6f97d8eb1457c",
+      "resultTurn": 234,
+      "timedOut": false
+    },
+    {
+      "callTurn": 235,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_ea5613bd",
+      "inputBytes": 473,
+      "inputHash": "d8f45d06c9078fd0",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 97,
+      "resultHash": "888da78f6c99da50",
+      "resultTurn": 236,
+      "timedOut": false
+    },
+    {
+      "callTurn": 240,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_bf1cbf08",
+      "inputBytes": 1505,
+      "inputHash": "33e6f3124e88bfe7",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 1188,
+      "resultHash": "074d6b1150b24a4c",
+      "resultTurn": 241,
+      "timedOut": false
+    },
+    {
+      "callTurn": 242,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_b16d9c63",
+      "inputBytes": 844,
+      "inputHash": "6c2b6f0d0fcea7af",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 432,
+      "resultHash": "01c7e39b0e2d4d2e",
+      "resultTurn": 243,
+      "timedOut": false
+    },
+    {
+      "callTurn": 242,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_56c3ae87",
+      "inputBytes": 415,
+      "inputHash": "6682dabcb8fefb5d",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 473,
+      "resultHash": "b70ec3a146cdff56",
+      "resultTurn": 244,
+      "timedOut": false
+    },
+    {
+      "callTurn": 245,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_f6cf4978",
+      "inputBytes": 557,
+      "inputHash": "c046bb4220d27a35",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 173,
+      "resultHash": "6fdc319a90e8ad29",
+      "resultTurn": 246,
+      "timedOut": false
+    },
+    {
+      "callTurn": 245,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_5ad99760",
+      "inputBytes": 1990,
+      "inputHash": "e3f8fb4134fa07b9",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 173,
+      "resultHash": "6fdc319a90e8ad29",
+      "resultTurn": 247,
+      "timedOut": false
+    },
+    {
+      "callTurn": 251,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_bab59a1a",
+      "inputBytes": 673,
+      "inputHash": "c5a558c9aeb30071",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 1861,
+      "resultHash": "be69503b2752f070",
+      "resultTurn": 252,
+      "timedOut": false
+    },
+    {
+      "callTurn": 253,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_10465be2",
+      "inputBytes": 869,
+      "inputHash": "1ff68b684370b5fc",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 2072,
+      "resultHash": "4ea7ec00d5f722bf",
+      "resultTurn": 254,
+      "timedOut": false
+    },
+    {
+      "callTurn": 253,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_708a1909",
+      "inputBytes": 1067,
+      "inputHash": "49617491cb7b3a41",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 5124,
+      "resultHash": "5fb939e8ceacb01d",
+      "resultTurn": 255,
+      "timedOut": false
+    },
+    {
+      "callTurn": 253,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_e3b2709f",
+      "inputBytes": 1481,
+      "inputHash": "1a1050017ab569ba",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 2301,
+      "resultHash": "5dffbf0098e763f3",
+      "resultTurn": 256,
+      "timedOut": false
+    },
+    {
+      "callTurn": 253,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_aa862841",
+      "inputBytes": 196,
+      "inputHash": "19c5a4a45e362ed2",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 180,
+      "resultHash": "7773daa84abf1e93",
+      "resultTurn": 257,
+      "timedOut": false
+    },
+    {
+      "callTurn": 253,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_9a4d2fdf",
+      "inputBytes": 504,
+      "inputHash": "1c92c1b536282e99",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 131,
+      "resultHash": "4c139418e41dc1c4",
+      "resultTurn": 258,
+      "timedOut": false
+    },
+    {
+      "callTurn": 259,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_c6a646dc",
+      "inputBytes": 1007,
+      "inputHash": "8fc21e3bfd60e12d",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 2142,
+      "resultHash": "a2fc12db77f39458",
+      "resultTurn": 260,
+      "timedOut": false
+    },
+    {
+      "callTurn": 259,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_c5d38a1e",
+      "inputBytes": 1450,
+      "inputHash": "2bdd1267a1d5fe16",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 855,
+      "resultHash": "cc3abea6b70e4010",
+      "resultTurn": 261,
+      "timedOut": false
+    },
+    {
+      "callTurn": 259,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_58e8d7c0",
+      "inputBytes": 2388,
+      "inputHash": "df82838dcf4ca51b",
+      "interrupted": false,
+      "isError": false,
+      "name": "Agent",
+      "orphan": false,
+      "resultBytes": 1116,
+      "resultHash": "8829508640818c65",
+      "resultTurn": 262,
+      "timedOut": false
+    },
+    {
+      "callTurn": 263,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_4ebd5e04",
+      "inputBytes": 5978,
+      "inputHash": "c8a89dc74d8cf4d6",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 205,
+      "resultHash": "6e83823e94f04c97",
+      "resultTurn": 264,
+      "timedOut": false
+    },
+    {
+      "callTurn": 263,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_292fb4ff",
+      "inputBytes": 932,
+      "inputHash": "542a3e2a124690b8",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 173,
+      "resultHash": "6fdc319a90e8ad29",
+      "resultTurn": 265,
+      "timedOut": false
+    },
+    {
+      "callTurn": 263,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_ba373605",
+      "inputBytes": 211,
+      "inputHash": "94182a8ac51cc56e",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 125,
+      "resultHash": "3eca9eae61763d3d",
+      "resultTurn": 266,
+      "timedOut": false
+    },
+    {
+      "callTurn": 267,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_4ae4e121",
+      "inputBytes": 124,
+      "inputHash": "d7a0cd76b5a1bd3b",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 453,
+      "resultHash": "0791757c33423833",
+      "resultTurn": 268,
+      "timedOut": false
+    },
+    {
+      "callTurn": 267,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_e46d35c2",
+      "inputBytes": 443,
+      "inputHash": "b6ff1fdf8c8389f7",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 192,
+      "resultHash": "011b2696238d744d",
+      "resultTurn": 269,
+      "timedOut": false
+    },
+    {
+      "callTurn": 270,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_34786c96",
+      "inputBytes": 735,
+      "inputHash": "8bb26fe21a5e6a16",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 2043,
+      "resultHash": "5fd1ec6e32b081ea",
+      "resultTurn": 271,
+      "timedOut": false
+    },
+    {
+      "callTurn": 272,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_3d863ef6",
+      "inputBytes": 754,
+      "inputHash": "e8d12800659deea9",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 195,
+      "resultHash": "874fb591311338aa",
+      "resultTurn": 273,
+      "timedOut": false
+    },
+    {
+      "callTurn": 272,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_5f8d43ce",
+      "inputBytes": 2721,
+      "inputHash": "92b749863435a32d",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 184,
+      "resultHash": "ead39912cb4a992a",
+      "resultTurn": 274,
+      "timedOut": false
+    },
+    {
+      "callTurn": 275,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_b5ef2c3a",
+      "inputBytes": 239,
+      "inputHash": "2ae2c5156af0b6b9",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 625,
+      "resultHash": "9d21a75c13d79f42",
+      "resultTurn": 276,
+      "timedOut": false
+    },
+    {
+      "callTurn": 275,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_ad8f532a",
+      "inputBytes": 1451,
+      "inputHash": "c2cad8ebc951f418",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 188,
+      "resultHash": "1a0b731bf3152bd4",
+      "resultTurn": 277,
+      "timedOut": false
+    },
+    {
+      "callTurn": 275,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_08006a00",
+      "inputBytes": 1246,
+      "inputHash": "aaee76771f6569c8",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 197,
+      "resultHash": "f5cdc895c8705c9e",
+      "resultTurn": 278,
+      "timedOut": false
+    },
+    {
+      "callTurn": 275,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_4afd7440",
+      "inputBytes": 375,
+      "inputHash": "61d5f1a209125cd5",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 207,
+      "resultHash": "c2ff4a26bdef64bd",
+      "resultTurn": 279,
+      "timedOut": false
+    },
+    {
+      "callTurn": 275,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_1fc626cc",
+      "inputBytes": 888,
+      "inputHash": "e96ce108b73f91ca",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 207,
+      "resultHash": "c2ff4a26bdef64bd",
+      "resultTurn": 280,
+      "timedOut": false
+    },
+    {
+      "callTurn": 275,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_25ed7cd3",
+      "inputBytes": 435,
+      "inputHash": "b973ae638e5c5762",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 211,
+      "resultHash": "8277664be3589632",
+      "resultTurn": 281,
+      "timedOut": false
+    },
+    {
+      "callTurn": 275,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_7405d165",
+      "inputBytes": 650,
+      "inputHash": "96bdadc05f1df369",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 211,
+      "resultHash": "8277664be3589632",
+      "resultTurn": 282,
+      "timedOut": false
+    },
+    {
+      "callTurn": 275,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_c376aaf2",
+      "inputBytes": 481,
+      "inputHash": "58fbf9ce0352d2e9",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 211,
+      "resultHash": "8277664be3589632",
+      "resultTurn": 283,
+      "timedOut": false
+    },
+    {
+      "callTurn": 284,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_cbd21221",
+      "inputBytes": 146,
+      "inputHash": "4596bed076c432f2",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 429,
+      "resultHash": "928c8fef6e895894",
+      "resultTurn": 285,
+      "timedOut": false
+    },
+    {
+      "callTurn": 284,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_49992331",
+      "inputBytes": 188,
+      "inputHash": "4d4d4f683db14220",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 16,
+      "resultHash": "aa8f38377ae14ebb",
+      "resultTurn": 286,
+      "timedOut": false
+    },
+    {
+      "callTurn": 287,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_dc6092d0",
+      "inputBytes": 454,
+      "inputHash": "9d5bfe2adc6c4db2",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 209,
+      "resultHash": "80e43c4d68e4bbcf",
+      "resultTurn": 288,
+      "timedOut": false
+    },
+    {
+      "callTurn": 292,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_31f53efb",
+      "inputBytes": 14910,
+      "inputHash": "3b2a2896976789ba",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 1999,
+      "resultHash": "b55a48b25a19b345",
+      "resultTurn": 293,
+      "timedOut": false
+    },
+    {
+      "callTurn": 294,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_c54a8838",
+      "inputBytes": 1630,
+      "inputHash": "b94aa38632592e6f",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 205,
+      "resultHash": "6e83823e94f04c97",
+      "resultTurn": 295,
+      "timedOut": false
+    },
+    {
+      "callTurn": 294,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_3a9e0a75",
+      "inputBytes": 1893,
+      "inputHash": "940439c5f6000214",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 173,
+      "resultHash": "6fdc319a90e8ad29",
+      "resultTurn": 296,
+      "timedOut": false
+    },
+    {
+      "callTurn": 297,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_7b1b787d",
+      "inputBytes": 471,
+      "inputHash": "58aac503cb7e0f5a",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 261,
+      "resultHash": "e1d1167b73279c8e",
+      "resultTurn": 298,
+      "timedOut": false
+    },
+    {
+      "callTurn": 297,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_2e647f78",
+      "inputBytes": 5097,
+      "inputHash": "beeffa4e8d1421e8",
+      "interrupted": false,
+      "isError": false,
+      "name": "Agent",
+      "orphan": false,
+      "resultBytes": 1116,
+      "resultHash": "eaf80793d6748812",
+      "resultTurn": 299,
+      "timedOut": false
+    },
+    {
+      "callTurn": 300,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_56808791",
+      "inputBytes": 688,
+      "inputHash": "3fe584da43fab0e5",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 7890,
+      "resultHash": "d68c9e6594f55270",
+      "resultTurn": 301,
+      "timedOut": false
+    },
+    {
+      "callTurn": 300,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_45da0181",
+      "inputBytes": 1081,
+      "inputHash": "f752fe628a8a0562",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 1897,
+      "resultHash": "d56ec5fa947e6f9f",
+      "resultTurn": 302,
+      "timedOut": false
+    },
+    {
+      "callTurn": 303,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_f3d66674",
+      "inputBytes": 7514,
+      "inputHash": "f2d8c54dbc72cf86",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 20,
+      "resultHash": "c6db7d2d9e2e7126",
+      "resultTurn": 304,
+      "timedOut": false
+    },
+    {
+      "callTurn": 303,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_f8d3a755",
+      "inputBytes": 5166,
+      "inputHash": "cafca9be5d534312",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 191,
+      "resultHash": "0eee80c8ecccbfef",
+      "resultTurn": 305,
+      "timedOut": false
+    },
+    {
+      "callTurn": 303,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_48e7f5b0",
+      "inputBytes": 4676,
+      "inputHash": "425d62a93cb74809",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 197,
+      "resultHash": "05e18696b3ed8837",
+      "resultTurn": 306,
+      "timedOut": false
+    },
+    {
+      "callTurn": 307,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_333bd131",
+      "inputBytes": 209,
+      "inputHash": "e2f19ca3538c810b",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 54,
+      "resultHash": "e1b507238887a661",
+      "resultTurn": 308,
+      "timedOut": false
+    },
+    {
+      "callTurn": 307,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_d6fcca48",
+      "inputBytes": 181,
+      "inputHash": "1e8bb6b7c8bbd9f1",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 16,
+      "resultHash": "aa8f38377ae14ebb",
+      "resultTurn": 309,
+      "timedOut": false
+    },
+    {
+      "callTurn": 310,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_930a0416",
+      "inputBytes": 406,
+      "inputHash": "e7378cff107929e6",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 213,
+      "resultHash": "2b00777ab1d770e6",
+      "resultTurn": 311,
+      "timedOut": false
+    },
+    {
+      "callTurn": 315,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_ad083a4d",
+      "inputBytes": 677,
+      "inputHash": "6fe6b70ec15db23c",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 103,
+      "resultHash": "4a62f5be7caca1b4",
+      "resultTurn": 316,
+      "timedOut": false
+    },
+    {
+      "callTurn": 315,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_cb92a9f4",
+      "inputBytes": 706,
+      "inputHash": "60cfed1084f2c2c9",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 205,
+      "resultHash": "6e83823e94f04c97",
+      "resultTurn": 317,
+      "timedOut": false
+    },
+    {
+      "callTurn": 318,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_2cc82b26",
+      "inputBytes": 789,
+      "inputHash": "ab91de1a7c3ae8aa",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 173,
+      "resultHash": "6fdc319a90e8ad29",
+      "resultTurn": 319,
+      "timedOut": false
+    },
+    {
+      "callTurn": 318,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_0341516a",
+      "inputBytes": 1583,
+      "inputHash": "09c5a93823382fcc",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 173,
+      "resultHash": "6fdc319a90e8ad29",
+      "resultTurn": 320,
+      "timedOut": false
+    },
+    {
+      "callTurn": 318,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_604a455a",
+      "inputBytes": 922,
+      "inputHash": "a7a9ad53e2d943e5",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 612,
+      "resultHash": "dfaec76b790f9969",
+      "resultTurn": 321,
+      "timedOut": false
+    },
+    {
+      "callTurn": 328,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_4cf06d32",
+      "inputBytes": 200,
+      "inputHash": "74738d0e5a2cdd7b",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 1050,
+      "resultHash": "56f6f07370e6d366",
+      "resultTurn": 329,
+      "timedOut": false
+    },
+    {
+      "callTurn": 328,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_dbeeeee7",
+      "inputBytes": 83,
+      "inputHash": "4d8d0dce61f1c82e",
+      "interrupted": false,
+      "isError": false,
+      "name": "Read",
+      "orphan": false,
+      "resultBytes": 1187,
+      "resultHash": "4f0a919f82ac1228",
+      "resultTurn": 330,
+      "timedOut": false
+    },
+    {
+      "callTurn": 328,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_069209d3",
+      "inputBytes": 132,
+      "inputHash": "4d130428b671da70",
+      "interrupted": false,
+      "isError": false,
+      "name": "Read",
+      "orphan": false,
+      "resultBytes": 1554,
+      "resultHash": "a481ea9d9dae56eb",
+      "resultTurn": 331,
+      "timedOut": false
+    },
+    {
+      "callTurn": 332,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_5ecaacd5",
+      "inputBytes": 356,
+      "inputHash": "51eca71bcea95b59",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 2072,
+      "resultHash": "ab0840b1013c57ad",
+      "resultTurn": 333,
+      "timedOut": false
+    },
+    {
+      "callTurn": 334,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_6b988042",
+      "inputBytes": 11074,
+      "inputHash": "947652016cd8b7b7",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 193,
+      "resultHash": "4e222db1cf80069e",
+      "resultTurn": 335,
+      "timedOut": false
+    },
+    {
+      "callTurn": 334,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_f6c4f28b",
+      "inputBytes": 2309,
+      "inputHash": "a744cffd81b5652d",
+      "interrupted": false,
+      "isError": false,
+      "name": "Write",
+      "orphan": false,
+      "resultBytes": 175,
+      "resultHash": "a517bdb43a682841",
+      "resultTurn": 336,
+      "timedOut": false
+    },
+    {
+      "callTurn": 334,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_bbf756c8",
+      "inputBytes": 508,
+      "inputHash": "b1c4c94ae5e34bc3",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 173,
+      "resultHash": "6fdc319a90e8ad29",
+      "resultTurn": 337,
+      "timedOut": false
+    },
+    {
+      "callTurn": 334,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_9b554b46",
+      "inputBytes": 762,
+      "inputHash": "04848724cc728ee4",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 173,
+      "resultHash": "6fdc319a90e8ad29",
+      "resultTurn": 338,
+      "timedOut": false
+    },
+    {
+      "callTurn": 334,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_f9d151c7",
+      "inputBytes": 523,
+      "inputHash": "86f1cc30d0732df5",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 173,
+      "resultHash": "6fdc319a90e8ad29",
+      "resultTurn": 339,
+      "timedOut": false
+    },
+    {
+      "callTurn": 334,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_e1941aed",
+      "inputBytes": 1277,
+      "inputHash": "19a31684a42a2bc1",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 173,
+      "resultHash": "6fdc319a90e8ad29",
+      "resultTurn": 340,
+      "timedOut": false
+    },
+    {
+      "callTurn": 334,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_dc5f561b",
+      "inputBytes": 2170,
+      "inputHash": "83c4914842705bc9",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 173,
+      "resultHash": "6fdc319a90e8ad29",
+      "resultTurn": 341,
+      "timedOut": false
+    },
+    {
+      "callTurn": 334,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_6090e18b",
+      "inputBytes": 576,
+      "inputHash": "59cc67994c9c00ea",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 173,
+      "resultHash": "6fdc319a90e8ad29",
+      "resultTurn": 342,
+      "timedOut": false
+    },
+    {
+      "callTurn": 334,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_eaf17269",
+      "inputBytes": 990,
+      "inputHash": "dea70b01a7fd2c2f",
+      "interrupted": false,
+      "isError": false,
+      "name": "Edit",
+      "orphan": false,
+      "resultBytes": 224,
+      "resultHash": "b2b866ac5e5f8dec",
+      "resultTurn": 343,
+      "timedOut": false
+    },
+    {
+      "callTurn": 344,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_7ab56f24",
+      "inputBytes": 491,
+      "inputHash": "b09732c5a384aebb",
+      "interrupted": false,
+      "isError": false,
+      "name": "Bash",
+      "orphan": false,
+      "resultBytes": 438,
+      "resultHash": "adf10e741cf894ff",
+      "resultTurn": 345,
+      "timedOut": false
+    },
+    {
+      "callTurn": 346,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_13be68cb",
+      "inputBytes": 331,
+      "inputHash": "b6865ab0142dab48",
+      "interrupted": false,
+      "isError": false,
+      "name": "other:5ec0d49c",
+      "orphan": false,
+      "resultBytes": 176,
+      "resultHash": "8dd86c9b72fa0ff0",
+      "resultTurn": 347,
+      "timedOut": false
+    }
+  ],
+  "turns": [
+    {
+      "at": "2026-09-11T03:40:24.619Z",
+      "index": 0,
+      "kind": "prompt",
+      "textChars": 4727,
+      "textHash": "a1f374c7c6b767b4"
+    },
+    {
+      "at": "2026-09-11T03:40:30.800Z",
+      "index": 1,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "textChars": 88,
+      "textHash": "b41c8d4710f564f4",
+      "usage": {
+        "cacheCreation": 37648,
+        "cacheRead": 41056,
+        "input": 2,
+        "output": 510
+      }
+    },
+    {
+      "at": "2026-09-11T03:40:31.528Z",
+      "index": 2,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T03:40:32.022Z",
+      "index": 3,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T03:40:33.869Z",
+      "index": 4,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 2384,
+        "cacheRead": 78704,
+        "input": 32,
+        "output": 575
+      }
+    },
+    {
+      "at": "2026-09-11T03:40:49.630Z",
+      "index": 5,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T03:40:49.724Z",
+      "index": 6,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T03:40:49.725Z",
+      "index": 7,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T03:40:49.919Z",
+      "index": 8,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T03:40:49.978Z",
+      "index": 9,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T03:40:51.083Z",
+      "index": 10,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T03:41:34.462Z",
+      "index": 11,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 37818,
+        "cacheRead": 81088,
+        "input": 32,
+        "output": 6747
+      }
+    },
+    {
+      "at": "2026-09-11T03:41:48.145Z",
+      "index": 12,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T03:42:00.729Z",
+      "index": 13,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T03:42:15.159Z",
+      "index": 14,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T03:42:15.346Z",
+      "index": 15,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T03:42:23.002Z",
+      "index": 16,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T03:43:02.037Z",
+      "index": 17,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 10355,
+        "cacheRead": 118906,
+        "input": 32,
+        "output": 3126
+      }
+    },
+    {
+      "at": "2026-09-11T03:43:07.807Z",
+      "index": 18,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T03:43:14.632Z",
+      "index": 19,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 4193,
+        "cacheRead": 129261,
+        "input": 32,
+        "output": 780
+      }
+    },
+    {
+      "at": "2026-09-11T03:43:14.679Z",
+      "index": 20,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T03:43:18.776Z",
+      "index": 21,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T03:43:23.330Z",
+      "index": 22,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 5139,
+        "cacheRead": 133454,
+        "input": 32,
+        "output": 512
+      }
+    },
+    {
+      "at": "2026-09-11T03:43:27.401Z",
+      "index": 23,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T03:43:36.319Z",
+      "index": 24,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 611,
+        "cacheRead": 138593,
+        "input": 32,
+        "output": 751
+      }
+    },
+    {
+      "at": "2026-09-11T03:43:39.233Z",
+      "index": 25,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T03:43:50.519Z",
+      "index": 26,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "end_turn",
+      "textChars": 470,
+      "textHash": "118f11f6acedc7cd",
+      "usage": {
+        "cacheCreation": 2264,
+        "cacheRead": 139204,
+        "input": 32,
+        "output": 699
+      }
+    },
+    {
+      "at": "2026-09-11T03:43:51.488Z",
+      "eventType": "stop_hook_summary",
+      "index": 27,
+      "kind": "system_event"
+    },
+    {
+      "at": "2026-09-11T03:45:25.240Z",
+      "index": 28,
+      "kind": "prompt",
+      "textChars": 13244,
+      "textHash": "edb5d7ff8c39c08c"
+    },
+    {
+      "at": "2026-09-11T03:45:31.247Z",
+      "index": 29,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "end_turn",
+      "textChars": 339,
+      "textHash": "1ef594cd0f487bc4",
+      "usage": {
+        "cacheCreation": 6433,
+        "cacheRead": 141468,
+        "input": 4,
+        "output": 355
+      }
+    },
+    {
+      "at": "2026-09-11T03:45:33.752Z",
+      "eventType": "stop_hook_summary",
+      "index": 30,
+      "kind": "system_event"
+    },
+    {
+      "at": "2026-09-11T03:46:57.711Z",
+      "index": 31,
+      "kind": "prompt",
+      "textChars": 20808,
+      "textHash": "fa99f3f99177a3d0"
+    },
+    {
+      "at": "2026-09-11T03:47:25.174Z",
+      "index": 32,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "end_turn",
+      "textChars": 773,
+      "textHash": "3a7a6dfc1c6cbf65",
+      "usage": {
+        "cacheCreation": 9648,
+        "cacheRead": 147901,
+        "input": 4,
+        "output": 1948
+      }
+    },
+    {
+      "at": "2026-09-11T03:47:29.658Z",
+      "eventType": "stop_hook_summary",
+      "index": 33,
+      "kind": "system_event"
+    },
+    {
+      "at": "2026-09-11T03:51:18.650Z",
+      "index": 34,
+      "kind": "prompt",
+      "textChars": 15918,
+      "textHash": "3d70c4808eda318e"
+    },
+    {
+      "at": "2026-09-11T03:52:49.062Z",
+      "index": 35,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "textChars": 862,
+      "textHash": "52f3502c58ce1504",
+      "usage": {
+        "cacheCreation": 9150,
+        "cacheRead": 157549,
+        "input": 4,
+        "output": 9621
+      }
+    },
+    {
+      "at": "2026-09-11T03:53:39.905Z",
+      "index": 36,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T03:53:44.789Z",
+      "index": 37,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 10034,
+        "cacheRead": 166699,
+        "input": 32,
+        "output": 1174
+      }
+    },
+    {
+      "at": "2026-09-11T04:10:05.406Z",
+      "index": 38,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T04:10:49.663Z",
+      "index": 39,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 9030,
+        "cacheRead": 176733,
+        "input": 2,
+        "output": 8182
+      }
+    },
+    {
+      "at": "2026-09-11T04:11:53.306Z",
+      "index": 40,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T04:11:55.037Z",
+      "index": 41,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 8274,
+        "cacheRead": 185763,
+        "input": 32,
+        "output": 105
+      }
+    },
+    {
+      "at": "2026-09-11T04:11:55.507Z",
+      "index": 42,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T04:11:57.053Z",
+      "index": 43,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 1035,
+        "cacheRead": 194037,
+        "input": 32,
+        "output": 45
+      }
+    },
+    {
+      "at": "2026-09-11T04:13:13.073Z",
+      "index": 44,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T04:13:26.133Z",
+      "index": 45,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 5634,
+        "cacheRead": 195072,
+        "input": 32,
+        "output": 903
+      }
+    },
+    {
+      "at": "2026-09-11T04:13:26.250Z",
+      "error": {
+        "class": "permission"
+      },
+      "index": 46,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T04:13:28.612Z",
+      "index": 47,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 985,
+        "cacheRead": 200706,
+        "input": 32,
+        "output": 258
+      }
+    },
+    {
+      "at": "2026-09-11T04:13:41.808Z",
+      "index": 48,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T04:14:03.815Z",
+      "index": 49,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 507,
+        "cacheRead": 201691,
+        "input": 32,
+        "output": 1557
+      }
+    },
+    {
+      "at": "2026-09-11T04:17:03.737Z",
+      "index": 50,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T04:17:28.808Z",
+      "index": 51,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 4294,
+        "cacheRead": 202198,
+        "input": 32,
+        "output": 2253
+      }
+    },
+    {
+      "at": "2026-09-11T04:17:31.118Z",
+      "index": 52,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T04:17:33.945Z",
+      "index": 53,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T04:18:10.437Z",
+      "index": 54,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 12138,
+        "cacheRead": 206492,
+        "input": 32,
+        "output": 5110
+      }
+    },
+    {
+      "at": "2026-09-11T04:18:27.563Z",
+      "error": {
+        "class": "other"
+      },
+      "index": 55,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T04:18:30.898Z",
+      "index": 56,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T04:19:03.445Z",
+      "index": 57,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 8687,
+        "cacheRead": 218630,
+        "input": 32,
+        "output": 9918
+      }
+    },
+    {
+      "at": "2026-09-11T04:19:43.368Z",
+      "index": 58,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T04:19:44.463Z",
+      "index": 59,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T04:19:47.774Z",
+      "error": {
+        "class": "other"
+      },
+      "index": 60,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T04:19:57.466Z",
+      "index": 61,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T04:20:14.603Z",
+      "index": 62,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T04:20:25.198Z",
+      "index": 63,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 10885,
+        "cacheRead": 227317,
+        "input": 32,
+        "output": 1477
+      }
+    },
+    {
+      "at": "2026-09-11T04:20:27.513Z",
+      "index": 64,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T04:20:30.271Z",
+      "index": 65,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:01:58.844Z",
+      "index": 66,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:02:13.116Z",
+      "index": 67,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 2020,
+        "cacheRead": 238202,
+        "input": 32,
+        "output": 936
+      }
+    },
+    {
+      "at": "2026-09-11T05:03:34.532Z",
+      "index": 68,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:03:34.708Z",
+      "index": 69,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:04:22.415Z",
+      "index": 70,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 1162,
+        "cacheRead": 240222,
+        "input": 32,
+        "output": 19959
+      }
+    },
+    {
+      "at": "2026-09-11T05:05:49.917Z",
+      "index": 71,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:05:49.981Z",
+      "index": 72,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:05:50.023Z",
+      "index": 73,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:05:50.061Z",
+      "index": 74,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:05:50.100Z",
+      "index": 75,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:05:50.136Z",
+      "index": 76,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:05:50.171Z",
+      "index": 77,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:05:50.208Z",
+      "index": 78,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:05:54.076Z",
+      "index": 79,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:06:04.194Z",
+      "index": 80,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:06:09.322Z",
+      "index": 81,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:06:26.438Z",
+      "index": 82,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:06:49.315Z",
+      "index": 83,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:06:51.161Z",
+      "index": 84,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:07:07.426Z",
+      "index": 85,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 21423,
+        "cacheRead": 241384,
+        "input": 32,
+        "output": 11323
+      }
+    },
+    {
+      "at": "2026-09-11T05:08:02.795Z",
+      "index": 86,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:08:02.833Z",
+      "index": 87,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:08:02.870Z",
+      "index": 88,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:08:02.907Z",
+      "index": 89,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:08:05.549Z",
+      "index": 90,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:08:30.042Z",
+      "index": 91,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:08:42.319Z",
+      "index": 92,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:08:46.881Z",
+      "index": 93,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 12300,
+        "cacheRead": 262807,
+        "input": 32,
+        "output": 465
+      }
+    },
+    {
+      "at": "2026-09-11T05:08:48.566Z",
+      "index": 94,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:16:34.905Z",
+      "index": 95,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:16:56.903Z",
+      "index": 96,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 1430,
+        "cacheRead": 275107,
+        "input": 32,
+        "output": 2809
+      }
+    },
+    {
+      "at": "2026-09-11T05:16:59.226Z",
+      "index": 97,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:17:02.495Z",
+      "index": 98,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:17:05.672Z",
+      "index": 99,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:17:08.780Z",
+      "index": 100,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:17:13.391Z",
+      "index": 101,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 3475,
+        "cacheRead": 276537,
+        "input": 32,
+        "output": 523
+      }
+    },
+    {
+      "at": "2026-09-11T05:17:15.402Z",
+      "index": 102,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:17:16.072Z",
+      "index": 103,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:17:31.120Z",
+      "index": 104,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 1298,
+        "cacheRead": 280012,
+        "input": 32,
+        "output": 1677
+      }
+    },
+    {
+      "at": "2026-09-11T05:17:33.880Z",
+      "index": 105,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:17:37.425Z",
+      "index": 106,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:17:40.668Z",
+      "index": 107,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 1869,
+        "cacheRead": 281310,
+        "input": 32,
+        "output": 435
+      }
+    },
+    {
+      "at": "2026-09-11T05:17:43.135Z",
+      "index": 108,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:17:57.481Z",
+      "index": 109,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 852,
+        "cacheRead": 283179,
+        "input": 32,
+        "output": 1403
+      }
+    },
+    {
+      "at": "2026-09-11T05:17:59.287Z",
+      "index": 110,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:18:03.432Z",
+      "index": 111,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:18:13.342Z",
+      "index": 112,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 2085,
+        "cacheRead": 284031,
+        "input": 32,
+        "output": 1121
+      }
+    },
+    {
+      "at": "2026-09-11T05:18:15.331Z",
+      "index": 113,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:18:16.825Z",
+      "index": 114,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:18:20.480Z",
+      "index": 115,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 1543,
+        "cacheRead": 286116,
+        "input": 32,
+        "output": 738
+      }
+    },
+    {
+      "at": "2026-09-11T05:18:25.239Z",
+      "index": 116,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:18:27.496Z",
+      "index": 117,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 843,
+        "cacheRead": 287659,
+        "input": 32,
+        "output": 133
+      }
+    },
+    {
+      "at": "2026-09-11T05:18:29.714Z",
+      "index": 118,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:20:11.890Z",
+      "index": 119,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 314,
+        "cacheRead": 288502,
+        "input": 32,
+        "output": 13710
+      }
+    },
+    {
+      "at": "2026-09-11T05:20:13.554Z",
+      "index": 120,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:20:19.287Z",
+      "index": 121,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:20:27.297Z",
+      "index": 122,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:21:08.229Z",
+      "index": 123,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:21:53.188Z",
+      "index": 124,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 14084,
+        "cacheRead": 288816,
+        "input": 32,
+        "output": 15323
+      }
+    },
+    {
+      "at": "2026-09-11T05:21:55.144Z",
+      "index": 125,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:22:05.372Z",
+      "index": 126,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:22:33.013Z",
+      "index": 127,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:22:48.203Z",
+      "index": 128,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:22:59.955Z",
+      "index": 129,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:23:03.027Z",
+      "index": 130,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:23:05.508Z",
+      "index": 131,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:23:12.194Z",
+      "index": 132,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:23:13.941Z",
+      "index": 133,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:23:16.261Z",
+      "index": 134,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:23:19.448Z",
+      "index": 135,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:23:46.088Z",
+      "index": 136,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:23:53.234Z",
+      "index": 137,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 16526,
+        "cacheRead": 302900,
+        "input": 32,
+        "output": 793
+      }
+    },
+    {
+      "at": "2026-09-11T05:23:55.456Z",
+      "index": 138,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:26:25.860Z",
+      "index": 139,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:27:29.706Z",
+      "index": 140,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 1837,
+        "cacheRead": 319426,
+        "input": 32,
+        "output": 17544
+      }
+    },
+    {
+      "at": "2026-09-11T05:27:34.836Z",
+      "index": 141,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:27:36.969Z",
+      "index": 142,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:27:39.820Z",
+      "index": 143,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:28:28.853Z",
+      "index": 144,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:28:52.947Z",
+      "index": 145,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:29:29.136Z",
+      "index": 146,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:29:31.764Z",
+      "index": 147,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:29:34.853Z",
+      "index": 148,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 18233,
+        "cacheRead": 321263,
+        "input": 32,
+        "output": 412
+      }
+    },
+    {
+      "at": "2026-09-11T05:29:37.747Z",
+      "index": 149,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:29:38.636Z",
+      "index": 150,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:30:36.738Z",
+      "index": 151,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 1224,
+        "cacheRead": 339496,
+        "input": 32,
+        "output": 20372
+      }
+    },
+    {
+      "at": "2026-09-11T05:30:41.484Z",
+      "index": 152,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:30:49.847Z",
+      "index": 153,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:30:53.266Z",
+      "index": 154,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:30:56.537Z",
+      "index": 155,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:31:20.353Z",
+      "index": 156,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:31:57.839Z",
+      "index": 157,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:32:21.530Z",
+      "index": 158,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:32:55.964Z",
+      "index": 159,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:33:00.464Z",
+      "index": 160,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 21207,
+        "cacheRead": 340720,
+        "input": 32,
+        "output": 423
+      }
+    },
+    {
+      "at": "2026-09-11T05:33:03.247Z",
+      "index": 161,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:33:04.035Z",
+      "index": 162,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:33:16.022Z",
+      "index": 163,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 765,
+        "cacheRead": 361927,
+        "input": 32,
+        "output": 3862
+      }
+    },
+    {
+      "at": "2026-09-11T05:33:21.468Z",
+      "index": 164,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:33:37.117Z",
+      "index": 165,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:33:46.647Z",
+      "index": 166,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:33:56.599Z",
+      "index": 167,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 4173,
+        "cacheRead": 362692,
+        "input": 32,
+        "output": 3808
+      }
+    },
+    {
+      "at": "2026-09-11T05:33:59.203Z",
+      "index": 168,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:34:13.724Z",
+      "index": 169,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:34:25.712Z",
+      "index": 170,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:34:32.788Z",
+      "index": 171,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 4075,
+        "cacheRead": 366865,
+        "input": 32,
+        "output": 735
+      }
+    },
+    {
+      "at": "2026-09-11T05:34:35.300Z",
+      "index": 172,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:34:38.084Z",
+      "index": 173,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:34:41.140Z",
+      "index": 174,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 1019,
+        "cacheRead": 370940,
+        "input": 32,
+        "output": 374
+      }
+    },
+    {
+      "at": "2026-09-11T05:35:11.976Z",
+      "index": 175,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:35:18.295Z",
+      "index": 176,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 839,
+        "cacheRead": 371959,
+        "input": 32,
+        "output": 559
+      }
+    },
+    {
+      "at": "2026-09-11T05:40:29.024Z",
+      "index": 177,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:40:34.438Z",
+      "index": 178,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 1133,
+        "cacheRead": 372798,
+        "input": 32,
+        "output": 633
+      }
+    },
+    {
+      "at": "2026-09-11T05:40:39.805Z",
+      "index": 179,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:40:50.799Z",
+      "index": 180,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 1215,
+        "cacheRead": 373931,
+        "input": 32,
+        "output": 1208
+      }
+    },
+    {
+      "at": "2026-09-11T05:41:31.250Z",
+      "index": 181,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:41:31.464Z",
+      "index": 182,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:41:51.966Z",
+      "index": 183,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 2958,
+        "cacheRead": 375146,
+        "input": 32,
+        "output": 1657
+      }
+    },
+    {
+      "at": "2026-09-11T05:47:18.520Z",
+      "index": 184,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:47:50.302Z",
+      "index": 185,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 3194,
+        "cacheRead": 378104,
+        "input": 32,
+        "output": 4203
+      }
+    },
+    {
+      "at": "2026-09-11T05:47:53.274Z",
+      "index": 186,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:47:55.703Z",
+      "index": 187,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:48:01.070Z",
+      "index": 188,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:48:05.641Z",
+      "index": 189,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:48:08.594Z",
+      "error": {
+        "class": "other"
+      },
+      "index": 190,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:48:28.723Z",
+      "index": 191,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 4840,
+        "cacheRead": 381298,
+        "input": 32,
+        "output": 1598
+      }
+    },
+    {
+      "at": "2026-09-11T05:48:29.877Z",
+      "index": 192,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:48:32.109Z",
+      "index": 193,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:48:36.094Z",
+      "index": 194,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 2119,
+        "cacheRead": 386138,
+        "input": 32,
+        "output": 376
+      }
+    },
+    {
+      "at": "2026-09-11T05:48:38.632Z",
+      "index": 195,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:48:41.710Z",
+      "index": 196,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 491,
+        "cacheRead": 388257,
+        "input": 32,
+        "output": 429
+      }
+    },
+    {
+      "at": "2026-09-11T05:49:31.182Z",
+      "index": 197,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:49:41.188Z",
+      "index": 198,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 729,
+        "cacheRead": 388748,
+        "input": 32,
+        "output": 3235
+      }
+    },
+    {
+      "at": "2026-09-11T05:53:34.468Z",
+      "index": 199,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:53:34.669Z",
+      "index": 200,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:53:34.721Z",
+      "index": 201,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:53:43.729Z",
+      "index": 202,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 3664,
+        "cacheRead": 389477,
+        "input": 32,
+        "output": 3995
+      }
+    },
+    {
+      "at": "2026-09-11T05:53:49.083Z",
+      "index": 203,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:53:57.237Z",
+      "index": 204,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:54:01.795Z",
+      "index": 205,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:54:09.538Z",
+      "index": 206,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:54:14.350Z",
+      "index": 207,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:54:19.289Z",
+      "index": 208,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:54:28.884Z",
+      "index": 209,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 4518,
+        "cacheRead": 393141,
+        "input": 32,
+        "output": 1533
+      }
+    },
+    {
+      "at": "2026-09-11T05:54:33.262Z",
+      "index": 210,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:54:35.529Z",
+      "index": 211,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:54:37.627Z",
+      "index": 212,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:54:51.744Z",
+      "index": 213,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 2098,
+        "cacheRead": 397659,
+        "input": 32,
+        "output": 3676
+      }
+    },
+    {
+      "at": "2026-09-11T05:55:15.329Z",
+      "index": 214,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:55:18.012Z",
+      "index": 215,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:55:23.105Z",
+      "index": 216,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 4066,
+        "cacheRead": 399757,
+        "input": 32,
+        "output": 863
+      }
+    },
+    {
+      "at": "2026-09-11T05:55:25.476Z",
+      "index": 217,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:55:30.272Z",
+      "index": 218,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:55:39.148Z",
+      "index": 219,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 1106,
+        "cacheRead": 403823,
+        "input": 32,
+        "output": 600
+      }
+    },
+    {
+      "at": "2026-09-11T05:55:40.390Z",
+      "index": 220,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:55:43.738Z",
+      "index": 221,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "end_turn",
+      "textChars": 300,
+      "textHash": "679bd9a8118e0f78",
+      "usage": {
+        "cacheCreation": 671,
+        "cacheRead": 404929,
+        "input": 32,
+        "output": 137
+      }
+    },
+    {
+      "at": "2026-09-11T05:55:44.723Z",
+      "eventType": "stop_hook_summary",
+      "index": 222,
+      "kind": "system_event"
+    },
+    {
+      "at": "2026-09-11T05:55:53.043Z",
+      "index": 223,
+      "kind": "prompt",
+      "textChars": 466,
+      "textHash": "6b5d25bb46d50b3e"
+    },
+    {
+      "at": "2026-09-11T05:55:59.777Z",
+      "index": 224,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 533,
+        "cacheRead": 405600,
+        "input": 4,
+        "output": 582
+      }
+    },
+    {
+      "at": "2026-09-11T05:56:03.115Z",
+      "error": {
+        "class": "not-found"
+      },
+      "index": 225,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:56:12.712Z",
+      "index": 226,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 1311,
+        "cacheRead": 406133,
+        "input": 32,
+        "output": 1489
+      }
+    },
+    {
+      "at": "2026-09-11T05:59:10.216Z",
+      "index": 227,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:59:10.271Z",
+      "index": 228,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:59:11.631Z",
+      "index": 229,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T05:59:16.073Z",
+      "index": 230,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 2071,
+        "cacheRead": 407444,
+        "input": 32,
+        "output": 645
+      }
+    },
+    {
+      "at": "2026-09-11T06:05:36.493Z",
+      "index": 231,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:05:36.660Z",
+      "index": 232,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:05:45.148Z",
+      "index": 233,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 960,
+        "cacheRead": 409515,
+        "input": 32,
+        "output": 909
+      }
+    },
+    {
+      "at": "2026-09-11T06:05:51.673Z",
+      "index": 234,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:06:06.992Z",
+      "index": 235,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 2243,
+        "cacheRead": 410475,
+        "input": 32,
+        "output": 1035
+      }
+    },
+    {
+      "at": "2026-09-11T06:06:09.469Z",
+      "index": 236,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:06:11.466Z",
+      "index": 237,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "end_turn",
+      "textChars": 178,
+      "textHash": "15157b6cd3953592",
+      "usage": {
+        "cacheCreation": 1236,
+        "cacheRead": 412718,
+        "input": 32,
+        "output": 62
+      }
+    },
+    {
+      "at": "2026-09-11T06:06:12.462Z",
+      "eventType": "stop_hook_summary",
+      "index": 238,
+      "kind": "system_event"
+    },
+    {
+      "at": "2026-09-11T06:07:01.727Z",
+      "index": 239,
+      "kind": "prompt",
+      "textChars": 460,
+      "textHash": "90751c3b49a752b1"
+    },
+    {
+      "at": "2026-09-11T06:07:10.498Z",
+      "index": 240,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 703,
+        "cacheRead": 413954,
+        "input": 4,
+        "output": 828
+      }
+    },
+    {
+      "at": "2026-09-11T06:07:14.156Z",
+      "index": 241,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:07:29.311Z",
+      "index": 242,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 14364,
+        "cacheRead": 414657,
+        "input": 32,
+        "output": 1604
+      }
+    },
+    {
+      "at": "2026-09-11T06:07:35.777Z",
+      "index": 243,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:15:14.788Z",
+      "index": 244,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:15:21.522Z",
+      "index": 245,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 2292,
+        "cacheRead": 429021,
+        "input": 32,
+        "output": 1499
+      }
+    },
+    {
+      "at": "2026-09-11T06:15:24.220Z",
+      "index": 246,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:15:34.578Z",
+      "index": 247,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:15:37.431Z",
+      "index": 248,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "end_turn",
+      "textChars": 208,
+      "textHash": "531b60cfd6325318",
+      "usage": {
+        "cacheCreation": 1705,
+        "cacheRead": 431313,
+        "input": 32,
+        "output": 99
+      }
+    },
+    {
+      "at": "2026-09-11T06:15:38.623Z",
+      "eventType": "stop_hook_summary",
+      "index": 249,
+      "kind": "system_event"
+    },
+    {
+      "at": "2026-09-11T06:18:39.796Z",
+      "index": 250,
+      "kind": "prompt",
+      "textChars": 492,
+      "textHash": "1239d6e868d1fce9"
+    },
+    {
+      "at": "2026-09-11T06:18:44.476Z",
+      "index": 251,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 506,
+        "cacheRead": 433018,
+        "input": 4,
+        "output": 375
+      }
+    },
+    {
+      "at": "2026-09-11T06:18:46.292Z",
+      "index": 252,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:19:07.533Z",
+      "index": 253,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 1346,
+        "cacheRead": 433524,
+        "input": 32,
+        "output": 3447
+      }
+    },
+    {
+      "at": "2026-09-11T06:19:12.217Z",
+      "index": 254,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:19:17.736Z",
+      "index": 255,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:19:24.593Z",
+      "index": 256,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:19:26.280Z",
+      "index": 257,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:19:28.649Z",
+      "index": 258,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:20:44.517Z",
+      "index": 259,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 8108,
+        "cacheRead": 434870,
+        "input": 32,
+        "output": 7333
+      }
+    },
+    {
+      "at": "2026-09-11T06:20:50.372Z",
+      "index": 260,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:20:57.544Z",
+      "index": 261,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:21:09.829Z",
+      "index": 262,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:21:40.424Z",
+      "index": 263,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 9059,
+        "cacheRead": 442978,
+        "input": 32,
+        "output": 4830
+      }
+    },
+    {
+      "at": "2026-09-11T06:22:08.365Z",
+      "index": 264,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:22:13.109Z",
+      "index": 265,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:22:14.863Z",
+      "index": 266,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:22:21.764Z",
+      "index": 267,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 5211,
+        "cacheRead": 452037,
+        "input": 32,
+        "output": 645
+      }
+    },
+    {
+      "at": "2026-09-11T06:22:22.067Z",
+      "index": 268,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:22:23.954Z",
+      "index": 269,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:22:52.662Z",
+      "index": 270,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 1051,
+        "cacheRead": 457248,
+        "input": 32,
+        "output": 2112
+      }
+    },
+    {
+      "at": "2026-09-11T06:22:56.702Z",
+      "index": 271,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:23:27.989Z",
+      "index": 272,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 2989,
+        "cacheRead": 458299,
+        "input": 32,
+        "output": 3684
+      }
+    },
+    {
+      "at": "2026-09-11T06:23:32.722Z",
+      "index": 273,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:23:42.556Z",
+      "index": 274,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:23:59.560Z",
+      "index": 275,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 3917,
+        "cacheRead": 461288,
+        "input": 32,
+        "output": 4168
+      }
+    },
+    {
+      "at": "2026-09-11T06:24:01.737Z",
+      "index": 276,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:24:06.691Z",
+      "index": 277,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:24:12.841Z",
+      "index": 278,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:24:14.816Z",
+      "index": 279,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:24:18.549Z",
+      "index": 280,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:24:20.815Z",
+      "index": 281,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:24:23.982Z",
+      "index": 282,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:24:26.256Z",
+      "index": 283,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:24:31.243Z",
+      "index": 284,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 5294,
+        "cacheRead": 465205,
+        "input": 32,
+        "output": 491
+      }
+    },
+    {
+      "at": "2026-09-11T06:24:37.624Z",
+      "index": 285,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:24:38.339Z",
+      "index": 286,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:24:44.849Z",
+      "index": 287,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 816,
+        "cacheRead": 470499,
+        "input": 32,
+        "output": 523
+      }
+    },
+    {
+      "at": "2026-09-11T06:24:46.838Z",
+      "index": 288,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:24:49.674Z",
+      "index": 289,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "end_turn",
+      "textChars": 324,
+      "textHash": "8102ce86cc22c9f9",
+      "usage": {
+        "cacheCreation": 662,
+        "cacheRead": 471315,
+        "input": 32,
+        "output": 100
+      }
+    },
+    {
+      "at": "2026-09-11T06:24:50.602Z",
+      "eventType": "stop_hook_summary",
+      "index": 290,
+      "kind": "system_event"
+    },
+    {
+      "at": "2026-09-11T06:29:12.083Z",
+      "index": 291,
+      "kind": "prompt",
+      "textChars": 12031,
+      "textHash": "d784f2253878f571"
+    },
+    {
+      "at": "2026-09-11T06:29:29.270Z",
+      "index": 292,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "textChars": 540,
+      "textHash": "bb3328595edc4e70",
+      "usage": {
+        "cacheCreation": 5287,
+        "cacheRead": 471977,
+        "input": 4,
+        "output": 7281
+      }
+    },
+    {
+      "at": "2026-09-11T06:30:25.583Z",
+      "index": 293,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:30:29.963Z",
+      "index": 294,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 8116,
+        "cacheRead": 477264,
+        "input": 32,
+        "output": 1809
+      }
+    },
+    {
+      "at": "2026-09-11T06:30:38.670Z",
+      "index": 295,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:30:48.382Z",
+      "index": 296,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:31:00.001Z",
+      "index": 297,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 2025,
+        "cacheRead": 485380,
+        "input": 32,
+        "output": 2913
+      }
+    },
+    {
+      "at": "2026-09-11T06:31:03.447Z",
+      "index": 298,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:31:29.591Z",
+      "index": 299,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:31:45.895Z",
+      "index": 300,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 3494,
+        "cacheRead": 487405,
+        "input": 32,
+        "output": 1817
+      }
+    },
+    {
+      "at": "2026-09-11T06:31:50.103Z",
+      "index": 301,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:31:55.435Z",
+      "index": 302,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:32:09.098Z",
+      "index": 303,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 6701,
+        "cacheRead": 490899,
+        "input": 32,
+        "output": 8191
+      }
+    },
+    {
+      "at": "2026-09-11T06:32:40.591Z",
+      "index": 304,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:33:03.585Z",
+      "index": 305,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:33:22.408Z",
+      "index": 306,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:33:24.832Z",
+      "index": 307,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 8515,
+        "cacheRead": 497600,
+        "input": 32,
+        "output": 359
+      }
+    },
+    {
+      "at": "2026-09-11T06:33:26.768Z",
+      "index": 308,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:33:27.833Z",
+      "index": 309,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:33:30.958Z",
+      "index": 310,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 499,
+        "cacheRead": 506115,
+        "input": 32,
+        "output": 362
+      }
+    },
+    {
+      "at": "2026-09-11T06:33:33.541Z",
+      "index": 311,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:33:39.491Z",
+      "index": 312,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "end_turn",
+      "textChars": 246,
+      "textHash": "b47a43bb36048a93",
+      "usage": {
+        "cacheCreation": 487,
+        "cacheRead": 506614,
+        "input": 32,
+        "output": 296
+      }
+    },
+    {
+      "at": "2026-09-11T06:33:39.603Z",
+      "eventType": "stop_hook_summary",
+      "index": 313,
+      "kind": "system_event"
+    },
+    {
+      "at": "2026-09-11T06:38:39.761Z",
+      "index": 314,
+      "kind": "prompt",
+      "textChars": 6888,
+      "textHash": "c9ea59281ae9cd83"
+    },
+    {
+      "at": "2026-09-11T06:38:44.010Z",
+      "index": 315,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "textChars": 275,
+      "textHash": "f3ccb278514bbae1",
+      "usage": {
+        "cacheCreation": 3520,
+        "cacheRead": 507101,
+        "input": 4,
+        "output": 1058
+      }
+    },
+    {
+      "at": "2026-09-11T06:38:49.865Z",
+      "index": 316,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:38:52.008Z",
+      "index": 317,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:39:00.576Z",
+      "index": 318,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 1279,
+        "cacheRead": 510621,
+        "input": 32,
+        "output": 2007
+      }
+    },
+    {
+      "at": "2026-09-11T06:39:04.336Z",
+      "index": 319,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:39:12.469Z",
+      "index": 320,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:39:18.042Z",
+      "index": 321,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T06:39:35.636Z",
+      "index": 322,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "end_turn",
+      "textChars": 3033,
+      "textHash": "f3c38e1712f5b413",
+      "usage": {
+        "cacheCreation": 2497,
+        "cacheRead": 511900,
+        "input": 32,
+        "output": 1553
+      }
+    },
+    {
+      "at": "2026-09-11T06:39:43.858Z",
+      "eventType": "stop_hook_summary",
+      "index": 323,
+      "kind": "system_event"
+    },
+    {
+      "at": "2026-09-11T14:02:24.196Z",
+      "eventType": "compact_boundary",
+      "index": 324,
+      "kind": "system_event"
+    },
+    {
+      "at": "2026-09-11T13:59:59.492Z",
+      "index": 325,
+      "kind": "prompt",
+      "textChars": 134,
+      "textHash": "5f55c3ca07bb8976"
+    },
+    {
+      "at": "2026-09-11T14:02:24.558Z",
+      "index": 326,
+      "kind": "prompt",
+      "textChars": 55,
+      "textHash": "708e53209625c2a6"
+    },
+    {
+      "at": "2026-09-11T14:06:44.225Z",
+      "index": 327,
+      "kind": "prompt",
+      "textChars": 350,
+      "textHash": "efbc91e29032ad48"
+    },
+    {
+      "at": "2026-09-11T14:07:28.729Z",
+      "index": 328,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "textChars": 250,
+      "textHash": "0c79365b5c2698fa",
+      "usage": {
+        "cacheCreation": 60460,
+        "cacheRead": 41056,
+        "input": 2,
+        "output": 3548
+      }
+    },
+    {
+      "at": "2026-09-11T14:07:31.709Z",
+      "index": 329,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T14:07:32.219Z",
+      "index": 330,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T14:07:32.916Z",
+      "index": 331,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T14:08:50.830Z",
+      "index": 332,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 5379,
+        "cacheRead": 101516,
+        "input": 32,
+        "output": 6353
+      }
+    },
+    {
+      "at": "2026-09-11T14:08:53.042Z",
+      "index": 333,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T14:09:32.469Z",
+      "index": 334,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 7106,
+        "cacheRead": 106895,
+        "input": 32,
+        "output": 12046
+      }
+    },
+    {
+      "at": "2026-09-11T14:10:19.275Z",
+      "index": 335,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T14:10:28.401Z",
+      "index": 336,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T14:10:30.809Z",
+      "index": 337,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T14:10:34.511Z",
+      "index": 338,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T14:10:36.828Z",
+      "index": 339,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T14:10:41.962Z",
+      "index": 340,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T14:10:51.077Z",
+      "index": 341,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T14:10:53.874Z",
+      "index": 342,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T14:11:00.116Z",
+      "index": 343,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T14:11:05.787Z",
+      "index": 344,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 13065,
+        "cacheRead": 114001,
+        "input": 32,
+        "output": 509
+      }
+    },
+    {
+      "at": "2026-09-11T14:11:08.799Z",
+      "index": 345,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T14:11:12.536Z",
+      "index": 346,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "tool_use",
+      "usage": {
+        "cacheCreation": 693,
+        "cacheRead": 127066,
+        "input": 32,
+        "output": 387
+      }
+    },
+    {
+      "at": "2026-09-11T14:11:14.965Z",
+      "index": 347,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-11T14:11:28.416Z",
+      "index": 348,
+      "kind": "llm",
+      "model": "claude-fable-5-1",
+      "stopReason": "end_turn",
+      "textChars": 2671,
+      "textHash": "2ceeba3371917c37",
+      "usage": {
+        "cacheCreation": 509,
+        "cacheRead": 127759,
+        "input": 32,
+        "output": 1053
+      }
+    }
+  ],
+  "usage": {
+    "cacheCreation": 560553,
+    "cacheRead": 31380080,
+    "input": 2822,
+    "output": 288188
+  }
+}

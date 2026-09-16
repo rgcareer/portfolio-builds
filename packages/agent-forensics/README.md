@@ -5,16 +5,9 @@ a frozen set of mechanical detectors over it, and points at the exact turn where
 
 ## Result
 
-Not yet measured.
+Across 189 of my own Claude Code sessions (2026-07-20 to 2026-09-16; 36480 tool calls), 96 (50.8%, 95% Wilson CI 43.7-57.8%) contain at least one pre-registered breakdown signature; the most frequent is TIMEOUT (62 sessions); 896 tool calls (2.5%, CI 2.3-2.6%) returned an error.
 
-```
-$ node --import tsx src/cli.ts headline
-headline: no data/run-meta.json — run analyze first
-```
-
-No sessions have been ingested yet, so there is no `data/run-meta.json` to render a headline
-from. This section will hold the `renderHeadline` output verbatim once a run exists, along
-with the protocol hash, commit, and cost it was rendered from.
+That sentence is the literal output of `node --import tsx src/cli.ts headline`, rendered from the committed `data/run-meta.json`.
 
 ## What it does / measures
 

@@ -1,0 +1,122 @@
+{
+  "costUsd": null,
+  "endedAt": "2026-09-13T00:14:31.352Z",
+  "meta": {
+    "apiErrorRecords": 0,
+    "assistantRecords": 4,
+    "bannedModelObserved": 0,
+    "compactSummaries": 0,
+    "cwdToken": "p_b9531ea8",
+    "dedupedResults": 0,
+    "denials": 0,
+    "entrypoint": "claude-desktop",
+    "gitBranchHash": "fc78f30e415baf25",
+    "hookErrorRecords": 0,
+    "interrupts": 0,
+    "llmTurns": 1,
+    "malformedLines": 0,
+    "metaPrompts": 0,
+    "orphanResults": 0,
+    "permissionMode": "plan",
+    "promptTurns": 1,
+    "refusalRecords": 0,
+    "sidechainRecords": 0,
+    "systemEvents": 0,
+    "thinkingBlocks": 1,
+    "thinkingChars": 0,
+    "toolCalls": 2,
+    "unknownTypes": 30
+  },
+  "models": [
+    "claude-opus-4-8"
+  ],
+  "outcome": {
+    "status": "completed"
+  },
+  "recordVersion": "1",
+  "redaction": "hashed",
+  "runId": "s_6af3d00a",
+  "source": {
+    "adapter": "claude-code",
+    "kind": "claude-code-transcript",
+    "schemaVersions": [
+      "2.1.260"
+    ]
+  },
+  "startedAt": "1970-01-01T00:00:00Z",
+  "toolCalls": [
+    {
+      "callTurn": 1,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_15511820",
+      "inputBytes": 72,
+      "inputHash": "7d9632a5ff6cb1b1",
+      "interrupted": false,
+      "isError": false,
+      "name": "Read",
+      "orphan": false,
+      "resultBytes": 6749,
+      "resultHash": "cd4305bf19ff0e15",
+      "resultTurn": 2,
+      "timedOut": false
+    },
+    {
+      "callTurn": 1,
+      "denied": false,
+      "durationMs": null,
+      "errorClass": null,
+      "id": "c_3bc4a9e2",
+      "inputBytes": 84,
+      "inputHash": "f8cec6941f6afa4c",
+      "interrupted": false,
+      "isError": false,
+      "name": "Read",
+      "orphan": false,
+      "resultBytes": 10234,
+      "resultHash": "680a0332d7f133ab",
+      "resultTurn": 3,
+      "timedOut": false
+    }
+  ],
+  "turns": [
+    {
+      "at": "2026-09-13T00:14:23.378Z",
+      "index": 0,
+      "kind": "prompt",
+      "textChars": 139,
+      "textHash": "85fae4358041b58f"
+    },
+    {
+      "at": "2026-09-13T00:14:29.219Z",
+      "index": 1,
+      "kind": "llm",
+      "model": "claude-opus-4-8",
+      "textChars": 99,
+      "textHash": "705652ff717d43d9",
+      "usage": {
+        "cacheCreation": 30461,
+        "cacheRead": 44985,
+        "input": 2,
+        "output": 7
+      }
+    },
+    {
+      "at": "2026-09-13T00:14:30.648Z",
+      "index": 2,
+      "kind": "tool_result"
+    },
+    {
+      "at": "2026-09-13T00:14:31.333Z",
+      "index": 3,
+      "kind": "tool_result"
+    }
+  ],
+  "usage": {
+    "cacheCreation": 30461,
+    "cacheRead": 44985,
+    "input": 2,
+    "output": 7
+  }
+}
