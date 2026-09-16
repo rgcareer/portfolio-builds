@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "frozen_on": "2026-09-15",
+  "window": { "from": "2026-08-16", "to": "2026-09-15" },
+  "dedupe_key": "message.id",
+  "inclusion": "model in prices.json",
+  "exclusion_reasons": ["unpriced-model", "alias-model", "synthetic", "banned-model", "no-usage"],
+  "redaction": {
+    "session": "HMAC",
+    "project": "HMAC",
+    "dropped": ["cwd", "gitBranch", "uuid", "requestId"]
+  },
+  "counterfactual": {
+    "nocache": "every input token class (fresh, cache-read, cache-creation) re-priced at the fresh input rate; output unchanged",
+    "batch_only_if_latency_tolerant": true,
+    "routing_excluded_quality_unverified": true,
+    "ledger_ttl_assumed": "5m"
+  },
+  "bootstrap": { "B": 2000, "seed": 20260915, "unit": "session" },
+  "headline_template": "Across {n} real Claude API calls in {sessions} of my own Claude Code sessions ({from} to {to}), prompt caching cut the bill from ${nocache} (every input token at the fresh rate) to ${billed} actually billed at list rates: {savedPct}% saved (session-level bootstrap 95% CI {lo}-{hi}%); {kRead} of {n} calls ({pRead}%, 95% Wilson CI {loR}-{hiR}%) read from cache.",
+  "not_measured": [
+    "Admin API billed totals",
+    "latency",
+    "quality of downgrades",
+    "calls outside Claude Code"
+  ]
+}
