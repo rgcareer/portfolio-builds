@@ -60,14 +60,15 @@ const REVIEW_SCHEMA = {
 
 async function numberAudit(app) {
   const r = await agent(
-    `Audit every portfolio-facing number in the package "${app}". Read tasks/conventions.md, then ` +
+    `Invoke the Skill tool for portfolio-builds-conventions first. You are READ-ONLY: never edit or write a file. ` +
+      `Audit every portfolio-facing number in the package "${app}". Read tasks/conventions.md, then ` +
       `packages/${DIRS[app]}/{README.md,case-study.md,protocol/*.json,data/run-meta.json} and any ` +
       `findings/comparison/curve files. Recompute each number from the committed data with your OWN node -e ` +
       `one-liners (never the app's code), recompute each Wilson interval, confirm the headline equals the ` +
       `renderHeadline output, confirm the protocol commit predates the data timestamp, confirm the ledger ` +
       `total is within the named step's cap, and confirm every [SIMULATED] value is labelled, capped 0.80, and ` +
       `absent from the headline.`,
-    { agentType: 'number-auditor', model: 'claude-opus-4-8', effort: 'high', label: `audit:${app}`, phase: 'Audit', schema: AUDIT_SCHEMA },
+    { agentType: 'researcher', model: 'claude-opus-4-8', effort: 'high', label: `audit:${app}`, phase: 'Audit', schema: AUDIT_SCHEMA },
   );
   return { app, audit: r };
 }
@@ -78,13 +79,14 @@ async function docs({ app, audit }) {
     return { app, audit, docs: null, deferred: true };
   }
   const d = await agent(
-    `Write the portfolio docs for "${app}". Read tasks/conventions.md and packages/${DIRS[app]}/ (spec, ` +
+    `Invoke the Skill tool for humanizer and portfolio-builds-conventions first. ` +
+      `Write the portfolio docs for "${app}". Read tasks/conventions.md and packages/${DIRS[app]}/ (spec, ` +
       `source, protocol, data/run-meta.json). Produce README.md, CHANGELOG.md, SECURITY.md, and case-study.md ` +
       `per the docs-writer contract. EVERY number must come from running the package's own commands ` +
       `(\`node --import tsx packages/${DIRS[app]}/src/cli.ts headline\` and \`... report --format md\`) and be ` +
       `pasted verbatim; if a command errors or no run exists, write "Not yet measured." and leave metrics empty. ` +
       `Run the humanizer over all prose. hand_typed_numbers must be 0.`,
-    { agentType: 'docs-writer', model: 'claude-sonnet-5', effort: 'medium', label: `docs:${app}`, phase: 'Docs', schema: DOCS_SCHEMA },
+    { agentType: 'general-purpose', model: 'claude-sonnet-5', effort: 'medium', label: `docs:${app}`, phase: 'Docs', schema: DOCS_SCHEMA },
   );
   return { app, audit, docs: d };
 }

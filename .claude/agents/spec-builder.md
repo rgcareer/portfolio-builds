@@ -20,7 +20,8 @@ Method (test-driven, per the TDD skill):
 3. For each module: write the failing test first (`packages/<app>/test/<name>.test.ts`), then the
    implementation under `packages/<app>/src/`, then run `npx vitest run packages/<app>` and iterate
    until green. Every test uses a mock LLM responder — never a real API call.
-4. Run `npx tsc --noEmit` and fix type errors.
+4. Run `npx tsc --noEmit -p packages/<app>/tsconfig.json` (package-scoped, so concurrent builds
+   don't trip over each other) and fix type errors. The main session runs the whole-repo typecheck.
 5. Wire the CLI (`src/cli.ts`) with citty, `--json` output, and exit codes 0/1/2 as the spec says.
 
 Hard rules:

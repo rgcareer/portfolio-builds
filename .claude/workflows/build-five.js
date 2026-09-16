@@ -63,11 +63,16 @@ const REVIEW_SCHEMA = {
   required: ['app', 'verdict'],
 };
 
+const SKILL_PREAMBLE =
+  'Start by invoking the Skill tool for each of: portfolio-builds-conventions (the house rules), ' +
+  'test-driven-development (the red-green loop), and claude-api (the Anthropic API reference). Follow them. ';
+
 function buildPrompt(a, attempt, priorNotes) {
   const base =
+    SKILL_PREAMBLE +
     `Build the package "${a.app}" in the portfolio-builds monorepo. First read tasks/conventions.md, then ` +
     `tasks/specs/${a.app}.md, then build EXACTLY what the spec names, tests first. Write only inside ` +
-    `packages/${a.dir}/. Run \`npx vitest run packages/${a.dir}\` and \`npx tsc --noEmit\` yourself and ` +
+    `packages/${a.dir}/. Run \`npx vitest run packages/${a.dir}\` and \`npx tsc --noEmit -p packages/${a.dir}/tsconfig.json\` yourself and ` +
     `iterate until both are green. Never run the network, npm install, the gate, git, or a real LLM call. ` +
     `Return the structured build result with the real tails of your last vitest and tsc runs.`;
   const two =
@@ -85,7 +90,7 @@ function clean(b) {
 }
 
 async function build(a) {
-  let b = await agent(buildPrompt(a, 0, ''), { agentType: 'spec-builder', model: a.model, effort: 'xhigh', label: `build:${a.app}`, phase: 'Build', schema: BUILD_SCHEMA });
+  let b = await agent(buildPrompt(a, 0, ''), { agentType: 'general-purpose', model: a.model, effort: 'xhigh', label: `build:${a.app}`, phase: 'Build', schema: BUILD_SCHEMA });
   return { a, b };
 }
 
@@ -96,7 +101,7 @@ async function verifyFix({ a, b }) {
     attempt++;
     const detail = cur ? `status=${cur.status}; tests=${JSON.stringify(cur.tests)}; typecheck_ok=${cur.typecheck_ok}; notes=${cur.notes ?? ''}; blocked_on=${cur.blocked_on ?? ''}` : 'no result returned';
     log(`verify-fix ${a.app}: attempt ${attempt} (prior not clean: ${detail.slice(0, 160)})`);
-    cur = await agent(buildPrompt(a, attempt, detail), { agentType: 'spec-builder', model: a.model, effort: 'xhigh', label: `fix:${a.app}#${attempt}`, phase: 'Build', schema: BUILD_SCHEMA });
+    cur = await agent(buildPrompt(a, attempt, detail), { agentType: 'general-purpose', model: a.model, effort: 'xhigh', label: `fix:${a.app}#${attempt}`, phase: 'Build', schema: BUILD_SCHEMA });
   }
   if (!clean(cur)) log(`verify-fix ${a.app}: STILL NOT CLEAN after ${attempt} fixes — flagged for the main session`);
   return { a, b: cur };
@@ -124,9 +129,9 @@ async function fix({ a, b, r }) {
   log(`fix ${a.app}: applying one pass for material gap: ${detail.slice(0, 200)}`);
   const b2 = await agent(
     `The reviewer found a material gap in "${a.app}": ${detail}. Read tasks/specs/${a.app}.md, fix ONLY these ` +
-      `gaps inside packages/${a.dir}/, re-run \`npx vitest run packages/${a.dir}\` and \`npx tsc --noEmit\`, ` +
+      `gaps inside packages/${a.dir}/, re-run \`npx vitest run packages/${a.dir}\` and \`npx tsc --noEmit -p packages/${a.dir}/tsconfig.json\`, ` +
       `and return the structured build result.`,
-    { agentType: 'spec-builder', model: a.model, effort: 'xhigh', label: `review-fix:${a.app}`, phase: 'Verify', schema: BUILD_SCHEMA },
+    { agentType: 'general-purpose', model: a.model, effort: 'xhigh', label: `review-fix:${a.app}`, phase: 'Verify', schema: BUILD_SCHEMA },
   );
   return { a, b: b2, r, fixed: true };
 }
