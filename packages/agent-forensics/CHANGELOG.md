@@ -23,7 +23,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   violations, plus a `protocol-frozen` check that fails if the protocol changed after ingest.
 - `reproduce` command that re-derives findings and run-meta from committed records offline.
 
-### Not yet done
+### Measured
 
-- No transcripts ingested yet. `data/records` is empty and `data/run-meta.json` does not exist,
-  so the headline and every reported number are "Not yet measured."
+- Real transcripts are ingested and committed as content-free `data/records`; `data/run-meta.json`
+  renders the headline (see the README `## Result`), and `repro` re-derives findings and run-meta
+  offline bit-for-bit. The measurement made no LLM calls ($0).

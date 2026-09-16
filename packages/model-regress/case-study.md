@@ -57,18 +57,12 @@ Pulled from `protocol/experiment.json`, frozen 2026-09-15:
 - Not measured by this protocol: judge quality, tool use, long context, prompt variants, other
   tasks.
 
-## Where the run stands
+## The run
 
-No paired run has been executed. `node --import tsx src/cli.ts headline` against this
-checkout returns:
-
-```
-no run-meta.json with headline values yet; the headline is not renderable until a paired run produces it
-```
-
-There is no `report` command in this CLI; the machine-readable surfaces are `headline` and
-`compare --json`. The commands that do run cleanly against the frozen protocol, pasted
-verbatim from this checkout:
+The paired run (2026-09-16) is committed under `data/`, and `node --import tsx src/cli.ts headline`
+renders the Result sentence above from `data/run-meta.json` through `renderHeadline` — it is never
+hand-typed. There is no `report` command; the machine-readable surfaces are `headline` and
+`compare --json`. The supporting commands, pasted verbatim from this checkout:
 
 ```
 $ node --import tsx src/cli.ts golden hash
@@ -88,9 +82,6 @@ MDE at n=40, discordant rate 0.2, power 0.8: 19.81 pp
   to detect 5 pp → need n=628
   to detect 10 pp → need n=157
   to detect 15 pp → need n=70
-
-$ node --import tsx src/cli.ts repro
-repro: no committed run yet — nothing to re-derive (a no-op before any run)
 ```
 
 The power calculation is worth sitting with: at n=40 with a 20% discordant rate, the minimal
@@ -100,16 +91,16 @@ statistics, visible before any model is called, and it's why the protocol report
 detectable regression at n=40" rather than a false "no regression" whenever the observed
 effect sits below what this sample size could reliably detect.
 
-## What's verified without a run
+## Reproducibility
 
 - 74 tests pass across 11 files (`npx vitest run packages/model-regress`).
 - The package type-checks clean (`npx tsc --noEmit`).
-- `repro` is wired to re-derive `comparison.json` and `run-meta.json` bit-for-bit from committed
-  run files once a run exists; today it correctly reports a no-op because no run is committed.
+- `repro` re-derives `comparison.json` and `run-meta.json` bit-for-bit from the committed run
+  files (ignoring only `generatedAt`).
 
-## Not yet measured
+## Not measured by this protocol
 
-Every number that would depend on an actual paired model comparison (pass rates, the paired
-difference, the noise floor, per-item cost from a live run) is not yet measured. This case
-study describes the tool and the pre-registered protocol it will apply to any future run, not
-a result.
+Judge quality, tool use, long context, prompt variants, and other tasks are out of scope for
+this run (see `protocol/experiment.json`'s `not_measured`). The result above is one paired
+comparison on one frozen extraction task at n=40 — the power calculation above shows what that
+sample size can and cannot detect.

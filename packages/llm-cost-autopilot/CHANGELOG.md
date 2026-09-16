@@ -17,5 +17,5 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - CLI (`extract`, `capture`, `analyze`, `headline`, `repro`, `estimate`, `budget`, `report`) with `--json` on every command and the 0/1/2 exit-code contract.
 - 83 tests covering pricing, extraction, traffic import, counterfactual accounting, bootstrap determinism, budget thresholds, estimate, protocol hashing, report rendering, and CLI dispatch.
 
-### Not yet done
-- No real extraction has run against `~/.claude/projects` yet, so `data/run-meta.json` does not exist and the headline is not yet measured.
+### Measured
+- A real extraction over `~/.claude/projects` is committed: `data/run-meta.json` renders the headline (see the README `## Result`), and `repro` re-derives `findings.json` and `run-meta.json` bit-for-bit offline. The measurement itself made no LLM calls ($0).

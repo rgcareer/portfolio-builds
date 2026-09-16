@@ -6,7 +6,9 @@ export default defineConfig({
   entry: { index: 'src/index.ts', cli: 'src/cli.ts' },
   format: ['esm'],
   target: 'node22',
-  dts: true,
+  // Only the library entry needs a .d.ts; the CLI is a bin, not an import. Generating dts for
+  // cli.ts fed its `#!/usr/bin/env node` shebang into the dts bundler ("Syntax not yet supported").
+  dts: { entry: { index: 'src/index.ts' } },
   clean: true,
   sourcemap: false,
   noExternal: ['@portfolio-builds/shared'],

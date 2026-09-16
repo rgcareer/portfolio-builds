@@ -51,14 +51,6 @@ Renders the frozen `headline_template` from `protocol/experiment.json` against t
 throws on any unresolved placeholder, `TBD`/`TODO`, `X%`, or non-finite value, so this
 sentence is never hand-typed.
 
-**Not yet measured.** No paired run has been committed for this package, so `data/run-meta.json`
-does not exist and the headline is not renderable. Running the command above against this
-checkout returns the following.
-
-```
-no run-meta.json with headline values yet; the headline is not renderable until a paired run produces it
-```
-
 ## CLI
 
 ```
@@ -95,9 +87,6 @@ MDE at n=40, discordant rate 0.2, power 0.8: 19.81 pp
   to detect 5 pp → need n=628
   to detect 10 pp → need n=157
   to detect 15 pp → need n=70
-
-$ node --import tsx src/cli.ts repro
-repro: no committed run yet — nothing to re-derive (a no-op before any run)
 ```
 
 ## Protocol
@@ -125,10 +114,10 @@ and can be overridden per invocation with `ci --max-drop-pp` / `ci --max-cost-in
 
 ## Status
 
-Not yet measured: no golden-set run has been executed against this protocol yet. 74 tests
-pass (`npx vitest run packages/model-regress`) and the package type-checks clean
-(`npx tsc --noEmit`), but those numbers describe the test suite, not a measurement of model
-behavior; they are not headline claims.
+Measured: a paired run (2026-09-16) is committed and rendered as the **Result** above; `repro`
+re-derives `comparison.json` and `run-meta.json` bit-for-bit from the committed run files. 74
+tests pass (`npx vitest run packages/model-regress`) and the package type-checks clean
+(`npx tsc --noEmit`); those describe the test suite, not the measurement.
 
 ## Install
 

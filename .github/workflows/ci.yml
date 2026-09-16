@@ -1,0 +1,56 @@
+name: CI
+
+# Inert until a git remote exists — this file is committed so CI runs on the first push.
+# It runs the same checks used locally: the whole-repo typecheck and the gate.
+# No secrets are needed: the gate runs entirely on committed data with mock LLM responders
+# (PB_SPEND_CAP_USD defaults to 0, so no real API call is made).
+#
+# Note: the semantic-cache suite loads a local MiniLM embedding model; on a clean runner the
+# first run downloads it from the Hugging Face hub (network, ~90 MB) into a cache.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install workspaces
+        run: npm ci
+      - name: Install skillcheck (self-contained nested project)
+        run: npm --prefix skillcheck ci
+      - name: Typecheck (whole repo)
+        run: npx tsc --noEmit
+      - name: Gate
+        run: npm run gate
+
+# Publishing is intentionally NOT automated. To release the @rgcareer/* packages, run
+# `npm publish -w @rgcareer/<pkg> --access public` locally after `npm run gate` is green, or
+# uncomment the job below and add an NPM_TOKEN repository secret.
+#
+# publish:
+#   if: startsWith(github.ref, 'refs/tags/v')
+#   needs: gate
+#   runs-on: ubuntu-latest
+#   steps:
+#     - uses: actions/checkout@v4
+#     - uses: actions/setup-node@v4
+#       with:
+#         node-version: '22'
+#         registry-url: 'https://registry.npmjs.org'
+#     - run: npm ci
+#     - run: npm run gate
+#     - run: npm publish -w @rgcareer/docmend --access public
+#       env:
+#         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

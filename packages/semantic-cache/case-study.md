@@ -63,8 +63,8 @@ The headline sentence in the README is never typed by hand. It comes from
 `node --import tsx src/cli.ts headline`, which reads a committed `run-meta.json` and renders it
 through `renderHeadline`, a function that throws on any unresolved placeholder, `TBD`, or
 non-finite value. An audit checks the README and the generator's output stay byte-identical.
-That's the same discipline whether the run says "not yet measured" (as it does for two of the
-other packages in this build) or says something real, like it does here:
+That's the same discipline whether a run is not yet measured or says something real, like it
+does here:
 
 ```
 $ node --import tsx src/cli.ts headline

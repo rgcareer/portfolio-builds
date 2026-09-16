@@ -27,6 +27,6 @@ All notable changes to this project are documented in this file.
 - 74 tests across 11 files; `npx tsc --noEmit` clean.
 
 ### Status
-No golden-set run has been executed against the frozen protocol yet. `data/run-meta.json` does
-not exist, so the headline is not renderable (`headline` reports this explicitly rather than
-printing a placeholder). This release ships the measurement tool, not a measurement.
+The paired run against the frozen protocol is committed: `data/run-meta.json` renders the
+headline result (see the README `## Result`), and `repro` re-derives `comparison.json` and
+`run-meta.json` bit-for-bit. This release ships the measurement tool and that measurement.
