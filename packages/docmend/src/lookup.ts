@@ -71,11 +71,23 @@ function classifyError(err: unknown): string {
 // (scrubSecrets(scrubSecrets(x)) === scrubSecrets(x)).
 
 const SENSITIVE_QUERY_PARAMS = [
+  // AWS SigV4 presigned
   'X-Amz-Credential',
   'X-Amz-Signature',
   'X-Amz-Security-Token',
   'AWSAccessKeyId',
   'Signature',
+  // Azure SAS (GitHub release assets 302 to an Azure blob host with sig=…) + a signed JWT bearer
+  'sig',
+  'jwt',
+  // Google Cloud Storage signed URLs
+  'X-Goog-Signature',
+  'X-Goog-Credential',
+  'GoogleAccessId',
+  // CloudFront signed URLs
+  'Key-Pair-Id',
+  'Policy',
+  // generic bearer/api tokens
   'access_token',
   'api_key',
   'apikey',
@@ -104,9 +116,12 @@ export function scrubSecrets(s: string): string {
   let out = s;
   // Credential/token SHAPES anywhere in the string. sk-ant- runs before the generic sk- so an
   // Anthropic key is labelled precisely rather than as a generic openai-shaped key.
-  out = out.replace(/AKIA[0-9A-Z]{16}/g, '<redacted:aws-key>');
+  out = out.replace(/(?:AKIA|ASIA)[0-9A-Z]{16}/g, '<redacted:aws-key>');
   out = out.replace(/sk-ant-[A-Za-z0-9_-]{20,}/g, '<redacted:anthropic-key>');
   out = out.replace(/\b(?:ghp|gho|ghu|ghs|ghr)_[A-Za-z0-9]{20,}\b/g, '<redacted:github-token>');
+  out = out.replace(/\bglpat-[A-Za-z0-9_-]{20,}\b/g, '<redacted:gitlab-token>');
+  out = out.replace(/\bAIza[0-9A-Za-z_-]{35}\b/g, '<redacted:google-api-key>');
+  out = out.replace(/\bxox[baprs]-[A-Za-z0-9-]{10,}\b/g, '<redacted:slack-token>');
   out = out.replace(/\bsk-[A-Za-z0-9]{32,}\b/g, '<redacted:openai-key>');
   // VALUES of sensitive query params, whatever their shape (a presigned Signature is not a
   // fixed shape, so it can only be caught by name).

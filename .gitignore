@@ -37,3 +37,9 @@ packages/*/.model-cache/
 # archived-skill symlinks (re-created per machine from ~/.claude/skills-archive).
 /.claude/skills/*
 !/.claude/skills/portfolio-builds-conventions
+
+# Internal working files — kept locally, excluded from the public repo (pre-push audit 2026-09-16).
+# NOTE: git history still contains these until the filter-repo purge; see the pre-push audit recipe.
+/PROGRESS.md
+/tasks/
+/evidence/

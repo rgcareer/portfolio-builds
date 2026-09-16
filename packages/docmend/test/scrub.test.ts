@@ -49,6 +49,26 @@ describe('scrubSecrets', () => {
     expect(scrubSecrets('https://h/x?token=t0p&x=2')).toBe('https://h/x?token=<redacted:token>&x=2');
   });
 
+  it('masks non-AWS signed-URL params and extra key shapes (Azure/GCS/CloudFront, ASIA/AIza/Slack/GitLab)', () => {
+    // Azure SAS (a GitHub release asset 302s to an Azure blob host with sig=…) + a signed JWT bearer.
+    expect(scrubSecrets('https://h/o.mp4?skoid=x&sig=abc%2Fdef%2Bghi123&se=2026')).toBe(
+      'https://h/o.mp4?skoid=x&sig=<redacted:sig>&se=2026',
+    );
+    expect(scrubSecrets('https://h/a?jwt=eyJhbGciOi.payload.signature&k=1')).toBe('https://h/a?jwt=<redacted:jwt>&k=1');
+    // Google Cloud Storage signed URLs.
+    expect(scrubSecrets('https://h/o?X-Goog-Credential=svc%40p.iam&X-Goog-Signature=deadbeef')).toBe(
+      'https://h/o?X-Goog-Credential=<redacted:X-Goog-Credential>&X-Goog-Signature=<redacted:X-Goog-Signature>',
+    );
+    expect(scrubSecrets('https://h/o?GoogleAccessId=svc@p&x=1')).toBe('https://h/o?GoogleAccessId=<redacted:GoogleAccessId>&x=1');
+    // CloudFront signed URLs.
+    expect(scrubSecrets('https://h/o?Policy=eyJ&Signature=zzz&Key-Pair-Id=APKA123')).toContain('Key-Pair-Id=<redacted:Key-Pair-Id>');
+    // Extra bare key shapes.
+    expect(scrubSecrets(`ASIA${'A'.repeat(16)}`)).toBe('<redacted:aws-key>');
+    expect(scrubSecrets(`AIza${'a'.repeat(35)}`)).toBe('<redacted:google-api-key>');
+    expect(scrubSecrets(`xoxb-${'1'.repeat(12)}`)).toBe('<redacted:slack-token>');
+    expect(scrubSecrets(`glpat-${'a'.repeat(20)}`)).toBe('<redacted:gitlab-token>');
+  });
+
   it('leaves an ordinary URL (and ordinary text) untouched', () => {
     const ordinary = 'https://docs.example.com/guide/v2/setup?ref=main&page=3#install';
     expect(scrubSecrets(ordinary)).toBe(ordinary);

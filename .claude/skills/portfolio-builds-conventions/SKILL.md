@@ -5,8 +5,8 @@ description: House rules for the portfolio-builds five-app build (real numbers o
 
 # portfolio-builds conventions
 
-The authoritative copy lives at `tasks/conventions.md` in the repo root. Read it in full before
-building, testing, auditing, or documenting anything here. Summary of the non-negotiables:
+These are the non-negotiable house rules for this repo — read them before building, testing,
+auditing, or documenting anything here:
 
 - **Real numbers only.** Headlines render solely through `renderHeadline` from a committed
   `run-meta.json`; every proportion carries a 95% Wilson interval; LLM judgments are `[SIMULATED]`,
