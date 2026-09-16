@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "frozen_on": "2026-09-15",
+  "embedding": {
+    "model": "Xenova/all-MiniLM-L6-v2",
+    "dtype": "fp32",
+    "pooling": "mean",
+    "normalize": true,
+    "dims": 384
+  },
+  "namespace": {
+    "fields": ["tenant", "model", "system_sha256", "mock"]
+  },
+  "refusal": {
+    "time_regex": "\\b(today|now|latest|current|yesterday|tomorrow|this (week|month|year))\\b|\\d{4}-\\d{2}-\\d{2}",
+    "time_regex_flags": "i",
+    "pii_kinds": ["email", "phone", "uuid", "linkedin", "anthropic-key", "github-token", "aws-key", "private-key"]
+  },
+  "guards": {
+    "numeric_token_regex": "\\d+(?:[.,]\\d+)*",
+    "identifier_regex": "#?\\w*\\d\\w*",
+    "negation_words": ["not", "no", "never", "don't", "dont", "won't", "wont", "without"]
+  },
+  "sweep": {
+    "tau_grid": { "start": 0.70, "stop": 0.99, "step": 0.01 },
+    "shipped_tau": 0.90
+  },
+  "cache": {
+    "ttl_default_ms": 86400000,
+    "max_entries_default": 5000
+  },
+  "headline_template": "On {nItems} hand-written queries ({nBase} intents, each with {kPara} paraphrases and {kNeg} near-miss negatives), the local MiniLM cache at its shipped threshold {tau} served {kHit} of {nPara} paraphrases from cache ({hitPct}%, 95% Wilson CI {hitLo}-{hitHi}%) and wrongly served {kFp} of {nNeg} near-misses ({fpPct}%, CI {fpLo}-{fpHi}%); embeddings cost $0.",
+  "not_measured": [
+    "multi-turn conversations (each lookup is scored independently of prior turns)",
+    "cross-tenant leakage under adversarial attack (namespace isolation is structural, not adversarially tested)",
+    "embedding drift across model versions or dtypes other than fp32",
+    "production traffic distribution (the curve is measured on a hand-written paraphrase set, not live traffic)",
+    "latency of the embedding or lookup path"
+  ]
+}

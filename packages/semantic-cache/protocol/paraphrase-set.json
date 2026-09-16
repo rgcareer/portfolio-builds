@@ -1,0 +1,1504 @@
+{
+  "version": 1,
+  "seed": 20260915,
+  "slotName": "id",
+  "intents": [
+    {
+      "id": "order-confirmation",
+      "domain": "support",
+      "verb": "confirm",
+      "entity": "order",
+      "altEntity": "reservation",
+      "base": {
+        "template": "Please confirm order {id}.",
+        "slots": {
+          "id": [
+            "#4471",
+            "#8822",
+            "#1290",
+            "#5567",
+            "#7734",
+            "#3390"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you confirm order {id} for me?",
+        "I'd like to confirm order {id}.",
+        "Go ahead and confirm order {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please confirm order {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not confirm order {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please confirm reservation {id}."
+        }
+      ]
+    },
+    {
+      "id": "order-cancellation",
+      "domain": "support",
+      "verb": "cancel",
+      "entity": "order",
+      "altEntity": "subscription",
+      "base": {
+        "template": "Please cancel order {id}.",
+        "slots": {
+          "id": [
+            "#4471",
+            "#4417",
+            "#8822",
+            "#1290",
+            "#5567"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you cancel order {id} for me?",
+        "I'd like to cancel order {id}.",
+        "Go ahead and cancel order {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please cancel order {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not cancel order {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please cancel subscription {id}."
+        }
+      ]
+    },
+    {
+      "id": "order-status",
+      "domain": "support",
+      "verb": "check the status of",
+      "entity": "order",
+      "altEntity": "shipment",
+      "base": {
+        "template": "Please check the status of order {id}.",
+        "slots": {
+          "id": [
+            "#4471",
+            "#8822",
+            "#1290",
+            "#5567",
+            "#7734"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you check the status of order {id} for me?",
+        "I'd like to check the status of order {id}.",
+        "Go ahead and check the status of order {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please check the status of order {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not check the status of order {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please check the status of shipment {id}."
+        }
+      ]
+    },
+    {
+      "id": "refund-request",
+      "domain": "support",
+      "verb": "process a refund for",
+      "entity": "order",
+      "altEntity": "invoice",
+      "base": {
+        "template": "Please process a refund for order {id}.",
+        "slots": {
+          "id": [
+            "#4471",
+            "#8822",
+            "#1290",
+            "#5567",
+            "#7734"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you process a refund for order {id} for me?",
+        "I'd like to process a refund for order {id}.",
+        "Go ahead and process a refund for order {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please process a refund for order {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not process a refund for order {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please process a refund for invoice {id}."
+        }
+      ]
+    },
+    {
+      "id": "refund-status",
+      "domain": "support",
+      "verb": "check the status of the refund for",
+      "entity": "order",
+      "altEntity": "invoice",
+      "base": {
+        "template": "Please check the status of the refund for order {id}.",
+        "slots": {
+          "id": [
+            "#4471",
+            "#8822",
+            "#1290",
+            "#5567"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you check the status of the refund for order {id} for me?",
+        "I'd like to check the status of the refund for order {id}.",
+        "Go ahead and check the status of the refund for order {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please check the status of the refund for order {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not check the status of the refund for order {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please check the status of the refund for invoice {id}."
+        }
+      ]
+    },
+    {
+      "id": "password-reset",
+      "domain": "support",
+      "verb": "reset the password for",
+      "entity": "account",
+      "altEntity": "mailbox",
+      "base": {
+        "template": "Please reset the password for account {id}.",
+        "slots": {
+          "id": [
+            "jdoe123",
+            "asmith22",
+            "mkhan07",
+            "rpatel19",
+            "tlee45"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you reset the password for account {id} for me?",
+        "I'd like to reset the password for account {id}.",
+        "Go ahead and reset the password for account {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please reset the password for account {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not reset the password for account {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please reset the password for mailbox {id}."
+        }
+      ]
+    },
+    {
+      "id": "account-unlock",
+      "domain": "support",
+      "verb": "unlock",
+      "entity": "account",
+      "altEntity": "mailbox",
+      "base": {
+        "template": "Please unlock account {id}.",
+        "slots": {
+          "id": [
+            "jdoe123",
+            "asmith22",
+            "mkhan07",
+            "rpatel19",
+            "tlee45"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you unlock account {id} for me?",
+        "I'd like to unlock account {id}.",
+        "Go ahead and unlock account {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please unlock account {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not unlock account {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please unlock mailbox {id}."
+        }
+      ]
+    },
+    {
+      "id": "subscription-cancellation",
+      "domain": "support",
+      "verb": "cancel",
+      "entity": "subscription",
+      "altEntity": "trial",
+      "base": {
+        "template": "Please cancel subscription {id}.",
+        "slots": {
+          "id": [
+            "SUB-2201",
+            "SUB-3387",
+            "SUB-4410",
+            "SUB-5502",
+            "SUB-6693"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you cancel subscription {id} for me?",
+        "I'd like to cancel subscription {id}.",
+        "Go ahead and cancel subscription {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please cancel subscription {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not cancel subscription {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please cancel trial {id}."
+        }
+      ]
+    },
+    {
+      "id": "subscription-upgrade",
+      "domain": "support",
+      "verb": "upgrade",
+      "entity": "subscription",
+      "altEntity": "plan",
+      "base": {
+        "template": "Please upgrade subscription {id}.",
+        "slots": {
+          "id": [
+            "SUB-2201",
+            "SUB-3387",
+            "SUB-4410",
+            "SUB-5502"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you upgrade subscription {id} for me?",
+        "I'd like to upgrade subscription {id}.",
+        "Go ahead and upgrade subscription {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please upgrade subscription {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not upgrade subscription {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please upgrade plan {id}."
+        }
+      ]
+    },
+    {
+      "id": "subscription-downgrade",
+      "domain": "support",
+      "verb": "downgrade",
+      "entity": "subscription",
+      "altEntity": "plan",
+      "base": {
+        "template": "Please downgrade subscription {id}.",
+        "slots": {
+          "id": [
+            "SUB-2201",
+            "SUB-3387",
+            "SUB-4410",
+            "SUB-5502"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you downgrade subscription {id} for me?",
+        "I'd like to downgrade subscription {id}.",
+        "Go ahead and downgrade subscription {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please downgrade subscription {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not downgrade subscription {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please downgrade plan {id}."
+        }
+      ]
+    },
+    {
+      "id": "invoice-request",
+      "domain": "support",
+      "verb": "send",
+      "entity": "invoice",
+      "altEntity": "receipt",
+      "base": {
+        "template": "Please send invoice {id}.",
+        "slots": {
+          "id": [
+            "INV-9021",
+            "INV-9187",
+            "INV-9344",
+            "INV-9502",
+            "INV-9671"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you send invoice {id} for me?",
+        "I'd like to send invoice {id}.",
+        "Go ahead and send invoice {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please send invoice {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not send invoice {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please send receipt {id}."
+        }
+      ]
+    },
+    {
+      "id": "invoice-dispute",
+      "domain": "support",
+      "verb": "dispute",
+      "entity": "invoice",
+      "altEntity": "charge",
+      "base": {
+        "template": "Please dispute invoice {id}.",
+        "slots": {
+          "id": [
+            "INV-9021",
+            "INV-9187",
+            "INV-9344",
+            "INV-9502"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you dispute invoice {id} for me?",
+        "I'd like to dispute invoice {id}.",
+        "Go ahead and dispute invoice {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please dispute invoice {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not dispute invoice {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please dispute charge {id}."
+        }
+      ]
+    },
+    {
+      "id": "shipping-status",
+      "domain": "support",
+      "verb": "check the shipping status of",
+      "entity": "order",
+      "altEntity": "package",
+      "base": {
+        "template": "Please check the shipping status of order {id}.",
+        "slots": {
+          "id": [
+            "#4471",
+            "#8822",
+            "#1290",
+            "#5567",
+            "#7734"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you check the shipping status of order {id} for me?",
+        "I'd like to check the shipping status of order {id}.",
+        "Go ahead and check the shipping status of order {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please check the shipping status of order {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not check the shipping status of order {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please check the shipping status of package {id}."
+        }
+      ]
+    },
+    {
+      "id": "shipping-address-change",
+      "domain": "support",
+      "verb": "update the shipping address for",
+      "entity": "order",
+      "altEntity": "account",
+      "base": {
+        "template": "Please update the shipping address for order {id}.",
+        "slots": {
+          "id": [
+            "#4471",
+            "#8822",
+            "#1290",
+            "#5567"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you update the shipping address for order {id} for me?",
+        "I'd like to update the shipping address for order {id}.",
+        "Go ahead and update the shipping address for order {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please update the shipping address for order {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not update the shipping address for order {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please update the shipping address for account {id}."
+        }
+      ]
+    },
+    {
+      "id": "payment-method-update",
+      "domain": "support",
+      "verb": "update the payment method for",
+      "entity": "account",
+      "altEntity": "subscription",
+      "base": {
+        "template": "Please update the payment method for account {id}.",
+        "slots": {
+          "id": [
+            "jdoe123",
+            "asmith22",
+            "mkhan07",
+            "rpatel19"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you update the payment method for account {id} for me?",
+        "I'd like to update the payment method for account {id}.",
+        "Go ahead and update the payment method for account {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please update the payment method for account {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not update the payment method for account {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please update the payment method for subscription {id}."
+        }
+      ]
+    },
+    {
+      "id": "payment-failure",
+      "domain": "support",
+      "verb": "look into the payment failure for",
+      "entity": "order",
+      "altEntity": "invoice",
+      "base": {
+        "template": "Please look into the payment failure for order {id}.",
+        "slots": {
+          "id": [
+            "#4471",
+            "#8822",
+            "#1290",
+            "#5567"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you look into the payment failure for order {id} for me?",
+        "I'd like to look into the payment failure for order {id}.",
+        "Go ahead and look into the payment failure for order {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please look into the payment failure for order {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not look into the payment failure for order {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please look into the payment failure for invoice {id}."
+        }
+      ]
+    },
+    {
+      "id": "ticket-status",
+      "domain": "support",
+      "verb": "check the status of",
+      "entity": "ticket",
+      "altEntity": "case",
+      "base": {
+        "template": "Please check the status of ticket {id}.",
+        "slots": {
+          "id": [
+            "TCK-8821",
+            "TCK-8834",
+            "TCK-8902",
+            "TCK-9011",
+            "TCK-9187"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you check the status of ticket {id} for me?",
+        "I'd like to check the status of ticket {id}.",
+        "Go ahead and check the status of ticket {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please check the status of ticket {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not check the status of ticket {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please check the status of case {id}."
+        }
+      ]
+    },
+    {
+      "id": "ticket-escalation",
+      "domain": "support",
+      "verb": "escalate",
+      "entity": "ticket",
+      "altEntity": "case",
+      "base": {
+        "template": "Please escalate ticket {id}.",
+        "slots": {
+          "id": [
+            "TCK-8821",
+            "TCK-8834",
+            "TCK-8902",
+            "TCK-9011"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you escalate ticket {id} for me?",
+        "I'd like to escalate ticket {id}.",
+        "Go ahead and escalate ticket {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please escalate ticket {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not escalate ticket {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please escalate case {id}."
+        }
+      ]
+    },
+    {
+      "id": "config-change",
+      "domain": "dev",
+      "verb": "apply the config change for",
+      "entity": "service",
+      "altEntity": "environment",
+      "base": {
+        "template": "Please apply the config change for service {id}.",
+        "slots": {
+          "id": [
+            "svc-billing",
+            "svc-auth",
+            "svc-search",
+            "svc-payments",
+            "svc-notify"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you apply the config change for service {id} for me?",
+        "I'd like to apply the config change for service {id}.",
+        "Go ahead and apply the config change for service {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please apply the config change for service {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not apply the config change for service {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please apply the config change for environment {id}."
+        }
+      ]
+    },
+    {
+      "id": "deployment-status",
+      "domain": "dev",
+      "verb": "check the deployment status of",
+      "entity": "service",
+      "altEntity": "environment",
+      "base": {
+        "template": "Please check the deployment status of service {id}.",
+        "slots": {
+          "id": [
+            "svc-billing",
+            "svc-auth",
+            "svc-search",
+            "svc-payments"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you check the deployment status of service {id} for me?",
+        "I'd like to check the deployment status of service {id}.",
+        "Go ahead and check the deployment status of service {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please check the deployment status of service {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not check the deployment status of service {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please check the deployment status of environment {id}."
+        }
+      ]
+    },
+    {
+      "id": "deployment-rollback",
+      "domain": "dev",
+      "verb": "roll back the deployment for",
+      "entity": "service",
+      "altEntity": "environment",
+      "base": {
+        "template": "Please roll back the deployment for service {id}.",
+        "slots": {
+          "id": [
+            "svc-billing",
+            "svc-auth",
+            "svc-search",
+            "svc-payments"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you roll back the deployment for service {id} for me?",
+        "I'd like to roll back the deployment for service {id}.",
+        "Go ahead and roll back the deployment for service {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please roll back the deployment for service {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not roll back the deployment for service {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please roll back the deployment for environment {id}."
+        }
+      ]
+    },
+    {
+      "id": "server-restart",
+      "domain": "ops",
+      "verb": "restart",
+      "entity": "server",
+      "altEntity": "cluster",
+      "base": {
+        "template": "Please restart server {id}.",
+        "slots": {
+          "id": [
+            "web-03",
+            "web-07",
+            "db-02",
+            "cache-01",
+            "worker-05"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you restart server {id} for me?",
+        "I'd like to restart server {id}.",
+        "Go ahead and restart server {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please restart server {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not restart server {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please restart cluster {id}."
+        }
+      ]
+    },
+    {
+      "id": "service-outage-report",
+      "domain": "ops",
+      "verb": "file an outage report for",
+      "entity": "service",
+      "altEntity": "region",
+      "base": {
+        "template": "Please file an outage report for service {id}.",
+        "slots": {
+          "id": [
+            "svc-billing",
+            "svc-auth",
+            "svc-search",
+            "svc-payments"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you file an outage report for service {id} for me?",
+        "I'd like to file an outage report for service {id}.",
+        "Go ahead and file an outage report for service {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please file an outage report for service {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not file an outage report for service {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please file an outage report for region {id}."
+        }
+      ]
+    },
+    {
+      "id": "api-key-rotation",
+      "domain": "dev",
+      "verb": "rotate the API key for",
+      "entity": "project",
+      "altEntity": "team",
+      "base": {
+        "template": "Please rotate the API key for project {id}.",
+        "slots": {
+          "id": [
+            "proj-atlas",
+            "proj-orion",
+            "proj-nova",
+            "proj-vega",
+            "proj-lyra"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you rotate the API key for project {id} for me?",
+        "I'd like to rotate the API key for project {id}.",
+        "Go ahead and rotate the API key for project {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please rotate the API key for project {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not rotate the API key for project {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please rotate the API key for team {id}."
+        }
+      ]
+    },
+    {
+      "id": "api-key-revocation",
+      "domain": "dev",
+      "verb": "revoke the API key for",
+      "entity": "project",
+      "altEntity": "team",
+      "base": {
+        "template": "Please revoke the API key for project {id}.",
+        "slots": {
+          "id": [
+            "proj-atlas",
+            "proj-orion",
+            "proj-nova",
+            "proj-vega"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you revoke the API key for project {id} for me?",
+        "I'd like to revoke the API key for project {id}.",
+        "Go ahead and revoke the API key for project {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please revoke the API key for project {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not revoke the API key for project {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please revoke the API key for team {id}."
+        }
+      ]
+    },
+    {
+      "id": "database-backup-status",
+      "domain": "ops",
+      "verb": "check the backup status of",
+      "entity": "database",
+      "altEntity": "cluster",
+      "base": {
+        "template": "Please check the backup status of database {id}.",
+        "slots": {
+          "id": [
+            "db-02",
+            "db-05",
+            "db-09",
+            "db-11",
+            "db-14"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you check the backup status of database {id} for me?",
+        "I'd like to check the backup status of database {id}.",
+        "Go ahead and check the backup status of database {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please check the backup status of database {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not check the backup status of database {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please check the backup status of cluster {id}."
+        }
+      ]
+    },
+    {
+      "id": "database-restore-request",
+      "domain": "ops",
+      "verb": "restore",
+      "entity": "database",
+      "altEntity": "cluster",
+      "base": {
+        "template": "Please restore database {id}.",
+        "slots": {
+          "id": [
+            "db-02",
+            "db-05",
+            "db-09",
+            "db-11"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you restore database {id} for me?",
+        "I'd like to restore database {id}.",
+        "Go ahead and restore database {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please restore database {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not restore database {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please restore cluster {id}."
+        }
+      ]
+    },
+    {
+      "id": "alert-acknowledgment",
+      "domain": "ops",
+      "verb": "acknowledge",
+      "entity": "alert",
+      "altEntity": "incident",
+      "base": {
+        "template": "Please acknowledge alert {id}.",
+        "slots": {
+          "id": [
+            "ALRT-551",
+            "ALRT-602",
+            "ALRT-677",
+            "ALRT-714",
+            "ALRT-789"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you acknowledge alert {id} for me?",
+        "I'd like to acknowledge alert {id}.",
+        "Go ahead and acknowledge alert {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please acknowledge alert {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not acknowledge alert {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please acknowledge incident {id}."
+        }
+      ]
+    },
+    {
+      "id": "alert-mute",
+      "domain": "ops",
+      "verb": "mute",
+      "entity": "alert",
+      "altEntity": "incident",
+      "base": {
+        "template": "Please mute alert {id}.",
+        "slots": {
+          "id": [
+            "ALRT-551",
+            "ALRT-602",
+            "ALRT-677",
+            "ALRT-714"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you mute alert {id} for me?",
+        "I'd like to mute alert {id}.",
+        "Go ahead and mute alert {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please mute alert {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not mute alert {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please mute incident {id}."
+        }
+      ]
+    },
+    {
+      "id": "incident-status",
+      "domain": "ops",
+      "verb": "check the status of",
+      "entity": "incident",
+      "altEntity": "alert",
+      "base": {
+        "template": "Please check the status of incident {id}.",
+        "slots": {
+          "id": [
+            "INC-3301",
+            "INC-3355",
+            "INC-3402",
+            "INC-3488",
+            "INC-3521"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you check the status of incident {id} for me?",
+        "I'd like to check the status of incident {id}.",
+        "Go ahead and check the status of incident {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please check the status of incident {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not check the status of incident {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please check the status of alert {id}."
+        }
+      ]
+    },
+    {
+      "id": "incident-escalation",
+      "domain": "ops",
+      "verb": "escalate",
+      "entity": "incident",
+      "altEntity": "alert",
+      "base": {
+        "template": "Please escalate incident {id}.",
+        "slots": {
+          "id": [
+            "INC-3301",
+            "INC-3355",
+            "INC-3402",
+            "INC-3488"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you escalate incident {id} for me?",
+        "I'd like to escalate incident {id}.",
+        "Go ahead and escalate incident {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please escalate incident {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not escalate incident {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please escalate alert {id}."
+        }
+      ]
+    },
+    {
+      "id": "user-provisioning",
+      "domain": "dev",
+      "verb": "provision",
+      "entity": "user account",
+      "altEntity": "service account",
+      "base": {
+        "template": "Please provision user account {id}.",
+        "slots": {
+          "id": [
+            "jdoe123",
+            "asmith22",
+            "mkhan07",
+            "rpatel19"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you provision user account {id} for me?",
+        "I'd like to provision user account {id}.",
+        "Go ahead and provision user account {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please provision user account {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not provision user account {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please provision service account {id}."
+        }
+      ]
+    },
+    {
+      "id": "user-deprovisioning",
+      "domain": "dev",
+      "verb": "deprovision",
+      "entity": "user account",
+      "altEntity": "service account",
+      "base": {
+        "template": "Please deprovision user account {id}.",
+        "slots": {
+          "id": [
+            "jdoe123",
+            "asmith22",
+            "mkhan07",
+            "rpatel19"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you deprovision user account {id} for me?",
+        "I'd like to deprovision user account {id}.",
+        "Go ahead and deprovision user account {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please deprovision user account {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not deprovision user account {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please deprovision service account {id}."
+        }
+      ]
+    },
+    {
+      "id": "permission-grant",
+      "domain": "dev",
+      "verb": "grant admin permission to",
+      "entity": "user account",
+      "altEntity": "service account",
+      "base": {
+        "template": "Please grant admin permission to user account {id}.",
+        "slots": {
+          "id": [
+            "jdoe123",
+            "asmith22",
+            "mkhan07",
+            "rpatel19"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you grant admin permission to user account {id} for me?",
+        "I'd like to grant admin permission to user account {id}.",
+        "Go ahead and grant admin permission to user account {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please grant admin permission to user account {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not grant admin permission to user account {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please grant admin permission to service account {id}."
+        }
+      ]
+    },
+    {
+      "id": "permission-revoke",
+      "domain": "dev",
+      "verb": "revoke admin permission from",
+      "entity": "user account",
+      "altEntity": "service account",
+      "base": {
+        "template": "Please revoke admin permission from user account {id}.",
+        "slots": {
+          "id": [
+            "jdoe123",
+            "asmith22",
+            "mkhan07",
+            "rpatel19"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you revoke admin permission from user account {id} for me?",
+        "I'd like to revoke admin permission from user account {id}.",
+        "Go ahead and revoke admin permission from user account {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please revoke admin permission from user account {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not revoke admin permission from user account {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please revoke admin permission from service account {id}."
+        }
+      ]
+    },
+    {
+      "id": "log-retrieval",
+      "domain": "ops",
+      "verb": "pull the logs for",
+      "entity": "service",
+      "altEntity": "server",
+      "base": {
+        "template": "Please pull the logs for service {id}.",
+        "slots": {
+          "id": [
+            "svc-billing",
+            "svc-auth",
+            "svc-search",
+            "svc-payments"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you pull the logs for service {id} for me?",
+        "I'd like to pull the logs for service {id}.",
+        "Go ahead and pull the logs for service {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please pull the logs for service {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not pull the logs for service {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please pull the logs for server {id}."
+        }
+      ]
+    },
+    {
+      "id": "quota-increase-request",
+      "domain": "dev",
+      "verb": "increase the quota for",
+      "entity": "project",
+      "altEntity": "team",
+      "base": {
+        "template": "Please increase the quota for project {id}.",
+        "slots": {
+          "id": [
+            "proj-atlas",
+            "proj-orion",
+            "proj-nova",
+            "proj-vega"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you increase the quota for project {id} for me?",
+        "I'd like to increase the quota for project {id}.",
+        "Go ahead and increase the quota for project {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please increase the quota for project {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not increase the quota for project {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please increase the quota for team {id}."
+        }
+      ]
+    },
+    {
+      "id": "rate-limit-inquiry",
+      "domain": "dev",
+      "verb": "check the rate limit for",
+      "entity": "project",
+      "altEntity": "team",
+      "base": {
+        "template": "Please check the rate limit for project {id}.",
+        "slots": {
+          "id": [
+            "proj-atlas",
+            "proj-orion",
+            "proj-nova",
+            "proj-vega"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you check the rate limit for project {id} for me?",
+        "I'd like to check the rate limit for project {id}.",
+        "Go ahead and check the rate limit for project {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please check the rate limit for project {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not check the rate limit for project {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please check the rate limit for team {id}."
+        }
+      ]
+    },
+    {
+      "id": "certificate-renewal",
+      "domain": "ops",
+      "verb": "renew the certificate for",
+      "entity": "domain",
+      "altEntity": "service",
+      "base": {
+        "template": "Please renew the certificate for domain {id}.",
+        "slots": {
+          "id": [
+            "api.example.internal",
+            "app.example.internal",
+            "edge.example.internal",
+            "auth.example.internal"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you renew the certificate for domain {id} for me?",
+        "I'd like to renew the certificate for domain {id}.",
+        "Go ahead and renew the certificate for domain {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please renew the certificate for domain {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not renew the certificate for domain {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please renew the certificate for service {id}."
+        }
+      ]
+    },
+    {
+      "id": "dns-record-update",
+      "domain": "ops",
+      "verb": "update the DNS record for",
+      "entity": "domain",
+      "altEntity": "service",
+      "base": {
+        "template": "Please update the DNS record for domain {id}.",
+        "slots": {
+          "id": [
+            "api.example.internal",
+            "app.example.internal",
+            "edge.example.internal",
+            "auth.example.internal"
+          ]
+        }
+      },
+      "paraphrases": [
+        "Can you update the DNS record for domain {id} for me?",
+        "I'd like to update the DNS record for domain {id}.",
+        "Go ahead and update the DNS record for domain {id}."
+      ],
+      "negatives": [
+        {
+          "kind": "slot-swap",
+          "template": "Please update the DNS record for domain {id}."
+        },
+        {
+          "kind": "polarity",
+          "template": "Please do not update the DNS record for domain {id}."
+        },
+        {
+          "kind": "entity",
+          "template": "Please update the DNS record for service {id}."
+        }
+      ]
+    }
+  ]
+}
