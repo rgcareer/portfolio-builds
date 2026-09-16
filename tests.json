@@ -92,6 +92,71 @@
       "required": true,
       "added": "2026-09-11",
       "note": "README Result section equals the generator output from run-meta.json verbatim; no hand-typed numbers."
+    },
+    {
+      "id": "lca.unit",
+      "piece": "llm-cost-autopilot",
+      "kind": "unit",
+      "cmd": "npx vitest run packages/llm-cost-autopilot",
+      "parse": "vitest",
+      "required": true,
+      "added": "2026-09-15",
+      "expect": {
+        "minPassed": 79
+      },
+      "note": "prices/multipliers, transcript extractor dedupe+redaction, counterfactual, cluster bootstrap, budget, estimate, protocol hash, report/headline refusal, CLI"
+    },
+    {
+      "id": "sc.unit",
+      "piece": "semantic-cache",
+      "kind": "unit",
+      "cmd": "npx vitest run packages/semantic-cache",
+      "parse": "vitest",
+      "required": true,
+      "added": "2026-09-15",
+      "expect": {
+        "minPassed": 76
+      },
+      "note": "cacheable refusals, slot guards, cosine, store namespace/TTL/LRU, wrapper exact+semantic tiers, labelset determinism, threshold sweep; embedder tests skip without cached weights"
+    },
+    {
+      "id": "regress.unit",
+      "piece": "model-regress",
+      "kind": "unit",
+      "cmd": "npx vitest run packages/model-regress",
+      "parse": "vitest",
+      "required": true,
+      "added": "2026-09-15",
+      "expect": {
+        "minPassed": 70
+      },
+      "note": "golden generator determinism+arithmetic, assertions, runner mock, Newcombe/McNemar/bootstrap/MDE stats, compare/ci verdicts, protocol hash, CLI"
+    },
+    {
+      "id": "forensics.unit",
+      "piece": "agent-forensics",
+      "kind": "unit",
+      "cmd": "npx vitest run packages/agent-forensics",
+      "parse": "vitest",
+      "required": true,
+      "added": "2026-09-15",
+      "expect": {
+        "minPassed": 64
+      },
+      "note": "tolerant redacting transcript adapter, redaction canary, mechanical detectors, precision/recall on labeled fixtures, timeline/blame/repro, agent-trace interop, redaction audit"
+    },
+    {
+      "id": "docmend.unit",
+      "piece": "docmend",
+      "kind": "unit",
+      "cmd": "npx vitest run packages/docmend",
+      "parse": "vitest",
+      "required": true,
+      "added": "2026-09-15",
+      "expect": {
+        "minPassed": 149
+      },
+      "note": "OTR-copy drift-guard, redirect/pin/path policy, snippet parsers, diff round-trip property test, per-method reverify with a fake lookup, LLM step mock, aggregation+headline refusal, CLI"
     }
   ]
 }

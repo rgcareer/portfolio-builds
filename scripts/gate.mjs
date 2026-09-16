@@ -21,14 +21,21 @@ if (checks.length === 0) {
 }
 
 function parseVitest(out) {
-  // Vitest summary lines: "Tests  172 passed (172)" or "Tests  1 failed | 171 passed (172)"
-  const m = /Tests\s+(?:(\d+)\s+failed\s*\|\s*)?(\d+)\s+passed\s*\((\d+)\)/.exec(out);
-  if (!m) {
-    const f = /Tests\s+(\d+)\s+failed\s*\((\d+)\)/.exec(out);
-    if (f) return { failed: Number(f[1]), passed: 0, total: Number(f[2]) };
-    return null;
-  }
-  return { failed: Number(m[1] ?? 0), passed: Number(m[2]), total: Number(m[3]) };
+  // Vitest summary line, any combination of segments before the total in parens, e.g.
+  //   "Tests  172 passed (172)"
+  //   "Tests  1 failed | 171 passed (172)"
+  //   "Tests  80 passed | 4 skipped (84)"
+  //   "Tests  1 failed | 80 passed | 4 skipped (85)"
+  // Match the "Tests" summary line (not "Test Files") and read each count by keyword.
+  const m = /Tests\s+([^\n]*?)\((\d+)\)/.exec(out);
+  if (!m) return null;
+  const body = m[1];
+  const total = Number(m[2]);
+  const grab = (kw) => {
+    const g = new RegExp(`(\\d+)\\s+${kw}`).exec(body);
+    return g ? Number(g[1]) : 0;
+  };
+  return { failed: grab('failed'), passed: grab('passed'), skipped: grab('skipped'), todo: grab('todo'), total };
 }
 
 const startedAt = new Date().toISOString();
