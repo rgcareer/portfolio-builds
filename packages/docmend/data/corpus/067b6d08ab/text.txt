@@ -1,0 +1,121 @@
+RG 0
+
+Skip to content RG Ryan Garver
+- Work
+
+- About
+
+- Résumé
+
+- Contact
+
+⌘K
+
+Back to work Design + build · 2026 · 616 tests passing
+
+# Operation Hired
+
+A tool I built to score thousands of job postings and weed out the fakes.
+
+Role
+Design + build
+
+Status
+616 tests passing
+
+Stack
+Node · SQLite · Scoring heuristics · Vitest
+
+14,851 Postings scored
+fraud · geo · tier Signals
+0 Re-score errors
+
+Mission-control view. Every posting re-verified against its source before it surfaces.
+I needed to run a serious job search, so I built the system I'd roll out to a team. Not a spreadsheet and not a folder of bookmarks: a pipeline that pulls postings in, scores them, drafts the application, and keeps a record of every send. The point was never the software. The point was to make one person move like a staffed function, without losing the judgment that makes the work any good.
+
+## A discovery board, not a job board
+
+Postings land in a local `SQLite` database and every one runs through a scoring model before I ever see it. So far it has scored 14,800+ of them, and each score can be reproduced from the source data. What surfaces is a ranked board carrying the signals I actually decide on:
+
+- Tier. Postings get bucketed by fit: role, seniority, pay signal. An early version was too generous with the top bucket, so I tightened it. Tier 1 dropped from a few thousand to about a hundred, which is what real fit should look like.
+
+- Fraud. A set of heuristics flags the patterns ghost and scam listings share. That cut the flagged-fraud noise by about 80%, so the board stays honest.
+
+- Freshness. A sweep re-checks live postings against the source job board and is deliberately conservative: only a hard `404` or `410` retires a listing, while a timeout or a redirect is left alone so a real job is never dropped by mistake. The first sweep pulled 12 dead postings out of the pool, so I never spend a morning chasing a role that closed last week.
+
+## What a scored posting costs
+
+Metric | Value | Basis |
+Cost to score one posting | $0 | Scoring is deterministic code, weighted rules over a local database, with no model call. Every posting scores for zero tokens. |
+Where the model spend goes | Drafting only | Claude Opus 4.8 writes the tailored application, and only for a job I approve, never across the whole discovery pool. |
+Per drafted application | ~$0.04 | Measured from 76 logged Opus 4.8 calls: about 3,100 input and 1,060 output tokens each, the cost read straight off the API usage field. |
+
+## A fit report that surfaces gaps instead of faking them
+
+Pick a job and the system writes a fit report, then drafts a tailored package off it. The report grades every requirement into three honest tiers, and the third one is the whole point:
+
+- Matched. Direct, provable overlap between the requirement and my record.
+
+- Equivalent. Different words, same capability, named explicitly so the mapping is a claim I can stand behind, not a stretch.
+
+- Gap. Where I don't line up, it says so. A tool that scored everyone a perfect fit would be worthless. This one surfaces gaps instead of faking them, which is the only version I'd let near a real decision.
+
+## A human approves every send
+
+Nothing goes out on its own. Drafted packages sit in a submission ledger behind a funnel view, and every send is a deliberate human action: I read it, I approve it, it logs. The automation makes the human faster; it never replaces the human. That line, drawn on purpose, is what keeps the whole thing trustworthy:
+
+- A re-score pipeline re-ran every row (5,905 at the time) against the corrected model in one pass with zero errors, after backing up first.
+
+- A test suite covers the scoring edges, the geo logic, and the fraud heuristics, and it's green before anything ships.
+
+- Data-hygiene guards clear out orphaned rows and stop half-formed records from moving down the pipeline.
+
+## A follow-up ladder that never nags
+
+Applying is the first move; the follow-through is where most searches go quiet. Once a package is sent, the system opens a follow-up ladder anchored to that submission: a hiring-manager note on day zero, a check-in around day five, another near day fourteen. It logs only the touches I actually make, and when a window passes it marks it closed instead of firing a reminder on its own. The tool keeps the schedule; I make the contact.
+
+## Guardrails I built in on purpose
+
+A system that reaches out to the internet and drafts on my behalf needs limits it cannot talk itself out of. Two of them do the heavy lifting:
+
+- An SSRF-safe fetch. The freshness sweep pulls live URLs, so every request runs through a guarded fetch that only speaks `http` and `https`, refuses private, loopback, link-local, and cloud-metadata addresses, re-checks every redirect hop against the same rules, and rejects the IPv4-mapped-IPv6 tricks that slip past a naive block. A job board should never be able to point my own tool at an internal address.
+
+- An anti-fabrication grounding check. Before any generated answer goes near an application, it passes a grounding check that rejects any number, dollar figure, or credential that is not already in my own record, and falls back to a plain, grounded template instead. The tool can help me say what is true faster; it is structurally kept from inventing what is not.
+
+## Why I point to this one
+
+That's what AI enablement means to me: real workflows, honest guardrails, and adoption you can trust. It's a system that makes a lot of decisions, knows where it might be wrong, and keeps a person in the loop on the ones that matter. I'd rather show evidence than make claims, and that holds for everything I build.
+
+Next project Competitor-Intel MCP Get in touch
+
+RG Ryan Garver
+AI Enablement & Adoption
+
+Email LinkedIn GitHub Notes Résumé Consulting
+© 2026 · Boise, ID · Remote · Set in Anybody, Bricolage Grotesque & Martian Mono
+
+esc
+
+- 01 Home
+
+- 02 Work
+
+- 03 Notes
+
+- 04 About
+
+- 05 Résumé
+
+- 06 Contact
+
+- 07 Consulting
+
+- 08 Email me external
+
+- 09 LinkedIn external
+
+- 10 GitHub external
+
+- No matches.
+
+↑↓ navigate open

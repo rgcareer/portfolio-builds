@@ -1,0 +1,207 @@
+Search…⌘K
+Ask AI⌘ISupportGitHubTry AgentOS
+
+HomeSDKAgentOSTemplatesExamplesReferenceFAQs
+
+Home
+
+Support
+GitHub
+Try AgentOS
+Welcome
+Welcome to AgnoGet Started
+Build a Personal AgentBuild your personal agentTalk to your agent in SlackTake your agent to production
+
+Use Agno with Coding AgentsBuild an Agent Platform
+Use Cases
+Customer-Facing Agents
+Documentation Agents
+Workflow AutomationData Labeling
+Customer SupportKnowledge AgentsData & Analytics Agents
+Deep Research
+Document Processing
+Features
+Agent SDKAgent RuntimeAgent GovernanceAgent APIMCP ServerAgent StorageAgent ObservabilityAgent EvaluationSecurity & AuthInterfacesScheduling
+
+Try AgentOSSupportGithub
+
+Build your personal agent
+
+Build a Personal Agent
+
+# Build your personal agent
+
+Copy page
+Build an agent that remembers your projects, tasks, and decisions between conversations.
+
+Let's build a personal agent that remembers what we're working on. We'll give it a project brief, track todo's, next steps, and save completed tasks along the way. We'll build it in three steps:
+
+- Build a personal agent (this page)
+
+- Talk to it in Slack.
+
+- Deploy it to Railway so it stays available with your laptop closed.
+
+## Set up your project
+
+You'll need uv and an OpenAI API key.
+
+### Create a project
+
+```
+mkdir personal-agent && cd personal-agent
+uv init --bare --python 3.14
+```
+
+This creates a `pyproject.toml` for your project. On Windows, run these commands in PowerShell 7 or later.
+
+### Install dependencies
+
+```
+uv add "agno[os,sqlite]" openai
+```
+
+uv adds your dependencies to `pyproject.toml`, locks their versions in `uv.lock`, and creates the project's virtual environment automatically.
+
+### Set your API key
+
+macOS / Linux
+Windows
+
+```
+export OPENAI_API_KEY="your-openai-api-key"
+```
+
+## Create your agent
+
+Save this as `personal_agent.py`:
+
+personal_agent.py
+
+```
+from agno.agent import Agent
+from agno.db.sqlite import SqliteDb
+from agno.fs import FileSystem
+from agno.os import AgentOS
+
+db = SqliteDb(db_file="personal_agent.db")
+fs = FileSystem(db, namespace="personal-agent/{user_id}")
+
+agent_instructions = """You are Pip, the user's personal agent.
+Help them keep track of their projects, tasks, decisions, and useful notes
+so they can pick up where they left off.
+
+Be warm, direct, and practical. Use natural language and keep replies brief.
+When the user asks for an update, lead with what needs their attention
+and the next useful step. Acknowledge progress without making a big deal of it.
+Adapt to how the user likes to work and communicate.
+
+Keep project briefs, tasks, decisions, and useful notes in your filesystem.
+Start with a simple structure, group related information together, and split
+files by project or topic when that makes them easier to maintain.
+Follow any organization the user requests.
+
+Track task completion and due dates when provided. Record decisions with
+their reasoning so the user can revisit them later. Keep the user's stated
+commitments separate from your suggestions.
+
+Read the relevant files before answering questions about saved information
+or making changes. Create new files as needed. Preserve unrelated entries
+when updating existing files. Ask when a missing detail matters; otherwise,
+work with what you have.
+
+Only say something is saved or updated after the file tool succeeds.
+Confirm what changed in a sentence or two.
+"""
+
+agent = Agent(
+    name="Pip",
+    model="openai:gpt-5.6",
+    db=db,
+    tools=[fs.tools()],
+    instructions=[agent_instructions, fs.instructions()],
+    add_history_to_context=True,
+    add_datetime_to_context=True,
+)
+
+agent_os = AgentOS(agents=[agent], db=db, tracing=True)
+app = agent_os.get_app()
+
+if __name__ == "__main__":
+    agent_os.serve(app="personal_agent:app", reload=True)
+```
+
+The agent uses FileSystem tools to read and update its documents. Both those documents and conversation history are stored in `personal_agent.db`, a SQLite database in your project directory.
+
+The `{user_id}` namespace gives each user their own files, using the user identity supplied to the run through AgentOS.
+
+## Run it with AgentOS
+
+```
+uv run personal_agent.py
+```
+
+AgentOS is now running at `http://localhost:7777`. Keep this terminal open. You can browse its API at localhost:7777/docs.
+
+## Connect the Control Plane
+
+- Open os.agno.com and sign in.
+
+- Click Connect Existing OS and select Local.
+
+- Enter `http://localhost:7777` as the URL, name the connection Local AgentOS, and connect.
+
+- Click on Chat under Pip.
+
+The Control Plane connects from your browser to the local service. Use it to chat with your agent, inspect it's sessions, traces, memory and knowledge.
+
+## Test it out
+
+Send it a short project brief:
+
+```
+I'm updating our customer onboarding guide. The goal is to help new users
+finish setup without asking support. Jen is reviewing the draft.
+
+Save this project and two next steps: send Jen the draft by Thursday,
+and test the setup steps with a new user by Friday.
+Keep my updates short, with action items first.
+```
+
+Then record some progress and a decision:
+
+```
+I sent Jen the draft.
+We decided to use a checklist instead of a video because it's easier
+to keep up to date. Save that decision and the reasoning.
+```
+
+Start a new conversation:
+
+```
+Where did we leave the onboarding guide? What's next, and why did we
+choose a checklist?
+```
+
+The agent should read its saved documents, identify the user test as the next step, and explain the checklist decision. Sending Jen the draft should remain complete.
+
+Open Sessions to inspect the conversations, or Traces to see the model and filesystem tool calls behind a response.
+
+This example stores all data on your machine. Complete data ownership.
+
+## Next: talk to it in Slack
+
+Next, use your agent through Slack.
+
+Welcome to Agno
+
+Build, run, and manage agent platforms.
+Talk to your agent in Slack
+
+Connect your personal agent to Slack using an AgentOS interface.
+
+Try the Docs Agent, powered by Agno
+
+### On this page
+
+Set up your projectCreate your agentRun it with AgentOSConnect the Control PlaneTest it outNext: talk to it in Slack

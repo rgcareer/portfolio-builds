@@ -1,0 +1,113 @@
+RG 0
+
+Skip to content RG Ryan Garver
+- Work
+
+- About
+
+- Résumé
+
+- Contact
+
+⌘K
+
+Back to work Design + build · 2026 · public · npm · 24 tests
+
+# sop-mcp
+
+Point any MCP client at a folder of markdown SOPs and FAQs, and your team can search and cite its handbook. Two-minute, no-code install.
+npmSource
+
+Role
+Design + build
+
+Status
+public · npm · 24 tests
+
+Stack
+TypeScript · MCP (Model Context Protocol) SDK · stdio · Vitest · Built with Claude Code
+
+24 + 11 Tests + stdio
+two minutes Install
+search · get · list Tools
+
+```
+$ tools/list
+> search_handbook   keyword + heading match, cited excerpts
+> get_document      one SOP or FAQ by name
+> list_documents    the whole handbook, catalogued
+
+# point it at a folder of .md SOPs;
+# Claude Desktop can now answer from them, with citations.
+```
+
+The tool surface a non-technical admin turns on. stdio only, read-only, no database. Path traversal is impossible by design, not by string-filtering.
+A team's knowledge usually lives in a folder of markdown SOPs and FAQs that nobody reads at the moment they need it. sop-mcp turns that folder into something an AI client can answer from, with a citation back to the exact document. It is the plumbing that lets a non-technical team turn its own handbook into an assistant, and it installs in about two minutes.
+
+## The problem: the handbook nobody opens in time
+
+Generic "markdown knowledge base" servers exist, but they are built for developers and assume a technical setup. The person who actually owns the SOPs, an ops or HR lead, cannot stand one up without asking engineering. The goal was a server sized for that specific job, that a non-technical admin can turn on themselves, and that cites its sources so the answers are checkable.
+
+## The approach: three tools, a handbook, a two-minute install
+
+It is a Model Context Protocol server exposing three read-only tools: `search_handbook` (keyword and heading matching, returning cited excerpts), `get_document`, and `list_documents`. Each document is also an MCP resource. It ships with a full sample handbook so the first run works before anyone edits a thing, and the README opens with the two-minute path: an npx one-liner and the exact config to paste.
+
+```
+> search_handbook  "refund window"
+  refund-policy.md#eligibility   "...full refund within 30 days if..."
+  refund-policy.md#exceptions    "...opened software is non-refundable..."
+```
+
+## Correcting a stale guide by reading the types
+
+I scaffolded it with a builder skill, but the skill's examples were written against an old SDK: an outdated version and a deprecated way of registering tools. Rather than trust the generated shape, I read the installed SDK's own type definitions to confirm the current contract, that tool inputs take a raw schema and that a successful result carries structured content while an error is exempt. That check avoided two classes of runtime error the stale guide would have baked in. Reading the source of truth beats trusting the tutorial.
+
+## Security by construction, not by string-filtering
+
+A tool that reads files by name is exactly where path traversal creeps in. Instead of trying to filter dangerous inputs, I removed the possibility: the server loads every document into memory once at startup, and `get_document` is a lookup against that in-memory set. A caller's input never reaches the filesystem at all, so there is nothing to traverse. I confirmed it with nine attack strings (parent-directory hops, absolute paths, separators, a null byte); every one returns a friendly "no such document" listing the real ids, never a file.
+
+## How I verified it
+
+- Tests: 24 of 24 passing (handbook parsing, search ranking, document lookup, the traversal attacks, truncation).
+
+- Live session: a scripted client drove the built server over real stdio, exactly as Claude Desktop would, and asserted 11 of 11 steps: tool discovery, search with citations, document fetch, the traversal defense, and resource reads.
+
+- Ship-ready: a packaging dry-run confirms the published bundle carries the server plus the sample handbook, so a zero-config install works on the first try. A fresh-context review passed with no material findings.
+
+## Why I point to this one
+
+This is what "AI plumbing" looks like when it is built for adoption: a small, honest tool a non-technical team can turn on themselves, that cites its sources and cannot damage what it reads. Enablement is not just the flashy demo; it is the boring, trustworthy pipe that makes the demo real on Monday.
+
+Next project Victoria 4.0 Get in touch
+
+RG Ryan Garver
+AI Enablement & Adoption
+
+Email LinkedIn GitHub Notes Résumé Consulting
+© 2026 · Boise, ID · Remote · Set in Anybody, Bricolage Grotesque & Martian Mono
+
+esc
+
+- 01 Home
+
+- 02 Work
+
+- 03 Notes
+
+- 04 About
+
+- 05 Résumé
+
+- 06 Contact
+
+- 07 Consulting
+
+- 08 Email me external
+
+- 09 LinkedIn external
+
+- 10 GitHub external
+
+- No matches.
+
+↑↓ navigate open

@@ -1,0 +1,99 @@
+RG 0
+
+Skip to content RG Ryan Garver
+- Work
+
+- About
+
+- Résumé
+
+- Contact
+
+⌘K
+
+Back to work Design + build · 2026 · public · 18 cards
+
+# CS Prompt Field Kit
+
+Copy-ready prompts for customer-success work, each with a five-element teardown you can actually trust.
+Live demoSource
+
+Role
+Design + build
+
+Status
+public · 18 cards
+
+Stack
+Astro · TypeScript · Built with Claude Code
+
+18 Prompt cards
+5-element teardown Each card
+CS job to be done Filter by
+
+A kit a CS team opens on the job. Each prompt is torn down into its five moving parts, so people learn the shape, not just the copy.
+A prompt library is easy to ship and easy to ignore. People copy a line, it does not quite fit, and they quietly go back to writing from scratch. So I built a field kit instead: prompts for real customer-success jobs, each taken apart so the person using it learns the shape and can adapt it, with a build that refuses to ship a half-finished card.
+
+## The problem: prompt dumps teach nobody
+
+Most prompt libraries are 200 templates with no judgment attached. A CS rep gets a wall of copy and no signal about when a prompt is safe to hand a teammate, whether the output needs review before it reaches a customer, or when not to use it at all. The goal was a small, curated kit that carries that judgment on the face of every card.
+
+## The approach: a five-part contract, enforced by the build
+
+Every card ships five elements: a fill-in-the-blank template, a worked example, a good-versus-bad teardown, guardrails (when not to use it, whether a human must review), and model notes. The contract is not a guideline; it is enforced twice, by the content schema and by a prebuild gate that fails the build if any card is missing a part. Zero willpower required: you cannot ship an incomplete card.
+One card, five parts: template, worked example, good-versus-bad teardown, guardrails, model notes. The bad example is plausible, not a strawman.
+
+## The defect a content search could not see
+
+Mid-build, a review surfaced a systemic craft problem: 59 stray typographic dashes scattered across all 14 existing cards. The catch is that they were invisible to an ordinary content search, because they lived in card titles and layout components, not just the card bodies a grep reads. Rather than file 59 tickets, I elevated it to one decision, got a human call on scope ("fix all the visible ones"), swept them, and had the reviewer independently re-confirm zero visible dashes across all 22 rendered pages. One invisible, systemic defect, turned into a single gated fix.
+
+## Removing a broken link instead of papering over it
+
+The build also caught a navigation link to an `/about` page that never existed. The lazy fix is to add the page. The right fix, given the scope, was to remove the dead link and flag it, not to quietly expand the project to cover a mistake. Discipline about what stays out is part of what makes the thing trustworthy.
+Not just cards: a five-rung adoption ladder that ties the kit to a rollout story instead of leaving it a pile of tips.
+
+## How I verified it
+
+- Build gate: 20 pages built, 18 of 18 cards passing the five-element contract; the build fails otherwise.
+
+- Behavioral: in a real browser, the lifecycle filter returns exactly the right cards, copy-to-clipboard yields the exact template, the rollout page loads, and there is no overflow at 375px, with zero console errors.
+
+- Review: a fresh-context pass confirmed all four new teardowns are non-strawman and the contract held on every card; then a human approved the content.
+
+## Why I point to this one
+
+Enablement is teaching, and teaching means showing your work. This kit is what I would hand a CS team on day one: not "here are some prompts," but "here is how a good prompt is built, for the jobs you actually have, checked by a build that will not let a bad one through."
+
+Next project sop-mcp Get in touch
+
+RG Ryan Garver
+AI Enablement & Adoption
+
+Email LinkedIn GitHub Notes Résumé Consulting
+© 2026 · Boise, ID · Remote · Set in Anybody, Bricolage Grotesque & Martian Mono
+
+esc
+
+- 01 Home
+
+- 02 Work
+
+- 03 Notes
+
+- 04 About
+
+- 05 Résumé
+
+- 06 Contact
+
+- 07 Consulting
+
+- 08 Email me external
+
+- 09 LinkedIn external
+
+- 10 GitHub external
+
+- No matches.
+
+↑↓ navigate open

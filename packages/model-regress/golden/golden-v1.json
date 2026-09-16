@@ -1,0 +1,1152 @@
+[
+  {
+    "dateFormat": "long-month",
+    "expected": {
+      "date": "2025-01-10",
+      "id": "WO-3745",
+      "items": [
+        {
+          "name": "Refrigerant charge",
+          "qty": 1,
+          "unit_cents": 5700
+        },
+        {
+          "name": "Refrigerant charge",
+          "qty": 7,
+          "unit_cents": 5300
+        }
+      ],
+      "paid": false,
+      "status": "complete",
+      "total_cents": 42800
+    },
+    "index": 0,
+    "prompt": "Work Order WO-3745\nDate: January 10, 2025\nStatus: complete\nLine items:\n- Refrigerant charge x1 @ 5700c\n- Refrigerant charge x7 @ 5300c\nPrevious balance: 23400c (already invoiced separately; do not include in the total)\nUnpaid at time of service."
+  },
+  {
+    "dateFormat": "long-month",
+    "expected": {
+      "date": "2026-01-16",
+      "id": "WO-1647",
+      "items": [
+        {
+          "name": "Thermostat",
+          "qty": 1,
+          "unit_cents": 16400
+        },
+        {
+          "name": "Capacitor",
+          "qty": 6,
+          "unit_cents": 12300
+        },
+        {
+          "name": "Duct sealing",
+          "qty": 4,
+          "unit_cents": 20000
+        },
+        {
+          "name": "Service call",
+          "qty": 4,
+          "unit_cents": 15800
+        }
+      ],
+      "paid": false,
+      "status": "closed",
+      "total_cents": 233400
+    },
+    "index": 1,
+    "prompt": "Work Order WO-1647\nDate: January 16, 2026\nStatus: closed\nLine items:\n- Thermostat x1 @ 16400c\n- Capacitor x6 @ 12300c\n- Duct sealing x4 @ 20000c\n- Service call x4 @ 15800c\nPrevious balance: 13900c (already invoiced separately; do not include in the total)\nPayment not yet received."
+  },
+  {
+    "dateFormat": "iso",
+    "expected": {
+      "date": "2026-09-05",
+      "id": "WO-7221",
+      "items": [
+        {
+          "name": "Blower motor",
+          "qty": 1,
+          "unit_cents": 4400
+        },
+        {
+          "name": "Refrigerant charge",
+          "qty": 5,
+          "unit_cents": 10500
+        },
+        {
+          "name": "Compressor unit",
+          "qty": 3,
+          "unit_cents": 5400
+        }
+      ],
+      "paid": false,
+      "status": "complete",
+      "total_cents": 73100
+    },
+    "index": 2,
+    "prompt": "Work Order WO-7221\nDate: 2026-09-05\nStatus: complete\nLine items:\n- Blower motor x1 @ 4400c\n- Refrigerant charge x5 @ 10500c\n- Compressor unit x3 @ 5400c\nPrevious balance: 8600c (already invoiced separately; do not include in the total)\nAwaiting payment."
+  },
+  {
+    "dateFormat": "long-month",
+    "expected": {
+      "date": "2024-12-14",
+      "id": "WO-1596",
+      "items": [
+        {
+          "name": "Labor",
+          "qty": 7,
+          "unit_cents": 13800
+        },
+        {
+          "name": "Blower motor",
+          "qty": 5,
+          "unit_cents": 1400
+        },
+        {
+          "name": "Air filter",
+          "qty": 7,
+          "unit_cents": 6600
+        }
+      ],
+      "paid": false,
+      "status": "pending",
+      "total_cents": 149800
+    },
+    "index": 3,
+    "prompt": "Work Order WO-1596\nDate: December 14, 2024\nStatus: pending\nLine items:\n- Labor x7 @ 13800c\n- Blower motor x5 @ 1400c\n- Air filter x7 @ 6600c\nPrevious balance: 72000c (already invoiced separately; do not include in the total)\nPayment not yet received."
+  },
+  {
+    "dateFormat": "day-month-year",
+    "expected": {
+      "date": "2025-04-03",
+      "id": "WO-9659",
+      "items": [
+        {
+          "name": "Labor",
+          "qty": 5,
+          "unit_cents": 10700
+        },
+        {
+          "name": "Labor",
+          "qty": 3,
+          "unit_cents": 19400
+        },
+        {
+          "name": "Coil cleaning",
+          "qty": 6,
+          "unit_cents": 11100
+        },
+        {
+          "name": "Coil cleaning",
+          "qty": 5,
+          "unit_cents": 300
+        }
+      ],
+      "paid": true,
+      "status": "cancelled",
+      "total_cents": 179800
+    },
+    "index": 4,
+    "prompt": "Work Order WO-9659\nDate: 3 Apr 2025\nStatus: cancelled\nLine items:\n- Labor x5 @ 10700c\n- Labor x3 @ 19400c\n- Coil cleaning x6 @ 11100c\n- Coil cleaning x5 @ 300c\nPrevious balance: 73600c (already invoiced separately; do not include in the total)\nInvoice settled."
+  },
+  {
+    "dateFormat": "iso",
+    "expected": {
+      "date": "2026-04-15",
+      "id": "WO-5321",
+      "items": [
+        {
+          "name": "Thermostat",
+          "qty": 1,
+          "unit_cents": 5500
+        },
+        {
+          "name": "Coil cleaning",
+          "qty": 5,
+          "unit_cents": 5400
+        },
+        {
+          "name": "Service call",
+          "qty": 4,
+          "unit_cents": 5400
+        }
+      ],
+      "paid": false,
+      "status": "complete",
+      "total_cents": 54100
+    },
+    "index": 5,
+    "prompt": "Work Order WO-5321\nDate: 2026-04-15\nStatus: complete\nLine items:\n- Thermostat x1 @ 5500c\n- Coil cleaning x5 @ 5400c\n- Service call x4 @ 5400c\nPrevious balance: 85900c (already invoiced separately; do not include in the total)\nBalance outstanding."
+  },
+  {
+    "dateFormat": "iso",
+    "expected": {
+      "date": "2026-03-19",
+      "id": "WO-8711",
+      "items": [
+        {
+          "name": "Labor",
+          "qty": 2,
+          "unit_cents": 10000
+        },
+        {
+          "name": "Labor",
+          "qty": 5,
+          "unit_cents": 700
+        },
+        {
+          "name": "Coil cleaning",
+          "qty": 9,
+          "unit_cents": 17000
+        }
+      ],
+      "paid": true,
+      "status": "pending",
+      "total_cents": 176500
+    },
+    "index": 6,
+    "prompt": "Work Order WO-8711\nDate: 2026-03-19\nStatus: pending\nLine items:\n- Labor x2 @ 10000c\n- Labor x5 @ 700c\n- Coil cleaning x9 @ 17000c\nPrevious balance: 88300c (already invoiced separately; do not include in the total)\nPaid in full."
+  },
+  {
+    "dateFormat": "iso",
+    "expected": {
+      "date": "2024-11-05",
+      "id": "WO-9534",
+      "items": [
+        {
+          "name": "Air filter",
+          "qty": 3,
+          "unit_cents": 17000
+        },
+        {
+          "name": "Thermostat",
+          "qty": 4,
+          "unit_cents": 16700
+        },
+        {
+          "name": "Duct sealing",
+          "qty": 7,
+          "unit_cents": 15100
+        },
+        {
+          "name": "Thermostat",
+          "qty": 8,
+          "unit_cents": 11900
+        }
+      ],
+      "paid": true,
+      "status": "pending",
+      "total_cents": 318700
+    },
+    "index": 7,
+    "prompt": "Work Order WO-9534\nDate: 2024-11-05\nStatus: pending\nLine items:\n- Air filter x3 @ 17000c\n- Thermostat x4 @ 16700c\n- Duct sealing x7 @ 15100c\n- Thermostat x8 @ 11900c\nPrevious balance: 77600c (already invoiced separately; do not include in the total)\nBalance paid."
+  },
+  {
+    "dateFormat": "iso",
+    "expected": {
+      "date": "2024-09-14",
+      "id": "WO-3777",
+      "items": [
+        {
+          "name": "Thermostat",
+          "qty": 3,
+          "unit_cents": 5200
+        },
+        {
+          "name": "Duct sealing",
+          "qty": 1,
+          "unit_cents": 3200
+        },
+        {
+          "name": "Blower motor",
+          "qty": 5,
+          "unit_cents": 4400
+        }
+      ],
+      "paid": true,
+      "status": "pending",
+      "total_cents": 40800
+    },
+    "index": 8,
+    "prompt": "Work Order WO-3777\nDate: 2024-09-14\nStatus: pending\nLine items:\n- Thermostat x3 @ 5200c\n- Duct sealing x1 @ 3200c\n- Blower motor x5 @ 4400c\nPrevious balance: 50400c (already invoiced separately; do not include in the total)\nPaid in full."
+  },
+  {
+    "dateFormat": "slash-ymd",
+    "expected": {
+      "date": "2026-02-17",
+      "id": "WO-5908",
+      "items": [
+        {
+          "name": "Refrigerant charge",
+          "qty": 9,
+          "unit_cents": 4700
+        },
+        {
+          "name": "Air filter",
+          "qty": 6,
+          "unit_cents": 11000
+        }
+      ],
+      "paid": true,
+      "status": "cancelled",
+      "total_cents": 108300
+    },
+    "index": 9,
+    "prompt": "Work Order WO-5908\nDate: 2026/02/17\nStatus: cancelled\nLine items:\n- Refrigerant charge x9 @ 4700c\n- Air filter x6 @ 11000c\nPrevious balance: 16400c (already invoiced separately; do not include in the total)\nInvoice settled."
+  },
+  {
+    "dateFormat": "iso",
+    "expected": {
+      "date": "2025-02-13",
+      "id": "WO-5086",
+      "items": [
+        {
+          "name": "Compressor unit",
+          "qty": 3,
+          "unit_cents": 10400
+        },
+        {
+          "name": "Thermostat",
+          "qty": 2,
+          "unit_cents": 900
+        },
+        {
+          "name": "Blower motor",
+          "qty": 4,
+          "unit_cents": 17400
+        }
+      ],
+      "paid": true,
+      "status": "closed",
+      "total_cents": 102600
+    },
+    "index": 10,
+    "prompt": "Work Order WO-5086\nDate: 2025-02-13\nStatus: closed\nLine items:\n- Compressor unit x3 @ 10400c\n- Thermostat x2 @ 900c\n- Blower motor x4 @ 17400c\nPrevious balance: 10000c (already invoiced separately; do not include in the total)\nPayment received in full."
+  },
+  {
+    "dateFormat": "slash-ymd",
+    "expected": {
+      "date": "2024-01-06",
+      "id": "WO-4075",
+      "items": [
+        {
+          "name": "Capacitor",
+          "qty": 9,
+          "unit_cents": 600
+        },
+        {
+          "name": "Compressor unit",
+          "qty": 6,
+          "unit_cents": 2500
+        },
+        {
+          "name": "Duct sealing",
+          "qty": 7,
+          "unit_cents": 5600
+        },
+        {
+          "name": "Coil cleaning",
+          "qty": 7,
+          "unit_cents": 11200
+        }
+      ],
+      "paid": true,
+      "status": "pending",
+      "total_cents": 138000
+    },
+    "index": 11,
+    "prompt": "Work Order WO-4075\nDate: 2024/01/06\nStatus: pending\nLine items:\n- Capacitor x9 @ 600c\n- Compressor unit x6 @ 2500c\n- Duct sealing x7 @ 5600c\n- Coil cleaning x7 @ 11200c\nPrevious balance: 3000c (already invoiced separately; do not include in the total)\nPaid in full."
+  },
+  {
+    "dateFormat": "day-month-year",
+    "expected": {
+      "date": "2026-03-18",
+      "id": "WO-4879",
+      "items": [
+        {
+          "name": "Capacitor",
+          "qty": 1,
+          "unit_cents": 8800
+        },
+        {
+          "name": "Capacitor",
+          "qty": 8,
+          "unit_cents": 10700
+        },
+        {
+          "name": "Air filter",
+          "qty": 8,
+          "unit_cents": 2600
+        },
+        {
+          "name": "Coil cleaning",
+          "qty": 9,
+          "unit_cents": 10100
+        }
+      ],
+      "paid": false,
+      "status": "pending",
+      "total_cents": 206100
+    },
+    "index": 12,
+    "prompt": "Work Order WO-4879\nDate: 18 Mar 2026\nStatus: pending\nLine items:\n- Capacitor x1 @ 8800c\n- Capacitor x8 @ 10700c\n- Air filter x8 @ 2600c\n- Coil cleaning x9 @ 10100c\nPrevious balance: 52400c (already invoiced separately; do not include in the total)\nUnpaid at time of service."
+  },
+  {
+    "dateFormat": "day-month-year",
+    "expected": {
+      "date": "2026-05-28",
+      "id": "WO-2012",
+      "items": [
+        {
+          "name": "Coil cleaning",
+          "qty": 5,
+          "unit_cents": 500
+        },
+        {
+          "name": "Compressor unit",
+          "qty": 1,
+          "unit_cents": 19000
+        },
+        {
+          "name": "Air filter",
+          "qty": 9,
+          "unit_cents": 16200
+        }
+      ],
+      "paid": true,
+      "status": "open",
+      "total_cents": 167300
+    },
+    "index": 13,
+    "prompt": "Work Order WO-2012\nDate: 28 May 2026\nStatus: open\nLine items:\n- Coil cleaning x5 @ 500c\n- Compressor unit x1 @ 19000c\n- Air filter x9 @ 16200c\nPrevious balance: 19100c (already invoiced separately; do not include in the total)\nBalance paid."
+  },
+  {
+    "dateFormat": "slash-ymd",
+    "expected": {
+      "date": "2025-01-22",
+      "id": "WO-2726",
+      "items": [
+        {
+          "name": "Compressor unit",
+          "qty": 7,
+          "unit_cents": 13300
+        },
+        {
+          "name": "Service call",
+          "qty": 1,
+          "unit_cents": 8300
+        },
+        {
+          "name": "Coil cleaning",
+          "qty": 6,
+          "unit_cents": 100
+        },
+        {
+          "name": "Labor",
+          "qty": 6,
+          "unit_cents": 12200
+        }
+      ],
+      "paid": false,
+      "status": "cancelled",
+      "total_cents": 175200
+    },
+    "index": 14,
+    "prompt": "Work Order WO-2726\nDate: 2025/01/22\nStatus: cancelled\nLine items:\n- Compressor unit x7 @ 13300c\n- Service call x1 @ 8300c\n- Coil cleaning x6 @ 100c\n- Labor x6 @ 12200c\nPrevious balance: 54300c (already invoiced separately; do not include in the total)\nUnpaid at time of service."
+  },
+  {
+    "dateFormat": "iso",
+    "expected": {
+      "date": "2025-06-28",
+      "id": "WO-3474",
+      "items": [
+        {
+          "name": "Labor",
+          "qty": 4,
+          "unit_cents": 11800
+        },
+        {
+          "name": "Air filter",
+          "qty": 1,
+          "unit_cents": 8300
+        },
+        {
+          "name": "Labor",
+          "qty": 6,
+          "unit_cents": 4000
+        }
+      ],
+      "paid": false,
+      "status": "complete",
+      "total_cents": 79500
+    },
+    "index": 15,
+    "prompt": "Work Order WO-3474\nDate: 2025-06-28\nStatus: complete\nLine items:\n- Labor x4 @ 11800c\n- Air filter x1 @ 8300c\n- Labor x6 @ 4000c\nPrevious balance: 37800c (already invoiced separately; do not include in the total)\nAwaiting payment."
+  },
+  {
+    "dateFormat": "day-month-year",
+    "expected": {
+      "date": "2026-07-15",
+      "id": "WO-7480",
+      "items": [
+        {
+          "name": "Refrigerant charge",
+          "qty": 7,
+          "unit_cents": 15300
+        },
+        {
+          "name": "Refrigerant charge",
+          "qty": 2,
+          "unit_cents": 19000
+        },
+        {
+          "name": "Service call",
+          "qty": 2,
+          "unit_cents": 7900
+        }
+      ],
+      "paid": true,
+      "status": "open",
+      "total_cents": 160900
+    },
+    "index": 16,
+    "prompt": "Work Order WO-7480\nDate: 15 Jul 2026\nStatus: open\nLine items:\n- Refrigerant charge x7 @ 15300c\n- Refrigerant charge x2 @ 19000c\n- Service call x2 @ 7900c\nPrevious balance: 89200c (already invoiced separately; do not include in the total)\nBalance paid."
+  },
+  {
+    "dateFormat": "iso",
+    "expected": {
+      "date": "2025-05-06",
+      "id": "WO-6191",
+      "items": [
+        {
+          "name": "Labor",
+          "qty": 2,
+          "unit_cents": 19400
+        },
+        {
+          "name": "Thermostat",
+          "qty": 5,
+          "unit_cents": 18100
+        },
+        {
+          "name": "Air filter",
+          "qty": 6,
+          "unit_cents": 13100
+        }
+      ],
+      "paid": true,
+      "status": "cancelled",
+      "total_cents": 207900
+    },
+    "index": 17,
+    "prompt": "Work Order WO-6191\nDate: 2025-05-06\nStatus: cancelled\nLine items:\n- Labor x2 @ 19400c\n- Thermostat x5 @ 18100c\n- Air filter x6 @ 13100c\nPrevious balance: 24700c (already invoiced separately; do not include in the total)\nPaid in full."
+  },
+  {
+    "dateFormat": "slash-ymd",
+    "expected": {
+      "date": "2025-08-27",
+      "id": "WO-9203",
+      "items": [
+        {
+          "name": "Blower motor",
+          "qty": 4,
+          "unit_cents": 18500
+        },
+        {
+          "name": "Capacitor",
+          "qty": 9,
+          "unit_cents": 5200
+        },
+        {
+          "name": "Service call",
+          "qty": 7,
+          "unit_cents": 8700
+        },
+        {
+          "name": "Blower motor",
+          "qty": 2,
+          "unit_cents": 6700
+        }
+      ],
+      "paid": false,
+      "status": "complete",
+      "total_cents": 195100
+    },
+    "index": 18,
+    "prompt": "Work Order WO-9203\nDate: 2025/08/27\nStatus: complete\nLine items:\n- Blower motor x4 @ 18500c\n- Capacitor x9 @ 5200c\n- Service call x7 @ 8700c\n- Blower motor x2 @ 6700c\nPrevious balance: 48700c (already invoiced separately; do not include in the total)\nBalance outstanding."
+  },
+  {
+    "dateFormat": "iso",
+    "expected": {
+      "date": "2026-04-05",
+      "id": "WO-1560",
+      "items": [
+        {
+          "name": "Duct sealing",
+          "qty": 5,
+          "unit_cents": 13500
+        },
+        {
+          "name": "Blower motor",
+          "qty": 5,
+          "unit_cents": 2500
+        }
+      ],
+      "paid": true,
+      "status": "pending",
+      "total_cents": 80000
+    },
+    "index": 19,
+    "prompt": "Work Order WO-1560\nDate: 2026-04-05\nStatus: pending\nLine items:\n- Duct sealing x5 @ 13500c\n- Blower motor x5 @ 2500c\nPrevious balance: 70900c (already invoiced separately; do not include in the total)\nBalance paid."
+  },
+  {
+    "dateFormat": "long-month",
+    "expected": {
+      "date": "2026-02-20",
+      "id": "WO-1602",
+      "items": [
+        {
+          "name": "Thermostat",
+          "qty": 1,
+          "unit_cents": 6800
+        },
+        {
+          "name": "Labor",
+          "qty": 3,
+          "unit_cents": 13000
+        },
+        {
+          "name": "Refrigerant charge",
+          "qty": 2,
+          "unit_cents": 6400
+        },
+        {
+          "name": "Refrigerant charge",
+          "qty": 3,
+          "unit_cents": 8900
+        }
+      ],
+      "paid": false,
+      "status": "in-progress",
+      "total_cents": 85300
+    },
+    "index": 20,
+    "prompt": "Work Order WO-1602\nDate: February 20, 2026\nStatus: in-progress\nLine items:\n- Thermostat x1 @ 6800c\n- Labor x3 @ 13000c\n- Refrigerant charge x2 @ 6400c\n- Refrigerant charge x3 @ 8900c\nPrevious balance: 87100c (already invoiced separately; do not include in the total)\nUnpaid at time of service."
+  },
+  {
+    "dateFormat": "long-month",
+    "expected": {
+      "date": "2024-07-28",
+      "id": "WO-1722",
+      "items": [
+        {
+          "name": "Labor",
+          "qty": 3,
+          "unit_cents": 4600
+        },
+        {
+          "name": "Capacitor",
+          "qty": 1,
+          "unit_cents": 16800
+        }
+      ],
+      "paid": false,
+      "status": "closed",
+      "total_cents": 30600
+    },
+    "index": 21,
+    "prompt": "Work Order WO-1722\nDate: July 28, 2024\nStatus: closed\nLine items:\n- Labor x3 @ 4600c\n- Capacitor x1 @ 16800c\nPrevious balance: 48000c (already invoiced separately; do not include in the total)\nUnpaid at time of service."
+  },
+  {
+    "dateFormat": "iso",
+    "expected": {
+      "date": "2024-06-23",
+      "id": "WO-6446",
+      "items": [
+        {
+          "name": "Labor",
+          "qty": 1,
+          "unit_cents": 7200
+        },
+        {
+          "name": "Compressor unit",
+          "qty": 6,
+          "unit_cents": 9300
+        },
+        {
+          "name": "Blower motor",
+          "qty": 1,
+          "unit_cents": 6600
+        },
+        {
+          "name": "Refrigerant charge",
+          "qty": 1,
+          "unit_cents": 19200
+        }
+      ],
+      "paid": true,
+      "status": "in-progress",
+      "total_cents": 88800
+    },
+    "index": 22,
+    "prompt": "Work Order WO-6446\nDate: 2024-06-23\nStatus: in-progress\nLine items:\n- Labor x1 @ 7200c\n- Compressor unit x6 @ 9300c\n- Blower motor x1 @ 6600c\n- Refrigerant charge x1 @ 19200c\nPrevious balance: 54700c (already invoiced separately; do not include in the total)\nPaid in full."
+  },
+  {
+    "dateFormat": "iso",
+    "expected": {
+      "date": "2025-01-18",
+      "id": "WO-8656",
+      "items": [
+        {
+          "name": "Duct sealing",
+          "qty": 2,
+          "unit_cents": 1500
+        },
+        {
+          "name": "Blower motor",
+          "qty": 7,
+          "unit_cents": 13700
+        }
+      ],
+      "paid": true,
+      "status": "cancelled",
+      "total_cents": 98900
+    },
+    "index": 23,
+    "prompt": "Work Order WO-8656\nDate: 2025-01-18\nStatus: cancelled\nLine items:\n- Duct sealing x2 @ 1500c\n- Blower motor x7 @ 13700c\nPrevious balance: 29100c (already invoiced separately; do not include in the total)\nBalance paid."
+  },
+  {
+    "dateFormat": "day-month-year",
+    "expected": {
+      "date": "2025-04-24",
+      "id": "WO-7675",
+      "items": [
+        {
+          "name": "Refrigerant charge",
+          "qty": 3,
+          "unit_cents": 8100
+        },
+        {
+          "name": "Thermostat",
+          "qty": 7,
+          "unit_cents": 1500
+        },
+        {
+          "name": "Coil cleaning",
+          "qty": 7,
+          "unit_cents": 12100
+        },
+        {
+          "name": "Compressor unit",
+          "qty": 5,
+          "unit_cents": 1300
+        }
+      ],
+      "paid": true,
+      "status": "closed",
+      "total_cents": 126000
+    },
+    "index": 24,
+    "prompt": "Work Order WO-7675\nDate: 24 Apr 2025\nStatus: closed\nLine items:\n- Refrigerant charge x3 @ 8100c\n- Thermostat x7 @ 1500c\n- Coil cleaning x7 @ 12100c\n- Compressor unit x5 @ 1300c\nPrevious balance: 44100c (already invoiced separately; do not include in the total)\nPaid in full."
+  },
+  {
+    "dateFormat": "long-month",
+    "expected": {
+      "date": "2026-02-05",
+      "id": "WO-3948",
+      "items": [
+        {
+          "name": "Thermostat",
+          "qty": 8,
+          "unit_cents": 2000
+        },
+        {
+          "name": "Duct sealing",
+          "qty": 1,
+          "unit_cents": 20000
+        }
+      ],
+      "paid": false,
+      "status": "cancelled",
+      "total_cents": 36000
+    },
+    "index": 25,
+    "prompt": "Work Order WO-3948\nDate: February 5, 2026\nStatus: cancelled\nLine items:\n- Thermostat x8 @ 2000c\n- Duct sealing x1 @ 20000c\nPrevious balance: 32900c (already invoiced separately; do not include in the total)\nUnpaid at time of service."
+  },
+  {
+    "dateFormat": "day-month-year",
+    "expected": {
+      "date": "2026-07-14",
+      "id": "WO-5086",
+      "items": [
+        {
+          "name": "Thermostat",
+          "qty": 2,
+          "unit_cents": 15000
+        },
+        {
+          "name": "Labor",
+          "qty": 1,
+          "unit_cents": 4800
+        }
+      ],
+      "paid": false,
+      "status": "closed",
+      "total_cents": 34800
+    },
+    "index": 26,
+    "prompt": "Work Order WO-5086\nDate: 14 Jul 2026\nStatus: closed\nLine items:\n- Thermostat x2 @ 15000c\n- Labor x1 @ 4800c\nPrevious balance: 99200c (already invoiced separately; do not include in the total)\nUnpaid at time of service."
+  },
+  {
+    "dateFormat": "slash-ymd",
+    "expected": {
+      "date": "2026-03-06",
+      "id": "WO-5498",
+      "items": [
+        {
+          "name": "Blower motor",
+          "qty": 7,
+          "unit_cents": 19800
+        },
+        {
+          "name": "Capacitor",
+          "qty": 7,
+          "unit_cents": 5100
+        }
+      ],
+      "paid": true,
+      "status": "cancelled",
+      "total_cents": 174300
+    },
+    "index": 27,
+    "prompt": "Work Order WO-5498\nDate: 2026/03/06\nStatus: cancelled\nLine items:\n- Blower motor x7 @ 19800c\n- Capacitor x7 @ 5100c\nPrevious balance: 94300c (already invoiced separately; do not include in the total)\nInvoice settled."
+  },
+  {
+    "dateFormat": "long-month",
+    "expected": {
+      "date": "2026-12-12",
+      "id": "WO-5252",
+      "items": [
+        {
+          "name": "Air filter",
+          "qty": 3,
+          "unit_cents": 12800
+        },
+        {
+          "name": "Blower motor",
+          "qty": 8,
+          "unit_cents": 18600
+        },
+        {
+          "name": "Capacitor",
+          "qty": 7,
+          "unit_cents": 13300
+        }
+      ],
+      "paid": false,
+      "status": "in-progress",
+      "total_cents": 280300
+    },
+    "index": 28,
+    "prompt": "Work Order WO-5252\nDate: December 12, 2026\nStatus: in-progress\nLine items:\n- Air filter x3 @ 12800c\n- Blower motor x8 @ 18600c\n- Capacitor x7 @ 13300c\nPrevious balance: 22900c (already invoiced separately; do not include in the total)\nAwaiting payment."
+  },
+  {
+    "dateFormat": "long-month",
+    "expected": {
+      "date": "2024-12-03",
+      "id": "WO-6181",
+      "items": [
+        {
+          "name": "Service call",
+          "qty": 5,
+          "unit_cents": 6500
+        },
+        {
+          "name": "Air filter",
+          "qty": 6,
+          "unit_cents": 600
+        }
+      ],
+      "paid": true,
+      "status": "in-progress",
+      "total_cents": 36100
+    },
+    "index": 29,
+    "prompt": "Work Order WO-6181\nDate: December 3, 2024\nStatus: in-progress\nLine items:\n- Service call x5 @ 6500c\n- Air filter x6 @ 600c\nPrevious balance: 800c (already invoiced separately; do not include in the total)\nBalance paid."
+  },
+  {
+    "dateFormat": "long-month",
+    "expected": {
+      "date": "2026-07-21",
+      "id": "WO-5750",
+      "items": [
+        {
+          "name": "Thermostat",
+          "qty": 8,
+          "unit_cents": 100
+        },
+        {
+          "name": "Compressor unit",
+          "qty": 9,
+          "unit_cents": 12400
+        }
+      ],
+      "paid": true,
+      "status": "cancelled",
+      "total_cents": 112400
+    },
+    "index": 30,
+    "prompt": "Work Order WO-5750\nDate: July 21, 2026\nStatus: cancelled\nLine items:\n- Thermostat x8 @ 100c\n- Compressor unit x9 @ 12400c\nPrevious balance: 75400c (already invoiced separately; do not include in the total)\nInvoice settled."
+  },
+  {
+    "dateFormat": "iso",
+    "expected": {
+      "date": "2024-05-16",
+      "id": "WO-6717",
+      "items": [
+        {
+          "name": "Thermostat",
+          "qty": 6,
+          "unit_cents": 18700
+        },
+        {
+          "name": "Service call",
+          "qty": 3,
+          "unit_cents": 6000
+        }
+      ],
+      "paid": true,
+      "status": "open",
+      "total_cents": 130200
+    },
+    "index": 31,
+    "prompt": "Work Order WO-6717\nDate: 2024-05-16\nStatus: open\nLine items:\n- Thermostat x6 @ 18700c\n- Service call x3 @ 6000c\nPrevious balance: 72800c (already invoiced separately; do not include in the total)\nPayment received in full."
+  },
+  {
+    "dateFormat": "day-month-year",
+    "expected": {
+      "date": "2026-11-12",
+      "id": "WO-9670",
+      "items": [
+        {
+          "name": "Service call",
+          "qty": 4,
+          "unit_cents": 500
+        },
+        {
+          "name": "Refrigerant charge",
+          "qty": 7,
+          "unit_cents": 7300
+        },
+        {
+          "name": "Duct sealing",
+          "qty": 5,
+          "unit_cents": 12300
+        }
+      ],
+      "paid": false,
+      "status": "complete",
+      "total_cents": 114600
+    },
+    "index": 32,
+    "prompt": "Work Order WO-9670\nDate: 12 Nov 2026\nStatus: complete\nLine items:\n- Service call x4 @ 500c\n- Refrigerant charge x7 @ 7300c\n- Duct sealing x5 @ 12300c\nPrevious balance: 34200c (already invoiced separately; do not include in the total)\nUnpaid at time of service."
+  },
+  {
+    "dateFormat": "long-month",
+    "expected": {
+      "date": "2026-11-25",
+      "id": "WO-6629",
+      "items": [
+        {
+          "name": "Coil cleaning",
+          "qty": 9,
+          "unit_cents": 9700
+        },
+        {
+          "name": "Compressor unit",
+          "qty": 2,
+          "unit_cents": 9500
+        },
+        {
+          "name": "Capacitor",
+          "qty": 8,
+          "unit_cents": 14700
+        },
+        {
+          "name": "Thermostat",
+          "qty": 5,
+          "unit_cents": 12000
+        }
+      ],
+      "paid": true,
+      "status": "closed",
+      "total_cents": 283900
+    },
+    "index": 33,
+    "prompt": "Work Order WO-6629\nDate: November 25, 2026\nStatus: closed\nLine items:\n- Coil cleaning x9 @ 9700c\n- Compressor unit x2 @ 9500c\n- Capacitor x8 @ 14700c\n- Thermostat x5 @ 12000c\nPrevious balance: 32000c (already invoiced separately; do not include in the total)\nPaid in full."
+  },
+  {
+    "dateFormat": "long-month",
+    "expected": {
+      "date": "2026-08-18",
+      "id": "WO-5920",
+      "items": [
+        {
+          "name": "Coil cleaning",
+          "qty": 2,
+          "unit_cents": 11000
+        },
+        {
+          "name": "Compressor unit",
+          "qty": 3,
+          "unit_cents": 15300
+        }
+      ],
+      "paid": false,
+      "status": "complete",
+      "total_cents": 67900
+    },
+    "index": 34,
+    "prompt": "Work Order WO-5920\nDate: August 18, 2026\nStatus: complete\nLine items:\n- Coil cleaning x2 @ 11000c\n- Compressor unit x3 @ 15300c\nPrevious balance: 55600c (already invoiced separately; do not include in the total)\nBalance outstanding."
+  },
+  {
+    "dateFormat": "long-month",
+    "expected": {
+      "date": "2026-11-06",
+      "id": "WO-3116",
+      "items": [
+        {
+          "name": "Service call",
+          "qty": 7,
+          "unit_cents": 5300
+        },
+        {
+          "name": "Refrigerant charge",
+          "qty": 7,
+          "unit_cents": 7400
+        }
+      ],
+      "paid": true,
+      "status": "pending",
+      "total_cents": 88900
+    },
+    "index": 35,
+    "prompt": "Work Order WO-3116\nDate: November 6, 2026\nStatus: pending\nLine items:\n- Service call x7 @ 5300c\n- Refrigerant charge x7 @ 7400c\nPrevious balance: 28000c (already invoiced separately; do not include in the total)\nBalance paid."
+  },
+  {
+    "dateFormat": "long-month",
+    "expected": {
+      "date": "2024-10-14",
+      "id": "WO-6998",
+      "items": [
+        {
+          "name": "Service call",
+          "qty": 7,
+          "unit_cents": 10700
+        },
+        {
+          "name": "Labor",
+          "qty": 7,
+          "unit_cents": 16100
+        },
+        {
+          "name": "Capacitor",
+          "qty": 1,
+          "unit_cents": 4700
+        }
+      ],
+      "paid": true,
+      "status": "cancelled",
+      "total_cents": 192300
+    },
+    "index": 36,
+    "prompt": "Work Order WO-6998\nDate: October 14, 2024\nStatus: cancelled\nLine items:\n- Service call x7 @ 10700c\n- Labor x7 @ 16100c\n- Capacitor x1 @ 4700c\nPrevious balance: 86500c (already invoiced separately; do not include in the total)\nBalance paid."
+  },
+  {
+    "dateFormat": "long-month",
+    "expected": {
+      "date": "2024-09-02",
+      "id": "WO-4886",
+      "items": [
+        {
+          "name": "Service call",
+          "qty": 1,
+          "unit_cents": 12600
+        },
+        {
+          "name": "Blower motor",
+          "qty": 1,
+          "unit_cents": 7200
+        }
+      ],
+      "paid": true,
+      "status": "closed",
+      "total_cents": 19800
+    },
+    "index": 37,
+    "prompt": "Work Order WO-4886\nDate: September 2, 2024\nStatus: closed\nLine items:\n- Service call x1 @ 12600c\n- Blower motor x1 @ 7200c\nPrevious balance: 13800c (already invoiced separately; do not include in the total)\nPayment received in full."
+  },
+  {
+    "dateFormat": "day-month-year",
+    "expected": {
+      "date": "2026-01-20",
+      "id": "WO-4355",
+      "items": [
+        {
+          "name": "Capacitor",
+          "qty": 8,
+          "unit_cents": 4700
+        },
+        {
+          "name": "Thermostat",
+          "qty": 8,
+          "unit_cents": 2300
+        },
+        {
+          "name": "Coil cleaning",
+          "qty": 9,
+          "unit_cents": 10500
+        },
+        {
+          "name": "Coil cleaning",
+          "qty": 4,
+          "unit_cents": 7800
+        }
+      ],
+      "paid": true,
+      "status": "in-progress",
+      "total_cents": 181700
+    },
+    "index": 38,
+    "prompt": "Work Order WO-4355\nDate: 20 Jan 2026\nStatus: in-progress\nLine items:\n- Capacitor x8 @ 4700c\n- Thermostat x8 @ 2300c\n- Coil cleaning x9 @ 10500c\n- Coil cleaning x4 @ 7800c\nPrevious balance: 63100c (already invoiced separately; do not include in the total)\nPayment received in full."
+  },
+  {
+    "dateFormat": "slash-ymd",
+    "expected": {
+      "date": "2025-03-15",
+      "id": "WO-6387",
+      "items": [
+        {
+          "name": "Compressor unit",
+          "qty": 4,
+          "unit_cents": 5400
+        },
+        {
+          "name": "Labor",
+          "qty": 9,
+          "unit_cents": 11100
+        },
+        {
+          "name": "Coil cleaning",
+          "qty": 7,
+          "unit_cents": 15900
+        }
+      ],
+      "paid": false,
+      "status": "cancelled",
+      "total_cents": 232800
+    },
+    "index": 39,
+    "prompt": "Work Order WO-6387\nDate: 2025/03/15\nStatus: cancelled\nLine items:\n- Compressor unit x4 @ 5400c\n- Labor x9 @ 11100c\n- Coil cleaning x7 @ 15900c\nPrevious balance: 15000c (already invoiced separately; do not include in the total)\nPayment not yet received."
+  }
+]

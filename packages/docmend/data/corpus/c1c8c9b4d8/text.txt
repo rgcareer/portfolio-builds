@@ -1,0 +1,101 @@
+RG 0
+
+Skip to content RG Ryan Garver
+- Work
+
+- About
+
+- Résumé
+
+- Contact
+
+⌘K
+
+Back to work Design + build · 2026 · public · MIT · 30 tests
+
+# evalcard
+
+A no-code eval harness: write test cases in plain English, get a report card and a ship / fix-first / do-not-ship brief.
+npmSource
+
+Role
+Design + build
+
+Status
+public · MIT · 30 tests
+
+Stack
+TypeScript · Node · Claude API (Anthropic SDK) · Vitest · Built with Claude Code
+
+30 / 30 Tests passing
+capped at 0.80 Judge honesty
+report card + brief Output
+
+The report card an operator reads. Every judge score is labelled [SIMULATED] and capped, because a same-model judge is not an independent reviewer.
+Most people who deploy an AI assistant cannot evaluate one. The tooling assumes you write Python and think in metrics, so the person who actually owns the support bot has no way to check it. I built evalcard to close that gap: you describe what a good answer looks like in plain English, and it turns that into pass or fail checks, a judged rubric, and a report card an exec can read in thirty seconds.
+
+## The problem: owning an AI you cannot measure
+
+Operators inherit production AI without inheriting a way to test it. Eval frameworks want code and metrics literacy. So the support-bot owner ships changes on vibes and hopes. The goal here was a harness the operator could run themselves, that stays honest about what it does and does not know.
+
+## The approach: two graders, one honest number
+
+A test case is one row of a CSV or YAML file: the input, a plain-language description of a good answer, phrases the answer must or must not contain, and yes or no rubric questions. Every case is then graded twice. Deterministic checks handle the objective parts (`must_include`, `must_not_include`, an optional regex). An LLM judge grades the plain-language rubric and returns a reason for each verdict. The two blend into a single confidence score, and a bundled contractor-FAQ example runs in mock mode so you can try it before touching an API key.
+
+## The honesty feature, and why it is not optional
+
+The judge runs the same model family as the assistant it grades, so it is not an independent reviewer, and the tool refuses to pretend otherwise. Every judge result is labelled `[SIMULATED]`, and per-case confidence is capped at 0.80, because a same-model judge cannot earn full trust. The report always says a human owns the final ship decision.
+
+## The moment that proved the cap right
+
+Before shipping, a fresh-context reviewer flagged a real-looking bug: the model id `claude-sonnet-5` was "invalid." Instead of taking the finding on faith, I checked it against the primary source, the current Anthropic SDK and model catalog. The id was valid; the reviewer had inferred it from a stale SDK type stub. A confident, plausible review was simply wrong, and only a check against ground truth settled it. That is the entire argument for capping simulated confidence at 0.80 rather than trusting a same-model verdict, playing out on the tool's own build.
+
+## Modernizing the stack without changing behavior
+
+The review left one real fix and a maintenance debt. I bumped the Anthropic SDK from 0.30 to 0.110 and vitest from 2 to 4, which cleared all five npm-audit vulnerabilities to zero, and added the `@types/node` the newer SDK no longer pulls in. The discipline was proving the upgrade changed nothing: the eval output stayed byte-identical to the pre-bump run, so the dependency jump was safe, not a silent behavior change. The one confirmed spec gap from the review, a missing `.env.example`, was added.
+
+## How I verified it
+
+- Tests: `tsc` clean and 30 of 30 passing in mock mode, no live key spent.
+
+- Sample run: the bundled contractor-bot eval scores 93% (14 of 15 cases), with the report card, HTML, and exec brief all generated.
+
+- Review: fresh-context pass, both findings dispositioned (one refuted against the source, one fixed).
+
+## Why I point to this one
+
+Enablement lives or dies on whether people trust the tool. A harness that scored everything a perfect pass would be worthless, so this one is built to show its own limits, and its build proved why those limits matter. Labelled confidence, a capped judge, a human on the decision, and a dependency upgrade proven inert: that is the posture I bring to every AI rollout, made into running code.
+
+Next project Should I Automate This? Get in touch
+
+RG Ryan Garver
+AI Enablement & Adoption
+
+Email LinkedIn GitHub Notes Résumé Consulting
+© 2026 · Boise, ID · Remote · Set in Anybody, Bricolage Grotesque & Martian Mono
+
+esc
+
+- 01 Home
+
+- 02 Work
+
+- 03 Notes
+
+- 04 About
+
+- 05 Résumé
+
+- 06 Contact
+
+- 07 Consulting
+
+- 08 Email me external
+
+- 09 LinkedIn external
+
+- 10 GitHub external
+
+- No matches.
+
+↑↓ navigate open

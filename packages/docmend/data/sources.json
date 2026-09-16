@@ -1,0 +1,242 @@
+{
+  "ownRepos": {
+    "evalcard": {
+      "packageJson": {
+        "engines": {
+          "node": ">=20"
+        },
+        "scripts": {
+          "build": "tsc -p tsconfig.json",
+          "cli": "tsx src/cli.ts",
+          "prepublishOnly": "npm run build",
+          "test": "vitest run",
+          "test:watch": "vitest"
+        }
+      },
+      "provenance": {
+        "commit": "a80994ab5ad147fd8b72ade4d6eb80b8a9be6ff2",
+        "porcelainCount": 0,
+        "remoteUrl": "https://github.com/rgcareer/evalcard.git"
+      },
+      "tree": [
+        ".gitignore",
+        "README.md",
+        "docs/evidence/generated-files.txt",
+        "docs/evidence/npm-test-output.txt",
+        "docs/evidence/report-card-screenshot.png",
+        "docs/evidence/sample-run-output.txt",
+        "evalcard-out/evals-brief.md",
+        "evalcard-out/report.html",
+        "examples/support-bot/cases.csv",
+        "examples/support-bot/fixtures.json",
+        "examples/support-bot/report/evals-brief.md",
+        "examples/support-bot/report/report.html",
+        "examples/support-bot/runs.json",
+        "examples/support-bot/system.txt",
+        "package-lock.json",
+        "package.json",
+        "runs.json",
+        "src/cli.ts",
+        "src/lib/brief.ts",
+        "src/lib/client.ts",
+        "src/lib/grade.ts",
+        "src/lib/judge.ts",
+        "src/lib/mockJudge.ts",
+        "src/lib/parse.ts",
+        "src/lib/report.ts",
+        "src/lib/runner.ts",
+        "src/lib/store.ts",
+        "src/lib/terminal.ts",
+        "src/lib/types.ts",
+        "src/lib/verdict.ts",
+        "test/grade.test.ts",
+        "test/parse.test.ts",
+        "test/runner.test.ts",
+        "tsconfig.json"
+      ]
+    },
+    "prompt-field-kit": {
+      "packageJson": {
+        "engines": {
+          "node": ">=22.12.0"
+        },
+        "scripts": {
+          "astro": "astro",
+          "build": "astro build",
+          "check": "node scripts/check-cards.mjs",
+          "dev": "astro dev",
+          "prebuild": "node scripts/check-cards.mjs",
+          "preview": "astro preview"
+        }
+      },
+      "provenance": {
+        "commit": "c948894003f745a3d53f93786d334c60051c6ce2",
+        "porcelainCount": 0,
+        "remoteUrl": "https://github.com/rgcareer/cs-prompt-field-kit.git"
+      },
+      "tree": [
+        ".astro/collections/cards.schema.json",
+        ".astro/content-assets.mjs",
+        ".astro/content-modules.mjs",
+        ".astro/content.d.ts",
+        ".astro/types.d.ts",
+        ".gitignore",
+        ".vscode/extensions.json",
+        ".vscode/launch.json",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "README.md",
+        "astro.config.mjs",
+        "docs/evidence/README.md",
+        "docs/evidence/sc-01-index-desktop.png",
+        "docs/evidence/sc-02-card-saveplay-desktop.png",
+        "docs/evidence/sc-03-rollout-desktop.png",
+        "docs/evidence/sc-04-index-mobile.png",
+        "docs/evidence/sc-05-card-postmortem-mobile.png",
+        "docs/evidence/sc-06-rollout-mobile.png",
+        "package-lock.json",
+        "package.json",
+        "public/favicon.ico",
+        "public/favicon.svg",
+        "public/fonts/archivo-latin-400-normal.woff2",
+        "public/fonts/archivo-latin-500-normal.woff2",
+        "public/fonts/archivo-latin-600-normal.woff2",
+        "public/fonts/archivo-latin-700-normal.woff2",
+        "public/fonts/jetbrains-mono-latin-400-normal.woff2",
+        "public/fonts/jetbrains-mono-latin-500-normal.woff2",
+        "public/fonts/jetbrains-mono-latin-700-normal.woff2",
+        "scripts/check-cards.mjs",
+        "src/content.config.ts",
+        "src/content/cards/adoption-nudge-email.md",
+        "src/content/cards/at-risk-save-play.md",
+        "src/content/cards/churn-postmortem.md",
+        "src/content/cards/churn-signal-triage.md",
+        "src/content/cards/escalation-response.md",
+        "src/content/cards/exec-value-summary.md",
+        "src/content/cards/expansion-signal-spotting.md",
+        "src/content/cards/handoff-notes.md",
+        "src/content/cards/health-check-summary.md",
+        "src/content/cards/kickoff-call-agenda.md",
+        "src/content/cards/meeting-to-action-items.md",
+        "src/content/cards/mutual-success-plan.md",
+        "src/content/cards/onboarding-kickoff-sequence.md",
+        "src/content/cards/qbr-prep-pack.md",
+        "src/content/cards/reference-request.md",
+        "src/content/cards/renewal-proposal-framing.md",
+        "src/content/cards/renewal-risk-brief.md",
+        "src/content/cards/voice-of-customer-rollup.md",
+        "src/layouts/Layout.astro",
+        "src/lib/taxonomy.ts",
+        "src/pages/cards/[slug].astro",
+        "src/pages/index.astro",
+        "src/pages/rollout.astro",
+        "src/styles/global.css",
+        "tsconfig.json"
+      ]
+    },
+    "sop-mcp": {
+      "packageJson": {
+        "engines": {
+          "node": ">=20"
+        },
+        "scripts": {
+          "build": "tsc -p tsconfig.json",
+          "dev": "tsx src/index.ts",
+          "session": "tsx scripts/stdio-session.ts",
+          "start": "node dist/index.js",
+          "test": "vitest run",
+          "test:watch": "vitest"
+        }
+      },
+      "provenance": {
+        "commit": "177f2d66f41494e4987ebd4134007687df332f33",
+        "porcelainCount": 0,
+        "remoteUrl": "https://github.com/rgcareer/sop-mcp.git"
+      },
+      "tree": [
+        ".gitignore",
+        "README.md",
+        "docs/build-report.md",
+        "docs/evidence/stdio-session-transcript.md",
+        "docs/evidence/test-output.txt",
+        "handbook/after-hours-emergency-protocol.md",
+        "handbook/customer-complaint-handling.md",
+        "handbook/invoicing-and-payment-faq.md",
+        "handbook/membership-plan-faq.md",
+        "handbook/new-technician-onboarding.md",
+        "handbook/parts-and-inventory-sop.md",
+        "handbook/refund-and-warranty-policy.md",
+        "handbook/safety-and-ppe-sop.md",
+        "handbook/scheduling-and-dispatch-sop.md",
+        "package-lock.json",
+        "package.json",
+        "scripts/stdio-session.ts",
+        "src/constants.ts",
+        "src/format.ts",
+        "src/handbook.ts",
+        "src/index.ts",
+        "src/schemas.ts",
+        "src/search.ts",
+        "src/types.ts",
+        "test/documents.test.ts",
+        "test/handbook.test.ts",
+        "test/search.test.ts",
+        "tsconfig.json"
+      ]
+    },
+    "trust-tool": {
+      "packageJson": {
+        "scripts": {
+          "build": "tsc -b && vite build",
+          "dev": "vite",
+          "preview": "vite preview",
+          "test": "vitest run"
+        }
+      },
+      "provenance": {
+        "commit": "719e07b4fb7e2b883bc7166b9c1d3400b6e284bc",
+        "porcelainCount": 0,
+        "remoteUrl": "https://github.com/rgcareer/should-i-automate-this.git"
+      },
+      "tree": [
+        ".gitignore",
+        "README.md",
+        "docs/evidence/README.md",
+        "docs/evidence/desktop-01-landing.png",
+        "docs/evidence/desktop-02-question.png",
+        "docs/evidence/desktop-03-verdict-high-stakes.png",
+        "docs/evidence/desktop-04-verdict-trivial.png",
+        "docs/evidence/mobile-01-landing.png",
+        "docs/evidence/mobile-02-question.png",
+        "docs/evidence/mobile-03-verdict-high-stakes.png",
+        "index.html",
+        "package-lock.json",
+        "package.json",
+        "src/App.tsx",
+        "src/components/Landing.tsx",
+        "src/components/ProgressRail.tsx",
+        "src/components/QuestionView.tsx",
+        "src/components/Scorecard.tsx",
+        "src/components/Verdict.tsx",
+        "src/components/useCountUp.ts",
+        "src/main.tsx",
+        "src/router/questions.ts",
+        "src/router/router.calibration.test.ts",
+        "src/router/router.rules.test.ts",
+        "src/router/router.ts",
+        "src/router/share.test.ts",
+        "src/router/share.ts",
+        "src/router/verdict.ts",
+        "src/styles/app.css",
+        "src/styles/global.css",
+        "src/vite-env.d.ts",
+        "tsconfig.app.json",
+        "tsconfig.app.tsbuildinfo",
+        "tsconfig.json",
+        "tsconfig.node.json",
+        "tsconfig.node.tsbuildinfo",
+        "vite.config.ts"
+      ]
+    }
+  }
+}

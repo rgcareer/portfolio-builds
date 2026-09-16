@@ -1,0 +1,102 @@
+RG 0
+
+Skip to content RG Ryan Garver
+- Work
+
+- About
+
+- Résumé
+
+- Contact
+
+⌘K
+
+Back to work Design + build · 2026 · public · 28 tests
+
+# Should I Automate This?
+
+A decision tool that tells you whether to hand a task to AI, and hands you a stop-test instead of hype.
+Live demoSource
+
+Role
+Design + build
+
+Status
+public · 28 tests
+
+Stack
+TypeScript · Vite · Calibrated router · Built with Claude Code
+
+28 / 28 Tests passing
+10 / 10 Calibration goldens
+tiered verdict Output
+
+Answer a few questions, get a tier and a stop-test. It will talk you out of automating the wrong thing, which is the honest half of enablement.
+The fastest way to burn trust in an AI rollout is to automate the wrong task and let it fail loudly. So I built the opposite of a hype machine: a short decision tool that asks a handful of honest questions and tells you whether a task is a good fit for AI right now, or whether you should keep a human on it, and hands you a stop-test either way.
+
+## The problem: no instrument for "how much should I trust this?"
+
+Teams decide what to automate on gut feel, usually at the worst moment, mid-project, under pressure. There is good thinking on how to route work between a human and a model, but no fast, user-facing version of it. The goal was to put that decision in front of the person making it, at the point of use, with the reasoning visible.
+
+## The approach: a router ported from a calibrated methodology
+
+Under the hood it is a faithful browser port of a task router I had already calibrated: six dimensions (complexity, stakes, external facts, artifact, recurrence, ambiguity), each scored 0 to 3, routing to a tier or to "decompose" past a threshold. The port is pinned to the methodology's ten golden routings, encoded as tests, so the tool cannot silently drift from the source it claims to implement. State lives in the URL, so a verdict is shareable without an account or a backend.
+
+## The bug my tests could not see
+
+The router tests were green, 25 of 25, but the evidence checklist has a task the tests do not: actually share a result and load it back. Doing that by hand, the shared link came back empty. The encoder wrote one value per question (eight of them, including an advisory prompt); the decoder had a hard-coded pattern that accepted seven. A shared URL never restored. No router test could have caught it, because it was not a routing bug; it was a round-trip the suite never exercised. I keyed the decoder to the question count so encode and decode stay in lockstep, and added the round-trip test that should have existed. It is a small bug with a big lesson: green tests are not the same as a working feature, and the checklist is what catches the difference.
+
+## Measuring before fixing the mobile defect
+
+The Tier-2 verdict includes a copyable stop-test template that "overflowed" on a phone. The obvious fix, loosening a flex ancestor, was a guess, so I measured first. The page did not overflow; the template body was scrolling sideways internally (629 pixels of content in a 338 pixel column), hiding half of it behind a drag. The blind fix would have missed it. The real fix wrapped the template inside the existing mobile breakpoint, so it reads top to bottom, while the copy button still yields the pristine, column-aligned original.
+
+## Route-down is as important as route-up
+
+A trust tool that only ever says "automate it" is a sales pitch. This one routes both ways, and shows it: the same instrument that gates a high-stakes task with a human in the loop sends a trivial one straight through.
+Same six-dimension instrument, a low-stakes task: Tier 0, just let it run. Restored from a shared URL, so the reasoning travels with the verdict.
+
+## How I verified it
+
+- Tests: 28 of 28 passing (the ten calibration goldens, plus the new round-trip and malformed-token tests).
+
+- Round-trip: both worked presets, high-stakes and trivial, restore their full scorecard from a shared URL alone.
+
+- Responsive: no overflow at 375px, motion renders correctly, zero console errors.
+
+## Why I point to this one
+
+Good enablement is as much about what you talk people out of as what you sell them on. This tool is the honest half of the job in a single page: it will tell a stakeholder "not yet," show the reasoning behind it, and give them the test that would change the answer. And its own build is a small proof that I trust checklists over green tests.
+
+Next project CS Prompt Field Kit Get in touch
+
+RG Ryan Garver
+AI Enablement & Adoption
+
+Email LinkedIn GitHub Notes Résumé Consulting
+© 2026 · Boise, ID · Remote · Set in Anybody, Bricolage Grotesque & Martian Mono
+
+esc
+
+- 01 Home
+
+- 02 Work
+
+- 03 Notes
+
+- 04 About
+
+- 05 Résumé
+
+- 06 Contact
+
+- 07 Consulting
+
+- 08 Email me external
+
+- 09 LinkedIn external
+
+- 10 GitHub external
+
+- No matches.
+
+↑↓ navigate open

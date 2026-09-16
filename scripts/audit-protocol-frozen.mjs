@@ -28,7 +28,7 @@ const PROTO = resolve(PKG, 'protocol');
 const STATE = resolve(PKG, 'data', 'run-state.json');
 const relProto = `packages/${pkg}/protocol`;
 
-const TS_FIELDS = ['seededAt', 'ranAt', 'ingestedAt', 'embeddedAt', 'snapshottedAt', 'extractedAt', 'generatedAt', 'fetchedAt', 'frozenAt'];
+const TS_FIELDS = ['seededAt', 'ranAt', 'ingestedAt', 'embeddedAt', 'snapshottedAt', 'extractedAt', 'generatedAt', 'fetchedAt', 'frozenAt', 'lastScanAt', 'analyzedAt'];
 
 function git(args, opts = {}) {
   return execFileSync('git', args, { cwd: ROOT, encoding: 'utf8', ...opts });
