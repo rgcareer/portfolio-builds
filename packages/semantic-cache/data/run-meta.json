@@ -1,0 +1,28 @@
+{
+  "costUsd": 0,
+  "fpHi": "12.6",
+  "fpLo": "3.4",
+  "fpPct": "6.7",
+  "generatedAt": "2026-09-16T02:20:44.489Z",
+  "headline": "On 280 hand-written queries (40 intents, each with 3 paraphrases and 3 near-miss negatives), the local MiniLM cache at its shipped threshold 0.90 served 74 of 120 paraphrases from cache (61.7%, 95% Wilson CI 52.7-69.9%) and wrongly served 8 of 120 near-misses (6.7%, CI 3.4-12.6%); embeddings cost $0.",
+  "hitHi": "69.9",
+  "hitLo": "52.7",
+  "hitPct": "61.7",
+  "kFp": 8,
+  "kHit": 74,
+  "kNeg": 3,
+  "kPara": 3,
+  "nBase": 40,
+  "nItems": 280,
+  "nNeg": 120,
+  "nPara": 120,
+  "notMeasured": [
+    "multi-turn conversations (each lookup is scored independently of prior turns)",
+    "cross-tenant leakage under adversarial attack (namespace isolation is structural, not adversarially tested)",
+    "embedding drift across model versions or dtypes other than fp32",
+    "production traffic distribution (the curve is measured on a hand-written paraphrase set, not live traffic)",
+    "latency of the embedding or lookup path"
+  ],
+  "protocolHash": "2f6fbd64a4f68062a67a1fd528060333bd155478b2eb7568148b49bf8af0b379",
+  "shippedTau": 0.9
+}
