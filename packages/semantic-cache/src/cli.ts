@@ -99,7 +99,9 @@ export async function cmdModelFetchCmd(args: ModelFetchArgs): Promise<CmdResult>
     const runStatePath = args.runStateOut ?? resolve(DATA_DIR, 'run-state.json');
     writeFileSync(
       runStatePath,
-      stableStringify({ modelId: protocol.cacheRules.embedding.model, cacheDir, fingerprint, protocolHash: protocol.hash, fetchedAt: new Date().toISOString() }),
+      // NOTE: the absolute `cacheDir` is intentionally NOT written to committed run-state — it
+      // would leak the machine home path / username. modelId + fingerprint.files are the provenance.
+      stableStringify({ modelId: protocol.cacheRules.embedding.model, fingerprint, protocolHash: protocol.hash, fetchedAt: new Date().toISOString() }),
     );
     return { code: 0, json: { modelId: protocol.cacheRules.embedding.model, files: Object.keys(fingerprint.files).length } };
   } catch (err) {

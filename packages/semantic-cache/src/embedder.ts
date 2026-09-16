@@ -64,8 +64,9 @@ export interface EmbedderOptions {
 
 export interface EmbedderFingerprint {
   modelId: string;
-  cacheDir: string;
-  /** relative path -> sha256 hex, one entry per cached model file. */
+  /** relative path -> sha256 hex, one entry per cached model file. The model id and these
+   * per-file hashes are the full provenance; the absolute cache directory is deliberately
+   * NOT recorded (it would leak the machine's home path / username into committed data). */
   files: Record<string, string>;
 }
 
@@ -127,6 +128,6 @@ export class Embedder implements EmbedderLike {
       }
     };
     if (statSync(root, { throwIfNoEntry: false })) walk(root);
-    return { modelId: this.modelId, cacheDir: this.cacheDir, files };
+    return { modelId: this.modelId, files };
   }
 }

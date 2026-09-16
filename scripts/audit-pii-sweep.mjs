@@ -31,9 +31,16 @@ const PERSONAL = [
   ['phone', /(?:\+?1[\s.-]?)?\(?\b\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}\b/g],
   ['linkedin', /linkedin\.com\/in\/[A-Za-z0-9_-]+/gi],
 ];
+// Absolute home paths expose the machine username. Checked in GENERATED data only — never in
+// fixtures/, which legitimately carry SYNTHETIC test paths (e.g. the forensics redaction canary
+// "/Users/x/secret"). Generated committed data must be path-free.
+const HOMEPATH = [
+  ['home-path', /\/(?:Users|home)\/[A-Za-z0-9._-]+\//g],
+  ['win-home-path', /[A-Za-z]:\\Users\\[A-Za-z0-9._-]+/gi],
+];
 // Only files git actually tracks matter for "nothing committed leaks"; but sweeping the
 // working tree of data/ and fixtures/ is stricter and catches a leak before it is committed.
-const DIRS = ['data', 'fixtures'].map((d) => resolve(PKG, d)).filter(existsSync);
+const DIRS = ['data', 'fixtures', 'golden'].map((d) => resolve(PKG, d)).filter(existsSync);
 
 function walk(dir, out = []) {
   for (const name of readdirSync(dir)) {
@@ -59,8 +66,9 @@ for (const f of files) {
   if (!/\.(json|jsonl|md|markdown|txt|html?|csv|tsv|diff|patch)$/i.test(rel) && !/(^|\/)raw\.[a-z]+$/i.test(rel)) continue;
   swept++;
   const isPublicCorpusPage = /\/corpus\/[^/]+\/(?:raw\.(?:html?|md)|text\.txt)$/.test(rel);
+  const isGeneratedData = /(^|\/)data\//.test(rel) && !isPublicCorpusPage;
   const text = readFileSync(f, 'utf8');
-  const rules = isPublicCorpusPage ? SECRETS : [...SECRETS, ...PERSONAL];
+  const rules = isPublicCorpusPage ? SECRETS : isGeneratedData ? [...SECRETS, ...PERSONAL, ...HOMEPATH] : [...SECRETS, ...PERSONAL];
   for (const [kind, re] of rules) {
     re.lastIndex = 0;
     const m = re.exec(text);
