@@ -1,0 +1,164 @@
+{
+  "version": 1,
+  "frozen_on": "2026-09-15",
+  "checks": [
+    {
+      "id": "D-link",
+      "category": "broken-link",
+      "description": "An absolute http(s) link resolves (after its redirect chain) to 2xx or 3xx. 404, 410, 403, timeout, and network failures are flagged; a 403 counts as broken (never distinguished from a real dead link).",
+      "counted": true,
+      "reverify_methods": []
+    },
+    {
+      "id": "D-redirect",
+      "category": "redirected-link",
+      "description": "A link's redirect chain contains a permanent redirect (301 or 308). Counted as drift. A temporary redirect (302 or 307) is recorded as informational only and never counted.",
+      "counted": true,
+      "informational_status_re": "^(302|307)$",
+      "permanent_status_re": "^(301|308)$",
+      "reverify_methods": ["http-get-final"]
+    },
+    {
+      "id": "D-pkg-exists",
+      "category": "broken-link",
+      "description": "Every npm/pypi package named in an install command exists in its registry.",
+      "counted": true,
+      "reverify_methods": ["registry-version-exists"]
+    },
+    {
+      "id": "D-pin",
+      "category": "version-drift",
+      "description": "A version pinned in an install command lags the registry's real latest (same-major = stale-pin, major-behind = version-drift), or the registry's latest is itself marked deprecated (npm) or yanked (PyPI).",
+      "counted": true,
+      "reverify_methods": ["registry-version-exists"]
+    },
+    {
+      "id": "D-code-parse",
+      "category": "unparseable-snippet",
+      "description": "Fenced code blocks (json, bash/sh/zsh/shell via `bash -n`, js/ts via the TypeScript compiler when installed, python via python3 ast.parse) parse. Blocks with an ellipsis marker are skipped as intentional fragments; console/text fences are ignored; a missing optional parser (e.g. no `typescript` peer) never produces a finding.",
+      "counted": true,
+      "languages": { "json": ["json"], "shell": ["bash", "sh", "zsh", "shell"], "js": ["js", "javascript", "mjs", "cjs", "jsx"], "ts": ["ts", "typescript", "tsx"], "python": ["python", "py", "python3"] },
+      "reverify_methods": []
+    },
+    {
+      "id": "D-prereq",
+      "category": "missing-prerequisite",
+      "description": "An environment variable or command-line tool used inside a code block is never mentioned in prose anywhere on the page. Copied verbatim from onboarding-transfer-rate's L1-prereq-order rule.",
+      "counted": true,
+      "env_var_patterns": [
+        "\\b([A-Z][A-Z0-9_]{3,})=",
+        "process\\.env\\.([A-Z][A-Z0-9_]{3,})",
+        "os\\.environ(?:\\.get)?\\(?\\[?[\"']([A-Z][A-Z0-9_]{3,})[\"']",
+        "\\$\\{?([A-Z][A-Z0-9_]{3,})\\}?"
+      ],
+      "tools": ["docker", "node", "npm", "npx", "pnpm", "yarn", "bun", "python", "python3", "pip", "pip3", "uv", "poetry", "conda", "git", "cargo", "go", "make", "curl", "brew", "ollama"],
+      "reverify_methods": ["recheck-patched-text"]
+    },
+    {
+      "id": "D-rel-path",
+      "category": "broken-relative-path",
+      "description": "A relative path (in prose or code) that resolves within the repo tree points at a file that does not exist there. Own repos only — no repo tree exists for site or external pages.",
+      "counted": true,
+      "scope": "own-repo",
+      "reverify_methods": ["tree-path-exists"]
+    },
+    {
+      "id": "D-script",
+      "category": "broken-script",
+      "description": "A documented `npm run <script>` names a script absent from the target repo's package.json. Own repos only.",
+      "counted": true,
+      "pattern": "\\bnpm run ([A-Za-z0-9_:.-]+)",
+      "scope": "own-repo",
+      "reverify_methods": []
+    },
+    {
+      "id": "D-engine",
+      "category": "engine-mismatch",
+      "description": "The README's stated Node.js version requirement does not match the repo's package.json engines.node. Own repos only.",
+      "counted": true,
+      "pattern": "\\bnode(?:\\.js)?\\s*(?:>=|≥|v)?\\s*(\\d+)(?:\\.\\d+)*\\b",
+      "flags": "i",
+      "scope": "own-repo",
+      "reverify_methods": []
+    },
+    {
+      "id": "D-placeholder",
+      "category": "placeholder-text",
+      "description": "Prose contains an unresolved placeholder marker. Flag only — never a proposal.",
+      "counted": true,
+      "pattern": "\\b(TODO|TBD|goes here|placeholder|coming soon|lorem ipsum)\\b",
+      "flags": "i",
+      "reverify_methods": []
+    }
+  ],
+  "drift_categories": [
+    "broken-link",
+    "redirected-link",
+    "stale-pin",
+    "version-drift",
+    "missing-prerequisite",
+    "broken-relative-path",
+    "broken-script",
+    "engine-mismatch",
+    "placeholder-text",
+    "unparseable-snippet"
+  ],
+  "fix_policy": {
+    "redirected-link": {
+      "proposal": "redirect-rewrite",
+      "safe_to_auto_apply_when": "every hop status is in {301,308}, the final status is 200, the host is unchanged or only a scheme or leading www. differs, the final path is not '/' unless the original path was also '/', and the final URL matches none of /login|signin|404|not-found/i",
+      "proposed_unsafe_when": "the final host differs from the original host (cross-host permanent redirect)",
+      "flag_only_when": "the original URL's path is '/' (a root redirect is reported, never auto-rewritten)"
+    },
+    "stale-pin": {
+      "proposal": "pin-bump",
+      "safe_to_auto_apply_when": "the registry's latest version shares the same major as the pin",
+      "proposed_unsafe_when": "never (stale-pin is same-major by definition)",
+      "flag_only_when": "the registry's latest version is itself marked deprecated (npm) or yanked (PyPI)"
+    },
+    "version-drift": {
+      "proposal": "pin-bump",
+      "safe_to_auto_apply_when": "never (version-drift is major-behind by definition)",
+      "proposed_unsafe_when": "the registry's latest major differs from the pinned major",
+      "flag_only_when": "the registry's latest version is itself marked deprecated (npm) or yanked (PyPI)"
+    },
+    "broken-relative-path": {
+      "proposal": "path-rewrite",
+      "safe_to_auto_apply_when": "exactly one file in the repo tree shares the broken path's basename",
+      "proposed_unsafe_when": "never (path-rewrite is safe or flag, no unsafe-but-proposed middle state)",
+      "flag_only_when": "zero or more than one file in the repo tree shares the basename (candidates are listed in evidence)"
+    },
+    "missing-prerequisite": {
+      "proposal": "prose-prerequisite",
+      "safe_to_auto_apply_when": "never (LLM-authored prose is always safe_to_auto_apply:false)",
+      "proposed_unsafe_when": "always, when the gateway returns content",
+      "flag_only_when": "the gateway call errors (llm.errors counted; no proposal emitted)"
+    },
+    "broken-link": { "proposal": null, "flag_only_when": "always (a dead link is never guessed at)" },
+    "broken-script": { "proposal": null, "flag_only_when": "always" },
+    "engine-mismatch": { "proposal": null, "flag_only_when": "always" },
+    "placeholder-text": { "proposal": null, "flag_only_when": "always" },
+    "unparseable-snippet": { "proposal": null, "flag_only_when": "always" }
+  },
+  "reverify_methods": {
+    "http-get-final": { "description": "A fresh GET against the proposal's `verify:` URL returns 200 with 0 redirect hops.", "applies_to": ["redirect-rewrite"] },
+    "registry-version-exists": { "description": "A fresh npm/pypi registry lookup returns 200 for the proposed version and it is not marked deprecated/yanked.", "applies_to": ["pin-bump"] },
+    "tree-path-exists": { "description": "The rewritten relative path resolves to a file that exists in the committed repo tree listing.", "applies_to": ["path-rewrite"] },
+    "recheck-patched-text": { "description": "The originating check no longer fires against the patched page text, and no new counted finding appears.", "applies_to": ["prose-prerequisite"] },
+    "patch-applies": { "description": "applyUnifiedDiff(raw) === expected for every proposal's diff; for repo-file targets, `git apply --check` also succeeds against a snapshot copy of the target file in $TMPDIR.", "applies_to": ["redirect-rewrite", "pin-bump", "path-rewrite", "prose-prerequisite"] }
+  },
+  "pass_definition": "A proposal passes re-verification when patch-applies succeeds AND its category's specific reverify method succeeds (or the category has no specific method, in which case patch-applies alone decides).",
+  "headline_template": "Across {pages} documentation pages ({own} of Ryan's own: {repos} public repos and {site_pages} getsmartai.ai page(s); {ext} external quickstarts snapshotted 2026-09-11) with {links} links, {snippets} code blocks and {pins} version pins, {drift} drift findings; {proposed} fixes proposed, {verified} ({p}%, 95% Wilson CI {lo}-{hi}%) pass independent re-verification.",
+  "sub_headline_template": "Of the {proposed} fixes proposed, {safeAuto} are safe to auto-apply without human review; {simulatedCount} finding(s) rely on an LLM judgment ({simulatedTag}, confidence capped at {cap}) and are never auto-applied.",
+  "no_proposals_text": "Not yet measured.",
+  "stats": {
+    "interval": "Wilson 95%",
+    "rule": "pct is wilson(verified, proposed); a proportion is never printed without its interval; proposed=0 means pct is null and the headline generator refuses"
+  },
+  "not_measured": [
+    "snippet execution (parsing only; nothing is run)",
+    "prose quality of any generated fix",
+    "semantic correctness of any fix (only mechanical re-verification, never meaning)",
+    "a 403 is counted as broken, never distinguished from a genuinely dead link"
+  ]
+}

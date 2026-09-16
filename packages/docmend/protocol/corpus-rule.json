@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "frozen_on": "2026-09-15",
+  "own_repos": [
+    {
+      "id": "evalcard",
+      "local": "/Users/user/Desktop/1-projects/portfolio-projects/builds/evalcard",
+      "url": "https://github.com/rgcareer/evalcard",
+      "files": "README.md + docs/**/*.md"
+    },
+    {
+      "id": "sop-mcp",
+      "local": "/Users/user/Desktop/1-projects/portfolio-projects/builds/sop-mcp",
+      "url": "https://github.com/rgcareer/sop-mcp",
+      "files": "README.md + docs/**/*.md"
+    },
+    {
+      "id": "trust-tool",
+      "local": "/Users/user/Desktop/1-projects/portfolio-projects/builds/trust-tool",
+      "url": "https://github.com/rgcareer/trust-tool",
+      "files": "README.md + docs/**/*.md"
+    },
+    {
+      "id": "prompt-field-kit",
+      "local": "/Users/user/Desktop/1-projects/portfolio-projects/builds/prompt-field-kit",
+      "url": "https://github.com/rgcareer/prompt-field-kit",
+      "files": "README.md + docs/**/*.md"
+    }
+  ],
+  "tree_exclude_re": "(^|/)(node_modules|dist|\\.git|\\.claude)(/|$)|(^|/)\\.env[^/]*$|\\.pem$",
+  "site": {
+    "id": "getsmartai",
+    "origin": "https://getsmartai.ai",
+    "depth": 1,
+    "use_sitemap": true,
+    "sitemap_path": "/sitemap.xml"
+  },
+  "external": {
+    "id": "otr-quickstarts",
+    "pointer": "../onboarding-transfer-rate/data/corpus",
+    "id_prefix": "q_",
+    "otr_protocol_hash": "3d7f68ea7fdf3c5656f640a6db6ac6bb937e16f16cf2c565898e9bcfcc016c41",
+    "otr_commit": "615cfae"
+  },
+  "link": {
+    "exclude_re": "\\.(?:png|jpe?g|gif|svg|webp|ico)(?:[?#].*)?$|shields\\.io|badge",
+    "own_max_links": null,
+    "external_max_links": 25
+  },
+  "fetch": {
+    "timeout_ms": 15000,
+    "max_bytes": 2097152,
+    "user_agent": "portfolio-builds-docmend/0.1 (research; +https://github.com/rgcareer)",
+    "concurrency": 4,
+    "per_host_gap_ms": 250,
+    "retries": 1
+  }
+}
