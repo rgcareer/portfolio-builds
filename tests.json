@@ -293,6 +293,30 @@
       "cmd": "node scripts/audit-readme-headline.mjs agent-forensics",
       "required": true,
       "added": "2026-09-15"
+    },
+    {
+      "id": "lca.repro",
+      "piece": "llm-cost-autopilot",
+      "kind": "repro",
+      "cmd": "npm --prefix packages/llm-cost-autopilot run lca -- repro",
+      "required": true,
+      "added": "2026-09-16"
+    },
+    {
+      "id": "forensics.repro",
+      "piece": "agent-forensics",
+      "kind": "repro",
+      "cmd": "npm --prefix packages/agent-forensics run agent-forensics -- repro",
+      "required": true,
+      "added": "2026-09-16"
+    },
+    {
+      "id": "regress.repro",
+      "piece": "model-regress",
+      "kind": "repro",
+      "cmd": "npm --prefix packages/model-regress run model-regress -- repro",
+      "required": true,
+      "added": "2026-09-16"
     }
   ]
 }

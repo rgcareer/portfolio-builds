@@ -81,13 +81,17 @@ if (!freeze) {
       problems.push(`git inspection of ${freeze} failed: ${e.message}`);
     }
   }
-  // Defense in depth: if the CLI recorded a protocolCommit, it must be consistent with the freeze.
+  // Defense in depth: if the CLI recorded a protocolCommit, it must be a real ancestor of HEAD.
+  // We do NOT require the protocol to be unchanged since the RECORDED commit: a legitimate
+  // pre-registration amendment (e.g. a pilot revealing an underspecified prompt, then a re-freeze)
+  // leaves the recorded commit pointing at a pre-amendment state. The authoritative guarantee is
+  // the git-DERIVED freeze commit checked above (last commit touching protocol/, unchanged since,
+  // before the run); the recorded commit is a secondary hint.
   if (state.protocolCommit && typeof state.protocolCommit === 'string') {
     try {
       git(['merge-base', '--is-ancestor', state.protocolCommit, 'HEAD'], { stdio: 'ignore' });
-      git(['diff', '--quiet', state.protocolCommit, '--', relProto], { stdio: 'ignore' });
     } catch {
-      problems.push(`recorded protocolCommit ${String(state.protocolCommit).slice(0, 10)} is not an ancestor of HEAD with unchanged protocol`);
+      problems.push(`recorded protocolCommit ${String(state.protocolCommit).slice(0, 10)} is not an ancestor of HEAD`);
     }
   }
 }
