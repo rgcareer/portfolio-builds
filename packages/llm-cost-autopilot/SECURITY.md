@@ -10,7 +10,7 @@ This package is pre-1.0. Only the latest published version is supported.
 
 ## Reporting a vulnerability
 
-Please report privately via [GitHub Security Advisories](https://github.com/rgcareer/llm-cost/security/advisories/new) rather than a public issue. Do not open a public issue for a security report.
+Please report privately via [GitHub Security Advisories](https://github.com/rgcareer/portfolio-builds/security/advisories/new) rather than a public issue. Do not open a public issue for a security report.
 
 ## Scope
 

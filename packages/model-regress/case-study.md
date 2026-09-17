@@ -1,4 +1,32 @@
-# Case study: model-regress
+---
+slug: model-regress
+title: Model Regress
+tagline: A paired golden-set regression detector that separates a real model or prompt regression from a model's own run-to-run noise.
+role: Design + build
+year: '2026'
+status: built and measured
+stack: [TypeScript, Node.js, citty, Vitest]
+metrics:
+  - label: Sonnet 5 vs Haiku 4.5 (exact-JSON pass)
+    value: 95.0% vs 20.0%
+  - label: Paired regression
+    value: 75.0 pp (95% CI 57.5 to 85.8)
+  - label: Same-model noise floor
+    value: 4/40 disagreements (upper 12.2 pp)
+  - label: Golden set size
+    value: '40'
+  - label: Cost per item (Sonnet vs Haiku)
+    value: $0.00260 vs $0.00076
+tags: [llm-eval, regression-testing, statistics]
+links:
+  repo: https://github.com/rgcareer/portfolio-builds/tree/main/packages/model-regress
+metrics_source:
+  Sonnet 5 vs Haiku 4.5 (exact-JSON pass): data/run-meta.json#conditionA.pct.p and conditionB.pct.p
+  Paired regression: data/run-meta.json#headlineValues.diff (CI at dlo/dhi)
+  Same-model noise floor: data/run-meta.json#noise.disagree (upper at noise.upperPp)
+  Golden set size: data/run-meta.json#n
+  Cost per item (Sonnet vs Haiku): data/run-meta.json#cost.perItemAUsd and perItemBUsd
+---
 
 ## The result
 

@@ -15,7 +15,7 @@ metrics:
     value: $0
 tags: [llm-infra, caching, embeddings, evaluation]
 links:
-  repo: https://github.com/rgcareer/semcache
+  repo: https://github.com/rgcareer/portfolio-builds/tree/main/packages/semantic-cache
 metrics_source:
   Hit rate at tau=0.90: data/run-meta.json#hitPct (Wilson interval at hitLo/hitHi)
   False-hit rate at tau=0.90: data/run-meta.json#fpPct (Wilson interval at fpLo/fpHi)

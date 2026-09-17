@@ -10,7 +10,7 @@ Pre-1.0: only the latest published version is supported.
 
 ## Reporting a vulnerability
 
-Please report privately through [GitHub Security Advisories](https://github.com/rgcareer/semcache/security/advisories/new)
+Please report privately through [GitHub Security Advisories](https://github.com/rgcareer/portfolio-builds/security/advisories/new)
 rather than a public issue. Include the version, a minimal reproduction, and the impact you
 expect. You should get an initial response within a few days.
 

@@ -25,7 +25,7 @@ metrics_source:
   Safe to auto-apply: proposals.safeAuto
 tags: [documentation, dev-tools, cli]
 links:
-  repo: https://github.com/rgcareer/docmend
+  repo: https://github.com/rgcareer/portfolio-builds/tree/main/packages/docmend
 flip:
   before: A README link check that flags dead links with no idea whether a fix is safe.
   after: A tool that proposes a fix only when it can also prove that fix independently.

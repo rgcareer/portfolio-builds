@@ -28,7 +28,7 @@ tags:
   - cost
   - prompt-caching
 links:
-  repo: https://github.com/rgcareer/llm-cost
+  repo: https://github.com/rgcareer/portfolio-builds/tree/main/packages/llm-cost-autopilot
 metrics_source:
   Bill cut: data/run-meta.json#pct.savedPct (session-level bootstrap interval at pct.lo/pct.hi)
   Calls cached: data/run-meta.json#pct.pRead (Wilson interval at pct.loR/pct.hiR)

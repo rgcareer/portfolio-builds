@@ -19,7 +19,7 @@ metrics:
     value: TIMEOUT (62 sessions)
 tags: [agent-tooling, observability, forensics]
 links:
-  repo: https://github.com/rgcareer/agent-forensics
+  repo: https://github.com/rgcareer/portfolio-builds/tree/main/packages/agent-forensics
 metrics_source:
   Sessions with a breakdown signal: data/run-meta.json#pct.p (Wilson interval at pct.lo/pct.hi)
   Sessions analyzed: data/run-meta.json#sessions

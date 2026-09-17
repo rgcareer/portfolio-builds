@@ -39,6 +39,6 @@ and a seed (`mulberry32`), not sourced from live user data.
 
 ## Reporting a vulnerability
 
-Open an issue at https://github.com/rgcareer/model-regress/issues, or email the maintainer
+Open an issue at https://github.com/rgcareer/portfolio-builds/issues, or email the maintainer
 listed in `package.json`. Please do not include real credentials, API keys, or personal data
 in a report; describe the issue and, if needed, share a redacted reproduction.
