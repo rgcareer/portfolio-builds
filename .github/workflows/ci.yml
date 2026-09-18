@@ -22,6 +22,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Full history (not the default shallow depth-1): the protocol-frozen audits derive each
+          # package's protocol freeze commit from `git log -- packages/<pkg>/protocol`, which only
+          # sees commits present in the checkout. Those freezes are 10-35 commits behind HEAD, so a
+          # shallow clone reports "protocol not committed" and every protocol-frozen check fails.
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '24'

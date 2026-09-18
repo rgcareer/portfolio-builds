@@ -3,7 +3,7 @@ import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync
 import { resolve } from 'node:path';
 import { tmpdir } from 'node:os';
 import { execFileSync } from 'node:child_process';
-import { cmdScan, cmdPropose, cmdVerify, cmdReport, cmdHeadline, cmdRepro } from '../src/cli';
+import { cmdScan, cmdPropose, cmdVerify, cmdReport, cmdHeadline, cmdRepro, canonForRepro } from '../src/cli';
 import { loadProtocol, PKG_ROOT } from '../src/protocol';
 import { snapshotOwnRepoPage, snapshotSitePage } from '../src/snapshot';
 import { textifyMarkdown, textifyHtml } from '../src/textify';
@@ -178,6 +178,48 @@ describe('cli: repro re-derives proposal order bit-for-bit when a page interleav
   it('repro re-derives findings/proposals/run-meta bit-for-bit, preserving that interleaved order', async () => {
     const code = await cmdRepro({ dataDir, outDir: resolve(dataDir, 'out'), protocol });
     expect(code).toBe(0);
+  });
+});
+
+describe('cli: canonForRepro neutralizes only the non-reproducible snippet-grader message', () => {
+  // Regression test for the cross-platform repro gap that turned CI red: unparseable-snippet
+  // findings embed the raw stderr of the external snippet graders (`python3 -c ast.parse`,
+  // `bash -n`), whose wording varies by interpreter version and platform — macOS ships bash 3.2,
+  // an ubuntu CI runner ships bash 5.x. The verdict is identical (same snippet, line, id, count),
+  // so only that one message may differ; canonForRepro must erase exactly that field, leaving every
+  // other byte to the strict comparison, or docmend.repro fails on CI for a difference docmend does
+  // not own — while a genuine drift must still be caught.
+  const page = (findings: Array<{ category: string; detail: string; id?: string }>) => [
+    { pageId: 'pageaaaaaa', path: 'README.md', repo: 'repo-a', source: 'own-repo', stats: {}, findings },
+  ];
+  const macBash = "bash block does not parse: bash: line 3: `  ghcr.io/berriai/litellm:<release-tag>'";
+  const linuxBash = "bash block does not parse: bash: -n: line 3: syntax error near unexpected token `newline'";
+
+  it('erases the grader message so a mac-vs-Linux message difference compares equal', () => {
+    const a = JSON.stringify(page([{ id: 'p:D-code-parse:0', category: 'unparseable-snippet', detail: macBash }]));
+    const b = JSON.stringify(page([{ id: 'p:D-code-parse:0', category: 'unparseable-snippet', detail: linuxBash }]));
+    expect(a).not.toEqual(b); // the raw bytes genuinely differ across platforms
+    expect(canonForRepro('findings.json', a)).toEqual(canonForRepro('findings.json', b)); // ...the reproducible content does not
+  });
+
+  it('does NOT mask a real difference: a snippet that parsed on one platform (finding gone) still diverges', () => {
+    const a = JSON.stringify(page([{ id: 'p:D-code-parse:0', category: 'unparseable-snippet', detail: macBash }]));
+    const b = JSON.stringify(page([]));
+    expect(canonForRepro('findings.json', a)).not.toEqual(canonForRepro('findings.json', b));
+  });
+
+  it('does NOT touch other categories: a broken-link status difference is still caught', () => {
+    const a = JSON.stringify(page([{ category: 'broken-link', detail: 'GET https://x/a -> 404' }]));
+    const b = JSON.stringify(page([{ category: 'broken-link', detail: 'GET https://x/a -> 500' }]));
+    expect(canonForRepro('findings.json', a)).not.toEqual(canonForRepro('findings.json', b));
+  });
+
+  it('only special-cases findings.json — proposals/run-meta keep the strict (timestamp-stripped) comparison', () => {
+    const rm = JSON.stringify({ generatedAt: '2026-01-01T00:00:00.000Z', proposals: { pct: { p: '29.1' } } });
+    expect(canonForRepro('run-meta.json', rm)).toContain('"generatedAt":"<ignored>"');
+    expect(canonForRepro('run-meta.json', rm)).toContain('"p":"29.1"');
+    const other = JSON.stringify({ note: 'x block does not parse: whatever' });
+    expect(canonForRepro('proposals.json', other)).toContain('block does not parse: whatever');
   });
 });
 

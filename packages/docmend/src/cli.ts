@@ -360,6 +360,29 @@ function strip(s: string): string {
   return s.replace(/"generatedAt":\s*"[^"]*"/g, '"generatedAt":"<ignored>"').replace(/"checkedAt":\s*"[^"]*"/g, '"checkedAt":"<ignored>"');
 }
 
+// Canonicalize a re-derived file before the bit-for-bit diff. Beyond the timestamp neutralization
+// in strip(), findings.json carries ONE field that is not reproducible across environments: the
+// `detail` of `unparseable-snippet` findings embeds the raw stderr of the external snippet graders
+// (`python3 -c ast.parse`, `bash -n`). That phrasing varies by interpreter version and platform —
+// macOS ships bash 3.2, a Linux CI runner ships bash 5.x — so the message bytes differ even though
+// the verdict is identical: the same snippets fail, at the same lines, with the same ids and count.
+// Neutralize just that message (the reproducible content — which/where/how many — is still compared
+// byte-for-byte), exactly as generatedAt/checkedAt are. proposals.json and run-meta.json carry no
+// grader text, so they keep the strict raw comparison and are passed through unchanged.
+export function canonForRepro(file: string, text: string): string {
+  const stripped = strip(text);
+  if (file !== 'findings.json') return stripped;
+  const pages = JSON.parse(stripped) as Array<{ findings?: Array<{ category?: string; detail?: unknown }> }>;
+  for (const page of pages) {
+    for (const f of page.findings ?? []) {
+      if (f.category === 'unparseable-snippet' && typeof f.detail === 'string') {
+        f.detail = f.detail.replace(/ block does not parse:[\s\S]*$/, ' block does not parse: <grader message: varies by python3/bash version>');
+      }
+    }
+  }
+  return JSON.stringify(pages);
+}
+
 export async function cmdRepro(opts: { dataDir: string; outDir: string; protocol: Protocol }): Promise<number> {
   const tmp = mkdtempSync(resolve(tmpdir(), 'docmend-repro-'));
   try {
@@ -404,8 +427,8 @@ export async function cmdRepro(opts: { dataDir: string; outDir: string; protocol
     let same = true;
     const diffs: string[] = [];
     for (const f of files) {
-      const a = existsSync(resolve(opts.dataDir, f)) ? strip(readFileSync(resolve(opts.dataDir, f), 'utf8')) : '';
-      const b = existsSync(resolve(tmpData, f)) ? strip(readFileSync(resolve(tmpData, f), 'utf8')) : '';
+      const a = existsSync(resolve(opts.dataDir, f)) ? canonForRepro(f, readFileSync(resolve(opts.dataDir, f), 'utf8')) : '';
+      const b = existsSync(resolve(tmpData, f)) ? canonForRepro(f, readFileSync(resolve(tmpData, f), 'utf8')) : '';
       if (a !== b) {
         same = false;
         diffs.push(f);
