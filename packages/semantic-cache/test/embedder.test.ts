@@ -47,7 +47,10 @@ const modelCacheDir = resolve(PKG_ROOT, '.model-cache');
 // populates it — the ONE egress override — this package never fetches on its own).
 const modelCached = existsSync(modelCacheDir) && readdirSync(modelCacheDir, { recursive: true }).some((f) => typeof f === 'string');
 
-describe.skipIf(!modelCached)('Embedder (real MiniLM model, only when .model-cache is populated)', () => {
+// Loading the ONNX model can exceed the suite's default timeout on a loaded machine (the
+// gate runs suites serially alongside nothing else, but laptops differ); the generous
+// per-block timeout keeps the gate deterministic without weakening any assertion.
+describe.skipIf(!modelCached)('Embedder (real MiniLM model, only when .model-cache is populated)', { timeout: 120_000 }, () => {
   it('embeds to 384-dimensional vectors', async () => {
     const embedder = await Embedder.load({ modelId: 'Xenova/all-MiniLM-L6-v2', cacheDir: modelCacheDir, allowRemote: false });
     const [v] = await embedder.embed(['hello world']);

@@ -317,6 +317,14 @@
       "cmd": "npm --prefix packages/model-regress run model-regress -- repro",
       "required": true,
       "added": "2026-09-16"
+    },
+    {
+      "id": "root.results-table",
+      "piece": "root",
+      "kind": "audit",
+      "cmd": "node scripts/render-root-results.mjs --check",
+      "required": true,
+      "added": "2026-09-29"
     }
   ]
 }

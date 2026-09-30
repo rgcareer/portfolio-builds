@@ -12,7 +12,8 @@ That sentence is the literal output of `node --import tsx src/cli.ts headline`, 
 committed `data/run-meta.json`. Swapping Sonnet 5 for Haiku 4.5 on this extraction task is a real
 75-point regression: the paired difference far exceeds the same-model noise floor of 4/40, so it
 is signal, not run-to-run variation. The run cost $0.24 of real API calls (a $0.12 pilot that
-caught an underspecified prompt is disclosed in the decision log and was withdrawn).
+caught an underspecified prompt is disclosed in [the decision log](../../DECISIONS.md) — D-024 —
+and was withdrawn).
 
 ## The problem
 
@@ -121,8 +122,12 @@ tests pass (`npx vitest run packages/model-regress`) and the package type-checks
 
 ## Install
 
-```
-npm install @rgcareer/model-regress
+Not published to npm yet — it runs from a clone of the
+[portfolio-builds monorepo](../../README.md):
+
+```bash
+npm ci
+npm --prefix packages/model-regress run model-regress -- repro   # re-derive the committed result
 ```
 
 ## License

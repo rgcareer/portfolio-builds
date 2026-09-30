@@ -70,11 +70,13 @@ A dead link is flagged, never guessed at. Nothing here rewrites a link it cannot
 
 ## Quick start
 
+From a clone of the monorepo, after `npm ci` at the root:
+
 ```bash
-npx docmend scan --offline
-npx docmend propose
-npx docmend verify --offline
-npx docmend headline
+npm --prefix packages/docmend run docmend -- scan --offline
+npm --prefix packages/docmend run docmend -- propose
+npm --prefix packages/docmend run docmend -- verify --offline
+npm --prefix packages/docmend run docmend -- headline
 ```
 
 `scan --offline` and `verify --offline` run entirely against the committed corpus and

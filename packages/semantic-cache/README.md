@@ -56,7 +56,8 @@ npx tsx src/cli.ts headline             # prints the rendered headline
 ```
 
 `model fetch` is the only command that touches the network. Everything after it runs offline
-against the committed `.model-cache` and `data/embeddings.json`.
+against the locally downloaded `.model-cache` (gitignored — weights are fetched once, ~90 MB)
+and the committed `data/embeddings.json`.
 
 ## CLI
 

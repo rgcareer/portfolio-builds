@@ -1,7 +1,6 @@
 name: CI
 
-# Inert until a git remote exists — this file is committed so CI runs on the first push.
-# It runs the same checks used locally: the whole-repo typecheck and the gate.
+# Runs the same checks used locally on every push and PR: the whole-repo typecheck and the gate.
 # No secrets are needed: the gate runs entirely on committed data with mock LLM responders
 # (PB_SPEND_CAP_USD defaults to 0, so no real API call is made).
 #

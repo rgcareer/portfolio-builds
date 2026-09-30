@@ -151,7 +151,7 @@ A proportion is never printed without its 95% Wilson interval. n is the achieved
 
 Protocol v1.1 amended the phrase regex (decoration tolerance) after a 5-page probe trial and before
 any measurement; the amendment, its reason, and the re-seed are recorded in the file itself and in
-the monorepo decision log (D-012).
+the monorepo [decision log](../../DECISIONS.md) (D-012).
 
 ## Reproduce
 

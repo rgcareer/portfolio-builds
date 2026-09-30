@@ -41,7 +41,9 @@ describe('cli', () => {
     expect(out.text()).toContain('LOOP');
   });
 
-  it('audit exits 0 on the clean labeled fixtures', async () => {
+  // The audit walk is CPU-heavy and has timed out at the default limit on a loaded machine;
+  // the generous timeout keeps the gate deterministic without weakening the assertion.
+  it('audit exits 0 on the clean labeled fixtures', { timeout: 120_000 }, async () => {
     const code = await runCli(['audit', LABELED], base());
     expect(code).toBe(0);
   });
