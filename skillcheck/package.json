@@ -16,11 +16,11 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "eslint .",
-    "harvest": "tsx packages/harvest/src/cli.ts",
-    "screen": "tsx packages/screen/src/cli.ts",
-    "publish": "tsx packages/publish/src/cli.ts",
-    "disclose": "tsx packages/publish/src/disclose.ts",
-    "headline": "tsx packages/publish/src/headline.ts",
+    "harvest": "node --import tsx packages/harvest/src/cli.ts",
+    "screen": "node --import tsx packages/screen/src/cli.ts",
+    "publish": "node --import tsx packages/publish/src/cli.ts",
+    "disclose": "node --import tsx packages/publish/src/disclose.ts",
+    "headline": "node --import tsx packages/publish/src/headline.ts",
     "build:site": "npm run build -w @skillcheck/site"
   },
   "devDependencies": {

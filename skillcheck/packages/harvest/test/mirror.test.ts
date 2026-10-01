@@ -74,4 +74,17 @@ describe('extractTarballGz guards', () => {
     expect(r.paths).toEqual([]);
     expect(r.skipped.some((s) => s.reason.startsWith('gunzip-failed'))).toBe(true);
   });
+
+  it('includePrefixes materializes only files under the given dir prefixes', () => {
+    const gz = gzTar([
+      tarFile('repo-sha/plugins/a/SKILL.md', 'A'),
+      tarFile('repo-sha/plugins/b/SKILL.md', 'B'),
+      tarFile('repo-sha/plugins/a-extra/SKILL.md', 'X'), // must NOT match prefix 'plugins/a'
+      tarFile('repo-sha/other/file.txt', 'O'),
+    ]);
+    const r = extractTarballGz(gz, dir, DEFAULT_LIMITS, { includePrefixes: ['plugins/a', 'plugins/b'] });
+    expect(r.paths.sort()).toEqual(['plugins/a/SKILL.md', 'plugins/b/SKILL.md']);
+    expect(existsSync(join(dir, 'plugins', 'a-extra', 'SKILL.md'))).toBe(false);
+    expect(existsSync(join(dir, 'other', 'file.txt'))).toBe(false);
+  });
 });

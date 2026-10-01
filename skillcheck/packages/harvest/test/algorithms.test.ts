@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { planSlices } from '../src/codeSearch';
 import { outboundRepoLinks, selectRegistries, type RegistryCandidate } from '../src/registries';
-import { parseMarketplaceRepos } from '../src/marketplace';
+// marketplace classifier tests live in ./marketplace.test.ts (discriminated-bucket contract).
 
 describe('code-search bisection (planSlices)', () => {
   it('bisects saturated ranges and flags a still-saturated minimum-width leaf', () => {
@@ -45,28 +45,5 @@ describe('registry selection', () => {
     ];
     const sel = selectRegistries(cands, 2);
     expect(sel.selected).toEqual(['c/reg', 'a/reg']); // by stars desc, tool excluded
-  });
-});
-
-describe('marketplace parsing', () => {
-  it('extracts owner/repo refs from varied plugin shapes', () => {
-    const json = {
-      plugins: [
-        { name: 'p1', source: 'owner/repo-one' },
-        { name: 'p2', repo: 'https://github.com/owner/repo-two' },
-        { name: 'p3', source: { repo: 'owner/repo-three' } },
-        'owner/repo-four',
-      ],
-    };
-    expect(parseMarketplaceRepos(json)).toEqual([
-      'owner/repo-four',
-      'owner/repo-one',
-      'owner/repo-three',
-      'owner/repo-two',
-    ]);
-  });
-
-  it('returns [] for a shapeless blob', () => {
-    expect(parseMarketplaceRepos({ nope: 1 })).toEqual([]);
   });
 });

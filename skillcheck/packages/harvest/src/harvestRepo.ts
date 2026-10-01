@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { sha256Hex, parseFrontmatter, type Db } from '@skillcheck/core';
 import type { GitHubClient } from './githubClient';
-import { extractTarballGz } from './mirror';
+import { extractTarballGz, isUnderPrefix, DEFAULT_LIMITS } from './mirror';
 import { upsertSkill, type SourceKind } from './store';
 
 // Harvest all SKILL.md skills from one repo: recursive tree scan → mirror the repo once
@@ -23,6 +23,28 @@ export function repoMirrorName(repo: string): string {
 export interface HarvestRepoResult {
   skillCount: number;
   mirrored: boolean;
+  /** Present only when pathPrefixes was used: SKILL.md count per requested prefix (incl. zeros). */
+  perPrefix?: Record<string, number>;
+}
+
+export interface HarvestRepoOpts {
+  /** Restrict the harvest to SKILL.md files under these in-repo dir prefixes — used to pull only
+   *  the plugin dirs out of a large marketplace repo. Attributes source_detail per matching prefix
+   *  and mirrors only those dirs. */
+  pathPrefixes?: string[];
+  /** A pre-fetched, already-verified tree to use instead of re-fetching. The marketplace harvest
+   *  passes the same tree it validated (complete, non-truncated) so the local plugin harvest cannot
+   *  hit a second, possibly-truncated fetch. */
+  tree?: { paths: string[]; truncated: boolean; sha: string | null };
+}
+
+/** The longest of `prefixes` that `path` sits under, or null. */
+function matchingPrefix(path: string, prefixes: string[]): string | null {
+  let best: string | null = null;
+  for (const pre of prefixes) {
+    if (isUnderPrefix(path, pre) && (best === null || pre.length > best.length)) best = pre;
+  }
+  return best;
 }
 
 export async function harvestRepo(
@@ -33,10 +55,28 @@ export async function harvestRepo(
   sourceDetail: string | null,
   runId: string,
   mirrorRoot: string,
+  opts: HarvestRepoOpts = {},
 ): Promise<HarvestRepoResult> {
-  const tree = await client.listTree(repo, 'HEAD');
-  const skillPaths = tree.paths.filter(isSkillMd).sort();
-  if (skillPaths.length === 0) return { skillCount: 0, mirrored: false };
+  const prefixes = (opts.pathPrefixes ?? []).map((p) => p.replace(/\/+$/, '')).filter((p) => p !== '');
+  const usingPrefixes = prefixes.length > 0;
+
+  const tree = opts.tree ?? (await client.listTree(repo, 'HEAD'));
+  let skillPaths = tree.paths.filter(isSkillMd).sort();
+  if (usingPrefixes) skillPaths = skillPaths.filter((p) => prefixes.some((pre) => isUnderPrefix(p, pre)));
+
+  // Per-prefix accounting: every requested prefix gets a count, even zero — a plugin that
+  // ships no skills is a recorded fact, never a silent absence.
+  let perPrefix: Record<string, number> | undefined;
+  if (usingPrefixes) {
+    perPrefix = {};
+    for (const pre of prefixes) perPrefix[pre] = 0;
+    for (const p of skillPaths) {
+      const pre = matchingPrefix(p, prefixes);
+      if (pre) perPrefix[pre] = (perPrefix[pre] ?? 0) + 1;
+    }
+  }
+
+  if (skillPaths.length === 0) return { skillCount: 0, mirrored: false, ...(perPrefix ? { perPrefix } : {}) };
 
   const meta = await client.getRepoMeta(repo);
   const ref = tree.sha ?? meta?.default_branch ?? 'HEAD';
@@ -46,13 +86,14 @@ export async function harvestRepo(
   let mirrored = false;
   const tarball = await client.getTarball(repo, ref);
   if (tarball) {
-    extractTarballGz(tarball, destDir);
+    extractTarballGz(tarball, destDir, DEFAULT_LIMITS, usingPrefixes ? { includePrefixes: prefixes } : {});
     mirrored = true;
   }
 
   for (const p of skillPaths) {
     const dir = posixDirname(p);
     const mirrorPath = dir ? `${safeName}/${dir}` : safeName;
+    const detail = usingPrefixes ? (matchingPrefix(p, prefixes) ?? sourceDetail) : sourceDetail;
 
     let frontmatterValid = false;
     let name: string | null = null;
@@ -75,7 +116,7 @@ export async function harvestRepo(
       repo,
       path: p,
       source,
-      sourceDetail,
+      sourceDetail: detail,
       name,
       description,
       frontmatterValid,
@@ -92,5 +133,5 @@ export async function harvestRepo(
     });
   }
 
-  return { skillCount: skillPaths.length, mirrored };
+  return { skillCount: skillPaths.length, mirrored, ...(perPrefix ? { perPrefix } : {}) };
 }

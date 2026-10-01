@@ -14,12 +14,12 @@ const EVIL_REPO = 'evil-author/malware-skill';
 const EVIL_NAME = 'malware-skill';
 const EVIL_MATCH = 'https://evil-collector.ngrok.io/exfil';
 
-function seed(withCritical: boolean): Db {
+function seed(withCritical: boolean, codeVersion: string | null = null): Db {
   const db = createTestDb();
   db.prepare("INSERT INTO runs (id,kind,status,snapshot_date) VALUES ('rh','harvest','complete','2026-08-25')").run();
   db.prepare(
-    "INSERT INTO runs (id,kind,status,snapshot_date,cohort_hash,ruleset_hash,finished_at) VALUES ('rs','screen','complete','2026-08-25','COH','RUL','2026-08-25T10:00:00Z')",
-  ).run();
+    "INSERT INTO runs (id,kind,status,snapshot_date,cohort_hash,ruleset_hash,code_version,finished_at) VALUES ('rs','screen','complete','2026-08-25','COH','RUL',?,'2026-08-25T10:00:00Z')",
+  ).run(codeVersion);
   const insSkill = (id: string, repo: string, name: string) =>
     db
       .prepare(
@@ -128,6 +128,45 @@ describe('determinism + checksums', () => {
     expect(skills.every((s) => !s.anonymized)).toBe(true);
     const { skills: raw } = loadPublishData(db, 'rs');
     expect(raw).toHaveLength(2);
+  });
+});
+
+describe('provenance fields (codeRepo / subtreePath / codeVersionVerified)', () => {
+  it('stamps codeRepo + subtreePath and marks a resolvable codeVersion verified', () => {
+    const db = seed(false, 'deadbeefdeadbeefdeadbeefdeadbeefdeadbeef');
+    const a = buildArtifacts(db, { verifyCommit: () => true });
+    const meta = JSON.parse(a.runMetaJson) as {
+      codeRepo: string;
+      subtreePath: string;
+      codeVersion: string;
+      codeVersionVerified: boolean;
+    };
+    expect(meta.codeRepo).toBe('portfolio-builds');
+    expect(meta.subtreePath).toBe('skillcheck');
+    expect(meta.codeVersion).toBe('deadbeefdeadbeefdeadbeefdeadbeefdeadbeef');
+    expect(meta.codeVersionVerified).toBe(true);
+  });
+
+  it('marks an unresolvable (dangling, pre-import) codeVersion NOT verified', () => {
+    const db = seed(false, '410bf2f9082f6d0c0eb5ee40afbdf323f7255abb');
+    const a = buildArtifacts(db, { verifyCommit: () => false });
+    const meta = JSON.parse(a.runMetaJson) as { codeVersionVerified: boolean };
+    expect(meta.codeVersionVerified).toBe(false);
+  });
+
+  it('treats a null codeVersion as unverified and never calls the verifier', () => {
+    const db = seed(false, null);
+    let called = false;
+    const a = buildArtifacts(db, {
+      verifyCommit: () => {
+        called = true;
+        return true;
+      },
+    });
+    const meta = JSON.parse(a.runMetaJson) as { codeVersion: string | null; codeVersionVerified: boolean };
+    expect(meta.codeVersion).toBeNull();
+    expect(meta.codeVersionVerified).toBe(false);
+    expect(called).toBe(false);
   });
 });
 

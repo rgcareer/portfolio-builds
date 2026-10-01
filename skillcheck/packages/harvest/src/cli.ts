@@ -56,12 +56,26 @@ async function run(opts: HarvestOptions): Promise<void> {
       const r = await harvestMarketplace(db, client, runId, mirrorRoot);
       recordTask(db, runId, 'marketplace', 'marketplace', r.found ? 'done' : 'failed', {
         marketplaceRepo: r.marketplaceRepo,
-        pluginRepos: r.pluginRepos.length,
+        external: r.externalRepos.length,
+        local: r.localPaths.length,
+        unresolved: r.unresolved,
+        perPlugin: r.perPlugin,
+        skillCount: r.skillCount,
       });
-      updateRunParams(db, runId, { marketplace: { found: r.found, repo: r.marketplaceRepo, plugins: r.pluginRepos } });
+      updateRunParams(db, runId, {
+        marketplace: {
+          found: r.found,
+          repo: r.marketplaceRepo,
+          externalRepos: r.externalRepos,
+          localPaths: r.localPaths,
+          unresolved: r.unresolved,
+          perPlugin: r.perPlugin,
+        },
+      });
       log(
         r.found
-          ? `  marketplace (${r.marketplaceRepo}): ${r.pluginRepos.length} plugin repos, ${r.skillCount} skills`
+          ? `  marketplace (${r.marketplaceRepo}): ${r.externalRepos.length} external + ${r.localPaths.length} local plugin dirs → ${r.skillCount} skills` +
+              (r.unresolved.length ? ` | UNRESOLVED(${r.unresolved.length}): ${r.unresolved.join(', ')}` : '')
           : `  marketplace: NOT FOUND at any pinned candidate — update MARKETPLACE_CANDIDATES`,
       );
     }

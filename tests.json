@@ -40,9 +40,9 @@
       "required": true,
       "added": "2026-09-10",
       "expect": {
-        "minPassed": 172
+        "minPassed": 191
       },
-      "note": "imported suite; upstream count at import was 172"
+      "note": "imported suite; 172 at import, bumped to 191 after the D-027 marketplace-fix + provenance + review-hardening tests (strengthened, never weakened)"
     },
     {
       "id": "otr.unit",
@@ -325,6 +325,24 @@
       "cmd": "node scripts/render-root-results.mjs --check",
       "required": true,
       "added": "2026-09-29"
+    },
+    {
+      "id": "skillcheck.typecheck",
+      "piece": "skillcheck",
+      "kind": "audit",
+      "cmd": "npm --prefix skillcheck run typecheck",
+      "required": true,
+      "added": "2026-10-01",
+      "note": "subtree compiles (tsc --noEmit); covers the root-tsconfig blind spot (root tsconfig excludes skillcheck/). Proven non-vacuous 2026-10-01 — see skillcheck/tasks/lessons.md."
+    },
+    {
+      "id": "skillcheck.lint",
+      "piece": "skillcheck",
+      "kind": "audit",
+      "cmd": "npm --prefix skillcheck run lint",
+      "required": true,
+      "added": "2026-10-01",
+      "note": "eslint determinism bans (Math.random / localeCompare / toLocale*) + unused-vars, now CI-enforced. Proven non-vacuous 2026-10-01 — see skillcheck/tasks/lessons.md."
     }
   ]
 }

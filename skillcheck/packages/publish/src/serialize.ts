@@ -1,4 +1,5 @@
 import { randomBytes } from 'node:crypto';
+import { execFileSync } from 'node:child_process';
 import { stableStringify, sha256Hex, type Db } from '@skillcheck/core';
 import { SEVERITY_ORDER } from '@skillcheck/screen';
 import {
@@ -178,8 +179,25 @@ function headlineCounts(skills: RawSkill[], findings: RawFinding[]) {
   };
 }
 
-/** Build the three canonical artifacts. Pure given (db state, salt). */
-export function buildArtifacts(db: Db): PublishArtifacts {
+export interface BuildOptions {
+  /** Resolve a commit SHA against the enclosing repo. Injected in tests so buildArtifacts stays
+   *  deterministic and git-free there; the default checks the real repo at publish time. */
+  verifyCommit?: (sha: string) => boolean;
+}
+
+/** True iff `sha` is a commit present in and an ancestor of HEAD in the enclosing repo. */
+function defaultVerifyCommit(sha: string): boolean {
+  try {
+    execFileSync('git', ['merge-base', '--is-ancestor', sha, 'HEAD'], { stdio: 'ignore' });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/** Build the three canonical artifacts. Deterministic given (db state, salt, verifier); the
+ *  default verifier resolves codeVersion against the enclosing git repo at publish time. */
+export function buildArtifacts(db: Db, opts: BuildOptions = {}): PublishArtifacts {
   const salt = getOrCreateSalt(db);
   const run = latestScreenRun(db);
   ensureDisclosures(db, run.id, salt);
@@ -196,6 +214,12 @@ export function buildArtifacts(db: Db): PublishArtifacts {
   const skillsJson = stableStringify(redacted.skills);
   const findingsJson = stableStringify(redacted.findings);
 
+  // Provenance: codeVersion is the enclosing-repo HEAD recorded at screen time. Mark whether it
+  // still resolves against this repo now — the dangling pre-import SHA (410bf2f…) resolves false.
+  const verify = opts.verifyCommit ?? defaultVerifyCommit;
+  const codeVersion = run.code_version;
+  const codeVersionVerified = codeVersion ? verify(codeVersion) : false;
+
   const runMeta = {
     generator: 'skillcheck-publish',
     milestone: 'M1',
@@ -206,7 +230,10 @@ export function buildArtifacts(db: Db): PublishArtifacts {
     sampleN: run.sample_n,
     cohortHash: run.cohort_hash,
     rulesetHash: run.ruleset_hash,
-    codeVersion: run.code_version,
+    codeRepo: 'portfolio-builds',
+    subtreePath: 'skillcheck',
+    codeVersion,
+    codeVersionVerified,
     nodeVersion: run.node_version,
     cohort: {
       gradedCount: skills.length,

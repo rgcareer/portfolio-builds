@@ -38,7 +38,7 @@ Requires Node ≥ 22.12.
 
 ```bash
 npm ci
-npm test                                  # 166 tests: rule-pack goldens + determinism + redaction
+npm test                                  # rule-pack goldens + determinism + redaction (count tracked in tests.json)
 npm run screen -- --sample 25 --seed 7    # reproduces the published grades bit-for-bit
 npm run headline                          # regenerates the headline sentence from run-meta.json
 ```

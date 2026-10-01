@@ -102,6 +102,13 @@ export function isUnsafeRelPath(rel: string): boolean {
   return rel.split('/').some((seg) => seg === '..' || seg === '');
 }
 
+/** True when `path` is the dir `prefix` itself or a descendant of it (dir-boundary aware,
+ *  so `plugins/a` matches `plugins/a/x` but never `plugins/a-extra/x`). */
+export function isUnderPrefix(path: string, prefix: string): boolean {
+  const p = prefix.replace(/\/+$/, '');
+  return p !== '' && (path === p || path.startsWith(p + '/'));
+}
+
 function isWithin(root: string, target: string): boolean {
   const r = resolve(root);
   const t = resolve(target);
@@ -122,11 +129,19 @@ export interface ExtractLimits {
   maxDecompressedBytes: number;
 }
 
+export interface ExtractOptions {
+  /** When set and non-empty, only files under one of these dir prefixes are materialized.
+   *  Lets a huge marketplace repo mirror just its plugin dirs, keeping the file/byte caps
+   *  meaningful and bounding the hostile-content surface. */
+  includePrefixes?: string[];
+}
+
 /** Extract a gzipped tarball into destDir under strict guards. Returns extraction stats. */
 export function extractTarballGz(
   gz: Buffer,
   destDir: string,
   limits: ExtractLimits = DEFAULT_LIMITS,
+  opts: ExtractOptions = {},
 ): ExtractResult {
   const result: ExtractResult = { fileCount: 0, totalBytes: 0, paths: [], skipped: [] };
   let tar: Buffer;
@@ -155,6 +170,9 @@ export function extractTarballGz(
     if (isUnsafeRelPath(rel)) {
       result.skipped.push({ path: e.name, reason: 'unsafe-path' });
       continue;
+    }
+    if (opts.includePrefixes && opts.includePrefixes.length > 0 && !opts.includePrefixes.some((pre) => isUnderPrefix(rel, pre))) {
+      continue; // outside the requested plugin dirs — a filter, not an anomaly; don't spend the caps
     }
     if (e.size > limits.maxFileBytes) {
       result.skipped.push({ path: rel, reason: 'file-too-large' });

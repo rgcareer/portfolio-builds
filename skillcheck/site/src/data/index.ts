@@ -55,7 +55,10 @@ export interface RunMeta {
   sampleN: number | null;
   cohortHash: string | null;
   rulesetHash: string | null;
+  codeRepo: string | null;
+  subtreePath: string | null;
   codeVersion: string | null;
+  codeVersionVerified: boolean;
   nodeVersion: string | null;
   cohort: { gradedCount: number; invalidFrontmatter: number; bySource: Record<string, number> };
   headline: { injection: HeadlineStat; abandoned: HeadlineStat; unicode: HeadlineStat; critical: HeadlineStat };
